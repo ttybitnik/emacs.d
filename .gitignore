@@ -1,0 +1,16 @@
+odysseus.el
+auto-save-list
+auth
+bookmarks
+elpa
+eshell
+tramp
+transient
+url
+auto*
+*.html
+*.db
+*.eld
+*~
+recent*
+.org-id*
