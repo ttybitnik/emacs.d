@@ -6,12 +6,13 @@ My personal GNU Emacs. The main config file is a =.org= named after *Odysseus*, 
 
 Current configuration focuses:
 
-- Prose writing
+- Writing
 - Note-taking
 - Academic research 
 - Translation
 - Coding
 - Remote Server Administration
+- Blogging
 - IRC 
   
 /Please contact me if you'd like to suggest a package. Always glad to learn new ones./
