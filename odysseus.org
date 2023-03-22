@@ -566,6 +566,8 @@ Current configuration focuses:
 
 ** Functionality
 #+BEGIN_SRC emacs-lisp
+  (setf epa-pinentry-mode 'loopback)
+  
   (setq backup-directory-alist '(("." . "~/.orpheus/gnu-emacs/saves")))
 
   (transient-mark-mode 1);
