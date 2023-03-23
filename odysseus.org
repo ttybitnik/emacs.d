@@ -593,6 +593,9 @@ Current configuration focuses:
   (use-package async
     :ensure t
     :init (dired-async-mode 1))
+
+  (use-package helm-descbinds
+    :ensure t)
 #+END_SRC
 
 ** Translation
