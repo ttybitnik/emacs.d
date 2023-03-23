@@ -567,12 +567,15 @@ Current configuration focuses:
 ** Functionality
 #+BEGIN_SRC emacs-lisp
   (setf epa-pinentry-mode 'loopback)
-  
+
+  (setq auth-sources '("~/.emacs.d/auth/.authinfo.gpg"))
+
+  (load-file "~/.emacs.d/auth/.restrictconf.el")
+
   (setq backup-directory-alist '(("." . "~/.orpheus/gnu-emacs/saves")))
 
   (transient-mark-mode 1);
 
-  ;; emacs as a daemon, use "emacsclient <filename>" to seamlessly edit files from the terminal directly 
   (server-start)
 
   (use-package vertico
@@ -693,28 +696,41 @@ Current configuration focuses:
 ** Instant messaging
 #+BEGIN_SRC emacs-lisp
   (use-package erc
+    :custom
+    (erc-server "irc.libera.chat")
+    (erc-auto-query 'bury)
+    (erc-join-buffer 'bury)
+    (erc-kill-buffer-on-part t)
+    (erc-kill-queries-on-quit t)
+    (erc-kill-server-buffer-on-quit t)
+    (erc-interpret-mirc-color t)
+    (erc-rename-buffers t)
+    (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
+    (erc-track-exclude-types '("JOIN" "PART" "NICK" "MODE" "AWAY" "QUIT"
+                               "324" "329" "332" "333" "353" "477"))
+    (erc-track-enable-keybindings t)
+    (erc-track-visibility nil)
+    (erc-track-shorten-start 1)
+    (erc-fill-column 100)
+    (erc-fill-function 'erc-fill-static)
+    (erc-fill-static-center 15)
+    (erc-quit-reason (lambda (s) (or s "Fading out...")))
+    (erc-modules '(autoaway autojoin button completion fill irccontrols keep-place list
+                            match menu move-to-prompt netsplit networks noncommands readonly
+                            ring stamp track hl-nicks scrolltobottom))
     :config
-    (setq
-     erc-server "irc.libera.chat"
-     erc-auto-query 'bury
-     erc-join-buffer 'bury
-     erc-kill-buffer-on-part t
-     erc-interpret-mirc-color t
-     erc-rename-buffers t
-     erc-lurker-hide-list '("JOIN" "PART" "QUIT")
-     erc-track-exclude-types '("JOIN" "PART" "NICK" "333" "353" "MODE" "AWAY" "QUIT")
-     erc-track-enable-keybindings t
-     erc-track-visibility nil 
-     erc-track-shorten-start 1
-     erc-fill-column 100
-     erc-fill-function 'erc-fill-static
-     erc-fill-static-center 15
-     erc-quit-reason (lambda (s) (or s "Fading out..."))
-     erc-modules
-     '(autoaway autojoin button completion fill irccontrols keep-place
-                list match menu move-to-prompt netsplit networks noncommands
-                readonly ring stamp track hl-nicks scrolltobottom))
-    (load-file "~/.emacs.d/auth/.ercpass"))
+    (defun erc-login/w0lper ()
+      "ERC libera.chat login with SASL."
+      (interactive)
+      (erc-tls :server "irc.libera.chat" :port "6697"))
+    (defun erc-switch-buffer/w0lper (orig-fun &optional arg)
+      "Advice function to move to the end of the buffer after `erc-track-switch-buffer`."
+      (funcall orig-fun arg)
+      (when (eq major-mode 'erc-mode)
+        (end-of-buffer)))
+    (advice-add 'erc-track-switch-buffer :around #'erc-switch-buffer/w0lper)
+    :bind
+    ("C-c i" . erc-login/w0lper))
 
   (use-package erc-hl-nicks
     :ensure t
@@ -722,15 +738,12 @@ Current configuration focuses:
     :config
     (erc-update-modules))
 
-  ;; Require ERC-SASL package
+  ;; Require ERC-SASL package (libera.chat dependency)
   (load-file "~/.emacs.d/local/erc-sasl.el")
   (require 'erc-sasl)
 
-  ;; Add SASL server to list of SASL servers (start a new list, if it did not exist)
   (add-to-list 'erc-sasl-server-regexp-list "irc\\.libera\\.chat")
 
-  ;; Redefine/Override the erc-login() function from the erc package, so that
-  ;; it now uses SASL
   (defun erc-login ()
     "Perform user authentication at the IRC server. (PATCHED)"
     (erc-log (format "login: nick: %s, user: %s %s %s :%s"
