@@ -741,7 +741,8 @@ Current configuration focuses:
     :config
     (erc-update-modules))
 
-  ;; Require ERC-SASL package (libera.chat dependency)
+  ;; Require ERC-SASL package
+  (require 'erc-services)
   (load-file "~/.emacs.d/local/erc-sasl.el")
   (require 'erc-sasl)
 
