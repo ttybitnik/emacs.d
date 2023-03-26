@@ -1,4 +1,7 @@
-* GNU Emacs.wolper
+#+TITLE:     GNU Emacs.wolper
+#+AUTHOR:    Vinicius Moraes
+#+EMAIL: vinicius.moraes@eternodevir.com
+#+OPTIONS:   num:nil
 
 #+html: <p align="center"><img src="img/polytropos.png" /></p>
 
