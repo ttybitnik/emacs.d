@@ -88,11 +88,11 @@ Current configuration focuses:
     (scroll-bar-mode -1))
 
   (setq locale-coding-system 'utf-8
-	default-file-name-coding-system 'utf-8
-	default-keyboard-coding-system 'utf-8
-	default-process-coding-system '(utf-8 . utf-8)
-	default-sendmail-coding-system 'utf-8
-	default-terminal-coding-system 'utf-8)
+        default-file-name-coding-system 'utf-8
+        default-keyboard-coding-system 'utf-8
+        default-process-coding-system '(utf-8 . utf-8)
+        default-sendmail-coding-system 'utf-8
+        default-terminal-coding-system 'utf-8)
   (prefer-coding-system 'utf-8)
 
   (if (display-graphic-p)
@@ -102,43 +102,43 @@ Current configuration focuses:
 ** Theme customization
 #+BEGIN_SRC emacs-lisp
   (let ((class '((class color) (min-colors 89)))
-	(default (if (true-color-p) "#abb2bf" "#afafaf"))
-	(light (if (true-color-p) "#ccd4e3" "#d7d7d7"))
-	(background (if (true-color-p) "#282c34" "#333333"))
-	(background-dark (if (true-color-p) "#24282f" "#222222"))
-	(background-darker (if (true-color-p) "#22252c" "#222222"))
-	(mode-line-inactive (if "#1c2129" "#222222"))
-	(mode-line-active (if (true-color-p) "#6f337e" "#875f87"))
-	(background-lighter (if (true-color-p) "#3a3f4b" "#5f5f5f"))
-	(background-red (if (true-color-p) "#4c3840" "#5f5f5f"))
-	(bright-background-red (if (true-color-p) "#744a5b" "#744a5b"))
-	(background-purple (if (true-color-p) "#48384c" "#5f5f5f"))
-	(background-blue (if (true-color-p) "#38394c" "#444444"))
-	(bright-background-blue (if (true-color-p) "#4e5079" "#4e5079"))
-	(background-green (if (true-color-p) "#3d4a41" "#5f5f5f"))
-	(bright-background-green (if (true-color-p) "#3f6d54" "#3f6d54"))
-	(background-orange (if (true-color-p) "#4a473d" "#5f5f5f"))
-	(hl-line (if (true-color-p) "#2c323b" "#333333"))
-	(grey (if (true-color-p) "#cccccc" "#cccccc"))
-	(grey-dark (if (true-color-p) "#666666" "#666666"))
-	(highlight (if (true-color-p) "#3e4451" "#5f5f5f"))
-	(comment (if (true-color-p) "#687080" "#707070"))
-	(orange (if (true-color-p) "#da8548" "#d7875f"))
-	(orange-light (if (true-color-p) "#ddbd78" "#d7af87"))
-	(red (if (true-color-p) "#ff6c6b" "#ff5f5f"))
-	(purple (if (true-color-p) "#c678dd" "#d787d7"))
-	(purple-dark (if (true-color-p) "#64446d" "#5f5f5f"))
-	(blue (if (true-color-p) "#61afef" "#5fafff"))
-	(blue-dark (if (true-color-p) "#1f5582" "#005f87"))
-	(green (if (true-color-p) "#98be65" "#87af5f"))
-	(green-light (if (true-color-p) "#9eac8c" "#afaf87"))
-	(peach "PeachPuff3")
-	(diff-added-background (if (true-color-p) "#284437" "#284437"))
-	(diff-added-refined-background (if (true-color-p) "#1e8967" "#1e8967"))
-	(diff-removed-background (if (true-color-p) "#583333" "#580000"))
-	(diff-removed-refined-background (if (true-color-p) "#b33c49" "#b33c49"))
-	(diff-current-background (if (true-color-p) "#29457b" "#29457b"))
-	(diff-current-refined-background (if (true-color-p) "#4174ae" "#4174ae")))
+        (default (if (true-color-p) "#abb2bf" "#afafaf"))
+        (light (if (true-color-p) "#ccd4e3" "#d7d7d7"))
+        (background (if (true-color-p) "#282c34" "#333333"))
+        (background-dark (if (true-color-p) "#24282f" "#222222"))
+        (background-darker (if (true-color-p) "#22252c" "#222222"))
+        (mode-line-inactive (if "#1c2129" "#222222"))
+        (mode-line-active (if (true-color-p) "#6f337e" "#875f87"))
+        (background-lighter (if (true-color-p) "#3a3f4b" "#5f5f5f"))
+        (background-red (if (true-color-p) "#4c3840" "#5f5f5f"))
+        (bright-background-red (if (true-color-p) "#744a5b" "#744a5b"))
+        (background-purple (if (true-color-p) "#48384c" "#5f5f5f"))
+        (background-blue (if (true-color-p) "#38394c" "#444444"))
+        (bright-background-blue (if (true-color-p) "#4e5079" "#4e5079"))
+        (background-green (if (true-color-p) "#3d4a41" "#5f5f5f"))
+        (bright-background-green (if (true-color-p) "#3f6d54" "#3f6d54"))
+        (background-orange (if (true-color-p) "#4a473d" "#5f5f5f"))
+        (hl-line (if (true-color-p) "#2c323b" "#333333"))
+        (grey (if (true-color-p) "#cccccc" "#cccccc"))
+        (grey-dark (if (true-color-p) "#666666" "#666666"))
+        (highlight (if (true-color-p) "#3e4451" "#5f5f5f"))
+        (comment (if (true-color-p) "#687080" "#707070"))
+        (orange (if (true-color-p) "#da8548" "#d7875f"))
+        (orange-light (if (true-color-p) "#ddbd78" "#d7af87"))
+        (red (if (true-color-p) "#ff6c6b" "#ff5f5f"))
+        (purple (if (true-color-p) "#c678dd" "#d787d7"))
+        (purple-dark (if (true-color-p) "#64446d" "#5f5f5f"))
+        (blue (if (true-color-p) "#61afef" "#5fafff"))
+        (blue-dark (if (true-color-p) "#1f5582" "#005f87"))
+        (green (if (true-color-p) "#98be65" "#87af5f"))
+        (green-light (if (true-color-p) "#9eac8c" "#afaf87"))
+        (peach "PeachPuff3")
+        (diff-added-background (if (true-color-p) "#284437" "#284437"))
+        (diff-added-refined-background (if (true-color-p) "#1e8967" "#1e8967"))
+        (diff-removed-background (if (true-color-p) "#583333" "#580000"))
+        (diff-removed-refined-background (if (true-color-p) "#b33c49" "#b33c49"))
+        (diff-current-background (if (true-color-p) "#29457b" "#29457b"))
+        (diff-current-refined-background (if (true-color-p) "#4174ae" "#4174ae")))
 
     (custom-theme-set-faces
      'zerodark
@@ -150,11 +150,11 @@ Current configuration focuses:
 
      ;; dashboard
      `(dashboard-heading-face ((,class (:background ,background :foreground ,blue
-						    :bold t :height 1.1))))
+                                                    :bold t :height 1.1))))
      `(dashboard-banner-logo-title-face ((,class (:background ,background 
-							      :bold t :height 1.0))))
+                                                              :bold t :height 1.0))))
      `(widget-button ((,class (:background ,background :foreground ,default :bold nil
-					   :underline t :height 1.0))))
+                                           :underline t :height 1.0))))
 
      ;; erc stuff
      `(erc-nick-default-face ((,class :foreground ,blue :background ,background :weight bold)))
@@ -203,7 +203,7 @@ Current configuration focuses:
     (battery-update-interval 15)
     :config
     (if (display-graphic-p)
-	(fancy-battery-mode)
+        (fancy-battery-mode)
       (display-battery-mode)))
 
   (use-package symon
@@ -338,10 +338,10 @@ Current configuration focuses:
   (electric-pair-mode t)
 
   (setq electric-pair-pairs '(
-			      (?\{ . ?\})
-			      (?\( . ?\))
-			      (?\[ . ?\])
-			      (?\" . ?\")))
+                              (?\{ . ?\})
+                              (?\( . ?\))
+                              (?\[ . ?\])
+                              (?\" . ?\")))
 
   (use-package org-auto-tangle
     :ensure t
@@ -423,8 +423,8 @@ Current configuration focuses:
     (save-excursion
       (kill-new
        (buffer-substring
-	(point-at-bol)
-	(point-at-eol)))))
+        (point-at-bol)
+        (point-at-eol)))))
   (global-set-key (kbd "C-c l c") 'copy-whole-line/daedreth)
   (global-set-key (kbd "C-c l k") 'kill-whole-line)
 #+END_SRC
@@ -500,11 +500,11 @@ Current configuration focuses:
 *** c/c++
 #+BEGIN_SRC emacs-lisp
   (add-hook 'c-mode-hook (lambda ()
-			   (yas-minor-mode)
-			   (flycheck-mode)
-			   (company-mode)
-			   (company-c-mode/w0lper)
-			   (irony-mode)))
+                           (yas-minor-mode)
+                           (flycheck-mode)
+                           (company-mode)
+                           (company-c-mode/w0lper)
+                           (irony-mode)))
 
   (use-package flycheck-clang-analyzer
     :ensure t
@@ -533,22 +533,22 @@ Current configuration focuses:
     "Set up `company-mode' for `c-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-clang
-				    company-capf
-				    company-dabbrev-code
-				    company-keywords
-				    company-files
-				    company-c-headers
-				    company-irony
-				    company-yasnippet))))
+                                    company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-c-headers
+                                    company-irony
+                                    company-yasnippet))))
 #+END_SRC
 
 *** python
 #+BEGIN_SRC emacs-lisp
   (add-hook 'python-mode-hook (lambda ()
-				(yas-minor-mode)
-				(flycheck-mode)
-				(company-mode)
-				(company-python-mode/w0lper)))
+                                (yas-minor-mode)
+                                (flycheck-mode)
+                                (company-mode)
+                                (company-python-mode/w0lper)))
 
   (setq python-shell-interpreter "python3")
 
@@ -563,21 +563,21 @@ Current configuration focuses:
     "Set up `company-mode' for `python-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-jedi
-				    company-capf
-				    company-dabbrev-code
-				    company-keywords
-				    company-files
-				    company-yasnippet))))
+                                    company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
 #+END_SRC
 
 *** lisp
 #+BEGIN_SRC emacs-lisp
   (add-hook 'emacs-lisp-mode-hook (lambda ()
-                              (yas-minor-mode)
-                              ;; (flycheck-mode)
-                              (company-mode)
-                              (company-lisp-mode/w0lper)
-                              (eldoc-mode)))
+                                    (yas-minor-mode)
+                                    ;; (flycheck-mode)
+                                    (company-mode)
+                                    (company-lisp-mode/w0lper)
+                                    (eldoc-mode)))
 
   (use-package sly
     :ensure t
@@ -600,10 +600,10 @@ Current configuration focuses:
 *** shell
 #+BEGIN_SRC emacs-lisp
   (add-hook 'sh-mode-hook (lambda ()
-			    (yas-minor-mode)
-			    (flycheck-mode)
-			    (company-mode)
-			    (company-sh-mode/w0lper)))
+                            (yas-minor-mode)
+                            (flycheck-mode)
+                            (company-mode)
+                            (company-sh-mode/w0lper)))
 
   (use-package company-shell
     :ensure t
@@ -614,21 +614,21 @@ Current configuration focuses:
     "Set up `company-mode' for `sh-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-shell
-				    company-shell-env
-				    company-etags
-				    company-dabbrev-code
-				    company-keywords
-				    company-files
-				    company-yasnippet))))
+                                    company-shell-env
+                                    company-etags
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
 #+END_SRC
 
 *** go
 #+BEGIN_SRC emacs-lisp
   (add-hook 'go-mode-hook (lambda ()
-			   (yas-minor-mode)
-			   (flycheck-mode)
-			   (company-mode)
-			   (company-go-mode/w0lper)))
+                            (yas-minor-mode)
+                            (flycheck-mode)
+                            (company-mode)
+                            (company-go-mode/w0lper)))
 
   (use-package go-mode
     :ensure t)
@@ -637,19 +637,19 @@ Current configuration focuses:
     "Set up `company-mode' for `go-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-capf
-				    company-dabbrev-code
-				    company-keywords
-				    company-files
-				    company-yasnippet))))
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
 #+END_SRC
 
 *** yaml
 #+BEGIN_SRC emacs-lisp
   (add-hook 'yaml-mode-hook (lambda ()
-			      (yas-minor-mode)
-			      (flycheck-mode)
-			      (company-mode)
-			      (company-yaml-mode/w0lper)))
+                              (yas-minor-mode)
+                              (flycheck-mode)
+                              (company-mode)
+                              (company-yaml-mode/w0lper)))
 
   (use-package yaml-mode
     :ensure t)
@@ -658,19 +658,19 @@ Current configuration focuses:
     "Set up `company-mode' for `yaml-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-capf
-				    company-dabbrev-code
-				    company-keywords
-				    company-files
-				    company-yasnippet))))
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
 #+END_SRC
 
 *** markdown
 #+BEGIN_SRC emacs-lisp
   (add-hook 'markdown-mode-hook (lambda ()
-				  (yas-minor-mode)
-				  (flycheck-mode)
-				  (company-mode)
-				  (company-markdown-mode/w0lper)))
+                                  (yas-minor-mode)
+                                  (flycheck-mode)
+                                  (company-mode)
+                                  (company-markdown-mode/w0lper)))
 
   (use-package markdown-mode
     :ensure t)
@@ -679,10 +679,10 @@ Current configuration focuses:
     "Set up `company-mode' for `markdown-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-capf
-				    company-dabbrev-code
-				    company-keywords
-				    company-files
-				    company-yasnippet))))
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
 #+END_SRC
 
 ** Git integration
@@ -691,7 +691,7 @@ Current configuration focuses:
     :ensure t
     :config
     (setq magit-push-always-verify nil
-	  git-commit-summary-max-length 50)
+          git-commit-summary-max-length 50)
     :bind
     ("M-g" . magit-status))
 #+END_SRC
@@ -723,13 +723,13 @@ Current configuration focuses:
     :ensure t
     :init
     (setq easy-hugo-postdir "content/blog"
-	  easy-hugo-basedir "~/.config/hugo/blog.backend/blog/"
-	  easy-hugo-url "https://w0lper.github.io"
-	  easy-hugo-sshdomain ""
-	  easy-hugo-root "~/.config/hugo/blog.backend/blog/public/"
-	  easy-hugo-previewtime "300"
-	  easy-hugo-default-ext ".org"
-	  easy-hugo-org-header t)
+          easy-hugo-basedir "~/.config/hugo/blog.backend/blog/"
+          easy-hugo-url "https://w0lper.github.io"
+          easy-hugo-sshdomain ""
+          easy-hugo-root "~/.config/hugo/blog.backend/blog/public/"
+          easy-hugo-previewtime "300"
+          easy-hugo-default-ext ".org"
+          easy-hugo-org-header t)
     :bind ("C-c h" . easy-hugo))
 #+END_SRC
 
@@ -743,21 +743,21 @@ Current configuration focuses:
     (org-src-tab-acts-natively t)
     (org-confirm-babel-evaluate t)
     (org-babel-load-languages '((emacs-lisp . t)
-				(shell . t)
-				(python . t)
-				(C . t)))
+                                (shell . t)
+                                (python . t)
+                                (C . t)))
     (org-babel-python-command "python3")
     (org-export-with-smart-quotes t)
     (org-src-window-setup 'current-window)
     (org-todo-keywords '((sequence "TODO" "IN-PROGRESS" "WAITING" "DONE")))
     :hook (org-mode . (lambda ()
-			(visual-line-mode 1)
-			(variable-pitch-mode 1)
-			(org-indent-mode 1)
-			(company-mode 1)
-			(yas-minor-mode 1)))
+                        (visual-line-mode 1)
+                        (variable-pitch-mode 1)
+                        (org-indent-mode 1)
+                        (company-mode 1)
+                        (yas-minor-mode 1)))
     :bind (("C-c '" . org-edit-src-code)
-	   ("C-c a" . org-agenda)))
+           ("C-c a" . org-agenda)))
 
   (use-package htmlize
     :ensure t)
@@ -774,14 +774,14 @@ Current configuration focuses:
     :custom
     (org-roam-directory (file-truename "~/.orpheus/org-roam"))
     (org-roam-mode-sections '(org-roam-backlinks-section
-			      org-roam-reflinks-section
-			      org-roam-unlinked-references-section))
+                              org-roam-reflinks-section
+                              org-roam-unlinked-references-section))
     :config
     (org-roam-db-autosync-mode)
     (setq org-roam-ui-sync-theme t
-	  org-roam-ui-follow t
-	  org-roam-ui-update-on-save t
-	  org-roam-ui-open-on-start t))
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t))
 
   (use-package org-roam-ui
     :ensure t)
@@ -811,7 +811,7 @@ Current configuration focuses:
     (erc-rename-buffers t)
     (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
     (erc-track-exclude-types '("JOIN" "PART" "NICK" "MODE" "AWAY" "QUIT"
-			       "324" "329" "332" "333" "353" "477"))
+                               "324" "329" "332" "333" "353" "477"))
     (erc-track-enable-keybindings t)
     (erc-track-visibility nil)
     (erc-track-shorten-start 1)
@@ -820,8 +820,8 @@ Current configuration focuses:
     (erc-fill-static-center 15)
     (erc-quit-reason (lambda (s) (or s "Fading out...")))
     (erc-modules '(autoaway autojoin button completion fill irccontrols keep-place list
-			    match menu move-to-prompt netsplit networks noncommands readonly
-			    ring stamp track hl-nicks scrolltobottom))
+                            match menu move-to-prompt netsplit networks noncommands readonly
+                            ring stamp track hl-nicks scrolltobottom))
     :config
     (defun erc-login/w0lper ()
       "ERC libera.chat login with SASL."
@@ -832,7 +832,7 @@ Current configuration focuses:
       "Advice function to move to the end of the buffer after `erc-track-switch-buffer`."
       (funcall orig-fun arg)
       (when (eq major-mode 'erc-mode)
-	(end-of-buffer)))
+        (end-of-buffer)))
     (advice-add 'erc-track-switch-buffer :around #'erc-switch-buffer/w0lper)
     :bind
     ("C-c i" . erc-login/w0lper))
@@ -853,22 +853,22 @@ Current configuration focuses:
   (defun erc-login ()
     "Perform user authentication at the IRC server. (PATCHED)"
     (erc-log (format "login: nick: %s, user: %s %s %s :%s"
-		     (erc-current-nick)
-		     (user-login-name)
-		     (or erc-system-name (system-name))
-		     erc-session-server
-		     erc-session-user-full-name))
+                     (erc-current-nick)
+                     (user-login-name)
+                     (or erc-system-name (system-name))
+                     erc-session-server
+                     erc-session-user-full-name))
     (if erc-session-password
-	(erc-server-send (format "PASS %s" erc-session-password))
+        (erc-server-send (format "PASS %s" erc-session-password))
       (message "Logging in without password"))
     (when (and (featurep 'erc-sasl) (erc-sasl-use-sasl-p))
       (erc-server-send "CAP REQ :sasl"))
     (erc-server-send (format "NICK %s" (erc-current-nick)))
     (erc-server-send
      (format "USER %s %s %s :%s"
-	     (if erc-anonymous-login erc-email-userid (user-login-name))
-	     "0" "*"
-	     erc-session-user-full-name))
+             (if erc-anonymous-login erc-email-userid (user-login-name))
+             "0" "*"
+             erc-session-user-full-name))
     (erc-update-mode-line))
 #+END_SRC
 
