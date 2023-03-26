@@ -385,6 +385,9 @@ Current configuration focuses:
   (use-package popup-kill-ring
     :ensure t
     :bind ("M-y" . popup-kill-ring))
+
+  (use-package helm-descbinds
+    :ensure t)
 #+END_SRC
 
 ** Text manipulation
