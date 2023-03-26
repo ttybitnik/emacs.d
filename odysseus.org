@@ -21,33 +21,34 @@ Current configuration focuses:
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-startup-message t)
 
-  (use-package projectile
-    :ensure t
-    :init
-    (projectile-mode 1))
-
-  (global-set-key (kbd "<f5>") 'projectile-compile-project)
-
-  (setq initial-buffer-choice (lambda () (dashboard-refresh-buffer)(get-buffer "*dashboard*")))
-
   (use-package dashboard
     :ensure t
-    :config
+    :init
     (dashboard-setup-startup-hook)
-    (setq dashboard-startup-banner "~/.emacs.d/img/dashLogo.png")
-    (setq dashboard-items '((recents  . 5)
-                            (projects . 5)
-                            (bookmarks . 5)
-                            (agenda . 5)))    
-    (setq dashboard-center-content t)
-    (setq dashboard-set-file-icons t)
-    (setq dashboard-banner-logo-title "Welcome back, Wolper!")
-    (setq dashboard-agenda-sort-strategy '(time-up))
-    (setq dashboard-agenda-prefix-format "%i %-12:c %s ")
-    (add-hook 'dashboard-mode-hook 'variable-pitch-mode))
+    (add-hook 'dashboard-mode-hook 'variable-pitch-mode)
+    (setq initial-buffer-choice (lambda () (dashboard-refresh-buffer) (get-buffer "*dashboard*")))
+    :custom
+    (dashboard-startup-banner "~/.emacs.d/img/dashLogo.png")
+    (dashboard-items '((recents . 5)
+                       (projects . 5)
+                       (bookmarks . 5)
+                       (agenda . 5)))
+    (dashboard-center-content t)
+    (dashboard-set-file-icons t)
+    (dashboard-banner-logo-title "Welcome back, Wolper!")
+    (dashboard-agenda-sort-strategy '(time-up))
+    (dashboard-agenda-prefix-format "%i %-12:c %s "))
 
   (use-package all-the-icons
     :ensure t)
+
+  (use-package projectile
+    :ensure t
+    :init
+    (projectile-mode 1)
+    :bind
+    ("C-c p" . projectile-command-map)
+    ("<f5>" . projectile-compile-project))
 #+END_SRC
 
 ** Display
@@ -63,64 +64,67 @@ Current configuration focuses:
 
   (use-package zerodark-theme
     :ensure t
-    :init
+    :config
     (load-theme 'zerodark t))
 
   (setq visible-bell t)
-  (tool-bar-mode -1)
-  (menu-bar-mode -1)
-  (scroll-bar-mode -1)
+  (when (display-graphic-p)
+    (tool-bar-mode -1)
+    (menu-bar-mode -1)
+    (scroll-bar-mode -1))
 
-
-  (setq locale-coding-system 'utf-8)
-  (set-terminal-coding-system 'utf-8)
-  (set-keyboard-coding-system 'utf-8)
-  (set-selection-coding-system 'utf-8)
+  (setq locale-coding-system 'utf-8
+	default-file-name-coding-system 'utf-8
+	default-keyboard-coding-system 'utf-8
+	default-process-coding-system '(utf-8 . utf-8)
+	default-sendmail-coding-system 'utf-8
+	default-terminal-coding-system 'utf-8)
   (prefer-coding-system 'utf-8)
 
-  (when window-system (add-hook 'prog-mode-hook 'hl-line-mode))
+  (if (display-graphic-p)
+      (add-hook 'prog-mode-hook 'hl-line-mode))
 #+END_SRC
 
 ** Theme customization
 #+BEGIN_SRC emacs-lisp
   (let ((class '((class color) (min-colors 89)))
-        (default (if (true-color-p) "#abb2bf" "#afafaf"))
-        (light (if (true-color-p) "#ccd4e3" "#d7d7d7"))
-        (background (if (true-color-p) "#282c34" "#333333"))
-        (background-dark (if (true-color-p) "#24282f" "#222222"))
-        (background-darker (if (true-color-p) "#22252c" "#222222"))
-        (mode-line-inactive (if "#1c2129" "#222222"))
-        (mode-line-active (if (true-color-p) "#6f337e" "#875f87"))
-        (background-lighter (if (true-color-p) "#3a3f4b" "#5f5f5f"))
-        (background-red (if (true-color-p) "#4c3840" "#5f5f5f"))
-        (bright-background-red (if (true-color-p) "#744a5b" "#744a5b"))
-        (background-purple (if (true-color-p) "#48384c" "#5f5f5f"))
-        (background-blue (if (true-color-p) "#38394c" "#444444"))
-        (bright-background-blue (if (true-color-p) "#4e5079" "#4e5079"))
-        (background-green (if (true-color-p) "#3d4a41" "#5f5f5f"))
-        (bright-background-green (if (true-color-p) "#3f6d54" "#3f6d54"))
-        (background-orange (if (true-color-p) "#4a473d" "#5f5f5f"))
-        (hl-line (if (true-color-p) "#2c323b" "#333333"))
-        (grey (if (true-color-p) "#cccccc" "#cccccc"))
-        (grey-dark (if (true-color-p) "#666666" "#666666"))
-        (highlight (if (true-color-p) "#3e4451" "#5f5f5f"))
-        (comment (if (true-color-p) "#687080" "#707070"))
-        (orange (if (true-color-p) "#da8548" "#d7875f"))
-        (orange-light (if (true-color-p) "#ddbd78" "#d7af87"))
-        (red (if (true-color-p) "#ff6c6b" "#ff5f5f"))
-        (purple (if (true-color-p) "#c678dd" "#d787d7"))
-        (purple-dark (if (true-color-p) "#64446d" "#5f5f5f"))
-        (blue (if (true-color-p) "#61afef" "#5fafff"))
-        (blue-dark (if (true-color-p) "#1f5582" "#005f87"))
-        (green (if (true-color-p) "#98be65" "#87af5f"))
-        (green-light (if (true-color-p) "#9eac8c" "#afaf87"))
-        (peach "PeachPuff3")
-        (diff-added-background (if (true-color-p) "#284437" "#284437"))
-        (diff-added-refined-background (if (true-color-p) "#1e8967" "#1e8967"))
-        (diff-removed-background (if (true-color-p) "#583333" "#580000"))
-        (diff-removed-refined-background (if (true-color-p) "#b33c49" "#b33c49"))
-        (diff-current-background (if (true-color-p) "#29457b" "#29457b"))
-        (diff-current-refined-background (if (true-color-p) "#4174ae" "#4174ae")))
+	(default (if (true-color-p) "#abb2bf" "#afafaf"))
+	(light (if (true-color-p) "#ccd4e3" "#d7d7d7"))
+	(background (if (true-color-p) "#282c34" "#333333"))
+	(background-dark (if (true-color-p) "#24282f" "#222222"))
+	(background-darker (if (true-color-p) "#22252c" "#222222"))
+	(mode-line-inactive (if "#1c2129" "#222222"))
+	(mode-line-active (if (true-color-p) "#6f337e" "#875f87"))
+	(background-lighter (if (true-color-p) "#3a3f4b" "#5f5f5f"))
+	(background-red (if (true-color-p) "#4c3840" "#5f5f5f"))
+	(bright-background-red (if (true-color-p) "#744a5b" "#744a5b"))
+	(background-purple (if (true-color-p) "#48384c" "#5f5f5f"))
+	(background-blue (if (true-color-p) "#38394c" "#444444"))
+	(bright-background-blue (if (true-color-p) "#4e5079" "#4e5079"))
+	(background-green (if (true-color-p) "#3d4a41" "#5f5f5f"))
+	(bright-background-green (if (true-color-p) "#3f6d54" "#3f6d54"))
+	(background-orange (if (true-color-p) "#4a473d" "#5f5f5f"))
+	(hl-line (if (true-color-p) "#2c323b" "#333333"))
+	(grey (if (true-color-p) "#cccccc" "#cccccc"))
+	(grey-dark (if (true-color-p) "#666666" "#666666"))
+	(highlight (if (true-color-p) "#3e4451" "#5f5f5f"))
+	(comment (if (true-color-p) "#687080" "#707070"))
+	(orange (if (true-color-p) "#da8548" "#d7875f"))
+	(orange-light (if (true-color-p) "#ddbd78" "#d7af87"))
+	(red (if (true-color-p) "#ff6c6b" "#ff5f5f"))
+	(purple (if (true-color-p) "#c678dd" "#d787d7"))
+	(purple-dark (if (true-color-p) "#64446d" "#5f5f5f"))
+	(blue (if (true-color-p) "#61afef" "#5fafff"))
+	(blue-dark (if (true-color-p) "#1f5582" "#005f87"))
+	(green (if (true-color-p) "#98be65" "#87af5f"))
+	(green-light (if (true-color-p) "#9eac8c" "#afaf87"))
+	(peach "PeachPuff3")
+	(diff-added-background (if (true-color-p) "#284437" "#284437"))
+	(diff-added-refined-background (if (true-color-p) "#1e8967" "#1e8967"))
+	(diff-removed-background (if (true-color-p) "#583333" "#580000"))
+	(diff-removed-refined-background (if (true-color-p) "#b33c49" "#b33c49"))
+	(diff-current-background (if (true-color-p) "#29457b" "#29457b"))
+	(diff-current-refined-background (if (true-color-p) "#4174ae" "#4174ae")))
 
     (custom-theme-set-faces
      'zerodark
@@ -132,11 +136,11 @@ Current configuration focuses:
 
      ;; dashboard
      `(dashboard-heading-face ((,class (:background ,background :foreground ,blue
-                                                    :bold t :height 1.1))))
+						    :bold t :height 1.1))))
      `(dashboard-banner-logo-title-face ((,class (:background ,background 
-                                                              :bold t :height 1.0))))
+							      :bold t :height 1.0))))
      `(widget-button ((,class (:background ,background :foreground ,default :bold nil
-                                           :underline t :height 1.0))))
+					   :underline t :height 1.0))))
 
      ;; erc stuff
      `(erc-nick-default-face ((,class :foreground ,blue :background ,background :weight bold)))
@@ -164,61 +168,112 @@ Current configuration focuses:
     :ensure t
     :config
     (require 'spaceline-config)
-    (setq spaceline-buffer-encoding-abbrev-p nil)
-    (setq spaceline-line-column-p nil)
-    (setq spaceline-line-p nil)
-    (setq powerline-default-separator (quote arrow))
+    (custom-set-variables
+     '(spaceline-buffer-encoding-abbrev-p nil)
+     '(spaceline-line-column-p nil)
+     '(spaceline-line-p nil)
+     '(powerline-default-separator (quote arrow)))
     (spaceline-spacemacs-theme))
 
-  (setq powerline-default-separator nil)
-
-  (setq line-number-mode t)
-  (setq column-number-mode t)
-
-  (setq display-time-24hr-format t)
-  (setq display-time-format "%H:%M - %d %B %Y")
-
+  (custom-set-variables
+   '(line-number-mode t)
+   '(column-number-mode t)
+   '(display-time-24hr-format t)
+   '(display-time-format "%H:%M - %d %B %Y"))
   (display-time-mode 1)
 
   (use-package fancy-battery
     :ensure t
+    :custom
+    (fancy-battery-show-percentage t)
+    (battery-update-interval 15)
     :config
-    (setq fancy-battery-show-percentage t)
-    (setq battery-update-interval 15)
-    (if window-system
-        (fancy-battery-mode)
+    (if (display-graphic-p)
+	(fancy-battery-mode)
       (display-battery-mode)))
 
   (use-package symon
     :ensure t
-    :bind
-    ("s-y" . symon-mode))
-
+    :bind ("s-y" . symon-mode))
 #+END_SRC
 
 ** Moving around Emacs
 #+BEGIN_SRC emacs-lisp
-  (use-package ivy
-    :ensure t)
-
   (setq scroll-conservatively 100)
+
+  (use-package ivy
+    :ensure t
+    :custom
+    (ivy-use-virtual-buffers t)
+    (ivy-count-format "%d/%d"))
 
   (use-package which-key
     :ensure t
+    :diminish which-key-mode
     :config
-    (which-key-mode))
+    (which-key-mode)
+    :custom
+    which-key-idle-delay 0.5)
+
+  (use-package swiper
+    :ensure t
+    :bind ("C-s" . 'swiper))
+
+  (use-package avy
+    :ensure t
+    :bind
+    ("M-s" . avy-goto-char))
 
   (use-package switch-window
     :ensure t
-    :config
-    (setq switch-window-input-style 'minibuffer)
-    (setq switch-window-increase 4)
-    (setq switch-window-threshold 2)
-    (setq switch-window-shortcut-style 'qwerty)
-    (setq switch-window-qwerty-shortcuts
-          '("a" "s" "d" "f" "j" "k" "l" "i" "o"))
+    :bind*
+    ([remap other-window] . switch-window)
+    :custom
+    switch-window-input-style 'minibuffer
+    switch-window-shortcut-style 'qwerty
+    switch-window-increase 4
+    switch-window-threshold 2
+    switch-window-qwerty-shortcuts
+    '("a" "s" "d" "f" "j" "k" "l" "i" "o"))
+
+
+  (global-set-key (kbd "C-x b") 'ibuffer)
+  ;; (setq ibuffer-expert t) ; only when used to ibuffer
+
+  (use-package linum-relative
+    :ensure t
+    :diminish linum-relative-mode
+    :custom
+    (linum-relative-current-symbol "")
+    :hook
+    (prog-mode . linum-relative-mode))
+
+  (use-package helm
+    :ensure t
+    :diminish helm-mode
     :bind
-    ([remap other-window] . switch-window))
+    ("C-x C-f" . 'helm-find-files)
+    ("C-x C-b" . 'helm-buffers-list)
+    ("M-x" . 'helm-M-x)
+    (:map helm-find-files-map
+          ("C-b" . helm-find-files-up-one-level)
+          ("C-f" . helm-execute-persistent-action))
+    :custom
+    (helm-autoresize-max-height 0)
+    (helm-autoresize-min-height 40)
+    (helm-M-x-fuzzy-match t)
+    (helm-buffers-fuzzy-matching t)
+    (helm-recentf-fuzzy-match t)
+    (helm-semantic-fuzzy-match t)
+    (helm-imenu-fuzzy-match t)
+    (helm-split-window-in-side-p nil)
+    (helm-move-to-line-cycle-in-source nil)
+    (helm-ff-search-library-in-sexp t)
+    (helm-scroll-amount 8 )
+    (helm-echo-input-in-header-line t)
+    :init
+    (helm-mode 1)
+    (helm-autoresize-mode 1))
 
   (defun split-and-follow-horizontally ()
     (interactive)
@@ -234,22 +289,11 @@ Current configuration focuses:
     (other-window 1))
   (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
 
-  (use-package swiper
-    :ensure t
-    :bind ("C-s" . 'swiper))
-
-
   (defun kill-current-buffer ()
     "Kills the current buffer."
     (interactive)
     (kill-buffer (current-buffer)))
   (global-set-key (kbd "C-x k") 'kill-current-buffer)
-
-  (setq kill-buffer-query-functions (delq 'process-kill-buffer-query-function kill-buffer-query-functions))
-
-  (global-set-key (kbd "C-x b") 'ibuffer)
-  ;; (setq ibuffer-expert t) ;only when used to ibuffer
-
 
   (defun close-all-buffers ()
     "Kill all buffers without regard for their origin."
@@ -257,93 +301,14 @@ Current configuration focuses:
     (mapc 'kill-buffer (buffer-list)))
   (global-set-key (kbd "C-M-s-k") 'close-all-buffers)
 
-
-  (use-package linum-relative
-    :ensure t
-    :config
-    (setq linum-relative-current-symbol "")
-    (add-hook 'prog-mode-hook 'linum-relative-mode))
-
-  (use-package helm
-    :ensure t
-    :bind
-    ("C-x C-f" . 'helm-find-files)
-    ("C-x C-b" . 'helm-buffers-list)
-    ("M-x" . 'helm-M-x)
-    :config
-    (defun daedreth/helm-hide-minibuffer ()
-      (when (with-helm-buffer helm-echo-input-in-header-line)
-        (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
-          (overlay-put ov 'window (selected-window))
-          (overlay-put ov 'face
-                       (let ((bg-color (face-background 'default nil)))
-                         `(:background ,bg-color :foreground ,bg-color)))
-          (setq-local cursor-type nil))))
-    (add-hook 'helm-minibuffer-set-up-hook 'daedreth/helm-hide-minibuffer)
-    (setq helm-autoresize-max-height 0
-          helm-autoresize-min-height 40
-          helm-M-x-fuzzy-match t
-          helm-buffers-fuzzy-matching t
-          helm-recentf-fuzzy-match t
-          helm-semantic-fuzzy-match t
-          helm-imenu-fuzzy-match t
-          helm-split-window-in-side-p nil
-          helm-move-to-line-cycle-in-source nil
-          helm-ff-search-library-in-sexp t
-          helm-scroll-amount 8 
-          helm-echo-input-in-header-line t)
-    :init
-    (helm-mode 1))
-
-  (helm-autoresize-mode 1)
-  (define-key helm-find-files-map (kbd "C-b") 'helm-find-files-up-one-level)
-  (define-key helm-find-files-map (kbd "C-f") 'helm-execute-persistent-action)
-
-  (use-package avy
-    :ensure t
-    :bind
-    ("M-s" . avy-goto-char))
-#+END_SRC
-
-** Text manipulation
-#+BEGIN_SRC emacs-lisp
-  (use-package mark-multiple
-    :ensure t
-    :bind ("C-c q" . 'mark-next-like-this))
-
-  (defun daedreth/kill-inner-word ()
-    "Kills the entire word your cursor is in. Equivalent to 'ciw' in vim."
-    (interactive)
-    (forward-char 1)
-    (backward-word)
-    (kill-word 1))
-  (global-set-key (kbd "C-c w k") 'daedreth/kill-inner-word)
-
-  (defun daedreth/copy-whole-word ()
-    "Copies a word at the cursor position."
-    (interactive)
-    (save-excursion
-      (forward-char 1)
-      (backward-word)
-      (kill-word 1)
-      (yank)))
-  (global-set-key (kbd "C-c w c") 'daedreth/copy-whole-word)
-
-  (defun daedreth/copy-whole-line ()
-    "Copies a line without regard for cursor position."
-    (interactive)
-    (save-excursion
-      (kill-new
-       (buffer-substring
-        (point-at-bol)
-        (point-at-eol)))))
-  (global-set-key (kbd "C-c l c") 'daedreth/copy-whole-line)
-  (global-set-key (kbd "C-c l k") 'kill-whole-line)
+  (setq kill-buffer-query-functions (delq 'process-kill-buffer-query-function
+                                          kill-buffer-query-functions))
 #+END_SRC
 
 ** Minor conveniences
 #+BEGIN_SRC emacs-lisp
   (defun config-visit ()
+    "Opens ~/.emacs.d/odysseus.org"
     (interactive)
     (find-file "~/.emacs.d/odysseus.org"))
   (global-set-key (kbd "C-c e") 'config-visit)
@@ -359,10 +324,10 @@ Current configuration focuses:
   (electric-pair-mode t)
 
   (setq electric-pair-pairs '(
-                              (?\{ . ?\})
-                              (?\( . ?\))
-                              (?\[ . ?\])
-                              (?\" . ?\")))
+			      (?\{ . ?\})
+			      (?\( . ?\))
+			      (?\[ . ?\])
+			      (?\" . ?\")))
 
   (use-package org-auto-tangle
     :ensure t
@@ -372,13 +337,20 @@ Current configuration focuses:
 
   (use-package beacon
     :ensure t
+    :diminish beacon-mode
     :config
     (beacon-mode 1))
 
   (show-paren-mode 1)
 
+  (use-package rainbow-mode
+    :ensure t
+    :diminish rainbow-mode
+    :hook (prog-mode org-mode conf-mode))
+
   (use-package rainbow-delimiters
     :ensure t
+    :diminish rainbow-delimiters-mode
     :init
     (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
@@ -389,6 +361,7 @@ Current configuration focuses:
 
   (use-package hungry-delete
     :ensure t
+    :diminish hungry-delete-mode
     :config
     (global-hungry-delete-mode))
 
@@ -403,146 +376,296 @@ Current configuration focuses:
     :bind ("M-y" . popup-kill-ring))
 #+END_SRC
 
+** Text manipulation
+#+BEGIN_SRC emacs-lisp
+  (use-package mark-multiple
+    :ensure t
+    :bind ("C-c q" . 'mark-next-like-this))
+
+  (defun kill-inner-word/daedreth ()
+    "Kills the entire word your cursor is in. Equivalent to 'ciw' in vim."
+    (interactive)
+    (forward-char 1)
+    (backward-word)
+    (kill-word 1))
+  (global-set-key (kbd "C-c w k") 'kill-inner-word/daedreth)
+
+  (defun copy-whole-word/daedreth ()
+    "Copies a word at the cursor position."
+    (interactive)
+    (save-excursion
+      (forward-char 1)
+      (backward-word)
+      (kill-word 1)
+      (yank)))
+  (global-set-key (kbd "C-c w c") 'copy-whole-word/daedreth)
+
+  (defun copy-whole-line/daedreth ()
+    "Copies a line without regard for cursor position."
+    (interactive)
+    (save-excursion
+      (kill-new
+       (buffer-substring
+	(point-at-bol)
+	(point-at-eol)))))
+  (global-set-key (kbd "C-c l c") 'copy-whole-line/daedreth)
+  (global-set-key (kbd "C-c l k") 'kill-whole-line)
+#+END_SRC
+
+** Functionality
+#+BEGIN_SRC emacs-lisp
+  (setf epa-pinentry-mode 'loopback)
+  (setq auth-sources '("~/.emacs.d/auth/.authinfo.gpg"))
+  (load-file "~/.emacs.d/auth/.restrictconf.el")
+
+  (setq backup-directory-alist '(("." . "~/.orpheus/gnu-emacs/saves")))
+
+  (transient-mark-mode 1);
+
+  (server-start)
+
+  (defalias 'yes-or-no-p 'y-or-n-p)
+
+  (use-package vertico
+    :ensure t
+    :init
+    (vertico-mode 0))
+
+  (use-package async
+    :ensure t
+    :init (dired-async-mode 1))
+
+  (use-package company
+    :ensure t
+    :custom
+    (company-global-modes #'(not eshell-mode))
+    (company-idle-delay 0)
+    (company-minimum-prefix-length 3)
+    (company-tooltip-align-annotations t)
+    (company-tooltip-flip-when-above t)
+    (company-search-regexp-function #'company-search-flex-regexp)
+    (company-dabbrev-ignore-case 'keep-prefix))
+
+  (with-eval-after-load 'company
+    (define-key company-active-map (kbd "<tab>")
+      (defun fix-company-tab/w0lper ()
+        "Fix `company-yasnippet' interaction with `yas-expand' command."
+        (interactive)
+        (when (null (yas-expand))
+          (company-complete-common))))
+    (define-key company-active-map (kbd "C-s") #'company-filter-candidates)
+    (define-key company-active-map (kbd "C-M-s") #'company-search-candidates))
+
+  (defun company-general/w0lper ()
+    "Set up `company-mode' for general usage."
+    (setq-local company-backends '((company-dabbrev
+                                    company-file
+                                    company-yasnippet))))
+
+  (add-hook 'after-init-hook #'company-general/w0lper)
+#+END_SRC
+
 ** Programming
 #+BEGIN_SRC emacs-lisp
   (use-package yasnippet
     :ensure t
     :config
-    (use-package yasnippet-snippets
-      :ensure t)
+    (use-package yasnippet-snippets :ensure t)
     (yas-reload-all))
 
   (use-package flycheck
-    :ensure t)
-
-  (use-package company
     :ensure t
-    :config
-    (setq company-idle-delay 0)
-    (setq company-minimum-prefix-length 3))
-
-  (with-eval-after-load 'company
-    (define-key company-active-map (kbd "M-n") nil)
-    (define-key company-active-map (kbd "M-p") nil)
-    (define-key company-active-map (kbd "C-n") #'company-select-next)
-    (define-key company-active-map (kbd "C-p") #'company-select-previous)
-    (define-key company-active-map (kbd "SPC") #'company-abort))
+    :diminish flycheck-mode
+    :custom
+    flycheck-idle-change-delay 2)
 #+END_SRC
 
 *** c/c++
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'c++-mode-hook 'yas-minor-mode)
-  (add-hook 'c-mode-hook 'yas-minor-mode)
+  (add-hook 'c-mode-hook (lambda ()
+			   (yas-minor-mode)
+			   (flycheck-mode)
+			   (company-mode)
+			   (company-c-mode/w0lper)
+			   (irony-mode)))
 
   (use-package flycheck-clang-analyzer
     :ensure t
+    :init
+    (require 'flycheck)
     :config
-    (with-eval-after-load 'flycheck
-      (require 'flycheck-clang-analyzer)
-      (flycheck-clang-analyzer-setup)))
-
-  (with-eval-after-load 'company
-    (add-hook 'c++-mode-hook 'company-mode)
-    (add-hook 'c-mode-hook 'company-mode))
+    (flycheck-clang-analyzer-setup))
 
   (use-package company-c-headers
-    :ensure t)
+    :ensure t
+    :init
+    (require 'company))
 
   (use-package company-irony
     :ensure t
-    :config
-    (setq company-backends '((company-c-headers
-                              company-dabbrev-code
-                              company-irony))))
+    :init
+    (require 'company))
 
   (use-package irony
     :ensure t
-    :config
-    (add-hook 'c++-mode-hook 'irony-mode)
-    (add-hook 'c-mode-hook 'irony-mode)
-    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+    :diminish irony-mode
+    :hook
+    (irony-mode-hook . irony-cdb-autosetup-compile-options))
+
+  (defun company-c-mode/w0lper ()
+    "Set up `company-mode' for `c-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-clang
+				    company-capf
+				    company-dabbrev-code
+				    company-keywords
+				    company-files
+				    company-c-headers
+				    company-irony
+				    company-yasnippet))))
 #+END_SRC
 
-*** pyhton
+*** python
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'python-mode-hook 'yas-minor-mode)
-  (add-hook 'python-mode-hook 'flycheck-mode)
+  (add-hook 'python-mode-hook (lambda ()
+				(yas-minor-mode)
+				(flycheck-mode)
+				(company-mode)
+				(company-python-mode/w0lper)))
 
-  (with-eval-after-load 'company
-    (add-hook 'python-mode-hook 'company-mode))
+  (setq python-shell-interpreter "python3")
 
   (use-package company-jedi
-    :ensure t
-    :config
-    (require 'company)
-    (add-to-list 'company-backends 'company-jedi))
-
-  (defun python-mode-company-init ()
-    (setq-local company-backends '((company-jedi
-                                    company-etags
-                                    company-dabbrev-code))))
-
-  (use-package company-jedi
-    :ensure t
-    :config
-    (require 'company)
-    (add-hook 'python-mode-hook 'python-mode-company-init))
-#+END_SRC
-
-*** emacs-lisp
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
-  (add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
-  (add-hook 'emacs-lisp-mode-hook 'company-mode)
-
-  (use-package slime
-    :ensure t
-    :config
-    (setq inferior-lisp-program "/usr/bin/sbcl")
-    (setq slime-contribs '(slime-fancy)))
-
-  (use-package slime-company
     :ensure t
     :init
     (require 'company)
-    (slime-setup '(slime-fancy slime-company)))
+    :custom
+    (jedi:complete-on-dot t))
+
+  (defun company-python-mode/w0lper ()
+    "Set up `company-mode' for `python-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-jedi
+				    company-capf
+				    company-dabbrev-code
+				    company-keywords
+				    company-files
+				    company-yasnippet))))
 #+END_SRC
 
-*** bash
+*** lisp
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'shell-mode-hook 'yas-minor-mode)
-  (add-hook 'shell-mode-hook 'flycheck-mode)
-  (add-hook 'shell-mode-hook 'company-mode)
+  (add-hook 'emacs-lisp-mode-hook (lambda ()
+                              (yas-minor-mode)
+                              ;; (flycheck-mode)
+                              (company-mode)
+                              (company-lisp-mode/w0lper)
+                              (eldoc-mode)))
 
-  (defun shell-mode-company-init ()
-    (setq-local company-backends '((company-shell
-                                    company-shell-env
-                                    company-etags
-                                    company-dabbrev-code))))
+  (use-package sly
+    :ensure t
+    :init
+    (setq inferior-lisp-program "sbcl")
+    (add-to-list 'sly-contribs 'sly-autodoc)
+    (add-to-list 'sly-contribs 'sly-fancy))
+
+  (defun company-lisp-mode/w0lper ()
+    "Set up `company-mode' for `lisp-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-elisp
+                                    company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
+#+END_SRC
+
+*** shell
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'sh-mode-hook (lambda ()
+			    (yas-minor-mode)
+			    (flycheck-mode)
+			    (company-mode)
+			    (company-sh-mode/w0lper)))
 
   (use-package company-shell
     :ensure t
-    :config
-    (require 'company)
-    (add-hook 'shell-mode-hook 'shell-mode-company-init))
+    :init
+    (require 'company))
+
+  (defun company-sh-mode/w0lper ()
+    "Set up `company-mode' for `sh-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-shell
+				    company-shell-env
+				    company-etags
+				    company-dabbrev-code
+				    company-keywords
+				    company-files
+				    company-yasnippet))))
 #+END_SRC
 
 *** go
 #+BEGIN_SRC emacs-lisp
+  (add-hook 'go-mode-hook (lambda ()
+			   (yas-minor-mode)
+			   (flycheck-mode)
+			   (company-mode)
+			   (company-go-mode/w0lper)))
+
   (use-package go-mode
     :ensure t)
+
+  (defun company-go-mode/w0lper ()
+    "Set up `company-mode' for `go-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+				    company-dabbrev-code
+				    company-keywords
+				    company-files
+				    company-yasnippet))))
 #+END_SRC
 
 *** yaml
 #+BEGIN_SRC emacs-lisp
+  (add-hook 'yaml-mode-hook (lambda ()
+			      (yas-minor-mode)
+			      (flycheck-mode)
+			      (company-mode)
+			      (company-yaml-mode/w0lper)))
+
   (use-package yaml-mode
     :ensure t)
+
+  (defun company-yaml-mode/w0lper ()
+    "Set up `company-mode' for `yaml-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+				    company-dabbrev-code
+				    company-keywords
+				    company-files
+				    company-yasnippet))))
 #+END_SRC
 
 *** markdown
 #+BEGIN_SRC emacs-lisp
+  (add-hook 'markdown-mode-hook (lambda ()
+				  (yas-minor-mode)
+				  (flycheck-mode)
+				  (company-mode)
+				  (company-markdown-mode/w0lper)))
+
   (use-package markdown-mode
     :ensure t)
+
+  (defun company-markdown-mode/w0lper ()
+    "Set up `company-mode' for `markdown-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+				    company-dabbrev-code
+				    company-keywords
+				    company-files
+				    company-yasnippet))))
 #+END_SRC
 
 ** Git integration
@@ -550,8 +673,8 @@ Current configuration focuses:
   (use-package magit
     :ensure t
     :config
-    (setq magit-push-always-verify nil)
-    (setq git-commit-summary-max-length 50)
+    (setq magit-push-always-verify nil
+	  git-commit-summary-max-length 50)
     :bind
     ("M-g" . magit-status))
 #+END_SRC
@@ -564,48 +687,13 @@ Current configuration focuses:
     :ensure t)
 #+END_SRC
 
-** Functionality
-#+BEGIN_SRC emacs-lisp
-  (setf epa-pinentry-mode 'loopback)
-
-  (setq auth-sources '("~/.emacs.d/auth/.authinfo.gpg"))
-
-  (load-file "~/.emacs.d/auth/.restrictconf.el")
-
-  (setq backup-directory-alist '(("." . "~/.orpheus/gnu-emacs/saves")))
-
-  (transient-mark-mode 1);
-
-  (server-start)
-
-  (use-package vertico
-    :ensure t
-    :init
-    (vertico-mode 0))
-
-  (use-package rainbow-mode
-    :ensure t
-    :diminish rainbow-mode
-    :hook (prog-mode org-mode conf-mode))
-
-  (defalias 'yes-or-no-p 'y-or-n-p)
-
-  (use-package async
-    :ensure t
-    :init (dired-async-mode 1))
-
-  (use-package helm-descbinds
-    :ensure t)
-#+END_SRC
-
 ** Translation
 #+BEGIN_SRC emacs-lisp
   (use-package go-translate
     :ensure t
-    :config
-    (setq
-     gts-translate-list '(("pt-br" "en"))
-     gts-default-translator
+    :custom
+    (gts-translate-list '(("pt-br" "en")))
+    (gts-default-translator
      (gts-translator
       :picker (gts-noprompt-picker)
       :engines (list (gts-google-engine))
@@ -617,46 +705,42 @@ Current configuration focuses:
   (use-package easy-hugo
     :ensure t
     :init
-    (setq easy-hugo-postdir "content/blog")
-    (setq easy-hugo-basedir "~/.config/hugo/blog.backend/blog/")
-    (setq easy-hugo-url "https://w0lper.github.io")
-    (setq easy-hugo-sshdomain "")
-    (setq easy-hugo-root "~/.config/hugo/blog.backend/blog/public/")
-    (setq easy-hugo-previewtime "300")
-    (setq easy-hugo-default-ext ".org")
-    (setq easy-hugo-org-header t)
-    :bind ("C-c C-g" . easy-hugo))
+    (setq easy-hugo-postdir "content/blog"
+	  easy-hugo-basedir "~/.config/hugo/blog.backend/blog/"
+	  easy-hugo-url "https://w0lper.github.io"
+	  easy-hugo-sshdomain ""
+	  easy-hugo-root "~/.config/hugo/blog.backend/blog/public/"
+	  easy-hugo-previewtime "300"
+	  easy-hugo-default-ext ".org"
+	  easy-hugo-org-header t)
+    :bind ("C-c h" . easy-hugo))
 #+END_SRC
-
-#+RESULTS:
-: easy-hugo
 
 ** Org
 #+BEGIN_SRC emacs-lisp
   (use-package org
     :ensure t
-    :config
-    (setq org-ellipsis " ")
-    (setq org-src-fontify-natively t)
-    (setq org-src-tab-acts-natively t)
-    (setq org-confirm-babel-evaluate t)
-    (org-babel-do-load-languages
-     'org-babel-load-languages
-     '((emacs-lisp . t)
-       (shell . t)
-       (python . t)
-       (C . t)))
-    (setq org-babel-python-command "python3")
-    (setq org-export-with-smart-quotes t)
-    (setq org-src-window-setup 'current-window)
-    (setq org-todo-keywords
-          '((sequence "TODO" "IN-PROGRESS" "WAITING" "DONE")))
-    (add-hook 'org-mode-hook '(lambda ()
-                                (visual-line-mode 1)
-                                (variable-pitch-mode 1)
-                                (org-indent-mode 1)))
-    (global-set-key (kbd "C-c '") 'org-edit-src-code)
-    (global-set-key "\C-ca" 'org-agenda))
+    :custom
+    (org-ellipsis " ")
+    (org-src-fontify-natively t)
+    (org-src-tab-acts-natively t)
+    (org-confirm-babel-evaluate t)
+    (org-babel-load-languages '((emacs-lisp . t)
+				(shell . t)
+				(python . t)
+				(C . t)))
+    (org-babel-python-command "python3")
+    (org-export-with-smart-quotes t)
+    (org-src-window-setup 'current-window)
+    (org-todo-keywords '((sequence "TODO" "IN-PROGRESS" "WAITING" "DONE")))
+    :hook (org-mode . (lambda ()
+			(visual-line-mode 1)
+			(variable-pitch-mode 1)
+			(org-indent-mode 1)
+			(company-mode 1)
+			(yas-minor-mode 1)))
+    :bind (("C-c '" . org-edit-src-code)
+	   ("C-c a" . org-agenda)))
 
   (use-package htmlize
     :ensure t)
@@ -665,22 +749,22 @@ Current configuration focuses:
     :ensure t
     :custom
     (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
-    :config
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
+    :hook
+    (org-mode-hook . org-bullets-mode))
 
   (use-package org-roam
     :ensure t
+    :custom
+    (org-roam-directory (file-truename "~/.orpheus/org-roam"))
+    (org-roam-mode-sections '(org-roam-backlinks-section
+			      org-roam-reflinks-section
+			      org-roam-unlinked-references-section))
     :config
-    (setq org-roam-directory (file-truename "~/.orpheus/org-roam"))
     (org-roam-db-autosync-mode)
-    (setq org-roam-mode-sections
-          (list #'org-roam-backlinks-section
-                #'org-roam-reflinks-section
-                #'org-roam-unlinked-references-section))
     (setq org-roam-ui-sync-theme t
-          org-roam-ui-follow t
-          org-roam-ui-update-on-save t
-          org-roam-ui-open-on-start t))
+	  org-roam-ui-follow t
+	  org-roam-ui-update-on-save t
+	  org-roam-ui-open-on-start t))
 
   (use-package org-roam-ui
     :ensure t)
@@ -690,8 +774,8 @@ Current configuration focuses:
 
   (use-package ox-reveal
     :ensure t
-    :config
-    (setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js"))
+    :custom
+    (org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js"))
 
 
 #+END_SRC 
@@ -710,7 +794,7 @@ Current configuration focuses:
     (erc-rename-buffers t)
     (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
     (erc-track-exclude-types '("JOIN" "PART" "NICK" "MODE" "AWAY" "QUIT"
-                               "324" "329" "332" "333" "353" "477"))
+			       "324" "329" "332" "333" "353" "477"))
     (erc-track-enable-keybindings t)
     (erc-track-visibility nil)
     (erc-track-shorten-start 1)
@@ -719,18 +803,19 @@ Current configuration focuses:
     (erc-fill-static-center 15)
     (erc-quit-reason (lambda (s) (or s "Fading out...")))
     (erc-modules '(autoaway autojoin button completion fill irccontrols keep-place list
-                            match menu move-to-prompt netsplit networks noncommands readonly
-                            ring stamp track hl-nicks scrolltobottom))
+			    match menu move-to-prompt netsplit networks noncommands readonly
+			    ring stamp track hl-nicks scrolltobottom))
     :config
     (defun erc-login/w0lper ()
       "ERC libera.chat login with SASL."
       (interactive)
       (erc-tls :server "irc.libera.chat" :port "6697"))
+
     (defun erc-switch-buffer/w0lper (orig-fun &optional arg)
       "Advice function to move to the end of the buffer after `erc-track-switch-buffer`."
       (funcall orig-fun arg)
       (when (eq major-mode 'erc-mode)
-        (end-of-buffer)))
+	(end-of-buffer)))
     (advice-add 'erc-track-switch-buffer :around #'erc-switch-buffer/w0lper)
     :bind
     ("C-c i" . erc-login/w0lper))
@@ -751,22 +836,22 @@ Current configuration focuses:
   (defun erc-login ()
     "Perform user authentication at the IRC server. (PATCHED)"
     (erc-log (format "login: nick: %s, user: %s %s %s :%s"
-                     (erc-current-nick)
-                     (user-login-name)
-                     (or erc-system-name (system-name))
-                     erc-session-server
-                     erc-session-user-full-name))
+		     (erc-current-nick)
+		     (user-login-name)
+		     (or erc-system-name (system-name))
+		     erc-session-server
+		     erc-session-user-full-name))
     (if erc-session-password
-        (erc-server-send (format "PASS %s" erc-session-password))
+	(erc-server-send (format "PASS %s" erc-session-password))
       (message "Logging in without password"))
     (when (and (featurep 'erc-sasl) (erc-sasl-use-sasl-p))
       (erc-server-send "CAP REQ :sasl"))
     (erc-server-send (format "NICK %s" (erc-current-nick)))
     (erc-server-send
      (format "USER %s %s %s :%s"
-             (if erc-anonymous-login erc-email-userid (user-login-name))
-             "0" "*"
-             erc-session-user-full-name))
+	     (if erc-anonymous-login erc-email-userid (user-login-name))
+	     "0" "*"
+	     erc-session-user-full-name))
     (erc-update-mode-line))
 #+END_SRC
 
@@ -775,19 +860,10 @@ Current configuration focuses:
   ;; Put these inside use-package later 
   (use-package diminish
     :ensure t
-    :diminish which-key-mode
-    :diminish linum-relative-mode
-    :diminish hungry-delete-mode
     :diminish visual-line-mode
     :diminish subword-mode
-    :diminish beacon-mode
-    :diminish irony-mode
     :diminish page-break-lines-mode
-    :diminish rainbow-delimiters-mode
-    :diminish rainbow-mode
-    :diminish yas-minor-mode
-    :diminish flycheck-mode
-    :diminish helm-mode)
+    :diminish yas-minor-mode)
 
   (eval-after-load 'org-indent '(diminish 'org-indent-mode))
   (eval-after-load 'face-remap '(diminish 'buffer-face-mode))
