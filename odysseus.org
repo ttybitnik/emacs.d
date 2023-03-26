@@ -15,7 +15,18 @@ Current configuration focuses:
 - Blogging
 - IRC 
   
-/Please contact me if you'd like to suggest a package. Always glad to learn new ones./
+/Contact me if you'd like to suggest a package. Always glad to learn new ones./
+
+** Dependencies
+
+- packages
+  - clang (c/c++)
+  - sbcl (lisp)
+  - virtualenv (python)
+- pip
+  - jedi (python)
+  - flake8 (python)
+  - autopep8 (python)
 
 ** Dashboard screen
 #+BEGIN_SRC emacs-lisp
