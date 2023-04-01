@@ -1,7 +1,7 @@
-#+TITLE:     GNU Emacs.wolper
-#+AUTHOR:    Vinicius Moraes
+#+TITLE: GNU Emacs.w0lper
+#+AUTHOR: Vinicius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
-#+OPTIONS:   num:nil
+#+OPTIONS: num:nil
 
 #+html: <p align="center"><img src="img/polytropos.png" /></p>
 
@@ -49,7 +49,7 @@ Current configuration focuses:
                        (agenda . 5)))
     (dashboard-center-content t)
     (dashboard-set-file-icons t)
-    (dashboard-banner-logo-title "Welcome back, Wolper!")
+    (dashboard-banner-logo-title "Welcome back, w0lper!")
     (dashboard-agenda-sort-strategy '(time-up))
     (dashboard-agenda-prefix-format "%i %-12:c %s "))
 
@@ -829,7 +829,7 @@ Current configuration focuses:
       (erc-tls :server "irc.libera.chat" :port "6697"))
 
     (defun erc-switch-buffer/w0lper (orig-fun &optional arg)
-      "Advice function to move to the end of the buffer after `erc-track-switch-buffer`."
+      "Advice function to move to the end of the buffer after `erc-track-switch-buffer'."
       (funcall orig-fun arg)
       (when (eq major-mode 'erc-mode)
         (end-of-buffer)))
@@ -874,7 +874,6 @@ Current configuration focuses:
 
 ** Diminish
 #+BEGIN_SRC emacs-lisp
-  ;; Put these inside use-package later 
   (use-package diminish
     :ensure t
     :diminish visual-line-mode
