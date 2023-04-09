@@ -9,13 +9,14 @@ My personal GNU Emacs. The main config file is a =.org= named after *Odysseus*, 
 
 Current configuration focuses:
 
-- Writing
-- Note-taking
-- Academic research 
-- Translation
 - Coding
+- Note-taking
+- Writing
+- Translation
+- Academic research 
 - Remote Server Administration
 - Blogging
+- Emailing
 - IRC 
   
 /Contact me if you'd like to suggest a package. Always glad to learn new ones./
@@ -26,6 +27,7 @@ Current configuration focuses:
   - clang (c/c++)
   - sbcl (lisp)
   - virtualenv (python)
+  - ripgrep pcre2 (org-roam)
 - pip
   - jedi (python)
   - flake8 (python)
@@ -227,7 +229,7 @@ Current configuration focuses:
     :config
     (which-key-mode)
     :custom
-    which-key-idle-delay 0.5)
+    (which-key-idle-delay 0.5))
 
   (use-package swiper
     :ensure t
@@ -243,12 +245,12 @@ Current configuration focuses:
     :bind*
     ([remap other-window] . switch-window)
     :custom
-    switch-window-input-style 'minibuffer
-    switch-window-shortcut-style 'qwerty
-    switch-window-increase 4
-    switch-window-threshold 2
-    switch-window-qwerty-shortcuts
-    '("a" "s" "d" "f" "j" "k" "l" "i" "o"))
+    (switch-window-input-style 'minibuffer)
+    (switch-window-shortcut-style 'qwerty)
+    (switch-window-increase 4)
+    (switch-window-threshold 2)
+    (switch-window-qwerty-shortcuts
+     '("a" "s" "d" "f" "j" "k" "l" "i" "o")))
 
 
   (global-set-key (kbd "C-x b") 'ibuffer)
@@ -441,6 +443,8 @@ Current configuration focuses:
 
   (server-start)
 
+  ;; (global-auto-revert-mode 1) ; too heavy atm
+
   (defalias 'yes-or-no-p 'y-or-n-p)
 
   (use-package vertico
@@ -494,7 +498,7 @@ Current configuration focuses:
     :ensure t
     :diminish flycheck-mode
     :custom
-    flycheck-idle-change-delay 2)
+    (flycheck-idle-change-delay 2))
 #+END_SRC
 
 *** c/c++
@@ -739,6 +743,7 @@ Current configuration focuses:
     :ensure t
     :custom
     (org-ellipsis " ")
+    (org-use-speed-commands t)
     (org-src-fontify-natively t)
     (org-src-tab-acts-natively t)
     (org-confirm-babel-evaluate t)
@@ -749,41 +754,123 @@ Current configuration focuses:
     (org-babel-python-command "python3")
     (org-export-with-smart-quotes t)
     (org-src-window-setup 'current-window)
-    (org-todo-keywords '((sequence "TODO" "IN-PROGRESS" "WAITING" "DONE")))
-    :hook (org-mode . (lambda ()
-                        (visual-line-mode 1)
-                        (variable-pitch-mode 1)
-                        (org-indent-mode 1)
-                        (company-mode 1)
-                        (yas-minor-mode 1)))
-    :bind (("C-c '" . org-edit-src-code)
-           ("C-c a" . org-agenda)))
-
-  (use-package htmlize
-    :ensure t)
-
-  (use-package org-bullets
-    :ensure t
-    :custom
-    (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
+    (org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "WAITING(w@)" "|" "DONE(d!)" "CANCELED(c@/!)")
+                         (sequence "WRITING(wr!)" "REVISION I(r!)" "REVSION II(rr!)" "PROOFREADING(l!)" "|" "PUBLISHED(p!)")))
+    (org-todo-keyword-faces '(("CANCELED" . (:foreground "green-light"  :background "#4c3840" :weight bold))
+                              ("NEXT" . (:foreground "orange" :background "#4c3840" :weight bold))))
+    (org-agenda-start-with-log-mode t)
+    (org-log-done 'time)
+    (org-log-beginning t)
+    (org-log-into-drawer t)
+    (org-tag-alist '((:startgroup)
+                     ("darkstar" . ?d)
+                     ("life" . ?l)
+                     (:endgroup)
+                     ("translation" . ?t)))
+    (org-capture-templates '(("t" "Task" entry (file+headline "~/.orpheus/org/refile.org" "Task")
+                              (file "~/.emacs.d/local/org/task-template.org") :clock-in t :clock-resume t)
+                             ("m" "Meeting" entry (file+headline "~/.orpheus/org/refile.org" "Meeting")
+                              (file "~/.emacs.d/local/org/task-template.org") :clock-in t :clock-resume t)
+                             ("j" "Journal" entry (file+headline "~/.orpheus/org/refile.org" "Journal")
+                              (file "~/.emacs.d/local/org/task-template.org") :clock-in t :clock-resume t)))
+    (org-agenda-files '("~/.orpheus/org/"
+                        "~/.orpheus/org-roam/"))
     :hook
-    (org-mode-hook . org-bullets-mode))
+    (org-mode . (lambda ()
+                  (visual-line-mode 1)
+                  (variable-pitch-mode 1)
+                  (org-indent-mode 1)
+                  (company-mode 1)
+                  (yas-minor-mode 1)))
+    :bind (("C-c '" . org-edit-src-code)
+           ("C-c a" . org-agenda)
+           ("C-c c" . org-capture)))
 
   (use-package org-roam
     :ensure t
     :custom
     (org-roam-directory (file-truename "~/.orpheus/org-roam"))
-    (org-roam-mode-sections '(org-roam-backlinks-section
-                              org-roam-reflinks-section
-                              org-roam-unlinked-references-section))
+    (org-roam-mode-sections (list #'org-roam-backlinks-section
+                                  #'org-roam-reflinks-section
+                                  #'org-roam-unlinked-references-section))
+    (org-roam-capture-templates '(("p" "Project") 
+                                  ("pw" "Writing" plain (file "~/.emacs.d/local/org-roam/writing-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-writing-${slug}.org") :unnarrowed t :clock-in t :clock-resume t :jump-to-captured t :kill-buffer nil)
+                                  ("pp" "Presenting" plain (file "~/.emacs.d/local/org-roam/presenting-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-presenting-${slug}.org") :unnarrowed t)
+
+                                  ("c" "Capture")
+                                  ("cb" "Book" plain (file "~/.emacs.d/local/org-roam/book-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-book-${slug}.org") :unnarrowed t)
+                                  ("cm" "Movie" plain (file "~/.emacs.d/local/org-roam/movie-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-movie-${slug}.org") :unnarrowed t)				
+                                  ("cu" "Music" plain (file "~/.emacs.d/local/org-roam/music-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-music-${slug}.org") :unnarrowed t)
+                                  ("co" "Podcast" plain (file "~/.emacs.d/local/org-roam/podcast-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-podcast-${slug}.org") :unnarrowed t)				
+                                  ("cp" "Poem" plain (file "~/.emacs.d/local/org-roam/poem-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-poem-${slug}.org") :unnarrowed t)
+                                  ("cq" "Quote" plain (file "~/.emacs.d/local/org-roam/quote-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-quote-${slug}.org") :unnarrowed t)
+                                  ("ct" "Text" plain (file "~/.emacs.d/local/org-roam/text-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-text-${slug}.org") :unnarrowed t)
+                                  ("ch" "Theatre" plain (file "~/.emacs.d/local/org-roam/theatre-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-theatre-${slug}.org") :unnarrowed t)
+
+                                  ("n" "Note")
+                                  ("nc" "Class" plain (file "~/.emacs.d/local/org-roam/class-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-class-${slug}.org") :unnarrowed t)
+                                  ("no" "Convo" plain (file "~/.emacs.d/local/org-roam/convo-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-convo-${slug}.org") :unnarrowed t)
+                                  ("nu" "Course" plain (file "~/.emacs.d/local/org-roam/course-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-course-${slug}.org") :unnarrowed t)
+                                  ("nd" "Dream" plain (file "~/.emacs.d/local/org-roam/dream-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-dream-${slug}.org") :unnarrowed t)
+                                  ("ni" "Idea" plain (file "~/.emacs.d/local/org-roam/idea-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-idea-${slug}.org") :unnarrowed t)
+                                  ("ns" "Sprint" plain (file "~/.emacs.d/local/org-roam/sprint-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-sprint-${slug}.org") :unnarrowed t)
+                                  ("nz" "Zettel" plain (file "~/.emacs.d/local/org-roam/zettel-template.org")
+                                   :target (file "%<%Y%m%d%H%M%S>-zettel-${slug}.org") :unnarrowed t)))
     :config
     (org-roam-db-autosync-mode)
-    (setq org-roam-ui-sync-theme t
-          org-roam-ui-follow t
-          org-roam-ui-update-on-save t
-          org-roam-ui-open-on-start t))
+    (add-to-list 'display-buffer-alist
+                 '("\\*org-roam\\*"
+                   (display-buffer-in-direction)
+                   (direction . right)
+                   (window-width . 0.33)
+                   (window-height . fit-window-to-buffer)))
+    :bind
+    ("C-c n f" . 'org-roam-node-find)
+    ("C-c n i" . 'org-roam-node-insert)
+    ("C-c n r" . 'org-roam-ref-add)
+    ("C-c n t" . 'org-roam-tag-add)
+    ("C-c n c" . 'org-roam-capture)
+    ("C-c n n" . org-roam-buffer-toggle))
 
   (use-package org-roam-ui
+    :ensure t
+    :custom
+    (org-roam-ui-sync-theme t)
+    (org-roam-ui-follow t)
+    (org-roam-ui-update-on-save t)
+    (org-roam-ui-open-on-start t))
+
+  (use-package org-roam-bibtex
+    :ensure t)
+
+  (use-package helm-bibtex
+    :ensure t)
+
+  (use-package pdf-tools
+    :ensure t)
+
+  (use-package org-noter
+    :ensure t
+    :init
+    (require 'pdf-tools))
+
+  (use-package org-ref
     :ensure t)
 
   (use-package ox-twbs

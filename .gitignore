@@ -11,6 +11,8 @@ auto*
 *.html
 *.db
 *.eld
+*.data
 *~
+*#
 recent*
 .org-id*

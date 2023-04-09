@@ -39,13 +39,12 @@
  '(display-time-24hr-format t)
  '(display-time-format "%H:%M - %d %B %Y")
  '(line-number-mode t)
- '(org-agenda-files
-   '("/home/wolper/.orpheus/org/sysadmin.org" "/home/wolper/.orpheus/org/darkstar.org" "/home/wolper/.orpheus/org/emacs.org"))
  '(package-selected-packages
-   '(company-elisp helm-elisp company-sly sly helm-descbinds easy-hugo org-auto-tangle go-mode go-translate markdown-mode yaml-mode ox-reveal diminish erc-hl-nicks ox-twbs org-bullets htmlize sudo-edit magit love-minor-mode auto-complete company-shell company-jedi company-irony company-c-headers flycheck-clang-analyzer company flycheck yasnippet-snippets yasnippet popup-kill-ring zzz-to-char hungry-delete expand-region rainbow-delimiters beacon mark-multiple compat all-the-icons fountain-mode org-roam-ui org-roam rainbow-mode))
+   '(pdf-tools org-noter org-bibtex org-ref helm-bibtex company-elisp helm-elisp company-sly sly helm-descbinds easy-hugo org-auto-tangle go-mode go-translate markdown-mode yaml-mode ox-reveal diminish erc-hl-nicks ox-twbs org-bullets htmlize sudo-edit magit love-minor-mode auto-complete company-shell company-jedi company-irony company-c-headers flycheck-clang-analyzer company flycheck yasnippet-snippets yasnippet popup-kill-ring zzz-to-char hungry-delete expand-region rainbow-delimiters beacon mark-multiple compat all-the-icons fountain-mode rainbow-mode))
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8")
  '(powerline-default-separator 'arrow)
+ '(send-mail-function 'smtpmail-send-it)
  '(spaceline-buffer-encoding-abbrev-p nil t)
  '(spaceline-line-column-p nil t)
  '(spaceline-line-p nil t))
