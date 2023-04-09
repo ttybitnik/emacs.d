@@ -794,8 +794,135 @@ Current configuration focuses:
     :custom
     (org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js"))
 
+  (use-package org-bullets
+    :ensure t
+    :custom
+    (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
+    :hook
+    (org-mode-hook . org-bullets-mode))
 
-#+END_SRC 
+  (use-package htmlize
+    :ensure t)
+    
+#+END_SRC
+
+** Emailing
+#+BEGIN_SRC emacs-lisp
+  (use-package gnus
+    :ensure nil
+    :custom
+    (user-full-name "Vinícius Moraes") 
+    (user-mail-address "vinicius.moraes@eternodevir.com")
+    (message-signature "Vinícius Moraes\neternodevir.com")
+    (gnus-select-method '(nnimap "gmail"
+                                    (nnimap-address "imap.gmail.com")
+                                    (nnimap-server-port 993)
+                                    (nnimap-stream ssl)
+                                    (nnimap-authinfo-file "~/.emacs.d/auth/.authinfo.gpg")))
+    (message-send-mail-function 'smtpmail-send-it) ; talvez tirar
+    (smtpmail-smtp-server "smtp.gmail.com")
+    (smtpmail-smtp-service 587)
+    (gnus-secondary-select-methods '((nntp "news.gmane.io")))
+    ;; general
+    (gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
+    (message-cite-reply-position 'below)
+    (gnus-interactive-exit nil)
+    (gnus-gcc-mark-as-read t)
+    (gnus-agent t)
+    ;; (gnus-novice-user nil)           ; careful with this
+    (gnus-check-new-newsgroups 'ask-server)
+    (gnus-read-active-file 'some)
+    (gnus-agent-article-alist-save-format 1)  ; uncompressed
+    (gnus-agent-cache t)
+    (gnus-agent-confirmation-function 'y-or-n-p)
+    (gnus-agent-consider-all-articles nil)
+    (gnus-agent-directory "~/News/agent/")
+    (gnus-agent-enable-expiration 'ENABLE)
+    (gnus-agent-expire-days 30)
+    (gnus-agent-mark-unread-after-downloaded t)
+    (gnus-agent-queue-mail t)        ; queue if unplugged
+    (gnus-agent-synchronize-flags nil)
+    ;; group
+    (gnus-group-sort-function
+     '((gnus-group-sort-by-unread)
+       (gnus-group-sort-by-alphabet)
+       (gnus-group-sort-by-rank)))
+    (gnus-group-line-format "%M%p%P%5y:%B%(%g%)\n")
+    ;; (gnus-group-mode-line-format "%%b")
+    ;; summary
+    (gnus-auto-select-first nil)
+    (gnus-summary-ignore-duplicates t)
+    (gnus-suppress-duplicates t)
+    (gnus-save-duplicate-list t)
+    (gnus-summary-goto-unread nil)
+    (gnus-summary-make-false-root 'adopt)
+    (gnus-summary-thread-gathering-function
+     'gnus-gather-threads-by-subject)
+    (gnus-summary-gather-subject-limit 'fuzzy)
+    (gnus-thread-sort-functions
+     '((not gnus-thread-sort-by-date)
+       (not gnus-thread-sort-by-number)))
+    (gnus-subthread-sort-functions
+     'gnus-thread-sort-by-date)
+    (gnus-thread-hide-subtree nil)
+    (gnus-thread-ignore-subject nil)
+    (gnus-user-date-format-alist
+     '(((gnus-seconds-today) . "Today at %R")
+       ((+ (* 60 60 24) (gnus-seconds-today)) . "Yesterday, %R")
+       (t . "%Y-%m-%d %R")))
+    (gnus-summary-line-format "%U%R %-18,18&user-date; %-25,25f%4L   %B%S\n")
+    ;; (gnus-summary-mode-line-format "[%U] %p")
+    (gnus-sum-thread-tree-false-root "")
+    (gnus-sum-thread-tree-indent " ")
+    (gnus-sum-thread-tree-single-indent "")
+    (gnus-sum-thread-tree-leaf-with-other "+-> ")
+    (gnus-sum-thread-tree-root "")
+    (gnus-sum-thread-tree-single-leaf "\\-> ")
+    (gnus-sum-thread-tree-vertical "|")
+    ;;; article
+    (gnus-article-browse-delete-temp 'ask)
+    (gnus-article-over-scroll nil)
+    (gnus-article-show-cursor t)
+    (gnus-article-sort-functions
+     '((not gnus-article-sort-by-number)
+       (not gnus-article-sort-by-date)))
+    (gnus-article-truncate-lines nil)
+    (gnus-html-frame-width 80)
+    (gnus-html-image-automatic-caching t)
+    (gnus-inhibit-images t)
+    (gnus-max-image-proportion 0.7)
+    (gnus-treat-display-smileys nil)
+    ;; (gnus-article-mode-line-format "%G %S %m")
+    (gnus-visible-headers
+     '("^From:" "^To:" "^Cc:" "^Subject:" "^Newsgroups:" "^Date:"
+       "Followup-To:" "Reply-To:" "^Organization:" "^X-Newsreader:"
+       "^X-Mailer:"))
+    (gnus-sorted-header-list gnus-visible-headers)
+    (gnus-article-x-face-too-ugly ".*")
+    :bind
+    ("C-c g" . gnus)
+    :hook
+    ((dired-mode . gnus-dired-mode)
+     (gnus-group-mode . gnus-topic-mode)
+     (gnus-select-group . gnus-group-set-timestamp)
+     (gnus-group-mode . hl-line-mode)
+     (gnus-summary-mode . hl-line-mode)
+     (gnus-browse-mode . hl-line-mode)))
+
+  ;; useful options currently disabled
+  ;; (setq gnus-use-cache t)
+  ;; (setq message-citation-line-function nil)
+  ;; (setq message-ignored-cited-headers nil)  
+
+  (use-package epa-file
+    :ensure nil
+    :custom
+    (mm-verify-option 'always)
+    (mm-decrypt-option 'always)
+    (mm-sign-option 'guided)
+    :config
+    (epa-file-enable))
+#+END_SRC
 
 ** Instant messaging
 #+BEGIN_SRC emacs-lisp
