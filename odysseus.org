@@ -21,6 +21,33 @@ Current configuration focuses:
   
 /Contact me if you'd like to suggest a package. Always glad to learn new ones./
 
+** Table of Contents                                                   :TOC_3:
+  - [[#dependencies][Dependencies]]
+  - [[#dashboard-screen][Dashboard screen]]
+  - [[#display][Display]]
+  - [[#theme-customization][Theme customization]]
+  - [[#modeline][Modeline]]
+  - [[#moving-around-emacs][Moving around Emacs]]
+  - [[#minor-conveniences][Minor conveniences]]
+  - [[#text-manipulation][Text manipulation]]
+  - [[#functionality][Functionality]]
+  - [[#programming][Programming]]
+    - [[#cc][c/c++]]
+    - [[#python][python]]
+    - [[#lisp][lisp]]
+    - [[#shell][shell]]
+    - [[#go][go]]
+    - [[#yaml][yaml]]
+    - [[#markdown][markdown]]
+  - [[#org][Org]]
+  - [[#git-integration][Git integration]]
+  - [[#remote-editing][Remote editing]]
+  - [[#translation][Translation]]
+  - [[#blog][Blog]]
+  - [[#emailing][Emailing]]
+  - [[#instant-messaging][Instant messaging]]
+  - [[#diminish][Diminish]]
+
 ** Dependencies
 
 - packages
@@ -865,6 +892,9 @@ Current configuration focuses:
     (orgmdb-poster-folder "~/.orpheus/orgmdb"))
 
   (use-package htmlize
+    :ensure t)
+
+  (use-package toc-org
     :ensure t)
 
   (defun orgmdb-insert-movie-data/w0lper (&rest args)
