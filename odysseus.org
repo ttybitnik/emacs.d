@@ -248,12 +248,12 @@ Current configuration focuses:
   ;;   :ensure t
   ;;   :custom
   ;;   (ivy-use-virtual-buffers t)
-  ;;   (ivy-count-format "%d/%d")) ; deprecated in favor of helm
+  ;;   (ivy-count-format "%d/%d")) ; deprecated in favour of helm
 
   ;; (use-package vertico
   ;;   :ensure t
   ;;   :init
-  ;;   (vertico-mode 1)) ; deprecated in favor of helm
+  ;;   (vertico-mode 1)) ; deprecated in favour of helm
 
   (use-package which-key
     :ensure t
@@ -263,9 +263,9 @@ Current configuration focuses:
     :custom
     (which-key-idle-delay 0.5))
 
-  (use-package swiper
-    :ensure t
-    :bind ("C-s" . 'swiper))
+  ;; (use-package swiper
+  ;;   :ensure t
+  ;;   :bind ("C-s" . 'swiper)) ; deprecated in favour of helm-occur
 
   (use-package avy
     :ensure t
@@ -303,6 +303,7 @@ Current configuration focuses:
     ("C-x C-f" . 'helm-find-files)
     ("C-x C-b" . 'helm-buffers-list)
     ("M-x" . 'helm-M-x)
+    ("C-s" . helm-occur) 
     (:map helm-find-files-map
           ("C-b" . helm-find-files-up-one-level)
           ("C-f" . helm-execute-persistent-action))
