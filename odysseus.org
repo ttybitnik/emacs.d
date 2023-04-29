@@ -21,7 +21,7 @@ Current configuration focuses:
   
 /Contact me if you'd like to suggest a package. Always glad to learn new ones./
 
-** Table of Contents                                                   :TOC_3:
+** Table of contents                                                 :TOC_3:
   - [[#dependencies][Dependencies]]
   - [[#dashboard-screen][Dashboard screen]]
   - [[#display][Display]]
@@ -42,14 +42,14 @@ Current configuration focuses:
   - [[#org][Org]]
   - [[#git-integration][Git integration]]
   - [[#remote-editing][Remote editing]]
-  - [[#translation][Translation]]
   - [[#blog][Blog]]
+  - [[#writing][Writing]]
+  - [[#translation][Translation]]
   - [[#emailing][Emailing]]
   - [[#instant-messaging][Instant messaging]]
   - [[#diminish][Diminish]]
 
 ** Dependencies
-
 - packages
   - clang (c/c++)
   - sbcl (lisp)
@@ -968,19 +968,6 @@ Current configuration focuses:
     :ensure t)
 #+END_SRC
 
-** Translation
-#+BEGIN_SRC emacs-lisp
-  (use-package go-translate
-    :ensure t
-    :custom
-    (gts-translate-list '(("pt-br" "en")))
-    (gts-default-translator
-     (gts-translator
-      :picker (gts-noprompt-picker)
-      :engines (list (gts-google-engine))
-      :render (gts-buffer-render))))
-#+END_SRC
-
 ** Blog
 #+BEGIN_SRC emacs-lisp
   (use-package easy-hugo
@@ -995,6 +982,25 @@ Current configuration focuses:
           easy-hugo-default-ext ".org"
           easy-hugo-org-header t)
     :bind ("C-c h" . easy-hugo))
+#+END_SRC
+
+** Writing
+#+BEGIN_SRC emacs-lisp
+  (use-package fountain-mode
+    :ensure t)
+#+END_SRC
+
+** Translation
+#+BEGIN_SRC emacs-lisp
+  (use-package go-translate
+    :ensure t
+    :custom
+    (gts-translate-list '(("pt-br" "en")))
+    (gts-default-translator
+     (gts-translator
+      :picker (gts-noprompt-picker)
+      :engines (list (gts-google-engine))
+      :render (gts-buffer-render))))
 #+END_SRC
 
 ** Emailing
