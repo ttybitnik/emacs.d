@@ -398,6 +398,13 @@ Current configuration focuses:
 
   (use-package helm-descbinds
     :ensure t)
+
+  (use-package olivetti
+    :ensure t
+    :diminish olivetti-mode
+    :custom
+    olivetti-body-width '140
+    :bind ("C-c o" . olivetti-mode))
 #+END_SRC
 
 ** Text manipulation
