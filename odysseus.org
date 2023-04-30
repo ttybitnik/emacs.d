@@ -728,6 +728,7 @@ Current configuration focuses:
 #+BEGIN_SRC emacs-lisp
   (use-package org
     :ensure t
+    :pin gnu
     :custom
     (org-ellipsis " ")
     (org-use-speed-commands t)
@@ -858,8 +859,8 @@ Current configuration focuses:
   (use-package org-roam-bibtex
     :ensure t)
 
-  (use-package helm-bibtex
-    :ensure t)
+  ;; (use-package helm-bibtex
+  ;; :ensure t)
 
   (use-package pdf-tools
     :ensure t)

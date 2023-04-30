@@ -5,8 +5,7 @@
 ;;; remove SC if you are not using sunrise commander and org if you like outdated packages
 (setq package-archives '(("ELPA"  . "http://tromey.com/elpa/")
 			 ("gnu"   . "http://elpa.gnu.org/packages/")
-			 ("melpa" . "https://melpa.org/packages/")
-			 ("org"   . "https://orgmode.org/elpa/")))
+			 ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -40,7 +39,7 @@
  '(display-time-format "%H:%M - %d %B %Y")
  '(line-number-mode t)
  '(package-selected-packages
-   '(fountain-mode toc-org olivetti orgmdb pdf-tools org-noter org-bibtex org-ref helm-bibtex company-elisp helm-elisp company-sly sly helm-descbinds easy-hugo org-auto-tangle go-mode go-translate markdown-mode yaml-mode ox-reveal diminish erc-hl-nicks ox-twbs org-bullets htmlize sudo-edit magit love-minor-mode auto-complete company-shell company-jedi company-irony company-c-headers flycheck-clang-analyzer company flycheck yasnippet-snippets yasnippet popup-kill-ring zzz-to-char hungry-delete expand-region rainbow-delimiters beacon mark-multiple compat all-the-icons rainbow-mode))
+   '(org fountain-mode toc-org olivetti orgmdb pdf-tools org-noter org-bibtex org-ref helm-bibtex company-elisp helm-elisp company-sly sly helm-descbinds easy-hugo org-auto-tangle go-mode go-translate markdown-mode yaml-mode ox-reveal diminish erc-hl-nicks ox-twbs org-bullets htmlize sudo-edit magit love-minor-mode auto-complete company-shell company-jedi company-irony company-c-headers flycheck-clang-analyzer company flycheck yasnippet-snippets yasnippet popup-kill-ring zzz-to-char hungry-delete expand-region rainbow-delimiters beacon mark-multiple compat all-the-icons rainbow-mode))
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8")
  '(powerline-default-separator 'arrow)
