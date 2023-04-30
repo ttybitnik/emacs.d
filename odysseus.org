@@ -172,11 +172,6 @@ Current configuration focuses:
     (custom-theme-set-faces
      'zerodark
 
-     ;; battery
-     `(fancy-battery-charging ((,class (:background ,background-blue :height 1.0 :bold t))))
-     `(fancy-battery-discharging ((,class (:background ,background-blue :height 1.0))))
-     `(fancy-battery-critical ((,class (:background ,background-blue :height 1.0))))
-
      ;; dashboard
      `(dashboard-heading-face ((,class (:background ,background :foreground ,blue
                                                     :bold t :height 1.1))))
@@ -224,20 +219,6 @@ Current configuration focuses:
    '(display-time-24hr-format t)
    '(display-time-format "%H:%M - %d %B %Y"))
   (display-time-mode 1)
-
-  (use-package fancy-battery
-    :ensure t
-    :custom
-    (fancy-battery-show-percentage t)
-    (battery-update-interval 15)
-    :config
-    (if (display-graphic-p)
-        (fancy-battery-mode)
-      (display-battery-mode)))
-
-  (use-package symon
-    :ensure t
-    :bind ("s-y" . symon-mode))
 #+END_SRC
 
 ** Moving around Emacs
