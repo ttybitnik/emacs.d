@@ -5,9 +5,42 @@
 
 #+html: <p align="center"><img src="img/polytropos.png" /></p>
 
-My personal GNU Emacs. The main config file is a =.org= named after *Odysseus*, which is loaded through =init.el=. As you may have noticed, this is the configuration itself due org-mode literate programming capabilities. 
+This is my personal *GNU Emacs* configuration. The main configuration file is an =.org= file named after /Odysseus/, which is loaded through =init.el=. As you may have noticed, this is the configuration itself due to *org-mode* literate programming capabilities.
 
-Current configuration focuses:
+**** Table of contents                                             :TOC_4:
+  - [[#features][Features]]
+  - [[#dependencies][Dependencies]]
+  - [[#odysseus][Odysseus]]
+    - [[#dashboard-screen][Dashboard screen]]
+    - [[#display][Display]]
+    - [[#theme-customization][Theme customization]]
+    - [[#modeline][Modeline]]
+    - [[#moving-around-emacs][Moving around Emacs]]
+    - [[#minor-conveniences][Minor conveniences]]
+    - [[#text-manipulation][Text manipulation]]
+    - [[#functionality][Functionality]]
+    - [[#programming][Programming]]
+      - [[#cc][c/c++]]
+      - [[#python][python]]
+      - [[#lisp][lisp]]
+      - [[#shell][shell]]
+      - [[#go][go]]
+      - [[#yaml][yaml]]
+      - [[#markdown][markdown]]
+    - [[#org][Org]]
+    - [[#git-integration][Git integration]]
+    - [[#remote-editing][Remote editing]]
+    - [[#blog][Blog]]
+    - [[#writing][Writing]]
+    - [[#translation][Translation]]
+    - [[#emailing][Emailing]]
+    - [[#instant-messaging][Instant messaging]]
+    - [[#diminish][Diminish]]
+  - [[#license][License]]
+
+** Features
+
+The current configuration focuses on:
 
 - Coding
 - Note-taking
@@ -19,37 +52,10 @@ Current configuration focuses:
 - Emailing
 - IRC 
   
-/Contact me if you'd like to suggest a package. Always glad to learn new ones./
-
-** Table of contents                                                 :TOC_3:
-  - [[#dependencies][Dependencies]]
-  - [[#dashboard-screen][Dashboard screen]]
-  - [[#display][Display]]
-  - [[#theme-customization][Theme customization]]
-  - [[#modeline][Modeline]]
-  - [[#moving-around-emacs][Moving around Emacs]]
-  - [[#minor-conveniences][Minor conveniences]]
-  - [[#text-manipulation][Text manipulation]]
-  - [[#functionality][Functionality]]
-  - [[#programming][Programming]]
-    - [[#cc][c/c++]]
-    - [[#python][python]]
-    - [[#lisp][lisp]]
-    - [[#shell][shell]]
-    - [[#go][go]]
-    - [[#yaml][yaml]]
-    - [[#markdown][markdown]]
-  - [[#org][Org]]
-  - [[#git-integration][Git integration]]
-  - [[#remote-editing][Remote editing]]
-  - [[#blog][Blog]]
-  - [[#writing][Writing]]
-  - [[#translation][Translation]]
-  - [[#emailing][Emailing]]
-  - [[#instant-messaging][Instant messaging]]
-  - [[#diminish][Diminish]]
+/Contact me if you'd like to suggest a package. I'm always glad to learn about new ones./
 
 ** Dependencies
+
 - packages
   - clang (c/c++)
   - sbcl (lisp)
@@ -60,7 +66,8 @@ Current configuration focuses:
   - flake8 (python)
   - autopep8 (python)
 
-** Dashboard screen
+** Odysseus
+*** Dashboard screen
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-startup-message t)
 
@@ -94,7 +101,7 @@ Current configuration focuses:
     ("<f5>" . projectile-compile-project))
 #+END_SRC
 
-** Display
+*** Display
 #+BEGIN_SRC emacs-lisp
   (custom-theme-set-faces
    'user
@@ -128,7 +135,7 @@ Current configuration focuses:
       (add-hook 'prog-mode-hook 'hl-line-mode))
 #+END_SRC
 
-** Theme customization
+*** Theme customization
 #+BEGIN_SRC emacs-lisp
   (let ((class '((class color) (min-colors 89)))
         (default (if (true-color-p) "#abb2bf" "#afafaf"))
@@ -200,7 +207,7 @@ Current configuration focuses:
     (enable-theme 'zerodark))
 #+END_SRC
 
-** Modeline
+*** Modeline
 #+BEGIN_SRC emacs-lisp
   (use-package spaceline
     :ensure t
@@ -221,7 +228,7 @@ Current configuration focuses:
   (display-time-mode 1)
 #+END_SRC
 
-** Moving around Emacs
+*** Moving around Emacs
 #+BEGIN_SRC emacs-lisp
   (setq scroll-conservatively 100)
 
@@ -336,7 +343,7 @@ Current configuration focuses:
                                           kill-buffer-query-functions))
 #+END_SRC
 
-** Minor conveniences
+*** Minor conveniences
 #+BEGIN_SRC emacs-lisp
   (defun config-visit ()
     "Opens ~/.emacs.d/odysseus.org"
@@ -421,7 +428,7 @@ Current configuration focuses:
     ("C-c o" . olivetti-mode))
 #+END_SRC
 
-** Text manipulation
+*** Text manipulation
 #+BEGIN_SRC emacs-lisp
   (use-package mark-multiple
     :ensure t
@@ -458,7 +465,7 @@ Current configuration focuses:
   (global-set-key (kbd "C-c l k") 'kill-whole-line)
 #+END_SRC
 
-** Functionality
+*** Functionality
 #+BEGIN_SRC emacs-lisp
   (setf epa-pinentry-mode 'loopback)
   (setq auth-sources '("~/.emacs.d/auth/.authinfo.gpg"))
@@ -508,7 +515,7 @@ Current configuration focuses:
   (add-hook 'after-init-hook #'company-general/w0lper)
 #+END_SRC
 
-** Programming
+*** Programming
 #+BEGIN_SRC emacs-lisp
   (use-package yasnippet
     :ensure t
@@ -523,7 +530,7 @@ Current configuration focuses:
     (flycheck-idle-change-delay 2))
 #+END_SRC
 
-*** c/c++
+**** c/c++
 #+BEGIN_SRC emacs-lisp
   (add-hook 'c-mode-hook (lambda ()
                            (yas-minor-mode)
@@ -568,7 +575,7 @@ Current configuration focuses:
                                     company-yasnippet))))
 #+END_SRC
 
-*** python
+**** python
 #+BEGIN_SRC emacs-lisp
   (add-hook 'python-mode-hook (lambda ()
                                 (yas-minor-mode)
@@ -596,7 +603,7 @@ Current configuration focuses:
                                     company-yasnippet))))
 #+END_SRC
 
-*** lisp
+**** lisp
 #+BEGIN_SRC emacs-lisp
   (add-hook 'emacs-lisp-mode-hook (lambda ()
                                     (yas-minor-mode)
@@ -623,7 +630,7 @@ Current configuration focuses:
                                     company-yasnippet))))
 #+END_SRC
 
-*** shell
+**** shell
 #+BEGIN_SRC emacs-lisp
   (add-hook 'sh-mode-hook (lambda ()
                             (yas-minor-mode)
@@ -648,7 +655,7 @@ Current configuration focuses:
                                     company-yasnippet))))
 #+END_SRC
 
-*** go
+**** go
 #+BEGIN_SRC emacs-lisp
   (add-hook 'go-mode-hook (lambda ()
                             (yas-minor-mode)
@@ -669,7 +676,7 @@ Current configuration focuses:
                                     company-yasnippet))))
 #+END_SRC
 
-*** yaml
+**** yaml
 #+BEGIN_SRC emacs-lisp
   (add-hook 'yaml-mode-hook (lambda ()
                               (yas-minor-mode)
@@ -690,7 +697,7 @@ Current configuration focuses:
                                     company-yasnippet))))
 #+END_SRC
 
-*** markdown
+**** markdown
 #+BEGIN_SRC emacs-lisp
   (add-hook 'markdown-mode-hook (lambda ()
                                   (yas-minor-mode)
@@ -711,7 +718,7 @@ Current configuration focuses:
                                     company-yasnippet))))
 #+END_SRC
 
-** Org
+*** Org
 #+BEGIN_SRC emacs-lisp
   (use-package org
     :ensure t
@@ -945,7 +952,7 @@ Current configuration focuses:
       (org-display-inline-images)))
 #+END_SRC
 
-** Git integration
+*** Git integration
 #+BEGIN_SRC emacs-lisp
   (use-package magit
     :ensure t
@@ -956,7 +963,7 @@ Current configuration focuses:
     ("M-g" . magit-status))
 #+END_SRC
 
-** Remote editing
+*** Remote editing
 #+BEGIN_SRC emacs-lisp
   (setq tramp-default-method "ssh")
 
@@ -964,7 +971,7 @@ Current configuration focuses:
     :ensure t)
 #+END_SRC
 
-** Blog
+*** Blog
 #+BEGIN_SRC emacs-lisp
   (use-package easy-hugo
     :ensure t
@@ -981,13 +988,13 @@ Current configuration focuses:
     ("C-c h" . easy-hugo))
 #+END_SRC
 
-** Writing
+*** Writing
 #+BEGIN_SRC emacs-lisp
   (use-package fountain-mode
     :ensure t)
 #+END_SRC
 
-** Translation
+*** Translation
 #+BEGIN_SRC emacs-lisp
   (use-package go-translate
     :ensure t
@@ -1004,7 +1011,7 @@ Current configuration focuses:
     ("C-c t" . gts-do-translate))
 #+END_SRC
 
-** Emailing
+*** Emailing
 #+BEGIN_SRC emacs-lisp
   (use-package gnus
     :ensure nil
@@ -1122,7 +1129,7 @@ Current configuration focuses:
     (epa-file-enable))
 #+END_SRC
 
-** Instant messaging
+*** Instant messaging
 #+BEGIN_SRC emacs-lisp
   (use-package erc
     :custom
@@ -1197,7 +1204,7 @@ Current configuration focuses:
     (erc-update-mode-line))
 #+END_SRC
 
-** Diminish
+*** Diminish
 #+BEGIN_SRC emacs-lisp
   (use-package diminish
     :ensure t
@@ -1210,3 +1217,9 @@ Current configuration focuses:
   (eval-after-load 'face-remap '(diminish 'buffer-face-mode))
   (eval-after-load 'autorevert '(diminish 'auto-revert-mode))
 #+END_SRC
+
+** License
+
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0), unless an exception is made explicit in context. The GPL is a copyleft license that guarantees the freedom to use, modify, and distribute software. It ensures that users have control over the software they use and promotes collaboration and sharing of knowledge. By requiring that derivative works of GPL-licensed software also be licensed under the GPL, the license ensures that the freedoms it provides are extended to future generations of users and developers.
+
+See the =LICENSE= file for more information.
