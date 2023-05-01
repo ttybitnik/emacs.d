@@ -246,7 +246,8 @@ Current configuration focuses:
 
   ;; (use-package swiper
   ;;   :ensure t
-  ;;   :bind ("C-s" . 'swiper)) ; deprecated in favour of helm-occur
+  ;;   :bind
+  ;;   ("C-s" . 'swiper)) ; deprecated in favour of helm-occur
 
   (use-package avy
     :ensure t
@@ -386,7 +387,8 @@ Current configuration focuses:
 
   (use-package expand-region
     :ensure t
-    :bind ("C-q" . er/expand-region))
+    :bind
+    ("C-q" . er/expand-region))
 
 
   (use-package hungry-delete
@@ -397,13 +399,15 @@ Current configuration focuses:
 
   (use-package zzz-to-char
     :ensure t
-    :bind ("M-z" . zzz-to-char))
+    :bind
+    ("M-z" . zzz-to-char))
 
   (setq kill-ring-max 100)
 
   (use-package popup-kill-ring
     :ensure t
-    :bind ("M-y" . popup-kill-ring))
+    :bind
+    ("M-y" . popup-kill-ring))
 
   (use-package helm-descbinds
     :ensure t)
@@ -413,14 +417,16 @@ Current configuration focuses:
     :diminish olivetti-mode
     :custom
     olivetti-body-width '140
-    :bind ("C-c o" . olivetti-mode))
+    :bind
+    ("C-c o" . olivetti-mode))
 #+END_SRC
 
 ** Text manipulation
 #+BEGIN_SRC emacs-lisp
   (use-package mark-multiple
     :ensure t
-    :bind ("C-c q" . 'mark-next-like-this))
+    :bind
+    ("C-c q" . 'mark-next-like-this))
 
   (defun kill-inner-word/daedreth ()
     "Kills the entire word your cursor is in. Equivalent to 'ciw' in vim."
@@ -742,14 +748,15 @@ Current configuration focuses:
                      ("reading" . ?r)
                      ("translation" . ?t)
                      ("music" . ?m)))
-    (org-capture-templates '(("t" "Task" entry (file+headline "~/.orpheus/org-agenda/refile.org" "Tasks")
-                              (file "~/.emacs.d/local/org/task-template.org") :clock-in t :clock-resume t)
-                             ("m" "Meeting" entry (file+headline "~/.orpheus/org-agenda/refile.org" "Meetings")
-                              (file "~/.emacs.d/local/org/meeting-template.org") :clock-in t :clock-resume t)
-                             ("n" "Notes" entry (file+headline "~/.orpheus/org-agenda/refile.org" "Notes")
-                              (file "~/.emacs.d/local/org/note-template.org") :clock-in t :clock-resume t)
-                               ("j" "Journal" entry (file+olp+datetree "~/.orpheus/org-agenda/journal.org")
-                              (file "~/.emacs.d/local/org/journal-template.org") :clock-in t :clock-resume t)))
+    (org-capture-templates
+     '(("t" "Task" entry (file+headline "~/.orpheus/org-agenda/refile.org" "Tasks")
+        (file "~/.emacs.d/local/org/task-template.org") :clock-in t :clock-resume t)
+       ("m" "Meeting" entry (file+headline "~/.orpheus/org-agenda/refile.org" "Meetings")
+        (file "~/.emacs.d/local/org/meeting-template.org") :clock-in t :clock-resume t)
+       ("n" "Notes" entry (file+headline "~/.orpheus/org-agenda/refile.org" "Notes")
+        (file "~/.emacs.d/local/org/note-template.org") :clock-in t :clock-resume t)
+       ("j" "Journal" entry (file+olp+datetree "~/.orpheus/org-agenda/journal.org")
+        (file "~/.emacs.d/local/org/journal-template.org") :clock-in t :clock-resume t)))
     (org-agenda-files '("~/.orpheus/org-agenda/"))
     (org-refile-targets '((nil :maxlevel . 1)
                           (org-agenda-files :maxlevel . 1))) 
@@ -760,9 +767,10 @@ Current configuration focuses:
                   (org-indent-mode 1)
                   (company-mode 1)
                   (yas-minor-mode 1)))
-    :bind (("C-c '" . org-edit-src-code)
-           ("C-c a" . org-agenda)
-           ("C-c c" . org-capture)))
+    :bind
+    ("C-c '" . org-edit-src-code)
+    ("C-c a" . org-agenda)
+    ("C-c c" . org-capture))
 
   (use-package org-roam
     :ensure t
@@ -771,48 +779,50 @@ Current configuration focuses:
     (org-roam-mode-sections (list #'org-roam-backlinks-section
                                   #'org-roam-reflinks-section
                                   #'org-roam-unlinked-references-section))
-    (org-roam-capture-templates '(("p" "Project") 
-                                  ("pw" "Writing" plain (file "~/.emacs.d/local/org-roam/writing-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-writing-${slug}.org") :unnarrowed t :clock-in t :clock-resume t :jump-to-captured t :kill-buffer nil)
-                                  ("pp" "Presenting" plain (file "~/.emacs.d/local/org-roam/presenting-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-presenting-${slug}.org") :unnarrowed t :clock-in t :clock-resume t :jump-to-captured t :kill-buffer nil)
+    (org-roam-capture-templates
+     '(("p" "Project")
+       ("pw" "Writing" plain (file "~/.emacs.d/local/org-roam/writing-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-writing-${slug}.org") :unnarrowed t :clock-in t :clock-resume t :jump-to-captured t :kill-buffer nil)
+       ("pp" "Presenting" plain (file "~/.emacs.d/local/org-roam/presenting-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-presenting-${slug}.org") :unnarrowed t :clock-in t :clock-resume t :jump-to-captured t :kill-buffer nil)
 
-                                  ("c" "Capture")
-                                  ("cb" "Book" plain (file "~/.emacs.d/local/org-roam/book-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-book-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
-                                  ("cm" "Movie" plain (file "~/.emacs.d/local/org-roam/movie-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-movie-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)				
-                                  ("cu" "Music" plain (file "~/.emacs.d/local/org-roam/music-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-music-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
-                                  ("co" "Podcast" plain (file "~/.emacs.d/local/org-roam/podcast-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-podcast-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)				
-                                  ("cp" "Poem" plain (file "~/.emacs.d/local/org-roam/poem-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-poem-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
-                                  ("cq" "Quote" plain (file "~/.emacs.d/local/org-roam/quote-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-quote-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
-                                  ("ct" "Text" plain (file "~/.emacs.d/local/org-roam/text-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-text-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
-                                  ("ch" "Theatre" plain (file "~/.emacs.d/local/org-roam/theatre-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-theatre-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("c" "Capture")
+       ("cb" "Book" plain (file "~/.emacs.d/local/org-roam/book-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-book-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("cm" "Movie" plain (file "~/.emacs.d/local/org-roam/movie-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-movie-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("cu" "Music" plain (file "~/.emacs.d/local/org-roam/music-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-music-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("co" "Podcast" plain (file "~/.emacs.d/local/org-roam/podcast-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-podcast-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("cp" "Poem" plain (file "~/.emacs.d/local/org-roam/poem-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-poem-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("cq" "Quote" plain (file "~/.emacs.d/local/org-roam/quote-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-quote-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("ct" "Text" plain (file "~/.emacs.d/local/org-roam/text-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-text-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("ch" "Theatre" plain (file "~/.emacs.d/local/org-roam/theatre-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-theatre-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
 
-                                  ("n" "Note")
-                                  ("nc" "Class" plain (file "~/.emacs.d/local/org-roam/class-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-class-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
-                                  ("no" "Convo" plain (file "~/.emacs.d/local/org-roam/convo-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-convo-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
-                                  ("nu" "Course" plain (file "~/.emacs.d/local/org-roam/course-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-course-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
-                                  ("nd" "Dream" plain (file "~/.emacs.d/local/org-roam/dream-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-dream-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
-                                  ("ni" "Idea" plain (file "~/.emacs.d/local/org-roam/idea-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-idea-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
-                                  ("ns" "Sprint" plain (file "~/.emacs.d/local/org-roam/sprint-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-sprint-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
-                                  ("nz" "Zettel" plain (file "~/.emacs.d/local/org-roam/zettel-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-zettel-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("n" "Note")
+       ("nc" "Class" plain (file "~/.emacs.d/local/org-roam/class-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-class-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("no" "Convo" plain (file "~/.emacs.d/local/org-roam/convo-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-convo-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("nu" "Course" plain (file "~/.emacs.d/local/org-roam/course-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-course-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("nd" "Dream" plain (file "~/.emacs.d/local/org-roam/dream-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-dream-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("ni" "Idea" plain (file "~/.emacs.d/local/org-roam/idea-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-idea-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("ns" "Sprint" plain (file "~/.emacs.d/local/org-roam/sprint-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-sprint-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("nz" "Zettel" plain (file "~/.emacs.d/local/org-roam/zettel-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-zettel-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
 
-                                  ("i" "Index" plain (file "~/.emacs.d/local/org-roam/index-template.org")
-                                   :target (file "%<%Y%m%d%H%M%S>-index-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)))
+       ("i" "Index" plain (file "~/.emacs.d/local/org-roam/index-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-index-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)))
+
     :config
     (org-roam-db-autosync-mode)
     (add-to-list 'display-buffer-alist
@@ -827,7 +837,8 @@ Current configuration focuses:
     ("C-c n r" . 'org-roam-ref-add)
     ("C-c n t" . 'org-roam-tag-add)
     ("C-c n c" . 'org-roam-capture)
-    ("C-c n n" . org-roam-buffer-toggle))
+    ("C-c n n" . org-roam-buffer-toggle)
+    ("C-c n a" . org-roam-alias-add))
 
   (use-package org-roam-ui
     :ensure t
@@ -835,10 +846,12 @@ Current configuration focuses:
     (org-roam-ui-sync-theme t)
     (org-roam-ui-follow t)
     (org-roam-ui-update-on-save t)
-    (org-roam-ui-open-on-start t))
+    (org-roam-ui-open-on-start t)
+    :bind
+    ("C-c n u" . org-roam-ui-mode))
 
-  (use-package org-roam-bibtex
-    :ensure t)
+  ;; (use-package org-roam-bibtex
+  ;;   :ensure t)
 
   ;; (use-package helm-bibtex
   ;; :ensure t)
@@ -964,7 +977,8 @@ Current configuration focuses:
           easy-hugo-previewtime "300"
           easy-hugo-default-ext ".org"
           easy-hugo-org-header t)
-    :bind ("C-c h" . easy-hugo))
+    :bind
+    ("C-c h" . easy-hugo))
 #+END_SRC
 
 ** Writing
@@ -978,12 +992,16 @@ Current configuration focuses:
   (use-package go-translate
     :ensure t
     :custom
-    (gts-translate-list '(("pt-br" "en")))
+    (gts-translate-list '(("pt-br" "en")
+                          ("en" "de")
+                          ("en""fr")))
     (gts-default-translator
      (gts-translator
       :picker (gts-noprompt-picker)
       :engines (list (gts-google-engine))
-      :render (gts-buffer-render))))
+      :render (gts-buffer-render)))
+    :bind
+    ("C-c t" . gts-do-translate))
 #+END_SRC
 
 ** Emailing
