@@ -1,0 +1,1 @@
+/home/wolper/.emacs.d/local/switcher-day.el

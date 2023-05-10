@@ -78,16 +78,19 @@ The current configuration focuses on:
     (add-hook 'dashboard-mode-hook 'variable-pitch-mode)
     (setq initial-buffer-choice (lambda () (dashboard-refresh-buffer) (get-buffer "*dashboard*")))
     :custom
-    (dashboard-startup-banner "~/.emacs.d/img/dashLogo.png")
+    ;; (dashboard-startup-banner "~/.emacs.d/img/dashLogo.png")
     (dashboard-items '((recents . 5)
                        (projects . 5)
                        (bookmarks . 5)
-                       (agenda . 3)))
+                       (agenda . 5)))
     (dashboard-center-content t)
     (dashboard-set-file-icons t)
     (dashboard-banner-logo-title "Welcome back, w0lper!")
     (dashboard-agenda-sort-strategy '(time-up))
-    (dashboard-agenda-prefix-format "%i %-12:c %s "))
+    (dashboard-agenda-prefix-format "%i %-12:c %s ")
+    (dashboard-agenda-tags-format 'ignore)
+    :config
+    (add-hook 'server-after-make-frame-hook #'dashboard-refresh-buffer))
 
   (use-package all-the-icons
     :ensure t)
@@ -112,16 +115,18 @@ The current configuration focuses on:
    '(org-table ((t (:inherit fixed-pitch))))
    '(org-indent ((t (:inherit (org-hide fixed-pitch))))))
 
-  (use-package zerodark-theme
+  (use-package gruvbox-theme
     :ensure t
     :config
-    (load-theme 'zerodark t))
+    (load-file "~/.emacs.d/local/switcher.el"))
 
   (setq visible-bell t)
+
   (when (display-graphic-p)
     (tool-bar-mode -1)
     (menu-bar-mode -1)
-    (scroll-bar-mode -1))
+    (scroll-bar-mode -1)
+    (fringe-mode 1))
 
   (setq locale-coding-system 'utf-8
         default-file-name-coding-system 'utf-8
@@ -137,6 +142,18 @@ The current configuration focuses on:
 
 *** Theme customization
 #+BEGIN_SRC emacs-lisp
+  (custom-set-faces
+   '(fringe ((t (:background "burlywood4"))))
+
+   '(org-level-1 ((t (:height 1.5))))
+   '(org-level-2 ((t (:height 1.4))))
+   '(org-level-3 ((t (:height 1.3))))
+   '(org-level-4 ((t (:height 1.2))))
+   '(org-level-5 ((t (:height 1.1))))
+   '(org-level-6 ((t (:height 1.1))))
+   '(org-level-7 ((t (:height 1.1))))
+   '(org-level-8 ((t (:height 1.1))))
+   '(dashboard-heading-face ((t (:inherit font-lock-keyword-face :height 1.1)))))
 #+END_SRC
 
 *** Modeline
@@ -147,8 +164,8 @@ The current configuration focuses on:
     (require 'spaceline-config)
     (custom-set-variables
      '(spaceline-buffer-encoding-abbrev-p nil)
-     '(spaceline-line-column-p nil)
-     '(spaceline-line-p nil)
+     '(spaceline-line-column-p t)
+     '(spaceline-line-p t)
      '(powerline-default-separator (quote arrow)))
     (spaceline-spacemacs-theme))
 
@@ -670,9 +687,9 @@ The current configuration focuses on:
     (org-src-window-setup 'current-window)
     (org-todo-keywords '((sequence "TODO(t!)" "NEXT(n!)" "WAITING(w@/!)" "|" "DONE(d!)" "CANCELED(c@/!)" "MEETING(m!)")
                          (sequence "WRITING(wr!)" "REVISION I(r!)" "REVSION II(rr!)" "PROOFREADING(l!)" "|" "PUBLISHED(p!)")))
-    (org-todo-keyword-faces '(("CANCELED" . (:foreground "green-light"  :background "#4c3840" :weight bold))
-                              ("MEETING" . (:foreground "pink"  :background "#4c3840" :weight bold))
-                              ("NEXT" . (:foreground "orange" :background "#4c3840" :weight bold))))
+    (org-todo-keyword-faces '(("CANCELED" . (:foreground "bright_green" :weight bold))
+                              ("MEETING" . (:foreground "blue" :weight bold))
+                              ("NEXT" . (:foreground "orange" :weight bold))))
     (org-agenda-start-with-log-mode t)
     (org-log-done 'time)
     (org-log-into-drawer t)
@@ -764,12 +781,6 @@ The current configuration focuses on:
 
     :config
     (org-roam-db-autosync-mode)
-    (add-to-list 'display-buffer-alist
-                 '("\\*org-roam\\*"
-                   (display-buffer-in-direction)
-                   (direction . right)
-                   (window-width . 0.33)
-                   (window-height . fit-window-to-buffer)))
     :bind
     ("C-c n f" . 'org-roam-node-find)
     ("C-c n i" . 'org-roam-node-insert)
@@ -786,6 +797,13 @@ The current configuration focuses on:
     (org-roam-ui-follow t)
     (org-roam-ui-update-on-save t)
     (org-roam-ui-open-on-start t)
+    :config
+    (add-to-list 'display-buffer-alist
+                 '("\\*org-roam\\*"
+                   (display-buffer-in-direction)
+                   (direction . right)
+                   (window-width . 0.33)
+                   (window-height . fit-window-to-buffer)))
     :bind
     ("C-c n u" . org-roam-ui-mode))
 
@@ -959,7 +977,7 @@ The current configuration focuses on:
     (message-send-mail-function 'smtpmail-send-it)
     (smtpmail-smtp-server "smtp.gmail.com")
     (smtpmail-smtp-service 587)
-    (gnus-secondary-select-methods '((nntp "news.gmane.io")))
+    (gnus-secondary-select-methods '((nntp "news.gmane.io"))) ;; alt (nntp "news.gwene.org")
     ;; general
     (gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
     (message-cite-reply-position 'below)
@@ -1148,6 +1166,7 @@ The current configuration focuses on:
   (eval-after-load 'org-indent '(diminish 'org-indent-mode))
   (eval-after-load 'face-remap '(diminish 'buffer-face-mode))
   (eval-after-load 'autorevert '(diminish 'auto-revert-mode))
+  (eval-after-load 'dashboard '(dashboard-refresh-buffer))
 #+END_SRC
 
 ** License
