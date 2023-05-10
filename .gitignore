@@ -7,7 +7,6 @@ eshell
 tramp
 transient
 url
-local/switcher.el
 auto*
 *.html
 *.db
@@ -17,3 +16,4 @@ auto*
 *#
 recent*
 .org-id*
+/local/switcher.el
