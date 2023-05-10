@@ -1,1 +1,1 @@
-/home/wolper/.emacs.d/local/switcher-day.el
+/home/wolper/.emacs.d/local/switcher-night.el
