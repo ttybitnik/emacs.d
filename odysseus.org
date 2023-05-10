@@ -76,9 +76,7 @@ The current configuration focuses on:
     :init
     (dashboard-setup-startup-hook)
     (add-hook 'dashboard-mode-hook 'variable-pitch-mode)
-    (setq initial-buffer-choice (lambda () (dashboard-refresh-buffer) (get-buffer "*dashboard*")))
     :custom
-    ;; (dashboard-startup-banner "~/.emacs.d/img/dashLogo.png")
     (dashboard-items '((recents . 5)
                        (projects . 5)
                        (bookmarks . 5)
@@ -89,8 +87,8 @@ The current configuration focuses on:
     (dashboard-agenda-sort-strategy '(time-up))
     (dashboard-agenda-prefix-format "%i %-12:c %s ")
     (dashboard-agenda-tags-format 'ignore)
-    :config
-    (add-hook 'server-after-make-frame-hook #'dashboard-refresh-buffer))
+    :bind
+    ("C-c d" . dashboard-open))
 
   (use-package all-the-icons
     :ensure t)
@@ -1166,7 +1164,7 @@ The current configuration focuses on:
   (eval-after-load 'org-indent '(diminish 'org-indent-mode))
   (eval-after-load 'face-remap '(diminish 'buffer-face-mode))
   (eval-after-load 'autorevert '(diminish 'auto-revert-mode))
-  (eval-after-load 'dashboard '(dashboard-refresh-buffer))
+  (eval-after-load 'dashboard '(progn (dashboard-refresh-buffer)(dashboard-refresh-buffer)))
 #+END_SRC
 
 ** License
