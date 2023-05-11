@@ -158,21 +158,14 @@ The current configuration focuses on:
 #+BEGIN_SRC emacs-lisp
   (use-package spaceline
     :ensure t
+    :init
+    (add-hook 'emacs-startup-hook #'spaceline-toggle-line-column-on)
+    :custom
+    (display-time-format "%H:%M - %d %B %Y")
+    (display-time-mode 1)
     :config
-    (require 'spaceline-config)
-    (custom-set-variables
-     '(spaceline-buffer-encoding-abbrev-p nil)
-     '(spaceline-line-column-p t)
-     '(spaceline-line-p t)
-     '(powerline-default-separator (quote arrow)))
-    (spaceline-spacemacs-theme))
-
-  (custom-set-variables
-   '(line-number-mode t)
-   '(column-number-mode t)
-   '(display-time-24hr-format t)
-   '(display-time-format "%H:%M - %d %B %Y"))
-  (display-time-mode 1)
+    (spaceline-spacemacs-theme)
+    (spaceline-helm-mode))
 #+END_SRC
 
 *** Moving around Emacs
