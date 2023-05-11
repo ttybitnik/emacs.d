@@ -124,7 +124,7 @@ The current configuration focuses on:
     (tool-bar-mode -1)
     (menu-bar-mode -1)
     (scroll-bar-mode -1)
-    (fringe-mode 1))
+    (fringe-mode 0))
 
   (setq locale-coding-system 'utf-8
         default-file-name-coding-system 'utf-8
@@ -228,7 +228,7 @@ The current configuration focuses on:
     :ensure t
     :diminish linum-relative-mode
     :custom
-    (linum-relative-current-symbol "")
+    (linum-relative-backend 'display-line-numbers-mode) 
     :hook
     (prog-mode . linum-relative-mode))
 
