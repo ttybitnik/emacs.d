@@ -770,7 +770,15 @@ The current configuration focuses on:
         :target (file "%<%Y%m%d%H%M%S>-index-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)))
 
     :config
-    (org-roam-db-autosync-mode)
+    ;; (org-roam-db-autosync-mode) too resource intensive
+    (add-to-list 'display-buffer-alist
+                 '("\\*org-roam\\*"
+                   (display-buffer-in-direction)
+                   (direction . right)
+                   (window-width . 0.33)
+                   (window-height . fit-window-to-buffer)))
+    :hook
+    (kill-emacs-hook . org-roam-db-sync)
     :bind
     ("C-c n f" . 'org-roam-node-find)
     ("C-c n i" . 'org-roam-node-insert)
@@ -778,7 +786,8 @@ The current configuration focuses on:
     ("C-c n t" . 'org-roam-tag-add)
     ("C-c n c" . 'org-roam-capture)
     ("C-c n n" . org-roam-buffer-toggle)
-    ("C-c n a" . org-roam-alias-add))
+    ("C-c n a" . org-roam-alias-add)
+    ("C-c n s" . org-roam-db-sync))
 
   (use-package org-roam-ui
     :ensure t
@@ -787,13 +796,6 @@ The current configuration focuses on:
     (org-roam-ui-follow t)
     (org-roam-ui-update-on-save t)
     (org-roam-ui-open-on-start t)
-    :config
-    (add-to-list 'display-buffer-alist
-                 '("\\*org-roam\\*"
-                   (display-buffer-in-direction)
-                   (direction . right)
-                   (window-width . 0.33)
-                   (window-height . fit-window-to-buffer)))
     :bind
     ("C-c n u" . org-roam-ui-mode))
 
