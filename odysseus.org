@@ -1,4 +1,4 @@
-#+TITLE: GNU Emacs.w0lper
+#+TITLE: GNU Emacs.ttybitnik
 #+AUTHOR: Vinicius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+OPTIONS: num:nil
@@ -83,7 +83,7 @@ The current configuration focuses on:
                        (agenda . 5)))
     (dashboard-center-content t)
     (dashboard-set-file-icons t)
-    (dashboard-banner-logo-title "Welcome back, w0lper!")
+    (dashboard-banner-logo-title "Welcome back, ttybitnik!")
     (dashboard-agenda-sort-strategy '(time-up))
     (dashboard-agenda-prefix-format "%i %-12:c %s ")
     (dashboard-agenda-tags-format 'ignore)
@@ -437,7 +437,7 @@ The current configuration focuses on:
 
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "<tab>")
-      (defun fix-company-tab/w0lper ()
+      (defun fix-company-tab/ttybitnik ()
         "Fix `company-yasnippet' interaction with `yas-expand' command."
         (interactive)
         (when (null (yas-expand))
@@ -445,13 +445,13 @@ The current configuration focuses on:
     (define-key company-active-map (kbd "C-s") #'company-filter-candidates)
     (define-key company-active-map (kbd "C-M-s") #'company-search-candidates))
 
-  (defun company-general/w0lper ()
+  (defun company-general/ttybitnik ()
     "Set up `company-mode' for general usage."
     (setq-local company-backends '((company-dabbrev
                                     company-file
                                     company-yasnippet))))
 
-  (add-hook 'after-init-hook #'company-general/w0lper)
+  (add-hook 'after-init-hook #'company-general/ttybitnik)
 #+END_SRC
 
 *** Programming
@@ -475,7 +475,7 @@ The current configuration focuses on:
                            (yas-minor-mode)
                            (flycheck-mode)
                            (company-mode)
-                           (company-c-mode/w0lper)
+                           (company-c-mode/ttybitnik)
                            (irony-mode)))
 
   (use-package flycheck-clang-analyzer
@@ -501,7 +501,7 @@ The current configuration focuses on:
     :hook
     (irony-mode-hook . irony-cdb-autosetup-compile-options))
 
-  (defun company-c-mode/w0lper ()
+  (defun company-c-mode/ttybitnik ()
     "Set up `company-mode' for `c-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-clang
@@ -520,7 +520,7 @@ The current configuration focuses on:
                                 (yas-minor-mode)
                                 (flycheck-mode)
                                 (company-mode)
-                                (company-python-mode/w0lper)))
+                                (company-python-mode/ttybitnik)))
 
   (setq python-shell-interpreter "python3")
 
@@ -531,7 +531,7 @@ The current configuration focuses on:
     :custom
     (jedi:complete-on-dot t))
 
-  (defun company-python-mode/w0lper ()
+  (defun company-python-mode/ttybitnik ()
     "Set up `company-mode' for `python-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-jedi
@@ -548,7 +548,7 @@ The current configuration focuses on:
                                     (yas-minor-mode)
                                     ;; (flycheck-mode)
                                     (company-mode)
-                                    (company-lisp-mode/w0lper)
+                                    (company-lisp-mode/ttybitnik)
                                     (eldoc-mode)))
 
   (use-package sly
@@ -558,7 +558,7 @@ The current configuration focuses on:
     (add-to-list 'sly-contribs 'sly-autodoc)
     (add-to-list 'sly-contribs 'sly-fancy))
 
-  (defun company-lisp-mode/w0lper ()
+  (defun company-lisp-mode/ttybitnik ()
     "Set up `company-mode' for `lisp-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-elisp
@@ -575,14 +575,14 @@ The current configuration focuses on:
                             (yas-minor-mode)
                             (flycheck-mode)
                             (company-mode)
-                            (company-sh-mode/w0lper)))
+                            (company-sh-mode/ttybitnik)))
 
   (use-package company-shell
     :ensure t
     :init
     (require 'company))
 
-  (defun company-sh-mode/w0lper ()
+  (defun company-sh-mode/ttybitnik ()
     "Set up `company-mode' for `sh-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-shell
@@ -600,12 +600,12 @@ The current configuration focuses on:
                             (yas-minor-mode)
                             (flycheck-mode)
                             (company-mode)
-                            (company-go-mode/w0lper)))
+                            (company-go-mode/ttybitnik)))
 
   (use-package go-mode
     :ensure t)
 
-  (defun company-go-mode/w0lper ()
+  (defun company-go-mode/ttybitnik ()
     "Set up `company-mode' for `go-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-capf
@@ -621,12 +621,12 @@ The current configuration focuses on:
                               (yas-minor-mode)
                               (flycheck-mode)
                               (company-mode)
-                              (company-yaml-mode/w0lper)))
+                              (company-yaml-mode/ttybitnik)))
 
   (use-package yaml-mode
     :ensure t)
 
-  (defun company-yaml-mode/w0lper ()
+  (defun company-yaml-mode/ttybitnik ()
     "Set up `company-mode' for `yaml-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-capf
@@ -642,12 +642,12 @@ The current configuration focuses on:
                                   (yas-minor-mode)
                                   (flycheck-mode)
                                   (company-mode)
-                                  (company-markdown-mode/w0lper)))
+                                  (company-markdown-mode/ttybitnik)))
 
   (use-package markdown-mode
     :ensure t)
 
-  (defun company-markdown-mode/w0lper ()
+  (defun company-markdown-mode/ttybitnik ()
     "Set up `company-mode' for `markdown-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-capf
@@ -842,7 +842,7 @@ The current configuration focuses on:
   (use-package toc-org
     :ensure t)
 
-  (defun orgmdb-insert-movie-data/w0lper (&rest args)
+  (defun orgmdb-insert-movie-data/ttybitnik (&rest args)
     "Insert content containing movie info and poster of given ARGS.
     ARGS should be in the same form with `orgmdb' function.
 
@@ -920,7 +920,7 @@ The current configuration focuses on:
     :init
     (setq easy-hugo-postdir "content/blog"
           easy-hugo-basedir "~/.config/hugo/blog.backend/blog/"
-          easy-hugo-url "https://w0lper.github.io"
+          easy-hugo-url "https://ttybitnik.github.io"
           easy-hugo-sshdomain ""
           easy-hugo-root "~/.config/hugo/blog.backend/blog/public/"
           easy-hugo-previewtime "300"
@@ -1097,19 +1097,19 @@ The current configuration focuses on:
                             match menu move-to-prompt netsplit networks noncommands readonly
                             ring stamp track hl-nicks scrolltobottom))
     :config
-    (defun erc-login/w0lper ()
+    (defun erc-login/ttybitnik ()
       "ERC libera.chat login with SASL."
       (interactive)
       (erc-tls :server "irc.libera.chat" :port "6697"))
 
-    (defun erc-switch-buffer/w0lper (orig-fun &optional arg)
+    (defun erc-switch-buffer/ttybitnik (orig-fun &optional arg)
       "Advice function to move to the end of the buffer after `erc-track-switch-buffer'."
       (funcall orig-fun arg)
       (when (eq major-mode 'erc-mode)
         (end-of-buffer)))
-    (advice-add 'erc-track-switch-buffer :around #'erc-switch-buffer/w0lper)
+    (advice-add 'erc-track-switch-buffer :around #'erc-switch-buffer/ttybitnik)
     :bind
-    ("C-c i" . erc-login/w0lper))
+    ("C-c i" . erc-login/ttybitnik))
 
   (use-package erc-hl-nicks
     :ensure t
