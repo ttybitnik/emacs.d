@@ -427,6 +427,7 @@ The current configuration focuses on:
 
   (use-package company
     :ensure t
+    :diminish company-mode
     :custom
     (company-global-modes #'(not eshell-mode))
     (company-idle-delay 0)
