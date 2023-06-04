@@ -47,7 +47,8 @@ The current configuration focuses on:
 - Note-taking
 - Writing
 - Translation
-- Academic research 
+- Knowledge Management
+- Academic Research
 - Remote Server Administration
 - Blog
 - Emailing
@@ -281,6 +282,17 @@ The current configuration focuses on:
 
   (setq kill-buffer-query-functions (delq 'process-kill-buffer-query-function
                                           kill-buffer-query-functions))
+  (defun previous-multilines ()
+    "Scroll down multiple lines"
+    (interactive)
+    (scroll-down (/ (window-body-height) 3)))
+  (global-set-key "\M-p" 'previous-multilines)
+
+  (defun next-multilines ()
+    "Scroll up multiple lines"
+    (interactive)
+    (scroll-up (/ (window-body-height) 3)))
+  (global-set-key "\M-n" 'next-multilines)
 #+END_SRC
 
 *** Minor conveniences
@@ -650,7 +662,7 @@ The current configuration focuses on:
     :ensure t)
 
   (defun company-json-mode/ttybitnik ()
-    "Set up `company-mode' for `yaml-mode'."
+    "Set up `company-mode' for `json-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-capf
                                     company-dabbrev-code
@@ -1172,16 +1184,16 @@ The current configuration focuses on:
 *** Diminish
 #+BEGIN_SRC emacs-lisp
   (use-package diminish
-    :ensure t
-    :diminish visual-line-mode
-    :diminish subword-mode
-    :diminish page-break-lines-mode
-    :diminish yas-minor-mode)
+      :ensure t
+      :diminish visual-line-mode
+      :diminish subword-mode
+      :diminish page-break-lines-mode
+      :diminish yas-minor-mode)
 
-  (eval-after-load 'org-indent '(diminish 'org-indent-mode))
-  (eval-after-load 'face-remap '(diminish 'buffer-face-mode))
-  (eval-after-load 'autorevert '(diminish 'auto-revert-mode))
-  (eval-after-load 'dashboard '(progn (dashboard-refresh-buffer)(dashboard-refresh-buffer)))
+    (eval-after-load 'org-indent '(diminish 'org-indent-mode))
+    (eval-after-load 'face-remap '(diminish 'buffer-face-mode))
+    (eval-after-load 'autorevert '(diminish 'auto-revert-mode))
+    (eval-after-load 'dashboard '(progn (dashboard-refresh-buffer)))
 #+END_SRC
 
 ** License
