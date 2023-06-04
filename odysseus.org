@@ -3,7 +3,7 @@
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+OPTIONS: num:nil
 
-#+html: <p align="center"><img src="img/polytropos.png" /></p>
+#+html: <p align="center"><img src="img/emacs-demo.gif" /></p>
 
 This is my personal *GNU Emacs* configuration. The main configuration file is an =.org= file named after /Odysseus/, which is loaded through =init.el=. As you may have noticed, this is the configuration itself due to *org-mode* literate programming capabilities.
 
