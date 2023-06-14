@@ -285,13 +285,13 @@ The current configuration focuses on:
   (defun previous-multilines ()
     "Scroll down multiple lines"
     (interactive)
-    (scroll-down (/ (window-body-height) 3)))
+    (ccm-scroll-down (/ (window-body-height) 3)))
   (global-set-key "\M-p" 'previous-multilines)
 
   (defun next-multilines ()
     "Scroll up multiple lines"
     (interactive)
-    (scroll-up (/ (window-body-height) 3)))
+    (ccm-scroll-up (/ (window-body-height) 3)))
   (global-set-key "\M-n" 'next-multilines)
 #+END_SRC
 
@@ -378,6 +378,14 @@ The current configuration focuses on:
     olivetti-body-width '140
     :bind
     ("C-c o" . olivetti-mode))
+
+  (use-package centered-cursor-mode
+    :ensure t
+    :diminish centered-cursor-mode
+    :config
+    (global-centered-cursor-mode)
+    :hook
+    ('window-configuration-change-hook . 'recenter))
 #+END_SRC
 
 *** Text manipulation
