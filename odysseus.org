@@ -349,7 +349,6 @@ The current configuration focuses on:
     :bind
     ("C-q" . er/expand-region))
 
-
   (use-package hungry-delete
     :ensure t
     :diminish hungry-delete-mode
@@ -382,10 +381,12 @@ The current configuration focuses on:
   (use-package centered-cursor-mode
     :ensure t
     :diminish centered-cursor-mode
-    :config
+    :init
     (global-centered-cursor-mode)
-    :hook
-    ('window-configuration-change-hook . 'recenter))
+    (add-hook 'window-configuration-change-hook
+              (lambda ()
+                (unless (derived-mode-p 'erc-mode)
+                  (recenter)))))
 #+END_SRC
 
 *** Text manipulation
@@ -720,9 +721,9 @@ The current configuration focuses on:
     (org-src-window-setup 'current-window)
     (org-todo-keywords '((sequence "TODO(t!)" "NEXT(n!)" "WAITING(w@/!)" "|" "DONE(d!)" "CANCELED(c@/!)" "MEETING(m!)")
                          (sequence "WRITING(wr!)" "REVISION I(r!)" "REVSION II(rr!)" "PROOFREADING(l!)" "|" "PUBLISHED(p!)")))
-    (org-todo-keyword-faces '(("CANCELED" . (:foreground "bright_green" :weight bold))
-                              ("MEETING" . (:foreground "blue" :weight bold))
-                              ("NEXT" . (:foreground "orange" :weight bold))))
+    ;; (org-todo-keyword-faces '(("CANCELED" . (:foreground "bright_green" :weight bold))
+    ;;                           ("MEETING" . (:foreground "blue" :weight bold))
+    ;;                           ("NEXT" . (:foreground "orange" :weight bold))))
     (org-agenda-start-with-log-mode t)
     (org-log-done 'time)
     (org-log-into-drawer t)
@@ -1198,11 +1199,11 @@ The current configuration focuses on:
       :diminish page-break-lines-mode
       :diminish yas-minor-mode)
 
-    (eval-after-load 'org-indent '(diminish 'org-indent-mode))
-    (eval-after-load 'face-remap '(diminish 'buffer-face-mode))
-    (eval-after-load 'autorevert '(diminish 'auto-revert-mode))
-    (eval-after-load 'dashboard '(progn (dashboard-refresh-buffer)))
-#+END_SRC
+  (eval-after-load 'org-indent '(diminish 'org-indent-mode))
+  (eval-after-load 'face-remap '(diminish 'buffer-face-mode))
+  (eval-after-load 'autorevert '(diminish 'auto-revert-mode))
+  (eval-after-load 'dashboard '(progn (dashboard-refresh-buffer)))
+  #+END_SRC
 
 ** License
 
