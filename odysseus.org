@@ -21,12 +21,20 @@ This is my personal *GNU Emacs* configuration. The main configuration file is an
     - [[#functionality][Functionality]]
     - [[#programming][Programming]]
       - [[#cc][c/c++]]
-      - [[#python][python]]
-      - [[#lisp][lisp]]
-      - [[#shell][shell]]
       - [[#go][go]]
-      - [[#yaml][yaml]]
+      - [[#rust][rust]]
+      - [[#python][python]]
+      - [[#shellbash][shell/bash]]
+      - [[#lispelisp][lisp/elisp]]
+      - [[#javascripttypescript][javascript/typescript]]
+      - [[#html][html]]
+      - [[#cssscss][css/scss]]
       - [[#json][json]]
+      - [[#yaml][yaml]]
+      - [[#toml][toml]]
+      - [[#xml][xml]]
+      - [[#sql][sql]]
+      - [[#ansible][ansible]]
       - [[#markdown][markdown]]
     - [[#org][Org]]
     - [[#git-integration][Git integration]]
@@ -46,11 +54,11 @@ The current configuration focuses on:
 - Coding
 - Note-taking
 - Writing
-- Translation
+- Translating
 - Knowledge Management
 - Academic Research
 - Remote Server Administration
-- Blog
+- Blogging
 - Emailing
 - IRC 
   
@@ -59,14 +67,28 @@ The current configuration focuses on:
 ** Dependencies
 
 - packages
-  - clang (c/c++)
-  - sbcl (lisp)
-  - virtualenv (python)
   - ripgrep pcre2 (org-roam)
+  - nodejs-bash-language-server (bash)
+  - sbcl (lisp)
+  - clangd (c/c++)
+-go
+  - golps (go)
+  - goimport (go)
+  - sqls (sql)
 - pip
-  - jedi (python)
-  - flake8 (python)
-  - autopep8 (python)
+  - pyright (python)
+- npm
+  - typescript-language-server (javascript)
+  - typescript (javascript)
+  - vscode-langservers-extracted (html/css/json)
+  - yaml-language-server (yaml)
+  - ansible-language-server (ansible)
+- cargo
+  - taplo-cli (toml)
+- lsp-install-server
+  - xmlls/lsp4xml (xml)
+- binary
+  - rust-analyzer (rust)
 
 ** Odysseus
 *** Dashboard screen
@@ -447,7 +469,9 @@ The current configuration focuses on:
     (company-tooltip-align-annotations t)
     (company-tooltip-flip-when-above t)
     (company-search-regexp-function #'company-search-flex-regexp)
-    (company-dabbrev-ignore-case 'keep-prefix))
+    (company-dabbrev-ignore-case 'keep-prefix)
+    :config
+    (company-tng-mode))
 
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "<tab>")
@@ -481,6 +505,37 @@ The current configuration focuses on:
     :diminish flycheck-mode
     :custom
     (flycheck-idle-change-delay 2))
+
+  (use-package lsp-mode
+    :ensure t
+    :init
+    (setq lsp-keymap-prefix "C-c s")
+    :hook
+    (lsp-mode . lsp-enable-which-key-integration)
+    :commands
+    (lsp lsp-deferred))
+
+  (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode)
+
+  (use-package helm-lsp
+    :ensure t
+    :commands helm-lsp-workspace-symbol)
+
+  ;; (use-package consult-lsp
+  ;;   :ensure t
+  ;;   :config
+  ;;   (define-key lsp-mode-map [remap xref-find-apropos] #'consult-lsp-symbols))
+
+  ;  optinal packages that i'm not using atm
+  ;; (use-package lsp-treemacs
+  ;;   :ensure t
+  ;;   :commands lsp-treemacs-errors-list)
+
+  ;  if you want to use debugger, cf lsp doc
+  ;; (use-package dap-mode)
+  ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
 #+END_SRC
 
 **** c/c++
@@ -489,119 +544,16 @@ The current configuration focuses on:
                            (yas-minor-mode)
                            (flycheck-mode)
                            (company-mode)
-                           (company-c-mode/ttybitnik)
-                           (irony-mode)))
+                           (lsp-deferred)
+                           (company-c-mode/ttybitnik)))
 
-  (use-package flycheck-clang-analyzer
-    :ensure t
-    :init
-    (require 'flycheck)
-    :config
-    (flycheck-clang-analyzer-setup))
-
-  (use-package company-c-headers
-    :ensure t
-    :init
-    (require 'company))
-
-  (use-package company-irony
-    :ensure t
-    :init
-    (require 'company))
-
-  (use-package irony
-    :ensure t
-    :diminish irony-mode
-    :hook
-    (irony-mode-hook . irony-cdb-autosetup-compile-options))
+  (use-package cc-mode)
+  ;; debugger gdb or lldb, cf lsp doc
 
   (defun company-c-mode/ttybitnik ()
     "Set up `company-mode' for `c-mode'."
     (setq-local company-minimum-prefix-length 1)
-    (setq-local company-backends '((company-clang
-                                    company-capf
-                                    company-dabbrev-code
-                                    company-keywords
-                                    company-files
-                                    company-c-headers
-                                    company-irony
-                                    company-yasnippet))))
-#+END_SRC
-
-**** python
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'python-mode-hook (lambda ()
-                                (yas-minor-mode)
-                                (flycheck-mode)
-                                (company-mode)
-                                (company-python-mode/ttybitnik)))
-
-  (setq python-shell-interpreter "python3")
-
-  (use-package company-jedi
-    :ensure t
-    :init
-    (require 'company)
-    :custom
-    (jedi:complete-on-dot t))
-
-  (defun company-python-mode/ttybitnik ()
-    "Set up `company-mode' for `python-mode'."
-    (setq-local company-minimum-prefix-length 1)
-    (setq-local company-backends '((company-jedi
-                                    company-capf
-                                    company-dabbrev-code
-                                    company-keywords
-                                    company-files
-                                    company-yasnippet))))
-#+END_SRC
-
-**** lisp
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'emacs-lisp-mode-hook (lambda ()
-                                    (yas-minor-mode)
-                                    ;; (flycheck-mode)
-                                    (company-mode)
-                                    (company-lisp-mode/ttybitnik)
-                                    (eldoc-mode)))
-
-  (use-package sly
-    :ensure t
-    :init
-    (setq inferior-lisp-program "sbcl")
-    (add-to-list 'sly-contribs 'sly-autodoc)
-    (add-to-list 'sly-contribs 'sly-fancy))
-
-  (defun company-lisp-mode/ttybitnik ()
-    "Set up `company-mode' for `lisp-mode'."
-    (setq-local company-minimum-prefix-length 1)
-    (setq-local company-backends '((company-elisp
-                                    company-capf
-                                    company-dabbrev-code
-                                    company-keywords
-                                    company-files
-                                    company-yasnippet))))
-#+END_SRC
-
-**** shell
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'sh-mode-hook (lambda ()
-                            (yas-minor-mode)
-                            (flycheck-mode)
-                            (company-mode)
-                            (company-sh-mode/ttybitnik)))
-
-  (use-package company-shell
-    :ensure t
-    :init
-    (require 'company))
-
-  (defun company-sh-mode/ttybitnik ()
-    "Set up `company-mode' for `sh-mode'."
-    (setq-local company-minimum-prefix-length 1)
-    (setq-local company-backends '((company-shell
-                                    company-shell-env
-                                    company-etags
+    (setq-local company-backends '((company-capf
                                     company-dabbrev-code
                                     company-keywords
                                     company-files
@@ -614,13 +566,217 @@ The current configuration focuses on:
                             (yas-minor-mode)
                             (flycheck-mode)
                             (company-mode)
+                            (lsp-deferred)
                             (company-go-mode/ttybitnik)))
 
   (use-package go-mode
-    :ensure t)
+    :ensure t
+    :config
+    (require 'lsp-go)
+    (add-to-list 'exec-path "~/go/bin/")
+    :custom
+    (lsp-go-analyses
+     '((fieldalignment . t)
+       (nilness . t)
+       (shadow . t)
+       (unusedwrite . t)
+       (unusedparams . t)
+       (unusedvariable . t)
+       (useany . t)))
+    (gofmt-command "goimports")
+    :bind
+    (:map go-mode-map
+         ("<f6>" . gofmt)))
 
   (defun company-go-mode/ttybitnik ()
     "Set up `company-mode' for `go-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
+#+END_SRC
+
+**** rust
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'rust-mode-hook (lambda ()
+                            (yas-minor-mode)
+                            (flycheck-mode)
+                            (company-mode)
+                            (lsp-deferred)
+                            (company-rust-mode/ttybitnik)))
+
+  (use-package rust-mode
+    :ensure t)
+
+  (defun company-rust-mode/ttybitnik ()
+    "Set up `company-mode' for `rust-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
+#+END_SRC
+
+**** python
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'python-mode-hook (lambda ()
+                                (yas-minor-mode)
+                                (flycheck-mode)
+                                (company-mode)
+                                (lsp-deferred)
+                                (company-python-mode/ttybitnik)))
+
+  (use-package python
+    :custom
+    (python-shell-interpreter "python3"))
+
+  (use-package lsp-pyright
+    :ensure t)
+
+  (defun company-python-mode/ttybitnik ()
+    "Set up `company-mode' for `python-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
+#+END_SRC
+
+**** shell/bash
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'sh-mode-hook (lambda ()
+                            (yas-minor-mode)
+                            (flycheck-mode)
+                            (company-mode)
+                            (lsp-deferred)
+                            (company-sh-mode/ttybitnik)))
+
+  (use-package sh-script)
+
+  (defun company-sh-mode/ttybitnik ()
+    "Set up `company-mode' for `sh-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
+#+END_SRC
+
+**** lisp/elisp
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'emacs-lisp-mode-hook (lambda ()
+                                    (yas-minor-mode)
+                                    ;; (flycheck-mode) ; useful when writing packages
+                                    (company-mode)
+                                    (company-lisp-mode/ttybitnik)
+                                    (eldoc-mode)))
+
+  (use-package lisp-mode)
+
+  (use-package sly
+    :ensure t
+    :init
+    (setq inferior-lisp-program "sbcl")
+    (add-to-list 'sly-contribs 'sly-autodoc)
+    (add-to-list 'sly-contribs 'sly-fancy))
+
+  (defun company-lisp-mode/ttybitnik ()
+    "Set up `company-mode' for `lisp-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
+#+END_SRC
+
+**** javascript/typescript
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'js-mode-hook (lambda ()
+                                      (yas-minor-mode)
+                                      (flycheck-mode)
+                                      (company-mode)
+                                      (lsp-deferred)
+                                      (company-js-mode/ttybitnik)))
+
+  (use-package js)
+
+  (use-package js2-mode
+    :ensure t)
+
+  (defun company-js-mode/ttybitnik ()
+    "Set up `company-mode' for `js-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
+#+END_SRC
+
+**** html
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'html-mode-hook (lambda ()
+                            (yas-minor-mode)
+                            (flycheck-mode)
+                            (company-mode)
+                            (lsp-deferred)
+                            (company-html-mode/ttybitnik)))
+
+  (use-package sgml-mode)
+
+  (defun company-html-mode/ttybitnik ()
+    "Set up `company-mode' for `html-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
+#+END_SRC
+
+**** css/scss
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'css-mode-hook (lambda ()
+                            (yas-minor-mode)
+                            (flycheck-mode)
+                            (company-mode)
+                            (lsp-deferred)
+                            (company-css-mode/ttybitnik)))
+
+  (use-package css-mode)
+
+  (defun company-css-mode/ttybitnik ()
+    "Set up `company-mode' for `css-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
+#+END_SRC
+
+**** json
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'json-mode-hook (lambda ()
+                              (yas-minor-mode)
+                              (flycheck-mode)
+                              (company-mode)
+                              (lsp-deferred)
+                              (company-yaml-mode/ttybitnik)))
+
+  (use-package json-mode
+    :ensure t
+    :config
+    (require 'lsp-json))
+
+  (defun company-json-mode/ttybitnik ()
+    "Set up `company-mode' for `json-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-capf
                                     company-dabbrev-code
@@ -635,6 +791,7 @@ The current configuration focuses on:
                               (yas-minor-mode)
                               (flycheck-mode)
                               (company-mode)
+                              (lsp-deferred)
                               (company-yaml-mode/ttybitnik)))
 
   (use-package yaml-mode
@@ -650,19 +807,87 @@ The current configuration focuses on:
                                     company-yasnippet))))
 #+END_SRC
 
-**** json
+**** toml
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'json-mode-hook (lambda ()
-                              (yas-minor-mode)
-                              (flycheck-mode)
-                              (company-mode)
-                              (company-yaml-mode/ttybitnik)))
+  (add-hook 'conf-toml-mode-hook (lambda ()
+                            (yas-minor-mode)
+                            (flycheck-mode)
+                            (company-mode)
+                            (lsp-deferred)
+                            (company-conf-toml-mode/ttybitnik)))
 
-  (use-package json-mode
-    :ensure t)
+  (use-package conf-mode
+    :custom
+    (lsp-toml-command "~/.cargo/bin/taplo"))
 
-  (defun company-json-mode/ttybitnik ()
-    "Set up `company-mode' for `json-mode'."
+  (defun company-conf-toml-mode/ttybitnik ()
+    "Set up `company-mode' for `conf-toml-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
+#+END_SRC
+
+**** xml
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'nxml-mode-hook (lambda ()
+                            (yas-minor-mode)
+                            (flycheck-mode)
+                            (company-mode)
+                            (lsp-deferred)
+                            (company-nxml-mode/ttybitnik)))
+
+  (use-package nxml-mode)
+
+  (defun company-nxml-mode/ttybitnik ()
+    "Set up `company-mode' for `nxml-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
+#+END_SRC
+
+**** sql
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'sql-mode-hook (lambda ()
+                            (yas-minor-mode)
+                            (flycheck-mode)
+                            (company-mode)
+                            (lsp-deferred)
+                            (company-sql-mode/ttybitnik)))
+
+  (use-package sql)
+
+  (defun company-sql-mode/ttybitnik ()
+    "Set up `company-mode' for `sql-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
+#+END_SRC
+
+**** ansible
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'ansible-hook (lambda ()
+                            (yas-minor-mode)
+                            (flycheck-mode)
+                            (company-mode)
+                            (lsp-deferred)
+                            (company-ansible/ttybitnik)))
+
+  (use-package ansible
+    :ensure t
+    :bind
+    ("C-c C-S-a" . 'ansible))
+
+  (defun company-ansible/ttybitnik ()
+    "Set up `company-mode' for `ansible'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-capf
                                     company-dabbrev-code
@@ -712,9 +937,6 @@ The current configuration focuses on:
     (org-src-window-setup 'current-window)
     (org-todo-keywords '((sequence "TODO(t!)" "NEXT(n!)" "WAITING(w@/!)" "|" "DONE(d!)" "CANCELED(c@/!)" "MEETING(m!)")
                          (sequence "WRITING(wr!)" "REVISION I(r!)" "REVSION II(rr!)" "PROOFREADING(l!)" "|" "PUBLISHED(p!)")))
-    ;; (org-todo-keyword-faces '(("CANCELED" . (:foreground "bright_green" :weight bold))
-    ;;                           ("MEETING" . (:foreground "blue" :weight bold))
-    ;;                           ("NEXT" . (:foreground "orange" :weight bold))))
     (org-agenda-start-with-log-mode t)
     (org-log-done 'time)
     (org-log-into-drawer t)
@@ -805,7 +1027,7 @@ The current configuration focuses on:
         :target (file "%<%Y%m%d%H%M%S>-index-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)))
 
     :config
-    ;; (org-roam-db-autosync-mode) too resource intensive
+    ;; (org-roam-db-autosync-mode) too resource intensive atm
     (add-to-list 'display-buffer-alist
                  '("\\*org-roam\\*"
                    (display-buffer-in-direction)
@@ -832,7 +1054,8 @@ The current configuration focuses on:
     (org-roam-ui-update-on-save t)
     (org-roam-ui-open-on-start t)
     :bind
-    ("C-c n u" . org-roam-ui-mode))
+    ("C-c n u" . org-roam-ui-mode)
+    ("C-c n y" . org-roam-ui-sync-theme))
 
   ;; (use-package org-roam-bibtex
   ;;   :ensure t)

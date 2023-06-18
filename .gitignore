@@ -12,8 +12,14 @@ auto*
 *.db
 *.eld
 *.data
+*.json
 *~
 *#
 recent*
 .org-id*
+session*
+.lsp-session*
 /local/switcher.el
+/.cache/
+/projects
+/eln-cache/
