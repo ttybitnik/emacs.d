@@ -171,18 +171,10 @@ The current configuration focuses on:
 
 *** Moving around Emacs
 #+BEGIN_SRC emacs-lisp
+  ;; (use-package evil
+  ;;   :ensure t)
+
   (setq scroll-conservatively 100)
-
-  ;; (use-package ivy
-  ;;   :ensure t
-  ;;   :custom
-  ;;   (ivy-use-virtual-buffers t)
-  ;;   (ivy-count-format "%d/%d")) ; deprecated in favour of helm
-
-  ;; (use-package vertico
-  ;;   :ensure t
-  ;;   :init
-  ;;   (vertico-mode 1)) ; deprecated in favour of helm
 
   (use-package which-key
     :ensure t
@@ -191,11 +183,6 @@ The current configuration focuses on:
     (which-key-mode)
     :custom
     (which-key-idle-delay 0.5))
-
-  ;; (use-package swiper
-  ;;   :ensure t
-  ;;   :bind
-  ;;   ("C-s" . 'swiper)) ; deprecated in favour of helm-occur
 
   (use-package avy
     :ensure t
