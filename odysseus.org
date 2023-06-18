@@ -213,6 +213,10 @@ The current configuration focuses on:
     :hook
     (prog-mode . linum-relative-mode))
 
+  (use-package consult
+    :ensure t
+    :diminish consult-mode)
+
   (use-package helm
     :ensure t
     :diminish helm-mode
