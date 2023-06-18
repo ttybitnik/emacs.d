@@ -71,7 +71,7 @@ The current configuration focuses on:
   - nodejs-bash-language-server (bash)
   - sbcl (lisp)
   - clangd (c/c++)
--go
+- go
   - golps (go)
   - goimport (go)
   - sqls (sql)
