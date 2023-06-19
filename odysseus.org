@@ -1192,6 +1192,24 @@ The current configuration focuses on:
 #+BEGIN_SRC emacs-lisp
   (use-package fountain-mode
     :ensure t)
+
+  (use-package flyspell
+    :diminish flyspell-mode
+    :init
+    (add-hook 'text-mode-hook 'flyspell-mode)
+    (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+    :config
+    (setenv "LANG" "en_US.UTF-8")
+    (ispell-set-spellchecker-params)
+    (ispell-hunspell-add-multi-dic "en_US,en_GB,pt_BR,de_DE,fr_FR")
+    :custom
+    (ispell-program-name "hunspell")
+    (ispell-dictionary  "en_US,en_GB,pt_BR,de_DE,fr_FR")
+    (ispell-personal-dictionary "~/.hunspell_personal")
+    (flyspell-issue-message-flag nil))
+
+  (unless (file-exists-p ispell-personal-dictionary)
+    (write-region "" nil ispell-personal-dictionary nil 0))
 #+END_SRC
 
 *** Translation
