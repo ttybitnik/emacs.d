@@ -54,7 +54,7 @@ The current configuration focuses on:
 - Coding
 - Note-taking
 - Writing
-- Translating
+- Translation
 - Knowledge Management
 - Academic Research
 - Remote Server Administration
@@ -68,6 +68,7 @@ The current configuration focuses on:
 
 - packages
   - ripgrep pcre2 (org-roam)
+  - hunspell (flyspell)
   - nodejs-bash-language-server (bash)
   - sbcl (lisp)
   - clangd (c/c++)
@@ -462,6 +463,8 @@ The current configuration focuses on:
   (use-package company
     :ensure t
     :diminish company-mode
+    :config
+    (company-tng-mode)
     :custom
     (company-global-modes #'(not eshell-mode))
     (company-idle-delay 0)
@@ -469,9 +472,7 @@ The current configuration focuses on:
     (company-tooltip-align-annotations t)
     (company-tooltip-flip-when-above t)
     (company-search-regexp-function #'company-search-flex-regexp)
-    (company-dabbrev-ignore-case 'keep-prefix)
-    :config
-    (company-tng-mode))
+    (company-dabbrev-ignore-case 'keep-prefix))
 
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "<tab>")
@@ -523,10 +524,10 @@ The current configuration focuses on:
     :ensure t
     :commands helm-lsp-workspace-symbol)
 
-  ;; (use-package consult-lsp
-  ;;   :ensure t
-  ;;   :config
-  ;;   (define-key lsp-mode-map [remap xref-find-apropos] #'consult-lsp-symbols))
+  (use-package consult-lsp
+    :ensure t
+    :config
+    (define-key lsp-mode-map [remap xref-find-apropos] #'consult-lsp-symbols))
 
   ;  optinal packages that i'm not using atm
   ;; (use-package lsp-treemacs
