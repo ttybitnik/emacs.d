@@ -16,8 +16,8 @@ This is my personal *GNU Emacs* configuration. The main configuration file is an
     - [[#theme-customization][Theme customization]]
     - [[#modeline][Modeline]]
     - [[#moving-around-emacs][Moving around Emacs]]
-    - [[#minor-conveniences][Minor conveniences]]
     - [[#text-manipulation][Text manipulation]]
+    - [[#minor-conveniences][Minor conveniences]]
     - [[#functionality][Functionality]]
     - [[#programming][Programming]]
       - [[#cc][c/c++]]
@@ -309,6 +309,43 @@ The current configuration focuses on:
   (global-set-key "\M-n" 'next-multilines)
 #+END_SRC
 
+*** Text manipulation
+#+BEGIN_SRC emacs-lisp
+  (use-package mark-multiple
+    :ensure t
+    :bind
+    ("C-c q" . 'mark-next-like-this))
+
+  (defun kill-inner-word/daedreth ()
+    "Kills the entire word your cursor is in. Equivalent to 'ciw' in vim."
+    (interactive)
+    (forward-char 1)
+    (backward-word)
+    (kill-word 1))
+  (global-set-key (kbd "C-c w k") 'kill-inner-word/daedreth)
+
+  (defun copy-whole-word/daedreth ()
+    "Copies a word at the cursor position."
+    (interactive)
+    (save-excursion
+      (forward-char 1)
+      (backward-word)
+      (kill-word 1)
+      (yank)))
+  (global-set-key (kbd "C-c w c") 'copy-whole-word/daedreth)
+
+  (defun copy-whole-line/daedreth ()
+    "Copies a line without regard for cursor position."
+    (interactive)
+    (save-excursion
+      (kill-new
+       (buffer-substring
+        (point-at-bol)
+        (point-at-eol)))))
+  (global-set-key (kbd "C-c l c") 'copy-whole-line/daedreth)
+  (global-set-key (kbd "C-c l k") 'kill-whole-line)
+#+END_SRC
+
 *** Minor conveniences
 #+BEGIN_SRC emacs-lisp
   (defun config-visit ()
@@ -403,43 +440,6 @@ The current configuration focuses on:
                   (recenter)))))
 #+END_SRC
 
-*** Text manipulation
-#+BEGIN_SRC emacs-lisp
-  (use-package mark-multiple
-    :ensure t
-    :bind
-    ("C-c q" . 'mark-next-like-this))
-
-  (defun kill-inner-word/daedreth ()
-    "Kills the entire word your cursor is in. Equivalent to 'ciw' in vim."
-    (interactive)
-    (forward-char 1)
-    (backward-word)
-    (kill-word 1))
-  (global-set-key (kbd "C-c w k") 'kill-inner-word/daedreth)
-
-  (defun copy-whole-word/daedreth ()
-    "Copies a word at the cursor position."
-    (interactive)
-    (save-excursion
-      (forward-char 1)
-      (backward-word)
-      (kill-word 1)
-      (yank)))
-  (global-set-key (kbd "C-c w c") 'copy-whole-word/daedreth)
-
-  (defun copy-whole-line/daedreth ()
-    "Copies a line without regard for cursor position."
-    (interactive)
-    (save-excursion
-      (kill-new
-       (buffer-substring
-        (point-at-bol)
-        (point-at-eol)))))
-  (global-set-key (kbd "C-c l c") 'copy-whole-line/daedreth)
-  (global-set-key (kbd "C-c l k") 'kill-whole-line)
-#+END_SRC
-
 *** Functionality
 #+BEGIN_SRC emacs-lisp
   (setf epa-pinentry-mode 'loopback)
@@ -455,6 +455,11 @@ The current configuration focuses on:
   ;; (global-auto-revert-mode 1) ; too resource intensive atm
 
   (defalias 'yes-or-no-p 'y-or-n-p)
+
+  (use-package undo-tree
+    :ensure t
+    :config
+    (global-undo-tree-mode))
 
   (use-package async
     :ensure t
