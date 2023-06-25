@@ -961,15 +961,15 @@ The current configuration focuses on:
                      ("translation" . ?t)
                      ("music" . ?m)))
     (org-capture-templates
-     '(("t" "Task" entry (file+headline "~/.orpheus/org-agenda/refile.org" "Tasks")
+     '(("t" "Task" entry (file+headline "~/.orpheus/gnu-emacs/org-agenda/refile.org" "Tasks")
         (file "~/.emacs.d/local/org/task-template.org") :clock-in t :clock-resume t)
-       ("m" "Meeting" entry (file+headline "~/.orpheus/org-agenda/refile.org" "Meetings")
+       ("m" "Meeting" entry (file+headline "~/.orpheus/gnu-emacs/org-agenda/refile.org" "Meetings")
         (file "~/.emacs.d/local/org/meeting-template.org") :clock-in t :clock-resume t)
-       ("n" "Notes" entry (file+headline "~/.orpheus/org-agenda/refile.org" "Notes")
+       ("n" "Notes" entry (file+headline "~/.orpheus/gnu-emacs/org-agenda/refile.org" "Notes")
         (file "~/.emacs.d/local/org/note-template.org") :clock-in t :clock-resume t)
-       ("j" "Journal" entry (file+olp+datetree "~/.orpheus/org-agenda/journal.org")
+       ("j" "Journal" entry (file+olp+datetree "~/.orpheus/gnu-emacs/org-agenda/journal.org")
         (file "~/.emacs.d/local/org/journal-template.org") :clock-in t :clock-resume t)))
-    (org-agenda-files '("~/.orpheus/org-agenda/"))
+    (org-agenda-files '("~/.orpheus/gnu-emacs/org-agenda/"))
     (org-refile-targets '((nil :maxlevel . 1)
                           (org-agenda-files :maxlevel . 1))) 
     :hook
@@ -987,7 +987,7 @@ The current configuration focuses on:
   (use-package org-roam
     :ensure t
     :custom
-    (org-roam-directory (file-truename "~/.orpheus/org-roam"))
+    (org-roam-directory (file-truename "~/.orpheus/gnu-emacs/org-roam"))
     (org-roam-mode-sections (list #'org-roam-backlinks-section
                                   #'org-roam-reflinks-section
                                   #'org-roam-unlinked-references-section))
@@ -1101,7 +1101,7 @@ The current configuration focuses on:
   (use-package orgmdb
     :ensure t
     :custom
-    (orgmdb-poster-folder "~/.orpheus/orgmdb"))
+    (orgmdb-poster-folder "~/.orpheus/gnu-emacs/orgmdb"))
 
   (use-package htmlize
     :ensure t)
