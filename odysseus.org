@@ -446,7 +446,9 @@ The current configuration focuses on:
   (setq auth-sources '("~/.emacs.d/auth/.authinfo.gpg"))
   (load-file "~/.emacs.d/auth/.restrictconf.el")
 
+  (setq make-backup-files nil)
   (setq backup-directory-alist '(("." . "~/.orpheus/gnu-emacs/saves")))
+  (setq auto-save-file-name-transforms '((".*" "~/.orpheus/gnu-emacs/saves/" t)))
 
   (transient-mark-mode 1);
 
