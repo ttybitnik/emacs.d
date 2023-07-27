@@ -447,7 +447,7 @@ The current configuration focuses on:
   (load-file "~/.emacs.d/auth/.restrictconf.el")
 
   (setq make-backup-files nil)
-  (setq backup-directory-alist '(("." . "~/.orpheus/gnu-emacs/saves")))
+  (setq backup-directory-alist '(("." . "~/.orpheus/gnu-emacs/saves/")))
   (setq auto-save-file-name-transforms '((".*" "~/.orpheus/gnu-emacs/saves/" t)))
 
   (transient-mark-mode 1);
@@ -989,7 +989,7 @@ The current configuration focuses on:
   (use-package org-roam
     :ensure t
     :custom
-    (org-roam-directory (file-truename "~/.orpheus/gnu-emacs/org-roam"))
+    (org-roam-directory (file-truename "~/.orpheus/gnu-emacs/org-roam/"))
     (org-roam-mode-sections (list #'org-roam-backlinks-section
                                   #'org-roam-reflinks-section
                                   #'org-roam-unlinked-references-section))
@@ -1103,7 +1103,7 @@ The current configuration focuses on:
   (use-package orgmdb
     :ensure t
     :custom
-    (orgmdb-poster-folder "~/.orpheus/gnu-emacs/orgmdb"))
+    (orgmdb-poster-folder "~/.orpheus/gnu-emacs/orgmdb/"))
 
   (use-package htmlize
     :ensure t)
@@ -1336,7 +1336,7 @@ The current configuration focuses on:
     :bind
     ("C-c g" . gnus)
     :hook
-    ((dired-mode . gnus-dired-mode)
+    ((dired-mode . turn-on-gnus-dired-mode)
      (gnus-group-mode . gnus-topic-mode)
      (gnus-select-group . gnus-group-set-timestamp)
      (gnus-group-mode . hl-line-mode)
