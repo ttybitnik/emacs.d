@@ -470,11 +470,13 @@ The current configuration focuses on:
     :ensure t
     :init (dired-async-mode 1))
 
+  (require 'dired-x)
+
   (use-package company
     :ensure t
     :diminish company-mode
     :config
-    (company-tng-mode)
+    ;; (company-tng-mode)
     :custom
     (company-global-modes #'(not eshell-mode))
     (company-idle-delay 0)
