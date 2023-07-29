@@ -36,11 +36,13 @@ This is my personal *GNU Emacs* configuration. The main configuration file is an
       - [[#sql][sql]]
       - [[#ansible][ansible]]
       - [[#markdown][markdown]]
+      - [[#dotplantuml][dot/plantuml]]
     - [[#org][Org]]
     - [[#git-integration][Git integration]]
     - [[#remote-editing][Remote editing]]
     - [[#blog][Blog]]
     - [[#writing][Writing]]
+    - [[#modeling][Modeling]]
     - [[#translation][Translation]]
     - [[#emailing][Emailing]]
     - [[#instant-messaging][Instant messaging]]
@@ -68,6 +70,8 @@ The current configuration focuses on:
 
 - packages
   - ripgrep pcre2 (org-roam)
+  - graphviz (plantuml)
+  - plantuml or java-openjdk (plantuml)
   - hunspell (flyspell)
   - nodejs-bash-language-server (bash)
   - sbcl (lisp)
@@ -931,6 +935,26 @@ The current configuration focuses on:
                                     company-yasnippet))))
 #+END_SRC
 
+**** dot/plantuml
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'plantuml-mode-hook (lambda ()
+                                  (yas-minor-mode)
+                                  (flycheck-mode)
+                                  (company-mode)
+                                  (company-plantuml-mode/ttybitnik)))
+
+  ;; cf Modeling
+
+  (defun company-plantuml-mode/ttybitnik ()
+    "Set up `company-mode' for `plantuml-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
+#+END_SRC
+
 *** Org
 #+BEGIN_SRC emacs-lisp
   (use-package org
@@ -945,7 +969,8 @@ The current configuration focuses on:
     (org-babel-load-languages '((emacs-lisp . t)
                                 (shell . t)
                                 (python . t)
-                                (C . t)))
+                                (C . t)
+                                (plantuml . t)))
     (org-babel-python-command "python3")
     (org-export-with-smart-quotes t)
     (org-src-window-setup 'current-window)
@@ -1224,6 +1249,19 @@ The current configuration focuses on:
 
   (unless (file-exists-p ispell-personal-dictionary)
     (write-region "" nil ispell-personal-dictionary nil 0))
+#+END_SRC
+
+*** Modeling
+#+BEGIN_SRC emacs-lisp
+  (use-package graphviz-dot-mode
+    :ensure t
+    :custom
+    (graphviz-dot-indent-width 4))
+
+  (use-package plantuml-mode
+    :ensure t
+    :custom
+    (plantuml-default-exec-mode 'executable))
 #+END_SRC
 
 *** Translation
