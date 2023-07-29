@@ -458,6 +458,9 @@ The current configuration focuses on:
 
   (defalias 'yes-or-no-p 'y-or-n-p)
 
+  (require 'dired-x)
+  (setq dired-listing-switches "-alh")
+
   (use-package undo-tree
     :ensure t
     :diminish undo-tree-mode
@@ -469,8 +472,6 @@ The current configuration focuses on:
   (use-package async
     :ensure t
     :init (dired-async-mode 1))
-
-  (require 'dired-x)
 
   (use-package company
     :ensure t
