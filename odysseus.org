@@ -446,68 +446,68 @@ The current configuration focuses on:
 
 *** Functionality
 #+BEGIN_SRC emacs-lisp
-  (setf epa-pinentry-mode 'loopback)
-  (setq auth-sources '("~/.emacs.d/auth/.authinfo.gpg"))
-  (load-file "~/.emacs.d/auth/.restrictconf.el")
+   ;; (setf epa-pinentry-mode 'loopback) disable pinentry inside Emacs
+   (setq auth-sources '("~/.emacs.d/auth/.authinfo.gpg"))
+   (load-file "~/.emacs.d/auth/.restrictconf.el")
 
-  (setq make-backup-files nil)
-  (setq backup-directory-alist '(("." . "~/.orpheus/gnu-emacs/saves/")))
-  (setq auto-save-file-name-transforms '((".*" "~/.orpheus/gnu-emacs/saves/" t)))
+   (setq make-backup-files nil)
+   (setq backup-directory-alist '(("." . "~/.orpheus/gnu-emacs/saves/")))
+   (setq auto-save-file-name-transforms '((".*" "~/.orpheus/gnu-emacs/saves/" t)))
 
-  (transient-mark-mode 1);
+   (transient-mark-mode 1);
 
-  (server-start)
+   (server-start)
 
-  ;; (global-auto-revert-mode 1) ; too resource intensive atm
+   ;; (global-auto-revert-mode 1) ; too resource intensive atm
 
-  (defalias 'yes-or-no-p 'y-or-n-p)
+   (defalias 'yes-or-no-p 'y-or-n-p)
 
-  (require 'dired-x)
-  (setq dired-listing-switches "-alh")
+   (require 'dired-x)
+   (setq dired-listing-switches "-alh")
 
-  (use-package undo-tree
-    :ensure t
-    :diminish undo-tree-mode
-    :custom
-    (undo-tree-auto-save-history nil)
-    :config
-    (global-undo-tree-mode))
+   (use-package undo-tree
+     :ensure t
+     :diminish undo-tree-mode
+     :custom
+     (undo-tree-auto-save-history nil)
+     :config
+     (global-undo-tree-mode))
 
-  (use-package async
-    :ensure t
-    :init (dired-async-mode 1))
+   (use-package async
+     :ensure t
+     :init (dired-async-mode 1))
 
-  (use-package company
-    :ensure t
-    :diminish company-mode
-    :config
-    ;; (company-tng-mode)
-    :custom
-    (company-global-modes #'(not eshell-mode))
-    (company-idle-delay 0)
-    (company-minimum-prefix-length 3)
-    (company-tooltip-align-annotations t)
-    (company-tooltip-flip-when-above t)
-    (company-search-regexp-function #'company-search-flex-regexp)
-    (company-dabbrev-ignore-case 'keep-prefix))
+   (use-package company
+     :ensure t
+     :diminish company-mode
+     :config
+     ;; (company-tng-mode)
+     :custom
+     (company-global-modes #'(not eshell-mode))
+     (company-idle-delay 0)
+     (company-minimum-prefix-length 3)
+     (company-tooltip-align-annotations t)
+     (company-tooltip-flip-when-above t)
+     (company-search-regexp-function #'company-search-flex-regexp)
+     (company-dabbrev-ignore-case 'keep-prefix))
 
-  (with-eval-after-load 'company
-    (define-key company-active-map (kbd "<tab>")
-      (defun fix-company-tab/ttybitnik ()
-        "Fix `company-yasnippet' interaction with `yas-expand' command."
-        (interactive)
-        (when (null (yas-expand))
-          (company-complete-common))))
-    (define-key company-active-map (kbd "C-s") #'company-filter-candidates)
-    (define-key company-active-map (kbd "C-M-s") #'company-search-candidates))
+   (with-eval-after-load 'company
+     (define-key company-active-map (kbd "<tab>")
+       (defun fix-company-tab/ttybitnik ()
+         "Fix `company-yasnippet' interaction with `yas-expand' command."
+         (interactive)
+         (when (null (yas-expand))
+           (company-complete-common))))
+     (define-key company-active-map (kbd "C-s") #'company-filter-candidates)
+     (define-key company-active-map (kbd "C-M-s") #'company-search-candidates))
 
-  (defun company-general/ttybitnik ()
-    "Set up `company-mode' for general usage."
-    (setq-local company-backends '((company-dabbrev
-                                    company-file
-                                    company-yasnippet))))
+   (defun company-general/ttybitnik ()
+     "Set up `company-mode' for general usage."
+     (setq-local company-backends '((company-dabbrev
+                                     company-file
+                                     company-yasnippet))))
 
-  (add-hook 'after-init-hook #'company-general/ttybitnik)
+   (add-hook 'after-init-hook #'company-general/ttybitnik)
 #+END_SRC
 
 *** Programming
