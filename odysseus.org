@@ -35,8 +35,8 @@ This is my personal *GNU Emacs* configuration. The main configuration file is an
       - [[#xml][xml]]
       - [[#sql][sql]]
       - [[#ansible][ansible]]
-      - [[#markdown][markdown]]
       - [[#dotplantuml][dot/plantuml]]
+      - [[#markdown][markdown]]
     - [[#org][Org]]
     - [[#git-integration][Git integration]]
     - [[#remote-editing][Remote editing]]
@@ -914,6 +914,26 @@ The current configuration focuses on:
                                     company-yasnippet))))
 #+END_SRC
 
+**** dot/plantuml
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'plantuml-mode-hook (lambda ()
+                                  (yas-minor-mode)
+                                  (flycheck-mode)
+                                  (company-mode)
+                                  (company-plantuml-mode/ttybitnik)))
+
+  ;; cf Modeling
+
+  (defun company-plantuml-mode/ttybitnik ()
+    "Set up `company-mode' for `plantuml-mode'."
+    (setq-local company-minimum-prefix-length 1)
+    (setq-local company-backends '((company-capf
+                                    company-dabbrev-code
+                                    company-keywords
+                                    company-files
+                                    company-yasnippet))))
+#+END_SRC
+
 **** markdown
 #+BEGIN_SRC emacs-lisp
   (add-hook 'markdown-mode-hook (lambda ()
@@ -927,26 +947,6 @@ The current configuration focuses on:
 
   (defun company-markdown-mode/ttybitnik ()
     "Set up `company-mode' for `markdown-mode'."
-    (setq-local company-minimum-prefix-length 1)
-    (setq-local company-backends '((company-capf
-                                    company-dabbrev-code
-                                    company-keywords
-                                    company-files
-                                    company-yasnippet))))
-#+END_SRC
-
-**** dot/plantuml
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'plantuml-mode-hook (lambda ()
-                                  (yas-minor-mode)
-                                  (flycheck-mode)
-                                  (company-mode)
-                                  (company-plantuml-mode/ttybitnik)))
-
-  ;; cf Modeling
-
-  (defun company-plantuml-mode/ttybitnik ()
-    "Set up `company-mode' for `plantuml-mode'."
     (setq-local company-minimum-prefix-length 1)
     (setq-local company-backends '((company-capf
                                     company-dabbrev-code
@@ -1200,6 +1200,13 @@ The current configuration focuses on:
           git-commit-summary-max-length 50)
     :bind
     ("M-g" . magit-status))
+
+  (use-package exec-path-from-shell
+    :ensure t
+    :init
+    (exec-path-from-shell-initialize)
+    :custom
+    (exec-path-from-shell-variables '("PATH" "MANPATH" "SSH_AUTH_SOCK")))
 #+END_SRC
 
 *** Remote editing
