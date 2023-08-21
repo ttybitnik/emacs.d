@@ -315,10 +315,13 @@ The current configuration focuses on:
 
 *** Text manipulation
 #+BEGIN_SRC emacs-lisp
-  (use-package mark-multiple
+  (use-package multiple-cursors
     :ensure t
     :bind
-    ("C-c q" . 'mark-next-like-this))
+    ("C-S-c C-S-c" . 'mc/edit-lines)
+    ("C->" . 'mc/mark-next-like-this)
+    ("C-<" . 'mc/mark-previous-like-this)
+    ("C-c q" . 'mc/mark-all-like-this))
 
   (defun kill-inner-word/daedreth ()
     "Kills the entire word your cursor is in. Equivalent to 'ciw' in vim."

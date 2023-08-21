@@ -23,3 +23,5 @@ session*
 /.cache/
 /projects
 /eln-cache/
+/nov-places
+/.mc-lists.el
