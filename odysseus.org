@@ -38,6 +38,7 @@ This is my personal *GNU Emacs* configuration. The main configuration file is an
       - [[#dotplantuml][dot/plantuml]]
       - [[#markdown][markdown]]
     - [[#org][Org]]
+      - [[#audiovisual][Audiovisual]]
     - [[#git-integration][Git integration]]
     - [[#remote-editing][Remote editing]]
     - [[#blog][Blog]]
@@ -1130,19 +1131,61 @@ The current configuration focuses on:
     (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
     :hook
     (org-mode-hook . org-bullets-mode))
+#+END_SRC
 
+**** Audiovisual
+#+BEGIN_SRC emacs-lisp
   (use-package orgmdb
     :ensure t
     :custom
-    (orgmdb-poster-folder "~/.orpheus/gnu-emacs/orgmdb/"))
+    (orgmdb-poster-folder "~/.orpheus/gnu-emacs/orgmdb"))
 
-  (use-package htmlize
-    :ensure t)
+  (defun orgmdb-insert-media-data-string/ttybitnik (&rest args)
+    "Return movie info and poster of given ARGS as a string.
+    ARGS should be in the same form with `orgmdb' function."
+    (let ((info (apply #'orgmdb `(,@args :episode all :plot full))))
+      (orgmdb--ensure-response-is-successful info)
+      (concat
+       (format "* %s (%s) - %s\n" (orgmdb-title info) (orgmdb-year info) (orgmdb-imdb-link info))
+       "\n"
+       (format "[[file:%s]]\n\n" (orgmdb--download-image-for info))
+       (format "- Genre :: %s\n" (orgmdb-genre info))
+       (format "- Runtime :: %s\n" (orgmdb-runtime info))
+       (format "- Released :: %s\n" (orgmdb-released info))
+       (format "- Rated :: %s\n" (orgmdb-rated info))
+       "\n"
+       (format "- Director :: %s\n" (orgmdb-director info))
+       (format "- Writer :: %s\n" (orgmdb-writer info))
+       (format "- Production :: %s\n" (orgmdb-writer info))
+       (format "- Actors :: %s\n" (orgmdb-actors info))
+       "\n"
+       (format "- Language :: %s\n" (orgmdb-language info))
+       (format "- Country :: %s\n" (orgmdb-country info))
+       (format "- Awards :: %s\n" (orgmdb-awards info))
+       "\n"
+       (format "- Metacritic :: %s\n" (orgmdb-metacritic info))
+       (format "- IMDb Rating :: %s (%s votes)\n" (orgmdb-imdb-rating info) (orgmdb-imdb-votes info))
+       (format "- Tomatometer :: %s\n" (orgmdb-tomatometer info))
+       "\n"
+       (format "- Plot :: %s\n" (orgmdb-plot info))
+       (let ((last-season nil)
+             (episode-strings '()))
+         (seq-doseq (episode (alist-get 'Episodes info))
+           (let-alist episode
+             (let ((curr-season (string-to-number .Season)))
+               (setq last-season (if (= curr-season last-season) last-season curr-season))
+               (push (format "%s** [[imdb:%s][%s]]\n- IMDb Rating :: %s\n- Released :: %s\n"
+                             (if (not (= curr-season last-season))
+                                 (format "* Session %s\n" curr-season)
+                               "")
+                             .imdbID
+                             (orgmdb--episode-to-title episode)
+                             .imdbRating
+                             .Released)
+                     episode-strings))))
+         (apply #'concat (reverse episode-strings))))))
 
-  (use-package toc-org
-    :ensure t)
-
-  (defun orgmdb-insert-movie-data/ttybitnik (&rest args)
+  (defun orgmdb-insert-media-data/ttybitnik (&rest args)
     "Insert content containing movie info and poster of given ARGS.
     ARGS should be in the same form with `orgmdb' function.
 
@@ -1152,7 +1195,7 @@ The current configuration focuses on:
     (interactive (orgmdb--detect-params-from-header))
     (let ((info (apply #'orgmdb `(,@args :episode all :plot full))))
       (orgmdb--ensure-response-is-successful info)
-      (insert (format "* %s (%s) - %s\n" (orgmdb-title info) (orgmdb-year info) (orgmdb-imdb-link info)))
+      (insert (format "\n* %s (%s) - %s\n" (orgmdb-title info) (orgmdb-year info) (orgmdb-imdb-link info)))
       (insert "\n")
       (insert (format "[[file:%s]]\n\n" (orgmdb--download-image-for info)))
       (insert (format "- Genre :: %s\n" (orgmdb-genre info)))
@@ -1188,8 +1231,7 @@ The current configuration focuses on:
                                .imdbID
                                (orgmdb--episode-to-title episode)))
                (insert (format "- IMDb Rating :: %s\n" .imdbRating))
-               (insert (format "- Released :: %s\n" .Released))
-               (insert "\n"))))
+               (insert (format "- Released :: %s\n" .Released)))))
          (alist-get 'Episodes info)))
       (org-display-inline-images)))
 #+END_SRC
