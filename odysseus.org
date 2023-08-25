@@ -1533,7 +1533,8 @@ The current configuration focuses on:
       :diminish visual-line-mode
       :diminish subword-mode
       :diminish page-break-lines-mode
-      :diminish yas-minor-mode)
+      :diminish yas-minor-mode
+      :diminish eldoc-mode)
 
   (eval-after-load 'org-indent '(diminish 'org-indent-mode))
   (eval-after-load 'face-remap '(diminish 'buffer-face-mode))
