@@ -38,6 +38,7 @@ This is my personal *GNU Emacs* configuration. The main configuration file is an
       - [[#dotplantuml][dot/plantuml]]
       - [[#markdown][markdown]]
     - [[#org][Org]]
+      - [[#zettelkasten][Zettelkasten]]
       - [[#audiovisual][Audiovisual]]
     - [[#git-integration][Git integration]]
     - [[#remote-editing][Remote editing]]
@@ -1034,6 +1035,51 @@ The current configuration focuses on:
     ("C-c a" . org-agenda)
     ("C-c c" . org-capture))
 
+  (use-package ox-twbs
+    :ensure t)
+
+  (use-package ox-reveal
+    :ensure t
+    :custom
+    (org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js"))
+
+  (use-package org-bullets
+    :ensure t
+    :custom
+    (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
+    :hook
+    (org-mode-hook . org-bullets-mode))
+
+  (use-package htmlize
+    :ensure t)
+
+  (use-package toc-org
+    :ensure t)
+
+  (use-package pdf-tools
+    :ensure t
+    :diminish pdf-view-themed-minor-mode
+    :init
+    (pdf-loader-install)
+    :hook
+    (pdf-view-mode . pdf-view-themed-minor-mode)
+    (pdf-view-mode . pdf-view-auto-slice-minor-mode))
+
+  (use-package nov
+    :ensure t
+    :mode ("\\.\\(epub\\|mobi\\)\\'" . nov-mode))
+
+  (use-package org-noter
+    :ensure t
+    ;; :requires (pdf-tools nov)
+    :custom
+    (org-noter-doc-split-fraction '(0.57 0.43))
+    :bind
+    ("C-c N" . org-noter))
+#+END_SRC
+
+**** Zettelkasten
+#+BEGIN_SRC emacs-lisp
   (use-package org-roam
     :ensure t
     :custom
@@ -1047,10 +1093,12 @@ The current configuration focuses on:
         :target (file "%<%Y%m%d%H%M%S>-writing-${slug}.org") :unnarrowed t :clock-in t :clock-resume t :jump-to-captured t :kill-buffer nil)
        ("pp" "Presenting" plain (file "~/.emacs.d/local/org-roam/presenting-template.org")
         :target (file "%<%Y%m%d%H%M%S>-presenting-${slug}.org") :unnarrowed t :clock-in t :clock-resume t :jump-to-captured t :kill-buffer nil)
+       ("pb" "Blogging" plain (file "~/.emacs.d/local/org-roam/blogging-template.org")
+        :target (file "%<%Y%m%d%H%M%S>-blogging-${slug}.org") :unnarrowed t :clock-in t :clock-resume t :jump-to-captured t :kill-buffer nil)
 
        ("c" "Capture")
        ("cb" "Book" plain (file "~/.emacs.d/local/org-roam/book-template.org")
-        :target (file "%<%Y%m%d%H%M%S>-book-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+        :target (file "ref/${citekey}.org") :unnarrowed t :clock-in t :clock-resume t)
        ("cm" "Movie" plain (file "~/.emacs.d/local/org-roam/movie-template.org")
         :target (file "%<%Y%m%d%H%M%S>-movie-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
        ("cu" "Music" plain (file "~/.emacs.d/local/org-roam/music-template.org")
@@ -1070,7 +1118,7 @@ The current configuration focuses on:
        ("nc" "Class" plain (file "~/.emacs.d/local/org-roam/class-template.org")
         :target (file "%<%Y%m%d%H%M%S>-class-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
        ("no" "Convo" plain (file "~/.emacs.d/local/org-roam/convo-template.org")
-        :target (file "%<%Y%m%d%H%M%S>-convo-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+        :target (fiLe "%<%Y%m%d%H%M%S>-convo-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
        ("nu" "Course" plain (file "~/.emacs.d/local/org-roam/course-template.org")
         :target (file "%<%Y%m%d%H%M%S>-course-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
        ("nd" "Dream" plain (file "~/.emacs.d/local/org-roam/dream-template.org")
@@ -1083,10 +1131,16 @@ The current configuration focuses on:
         :target (file "%<%Y%m%d%H%M%S>-zettel-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
 
        ("i" "Index" plain (file "~/.emacs.d/local/org-roam/index-template.org")
-        :target (file "%<%Y%m%d%H%M%S>-index-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)))
+        :target (file "%<%Y%m%d%H%M%S>-index-${slug}.org") :unnarrowed t :clock-in t :clock-resume t)
+       ("h" "Placeholder" entry "* ${title}\n%(org-id-get-create)"
+        :target (file+head+olp
+                 "~/.orpheus/gnu-emacs/org-roam/20230803215003-index-refile.org"
+                 nil
+                 ("Refile" "Placeholder"))
+        :unnarrowed t :clock-in t :clock-resume t :immediate-finish t)))
 
     :config
-    ;; (org-roam-db-autosync-mode) too resource intensive atm
+    (org-roam-db-autosync-mode)
     (add-to-list 'display-buffer-alist
                  '("\\*org-roam\\*"
                    (display-buffer-in-direction)
@@ -1107,6 +1161,7 @@ The current configuration focuses on:
 
   (use-package org-roam-ui
     :ensure t
+    :diminish org-roam-ui-follow-mode
     :custom
     (org-roam-ui-sync-theme t)
     (org-roam-ui-follow t)
@@ -1116,37 +1171,81 @@ The current configuration focuses on:
     ("C-c n u" . org-roam-ui-mode)
     ("C-c n y" . org-roam-ui-sync-theme))
 
-  ;; (use-package org-roam-bibtex
-  ;;   :ensure t)
-
-  ;; (use-package helm-bibtex
-  ;; :ensure t)
-
-  (use-package pdf-tools
+  (use-package bibtex
     :ensure t)
 
-  (use-package org-noter
+  (use-package org-roam-bibtex
     :ensure t
+    :diminish org-roam-bibtex-mode
     :init
-    (require 'pdf-tools))
+    (org-roam-bibtex-mode 1)
+    :custom
+    (orb-insert-interface 'helm-bibtex)
+    (orb-autokey-format "%A%y")
+    ;; (orb-preformat-keywords
+    ;; '("citekey" "title" "url" "author-or-editor" "keywords" "file"))
+    (orb-process-file-keyword t)
+    (orb-attached-file-extensions '("pdf" "epub" "mobi"))) ;; experimental
+
+  (use-package bibtex-completion
+    :ensure t
+    :custom
+    (bibtex-completion-bibliography '("~/.prometheus/Bibliography/general.bib"))
+    (bibtex-completion-library-path  '("~/.prometheus/Biblioteca/"))
+    (bibtex-completion-notes-path "~/.orpheus/gnu-emacs/org-roam/ref/")
+
+    (bibtex-completion-display-formats
+     '((t . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:25} ${title:*} ${tags:25} ${languages:6} ${custom_yesno:1} ${custom_fichamento:9} ${custom_organizer:10} ${custom_materia:25}")))
+
+    (bibtex-completion-pdf-extension '(".pdf" ".epub" ".mobi")) ;; experimental
+    ;; (bibtex-align-at-equal-sign t)
+    ;; (bibtex-autokey-name-year-separator "")
+    ;; (bibtex-autokey-year-title-separator "")
+    ;; (bibtex-autokey-year-length 4)
+    ;; (bibtex-autokey-titleword-first-ignore '("the" "a" "if" "and" "an"))
+    ;; (bibtex-autokey-titleword-length 20)
+    ;; (bibtex-autokey-titlewords-stretch 0)
+    ;; (bibtex-autokey-titlewords 0)
+
+    (bibtex-completion-pdf-field "file")
+    (bibtex-completion-pdf-symbol "P")
+    (bibtex-completion-notes-symbol "N")
+    (bibtex-dialect 'biblatex)
+    (bibtex-user-optional-fields '(("languages" "Languages")
+                                   ("custom_fichamento" "Note-taking status")
+                                   ("custom_organizer" "File type")
+                                   ("custom_yesno" "Reading status")
+                                   ("custom_materia" "Custom category")
+                                   ("tags" "Personal tags")
+                                   ("file" "Path to file")))
+
+    (bibtex-completion-additional-search-fields '(tags custom_materia custom_yesno custom_organizer custom_fichamento languages))
+
+    (bibtex-completion-format-citation-functions
+     '((org-mode      . org-ref-helm-bibtex-insert-citation) ;; experimental
+       (latex-mode    . bibtex-completion-format-citation-cite)
+       (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
+       (default       . bibtex-completion-format-citation-default)))
+
+    (bibtex-completion-cite-default-command "cite")
+    (bibtex-completion-pdf-open-function 'helm-open-file-with-default-tool))
+
+  (use-package helm-bibtex
+    :ensure t
+    :requires bibtex-completion
+    ;; :custom
+    ;; (bibtex-completion-notes-template-multiple-files
+    ;;  "#+TITLE: ${=key=}\n#+CREATED: %U\n#+LAST_MODIFIED: %U\n\nLiterature notes for cite:${=key=}.\n\n")
+    :bind
+    ("C-c b b" . helm-bibtex)
+    ("C-c b n" . helm-bibtex-with-notes)
+    ("C-c b l" . helm-bibtex-with-local-bibliography))
 
   (use-package org-ref
-    :ensure t)
-
-  (use-package ox-twbs
-    :ensure t)
-
-  (use-package ox-reveal
     :ensure t
-    :custom
-    (org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js"))
-
-  (use-package org-bullets
-    :ensure t
-    :custom
-    (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
-    :hook
-    (org-mode-hook . org-bullets-mode))
+    :requires (org helm-bibtex)
+    :bind
+    ("C-c b c" . org-ref-cite-insert-helm))
 #+END_SRC
 
 **** Audiovisual
