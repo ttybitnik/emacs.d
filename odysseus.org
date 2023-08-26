@@ -1,4 +1,4 @@
-#+TITLE: GNU Emacs.ttybitnik
+#+TITLE: ttybitnik/emacs.d
 #+AUTHOR: Vinicius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+OPTIONS: num:nil
