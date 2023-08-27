@@ -516,6 +516,9 @@ The current configuration focuses on:
 
 *** Programming
 #+BEGIN_SRC emacs-lisp
+  (add-hook 'prog-mode-hook #'fill-column/ttybitnik)
+  (add-hook 'conf-mode-hook #'fill-column/ttybitnik)
+
   (use-package yasnippet
     :ensure t
     :config
@@ -558,6 +561,12 @@ The current configuration focuses on:
   ;  if you want to use debugger, cf lsp doc
   ;; (use-package dap-mode)
   ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
+
+  (defun fill-column/ttybitnik (&optional value)
+    "Set `fill-column' to VALUE or the default of 80, and enable
+  `display-fill-column-indicator-mode'."
+    (setq-local fill-column (if (numberp value) value 80))
+    (display-fill-column-indicator-mode))
 #+END_SRC
 
 **** c/c++
