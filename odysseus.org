@@ -239,7 +239,8 @@ The current configuration focuses on:
     :custom
     (linum-relative-backend 'display-line-numbers-mode) 
     :hook
-    (prog-mode . linum-relative-mode))
+    (prog-mode . linum-relative-mode)
+    (conf-mode . linum-relative-mode))
 
   (use-package consult
     :ensure t
