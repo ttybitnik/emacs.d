@@ -303,15 +303,21 @@ The current configuration focuses on:
   (setq kill-buffer-query-functions (delq 'process-kill-buffer-query-function
                                           kill-buffer-query-functions))
   (defun previous-multilines ()
-    "Scroll down multiple lines"
+    "Scroll down multiple lines, `universal-argument' moves the `next-window'."
     (interactive)
-    (ccm-scroll-down (/ (window-body-height) 3)))
+    (if current-prefix-arg
+        (with-selected-window (next-window)
+          (ccm-scroll-down (/ (window-body-height) 3)))
+      (ccm-scroll-down (/ (window-body-height) 3))))
   (global-set-key "\M-p" 'previous-multilines)
 
   (defun next-multilines ()
-    "Scroll up multiple lines"
+    "Scroll up multiple lines, `universal-argument' moves the `next-window'."
     (interactive)
-    (ccm-scroll-up (/ (window-body-height) 3)))
+    (if current-prefix-arg
+        (with-selected-window (next-window)
+          (ccm-scroll-up (/ (window-body-height) 3)))
+      (ccm-scroll-up (/ (window-body-height) 3))))
   (global-set-key "\M-n" 'next-multilines)
 #+END_SRC
 
