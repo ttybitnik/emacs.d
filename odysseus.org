@@ -183,6 +183,17 @@ The current configuration focuses on:
    '(org-level-7 ((t (:height 1.1))))
    '(org-level-8 ((t (:height 1.1))))
    '(dashboard-heading-face ((t (:inherit font-lock-keyword-face :height 1.1)))))
+
+  (setq org-todo-keyword-faces
+        '(("NEXT" . (:foreground "orange" :weight bold))
+          ("WAITING" . (:foreground "yellow3" :weight bold))
+          ("CANCELED" . (:foreground "gray" :weight bold))
+          ("MEETING" . (:foreground "gold" :weight bold))
+          ("DRAFT" . (:foreground "tomato" :weight bold))
+          ("WRITING" . (:foreground "tomato" :weight bold))
+          ("REVISION I" . (:foreground "tomato" :weight bold))
+          ("REVISION II" . (:foreground "tomato" :weight bold))
+          ("PROOFREADING" . (:foreground "tomato" :weight bold))))
 #+END_SRC
 
 *** Modeline
@@ -995,8 +1006,8 @@ The current configuration focuses on:
     (org-babel-python-command "python3")
     (org-export-with-smart-quotes t)
     (org-src-window-setup 'current-window)
-    (org-todo-keywords '((sequence "TODO(t!)" "NEXT(n!)" "WAITING(h@/!)" "|" "DONE(d!)" "CANCELED(c@/!)" "MEETING(m!)")
-                         (sequence "DRAFT(a!)" "WRITING(w!)" "REVISION I(r!)" "REVSION II(e!)" "PROOFREADING(o!)" "|" "PUBLISHED(p!)")))
+    (org-todo-keywords '((sequence "TODO(t!)" "NEXT(n!)" "WAITING(h@/!)" "|" "MEETING(m!)" "DONE(d!)" "CANCELED(c@/!)")
+                         (sequence "DRAFT(a!)" "WRITING(w!)" "REVISION I(r!)" "REVISION II(e!)" "PROOFREADING(o!)" "|" "PUBLISHED(p!)")))
     (org-agenda-start-with-log-mode t)
     (org-log-done 'time)
     (org-log-into-drawer t)
