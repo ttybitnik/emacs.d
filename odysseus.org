@@ -149,6 +149,10 @@ The current configuration focuses on:
     :config
     (load-file "~/.emacs.d/local/switcher.el"))
 
+  (use-package all-the-icons-dired
+      :ensure t
+      :diminish all-the-icons-dired-mode)
+
   (setq visible-bell t)
 
   (when (display-graphic-p)
