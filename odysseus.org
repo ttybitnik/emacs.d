@@ -64,7 +64,7 @@ The current configuration focuses on:
 - Remote Server Administration
 - Blogging
 - Emailing
-- IRC 
+- IRC
   
 /Contact me if you'd like to suggest a package. I'm always glad to learn about new ones./
 
@@ -253,7 +253,7 @@ The current configuration focuses on:
     :ensure t
     :diminish linum-relative-mode
     :custom
-    (linum-relative-backend 'display-line-numbers-mode) 
+    (linum-relative-backend 'display-line-numbers-mode)
     :hook
     (prog-mode . linum-relative-mode)
     (conf-mode . linum-relative-mode))
@@ -269,7 +269,7 @@ The current configuration focuses on:
     ("C-x C-f" . 'helm-find-files)
     ("C-x C-b" . 'helm-buffers-list)
     ("M-x" . 'helm-M-x)
-    ("C-s" . helm-occur) 
+    ("C-s" . helm-occur)
     (:map helm-find-files-map
           ("C-b" . helm-find-files-up-one-level)
           ("C-f" . helm-execute-persistent-action))
@@ -403,9 +403,10 @@ The current configuration focuses on:
 
   (use-package org-auto-tangle
     :ensure t
-    :diminish org-auto-tangle-mode 
+    :diminish org-auto-tangle-mode
     :defer t
-    :hook (org-mode . org-auto-tangle-mode))
+    :hook
+    (org-mode . org-auto-tangle-mode))
 
   (use-package beacon
     :ensure t
@@ -418,7 +419,8 @@ The current configuration focuses on:
   (use-package rainbow-mode
     :ensure t
     :diminish rainbow-mode
-    :hook (prog-mode org-mode conf-mode))
+    :hook
+    (prog-mode org-mode conf-mode))
 
   (use-package rainbow-delimiters
     :ensure t
@@ -1046,7 +1048,7 @@ The current configuration focuses on:
         (file "~/.emacs.d/local/org/journal-template.org") :clock-in t :clock-resume t)))
     (org-agenda-files '("~/.orpheus/gnu-emacs/org-agenda/"))
     (org-refile-targets '((nil :maxlevel . 1)
-                          (org-agenda-files :maxlevel . 1))) 
+                          (org-agenda-files :maxlevel . 1)))
     :hook
     (org-mode . (lambda ()
                   (visual-line-mode 1)
@@ -1477,7 +1479,7 @@ The current configuration focuses on:
   (use-package gnus
     :ensure nil
     :custom
-    (user-full-name "Vinícius Moraes") 
+    (user-full-name "Vinícius Moraes")
     (user-mail-address "vinicius.moraes@eternodevir.com")
     (message-signature "Vinícius Moraes\neternodevir.com")
     (gnus-select-method '(nnimap "gmail"
@@ -1568,17 +1570,17 @@ The current configuration focuses on:
     :bind
     ("C-c g" . gnus)
     :hook
-    ((dired-mode . turn-on-gnus-dired-mode)
-     (gnus-group-mode . gnus-topic-mode)
-     (gnus-select-group . gnus-group-set-timestamp)
-     (gnus-group-mode . hl-line-mode)
-     (gnus-summary-mode . hl-line-mode)
-     (gnus-browse-mode . hl-line-mode)))
+    (dired-mode . turn-on-gnus-dired-mode)
+    (gnus-group-mode . gnus-topic-mode)
+    (gnus-select-group . gnus-group-set-timestamp)
+    (gnus-group-mode . hl-line-mode)
+    (gnus-summary-mode . hl-line-mode)
+    (gnus-browse-mode . hl-line-mode))
 
   ;; useful options currently disabled
   ;; (setq gnus-use-cache t)
   ;; (setq message-citation-line-function nil)
-  ;; (setq message-ignored-cited-headers nil)  
+  ;; (setq message-ignored-cited-headers nil)
 
   (use-package epa-file
     :ensure nil
