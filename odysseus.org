@@ -495,7 +495,7 @@ The current configuration focuses on:
     :config
     (require 'dired-x)
     :custom
-    (dired-listing-switches "-alhGFv --group-directories-first")
+    (dired-listing-switches "-alhvF --color=auto --group-directories-first")
     (dired-dwim-target t)
     (dired-guess-shell-alist-user
           '(("\\.\\(png\\|jpe?g\\|tiff\\)" "imv" "xdg-open")
