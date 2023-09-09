@@ -1086,7 +1086,7 @@ The current configuration focuses on:
   (use-package org-bullets
     :ensure t
     :custom
-    (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
+    (org-bullets-bullet-list '("●"))
     :hook
     (org-mode . org-bullets-mode))
 
