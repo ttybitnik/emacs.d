@@ -527,6 +527,7 @@ The current configuration focuses on:
 
   (use-package async
     :ensure t
+    :diminish dired-async-mode
     :init (dired-async-mode 1))
 
   (use-package company
