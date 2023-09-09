@@ -488,6 +488,15 @@ The current configuration focuses on:
   (require 'dired-x)
   (setq dired-listing-switches "-alh")
 
+  (use-package dired-subtree
+    :ensure t
+    :bind
+    :custom
+    (dired-subtree-use-backgrounds nil)
+    (:map dired-mode-map
+          ("<tab>" . dired-subtree-toggle)
+          ("<backtab>" . dired-subtree-remove)))
+
   (use-package undo-tree
     :ensure t
     :diminish undo-tree-mode
