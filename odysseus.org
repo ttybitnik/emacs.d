@@ -491,8 +491,22 @@ The current configuration focuses on:
 
   (defalias 'yes-or-no-p 'y-or-n-p)
 
-  (require 'dired-x)
-  (setq dired-listing-switches "-alh")
+  (use-package dired
+    :config
+    (require 'dired-x)
+    :custom
+    (dired-listing-switches "-alhGFv --group-directories-first")
+    (dired-dwim-target t)
+    (dired-guess-shell-alist-user
+          '(("\\.\\(png\\|jpe?g\\|tiff\\)" "imv" "xdg-open")
+            ("\\.\\(mp[34]\\|m4a\\|ogg\\|flac\\|webm\\|mkv\\)" "mpv" "xdg-open")
+            (".*" "xdg-open")))
+    (dired-create-destination-dirs 'ask)
+    (dired-isearch-filenames 'dwim)
+    (dired-vc-rename-file t)
+    :hook
+    (dired-mode . hl-line-mode)
+    (dired-mode . all-the-icons-dired-mode))
 
   (use-package dired-subtree
     :ensure t
