@@ -232,7 +232,7 @@ The current configuration focuses on:
     :ensure t
     :config
     (define-prefix-command 'avy-remap)
-    (global-set-key (kbd "C-c s") 'avy-remap)
+    (global-set-key (kbd "C-c M-s") 'avy-remap)
     (define-key avy-remap (kbd ".") 'isearch-forward-symbol-at-point)
     (define-key avy-remap (kbd "M-.") 'isearch-forward-thing-at-point)
     (define-key avy-remap (kbd "M-w") 'eww-search-words)
