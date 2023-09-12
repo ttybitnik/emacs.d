@@ -1662,11 +1662,20 @@ The current configuration focuses on:
     (erc-modules '(autoaway autojoin button completion fill irccontrols keep-place list
                             match menu move-to-prompt netsplit networks noncommands readonly
                             ring stamp track hl-nicks scrolltobottom))
+    (erc-track-priority-faces-only 'all)
+    (erc-track-faces-priority-list '(erc-error-face
+                                     erc-current-nick-face
+                                     erc-keyword-face
+                                     erc-nick-msg-face
+                                     erc-direct-msg-face
+                                     erc-dangerous-host-face
+                                     erc-notice-face
+                                     erc-prompt-face))
     :config
     (defun erc-login/ttybitnik ()
       "ERC libera.chat login with SASL."
       (interactive)
-      (erc-tls :server "irc.libera.chat" :port "6697"))
+      (erc-tls :server "irc.libera.chat" :port "6697")))
 
     (defun erc-switch-buffer/ttybitnik (orig-fun &optional arg)
       "Advice function to move to the end of the buffer after `erc-track-switch-buffer'."
