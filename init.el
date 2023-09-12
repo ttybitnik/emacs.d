@@ -6,8 +6,8 @@
 
 (setq package-archive-priorities '(("gnu" . 4)
 				   ("nongnu" . 3)
-				   ("melpa-stable" . 2)
-				   ("melpa" . 1)))
+				   ("melpa" . 2)
+				   ("melpa-stable" . 1)))
 
 (package-initialize)
 
@@ -29,14 +29,15 @@
  '(display-time-24hr-format t)
  '(line-number-mode t)
  '(package-selected-packages
-   '(centered-cursor-mode dired-subtree all-the-icons-dired wgrep multiple-cursors nov exec-path-from-shell graphviz-dot-mode plantuml-mode org-roam-bibtex undo-tree consult-lsp rust-mode ansible lsp-json js2-mode lsp-pyright lsp-treemacs helm-lsp lsp-ui lsp-mode consult evil json-mode gruvbox-theme org fountain-mode toc-org olivetti orgmdb pdf-tools org-noter org-bibtex org-ref helm-bibtex company-elisp helm-elisp company-sly sly helm-descbinds easy-hugo org-auto-tangle go-mode go-translate markdown-mode yaml-mode ox-reveal diminish erc-hl-nicks ox-twbs org-bullets htmlize sudo-edit magit love-minor-mode auto-complete company-shell company-jedi company-irony company-c-headers flycheck-clang-analyzer company flycheck yasnippet-snippets yasnippet popup-kill-ring zzz-to-char hungry-delete expand-region rainbow-delimiters beacon mark-multiple compat all-the-icons rainbow-mode))
+   '(org-roam-ui linum-relative switch-window which-key projectile dashboard centered-cursor-mode dired-subtree all-the-icons-dired wgrep multiple-cursors nov exec-path-from-shell graphviz-dot-mode plantuml-mode org-roam-bibtex undo-tree consult-lsp rust-mode ansible lsp-json js2-mode lsp-pyright lsp-treemacs helm-lsp lsp-ui lsp-mode consult evil json-mode gruvbox-theme org fountain-mode toc-org olivetti orgmdb pdf-tools org-noter org-bibtex org-ref helm-bibtex company-elisp helm-elisp company-sly sly helm-descbinds easy-hugo org-auto-tangle go-mode go-translate markdown-mode yaml-mode ox-reveal diminish erc-hl-nicks ox-twbs org-bullets htmlize sudo-edit magit love-minor-mode auto-complete company-shell company-jedi company-irony company-c-headers flycheck-clang-analyzer company flycheck yasnippet-snippets yasnippet popup-kill-ring zzz-to-char hungry-delete expand-region rainbow-delimiters beacon mark-multiple compat all-the-icons rainbow-mode))
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8")
  '(powerline-default-separator 'arrow)
  '(send-mail-function 'smtpmail-send-it)
  '(spaceline-buffer-encoding-abbrev-p nil t)
  '(spaceline-line-column-p nil t)
- '(spaceline-line-p nil t))
+ '(spaceline-line-p nil t)
+ '(warning-suppress-types '((comp) (comp) (comp) (comp))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
