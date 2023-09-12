@@ -204,12 +204,16 @@ The current configuration focuses on:
 #+BEGIN_SRC emacs-lisp
   (use-package spaceline
     :ensure t
+    :init
+    (require 'spaceline-config)
     :custom
     (display-time-format "%H:%M - %d %B %Y")
     (display-time-mode 1)
+    (powerline-default-separator 'wave)
     :config
     (spaceline-spacemacs-theme)
     (spaceline-helm-mode)
+    (spaceline-info-mode)
     (add-hook 'emacs-startup-hook #'spaceline-toggle-line-column-on))
 #+END_SRC
 
