@@ -1675,7 +1675,7 @@ The current configuration focuses on:
     (defun erc-login/ttybitnik ()
       "ERC libera.chat login with SASL."
       (interactive)
-      (erc-tls :server "irc.libera.chat" :port "6697")))
+      (erc-tls :server "irc.libera.chat" :port "6697"))
 
     (defun erc-switch-buffer/ttybitnik (orig-fun &optional arg)
       "Advice function to move to the end of the buffer after `erc-track-switch-buffer'."
