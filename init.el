@@ -36,8 +36,7 @@
  '(send-mail-function 'smtpmail-send-it)
  '(spaceline-buffer-encoding-abbrev-p nil t)
  '(spaceline-line-column-p nil t)
- '(spaceline-line-p nil t)
- '(warning-suppress-types '((comp) (comp) (comp) (comp))))
+ '(spaceline-line-p nil t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
