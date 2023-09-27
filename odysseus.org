@@ -3,6 +3,10 @@
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+OPTIONS: num:nil
 
+#+begin_quote
+⚠️️ This file is provided solely for archival purposes and is no longer actively maintained or executed. Starting from September 2023, I have completely refactored my configuration from this Literate Programming style to an Emacs Lisp style. For the latest and up-to-date configuration, please refer to the [[https://github.com/ttybitnik/emacs.d][head]] of the repository.
+#+end_quote
+
 #+html: <p align="center"><img src="img/emacs-demo.gif" /></p>
 
 This is my personal *GNU Emacs* configuration. The main configuration file is an =.org= file named after /Odysseus/, which is loaded through =init.el=. As you may have noticed, this is the configuration itself due to *org-mode* literate programming capabilities.
