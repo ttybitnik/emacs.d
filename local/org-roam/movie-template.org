@@ -1,0 +1,24 @@
+#+TITLE: ${title}
+#+AUTHOR: Vinicius Moraes
+#+EMAIL: vinicius.moraes@eternodevir.com
+#+DATE: %t
+#+FILETAGS: movie study
+#+CATEGORY: study
+#+STARTUP: inlineimages
+- Movie :: %?
+
+%(orgmdb-insert-media-data-string/ttybitnik :title "${title}" :type 'movie)
+* Notes
+
+* Resources
+
+* TODO ${title} [0/1]                                                  :movie:
+
+[[id:${id}][${title}]]
+
+** TODO Organizing
+- [X] Evaluate movie data
+- [ ] Generate director node/link
+- [ ] Roam alias and indexes
+- [ ] Refile tasks
+

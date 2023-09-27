@@ -1,61 +1,131 @@
-(require 'package)
-(setq package-enable-at-startup nil)
+;;; init.el --- Personal Emacs Configuration -*- lexical-binding: t -*-
 
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;; Copyright (c) 2022-2023 Vinicius Moraes
 
-(setq package-archive-priorities '(("gnu" . 4)
-				   ("nongnu" . 3)
-				   ("melpa" . 2)
-				   ("melpa-stable" . 1)))
+;; Author: Vinicius Moraes <vinicius.moraes@eternodevir.com>
+;; Version: 0.1.0
+
+;; URL: https://github.com/ttybitnik/emacs.d
+
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; Crafting Emacs like a luthier.
+
+;;; Code:
+
+;;* Variables:
+
+(defconst emacs-d/ttybitnik
+  (file-name-as-directory user-emacs-directory)
+  "Absolute path of emacs.d directory.")
+
+(defconst modules-d/ttybitnik
+  (concat emacs-d/ttybitnik (file-name-as-directory "modules"))
+  "Absolute path of modules directory.")
+
+(defconst local-d/ttybitnik
+  (concat user-emacs-directory (file-name-as-directory "local"))
+  "Absolute path of local directory.")
+
+(defconst img-d/ttybitnik
+  (concat user-emacs-directory (file-name-as-directory "img"))
+  "Absolute path of img directory.")
+
+(defconst auth-d/ttybitnik
+  (concat user-emacs-directory (file-name-as-directory ".auth"))
+  "Absolute path of .auth directory.")
+
+(defconst orpheusmx-d/ttybitnik
+  (file-name-as-directory "~/.orpheus/gnu-emacs")
+  "Absolute path of Emacs directory inside Orpheus.")
+
+;;* Functions:
+
+(defun require-package (package &optional no-refresh)
+  "Install PACKAGE using `package-install' unless it's already installed.
+If NO-REFRESH is non-nil, `package-refresh-contents' will be skipped."
+  (unless (package-installed-p package)
+    (unless no-refresh
+      (package-refresh-contents))
+    (package-install package))
+  (require package))
+
+(defun start-emacs-server ()
+  "Start the Emacs server if it is not already running."
+  (require 'server)
+  (unless (server-running-p)
+    (server-start)))
+
+;;* Main:
+
+(let* ((minver "28.2"))
+  (when (version< emacs-version minver)
+    (error "Emacs v%s or higher is required" minver)))
 
 (package-initialize)
 
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+(setq package-archive-priorities
+      '(("gnu" . 4)
+	("nongnu" . 3)
+	("melpa" . 2)
+	("melpa-stable" . 1)))
 
-(when (file-readable-p "~/.emacs.d/odysseus.org")
-  (org-babel-load-file (expand-file-name "~/.emacs.d/odysseus.org")))
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(auth-source-save-behavior nil)
- '(column-number-mode t)
- '(custom-safe-themes '(default))
- '(display-time-24hr-format t)
- '(line-number-mode t)
- '(package-selected-packages
-   '(org-roam-ui linum-relative switch-window which-key projectile dashboard centered-cursor-mode dired-subtree all-the-icons-dired wgrep multiple-cursors nov exec-path-from-shell graphviz-dot-mode plantuml-mode org-roam-bibtex undo-tree consult-lsp rust-mode ansible lsp-json js2-mode lsp-pyright lsp-treemacs helm-lsp lsp-ui lsp-mode consult evil json-mode gruvbox-theme org fountain-mode toc-org olivetti orgmdb pdf-tools org-noter org-bibtex org-ref helm-bibtex company-elisp helm-elisp company-sly sly helm-descbinds easy-hugo org-auto-tangle go-mode go-translate markdown-mode yaml-mode ox-reveal diminish erc-hl-nicks ox-twbs org-bullets htmlize sudo-edit magit love-minor-mode auto-complete company-shell company-jedi company-irony company-c-headers flycheck-clang-analyzer company flycheck yasnippet-snippets yasnippet popup-kill-ring zzz-to-char hungry-delete expand-region rainbow-delimiters beacon mark-multiple compat all-the-icons rainbow-mode))
- '(pos-tip-background-color "#36473A")
- '(pos-tip-foreground-color "#FFFFC8")
- '(powerline-default-separator 'arrow)
- '(send-mail-function 'smtpmail-send-it)
- '(spaceline-buffer-encoding-abbrev-p nil t)
- '(spaceline-line-column-p nil t)
- '(spaceline-line-p nil t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :width normal :family "Iosevka Medium" :height 102))))
- '(dashboard-heading ((t (:inherit font-lock-keyword-face :height 1.1))))
- '(fixed-pitch ((t (:family "Iosevka  Medium"))))
- '(fringe ((t (:background "burlywood4"))))
- '(org-block ((t (:inherit fixed-pitch))))
- '(org-code ((t (:inherit (shadow fixed-pitch)))))
- '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
- '(org-level-1 ((t (:height 1.5))))
- '(org-level-2 ((t (:height 1.4))))
- '(org-level-3 ((t (:height 1.3))))
- '(org-level-4 ((t (:height 1.2))))
- '(org-level-5 ((t (:height 1.1))))
- '(org-level-6 ((t (:height 1.1))))
- '(org-level-7 ((t (:height 1.1))))
- '(org-level-8 ((t (:height 1.1))))
- '(org-table ((t (:inherit fixed-pitch))))
- '(variable-pitch ((t (:family "Iosevka Aile")))))
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives
+	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
+(let ((normal-gc-cons-threshold (* 20 1024 1024))
+      (init-gc-cons-threshold (* 128 1024 1024)))
+  (setq gc-cons-threshold init-gc-cons-threshold)
+  (add-hook 'emacs-startup-hook
+            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
+
+(setq custom-file
+      (locate-user-emacs-file "custom.el"))
+
+(add-to-list 'load-path (expand-file-name modules-d/ttybitnik))
+
+(require 'tty-com)
+(require 'tty-dsg)
+(require 'tty-func)
+(require 'tty-misc)
+(require 'tty-nav)
+(require 'tty-org)
+(require 'tty-prog)
+(require 'tty-proj)
+(require 'tty-publ)
+(require 'tty-txt)
+(require 'tty-vis)
+
+(when (file-exists-p custom-file)
+  (load custom-file))
+
+;;* Bindings:
+
+;;* Hooks:
+
+(add-hook 'after-init-hook 'start-emacs-server)
+
+;;* Appearance:
+
+
+(provide 'init)
+
+;;; Local Variables:
+;;; no-byte-compile: t
+;;; End:
+;;; init.el ends here

@@ -1,0 +1,22 @@
+#+TITLE: ${title}
+#+AUTHOR: Vinicius Moraes
+#+EMAIL: vinicius.moraes@eternodevir.com
+#+DATE: %t
+#+FILETAGS: dream personal
+#+CATEGORY: personal
+- Dream :: %?
+
+* ${title}
+
+* Notes
+
+* Resources
+
+* TODO ${title} [0/1]                                                 :dream:
+
+[[id:${id}][${title}]]
+
+** TODO Organizing
+- [ ] Roam alias and indexes
+- [ ] Refile tasks
+

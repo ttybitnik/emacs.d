@@ -1,0 +1,4 @@
+* %(format-time-string "%H:%M")
+%i
+%a
+%?

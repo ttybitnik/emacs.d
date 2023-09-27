@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: standard header
+# key: <h
+# --
+#+TITLE: $0
+#+AUTHOR: Vinicius Moraes
+#+EMAIL: vinicius.moraes@eternodevir.com
+#+DATE: `(format-time-string "[%Y-%m-%d %a]" nil nil)`
+#+OPTIONS: num:nil

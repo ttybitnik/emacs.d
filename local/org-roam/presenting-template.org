@@ -1,0 +1,26 @@
+#+TITLE: ${title}
+#+AUTHOR: Vinicius Moraes
+#+EMAIL: vinicius.moraes@eternodevir.com
+#+DATE: %t
+#+FILETAGS: presenting %^{Tag|study|personal|work}
+#+CATEGORY: %\1
+:REVEAL_PROPERTIES:
+#+REVEAL_REVEAL_JS_VERSION: 4
+:END:
+#+OPTIONS: toc:nil num:nil reveal_title_slide:nil
+- Presenting :: %?
+
+* ${title}
+
+* Notes
+
+* Resources
+
+* TODO ${title} [0/1]                                            :presenting:
+
+[[id:${id}][${title}]]
+
+** TODO Organizing
+- [ ] Roam alias and indexes
+- [ ] Refile tasks
+

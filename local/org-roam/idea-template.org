@@ -1,0 +1,22 @@
+#+TITLE: ${title}
+#+AUTHOR: Vinicius Moraes
+#+EMAIL: vinicius.moraes@eternodevir.com
+#+DATE: %t
+#+FILETAGS: idea %^{Tag|study|personal|work}
+#+CATEGORY: %\1
+- Idea :: %?
+
+* ${title}
+
+* Notes
+
+* Resources
+
+* TODO ${title} [0/1]                                                  :idea:
+
+[[id:${id}][${title}]]
+
+** TODO Organizing
+- [ ] Roam alias and indexes
+- [ ] Refile tasks
+

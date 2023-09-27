@@ -1,0 +1,84 @@
+#+TITLE: ${title}
+#+AUTHOR: Vinicius Moraes
+#+EMAIL: vinicius.moraes@eternodevir.com
+#+DATE: %t
+#+FILETAGS: blogging %^{Tag|study|personal|work}
+#+CATEGORY: %\1
+- Blogging :: %?
+
+* ${title}
+
+#+begin_src org
+  ,#+TITLE: ${title}
+  ,#+DATE: %t
+  ,#+PUBLISHDATE: %^{Publish date}t
+  ,#+DRAFT: t
+  ,#+CATEGORIES[]: %^{Blog category|broadcasts|essays|notes}
+  ,#+TAGS[]: %^{Blog tags|autobiography|cinema|computing|reading|translation|music}
+  ,#+DESCRIPTION: %^{Short description}
+#+end_src
+
+** Initial draft
+
+*** Extraction of topics
+
+*** Expansion of topics
+
+*** Selection of citations and resources, and reorganization
+
+** Final draft
+
+** Revision final draft
+
+** Translation
+
+** Revision translation
+
+** Final revision
+
+*** Portuguese
+
+*** English
+
+* Notes
+
+* Resources
+
+* TODO ${title} [0/8]                                              :blogging:
+
+[[id:${id}][${title}]]
+
+** TODO Initial draft [0/3]
+
+*** TODO Extraction of topics
+
+*** TODO Expansion of topics
+
+*** TODO Selection of citations and resources, and reorganization
+
+** TODO Final draft
+
+** TODO Revision final draft
+
+** TODO Translation
+
+** TODO Revision translation
+
+** TODO Final revision [0/2]
+
+*** TODO Portuguese
+
+*** TODO English
+
+** TODO Hugo [0/3]
+
+*** TODO Create new post file copying the header
+
+*** TODO Format eventual images and resources
+
+*** TODO Publish
+
+** TODO Organizing
+- [ ] Roam alias and indexes
+- [ ] Refile tasks
+

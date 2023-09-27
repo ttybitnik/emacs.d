@@ -1,0 +1,30 @@
+# -*- mode: snippet; -*-
+# name: standard header
+# key: <h
+# --
+;;; ${1:`(file-name-nondirectory (buffer-file-name))`} --- ${2:summary} -*- lexical-binding: t -*-
+
+;;; Commentary:
+
+;; ${3:summary}
+
+;;; Code:
+
+;;* Variables:
+
+;;* Functions:
+
+;;* Main:
+
+(message "Hello TTY!")
+
+;;* Bindings:
+
+;;* Hooks:
+
+;;* Appearance:
+
+
+(provide '`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`)
+
+;;; $1 ends here

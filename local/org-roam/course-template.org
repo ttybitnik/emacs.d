@@ -1,0 +1,22 @@
+#+TITLE: ${title}
+#+AUTHOR: Vinicius Moraes
+#+EMAIL: vinicius.moraes@eternodevir.com
+#+DATE: %t
+#+FILETAGS: course study
+#+CATEGORY: study
+- Course :: %?
+
+* ${title}
+
+* Notes
+
+* Resources
+
+* TODO ${title} [0/1]                                                :course:
+
+[[id:${id}][${title}]]
+
+** TODO Organizing
+- [ ] Roam alias
+- [ ] Refile tasks
+

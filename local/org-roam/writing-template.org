@@ -1,0 +1,58 @@
+#+TITLE: ${title}
+#+AUTHOR: Vinicius Moraes
+#+EMAIL: vinicius.moraes@eternodevir.com
+#+DATE: %t
+#+FILETAGS: writing %^{Tag|study|personal|work}
+#+CATEGORY: %\1
+- Writing :: %?
+
+* ${title}
+
+** Initial draft
+
+*** Extraction of topics
+
+*** Expansion of topics
+
+*** Selection of citations and reorganization
+
+** Final draft
+
+** Revision I
+
+** Enclosed sharing
+
+** Revision II
+
+** Final revision
+
+* Notes
+
+* Resources
+
+* TODO ${title} [0/7]                                               :writing:
+
+[[id:${id}][${title}]]
+
+** TODO Initial draft [0/3]
+
+*** TODO Extraction of topics
+
+*** TODO Expansion of topics
+
+*** TODO Selection of citations and reorganization
+
+** TODO Final draft
+
+** TODO Revision I
+
+** TODO Enclosed sharing
+
+** TODO Revision II
+
+** TODO Final revision
+
+** TODO Organizing
+- [ ] Roam alias and indexes
+- [ ] Refile tasks
+

@@ -1,0 +1,28 @@
+#+TITLE: ${title}
+#+AUTHOR: Vinicius Moraes
+#+EMAIL: vinicius.moraes@eternodevir.com
+#+DATE: %t
+#+FILETAGS: book study
+#+CATEGORY: study
+- Book :: %?
+
+* ${title}
+
+[[cite:%^{citekey}]]
+
+* Notes
+:PROPERTIES:
+:AUTHOR:
+:NOTER_DOCUMENT: %^{file}
+:END:
+
+* Resources
+
+* TODO ${title} [0/1]                                                  :book:
+
+[[id:${id}][${title}]]
+
+** TODO Organizing
+- [ ] Roam alias and indexes
+- [ ] Refile tasks
+
