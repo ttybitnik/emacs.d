@@ -23,13 +23,13 @@
 
 ** Wood Selection
 
-After having a good grasp of Emacs basics, a good next move is learning from more experienced users. [[https://github.com/redguardtoo][@Redguardtoo]], in [[https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-en.org][On the Shoulders of Giants]], also writes about the importance of this type of approach. Since it is a longstanding community tradition the sharing of *emacs.d*, using all this shared knowledge as /materia prima/ is an effective way to begin a vanilla Emacs journey.
+After having a solid grasp of Emacs basics, a good next move is learning from more experienced users. [[https://github.com/redguardtoo][@Redguardtoo]], in [[https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-en.org][On the Shoulders of Giants]], also writes about the importance of this type of approach. Since it is a longstanding community tradition the sharing of *emacs.d*, using all this shared knowledge as /materia prima/ is an effective way to begin a vanilla Emacs journey.
 
 Nowadays, in my case, I maintain locally a [[https://github.com/stars/ttybitnik/lists/book-emacs-d][curated list]] of *emacs.d* repositories of my interest. When I wish to implement a new feature or workflow, I use these repositories as practical references. Also, around once per trimester, I review upstream changes to weigh whether any new idea or setting worth adapting into my configuration.
 
 Therefore, this approach provides not only a source of hands-on configurations but also a window into evolving practices within the community.
 
-If you are entirely new to Emacs, fear not. Further ahead, I provide some uninitiated-friendly guidance as well.
+If you are entirely new to Emacs, fear not. Further ahead, I provide some beginner-friendly guidance as well.
 
 ** Design and Planning
 
@@ -263,13 +263,13 @@ By following this approach, the code base remains stable and structured, enablin
 
 ** Stringing It Up
 
-To bring the setup to life, start by cloning the repository:
+To bring the setup to life, start by cloning the repository and selecting what interests you the most::
 
 #+begin_src shell
   git clone https://github.com/ttybitnik/emacs.d.git
 #+end_src
 
-A general setting that one may want to adjust from the outset is the package archives priorities in =init.el=. The archives with higher numbers take precedence over the lower ones.
+A general setting that one may want to adjust from the outset is the package archives priorities in =init.el=. The archives with higher values take precedence over the lower ones.
 
 #+begin_src emacs-lisp
   (setq package-archive-priorities
@@ -279,7 +279,7 @@ A general setting that one may want to adjust from the outset is the package arc
         ("melpa-stable" . 1)))
 #+end_src
 
-If you are beginning your Emacs journey, do not skip the official tutorial ~help-with-tutorial~ (C-h t). Then, I recommend familiarizing yourself with the [[https://github.com/AbstProcDo/Master-Emacs-From-Scratch-with-Solid-Procedures][big-bang]] ~M-x~ and getting comfortable with the following commands:
+If you are beginning your Emacs journey, do not skip the official tutorial ~help-with-tutorial~ (C-h t). After that, I recommend familiarizing yourself with the [[https://github.com/AbstProcDo/Master-Emacs-From-Scratch-with-Solid-Procedures][big-bang]] ~M-x~ and getting comfortable with the following commands:
 
 - ~help-for-help~ (C-h C-h)
 - ~describe-variable~ (C-h v)
@@ -334,7 +334,7 @@ Emacs offers powerful tools from coding to prose. Below are some links to key fe
 
 Embrace the [[https://www.youtube.com/watch?v=xSkCny-HtTw][collaborative jamming]] and contribute to the [[https://www.fsf.org/videos/escape-to-freedom/][freedom of software]]. If you encounter a bug or identify areas for improvement in the packages you use, consider collaborating by reporting issues or contributing to code and documentation.
 
-Staying connected with the community is also helpful. Below are some of my preferred ways to do that through ~gnus~.
+Staying connected with the community is also helpful. Below are some of my preferred ways to do it through ~gnus~.
 
 - [[https://savannah.gnu.org/mail/?group=emacs][Emacs Mailiing Lists]]
   - Emacs Devel
@@ -346,7 +346,7 @@ Staying connected with the community is also helpful. Below are some of my prefe
 
 Among its peers, Emacs is a truly unique stradivarius—one that belongs to all of us and can be played by all of us. It embodies the elegance and wisdom of many experienced luthiers over the years. Thus, as I mentioned earlier, do not hesitate to appreciate and play with it as it is. Within Emacs lies an entire world of knowledge waiting to be discovered.
 
-For all that, mastering such gracious instrument may take time. As one of my favorite blog titles on Emacs suggests, "[[https://tess.oconnor.cx/2009/07/learn-emacs-in-ten-years][Learn Emacs in 10 years]]", this journey can indeed be a lifelong commitment. However, with each day of practice, as you gather experience and uncover new areas and techniques, your proficiency evolve. It is an ongoing /opus/, a journey that every Emacs /virtuoso/ embarked on with the spirit of continuous learning, practicing, and, of course, sharing. Let the freedom of its music play through your fingers.
+For all that, mastering such gracious instrument may take time. As one of my favorite blog titles on Emacs suggests, "[[https://tess.oconnor.cx/2009/07/learn-emacs-in-ten-years][Learn Emacs in 10 years]]", this journey can indeed be a lifelong commitment. However, with each day of practice, as you gather experience and uncover new areas and techniques, your proficiency evolves. It is an ongoing /opus/, a journey that every Emacs /virtuoso/ embarked on with the spirit of continuous learning, practicing, and, of course, sharing. Let the freedom of its music play through your fingers.
 
 ** License :noexport:
 
