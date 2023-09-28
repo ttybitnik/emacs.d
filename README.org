@@ -279,7 +279,7 @@ A general setting that one may want to adjust from the outset is the package arc
         ("melpa-stable" . 1)))
 #+end_src
 
-If you are beginning your Emacs journey, do not skip the official tutorial ~help-with-tutorial~ (C-h t). After that, I recommend familiarizing yourself with the [[https://github.com/AbstProcDo/Master-Emacs-From-Scratch-with-Solid-Procedures][big-bang]] ~M-x~ and getting comfortable with the following commands:
+If you are [[https://sachachua.com/blog/wp-content/uploads/2013/05/How-to-Learn-Emacs-v2-Large.png][beginning your Emacs journey]], do not skip the official tutorial ~help-with-tutorial~ (C-h t). After that, I recommend familiarizing yourself with the [[https://github.com/AbstProcDo/Master-Emacs-From-Scratch-with-Solid-Procedures][big-bang]] ~M-x~ and getting comfortable with the following commands:
 
 - ~help-for-help~ (C-h C-h)
 - ~describe-variable~ (C-h v)
