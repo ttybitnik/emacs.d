@@ -25,4 +25,4 @@ session*
 /eln-cache/
 /.mc-lists.el
 /nov-places
-
+/.auth/
