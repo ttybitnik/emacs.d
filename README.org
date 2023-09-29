@@ -286,6 +286,7 @@ If you are [[https://sachachua.com/blog/wp-content/uploads/2013/05/How-to-Learn-
 - ~describe-function~ (C-h f)
 - ~describe-symbol~ (C-h o)
 - ~describe-key~ (C-h k)
+- ~describe-mode~ (C-h m)
 - ~describe-package~ (C-h P)
 - ~info~ (C-h i)
 
