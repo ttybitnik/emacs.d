@@ -263,7 +263,7 @@ By following this approach, the code base remains stable and structured, enablin
 
 ** Stringing It Up
 
-To bring the setup to life, start by cloning the repository and selecting what interests you the most::
+To bring the setup to life, start by cloning the repository and selecting what interests you the most:
 
 #+begin_src shell
   git clone https://github.com/ttybitnik/emacs.d.git
