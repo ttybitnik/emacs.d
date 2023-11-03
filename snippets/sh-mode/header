@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: standard header
+# key: <h
+# --
+#!/usr/bin/env bash
+
+# ${1:summary}
