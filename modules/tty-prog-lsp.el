@@ -33,6 +33,7 @@
 ;;* Bindings:
 
 (setq lsp-keymap-prefix "C-c s")
+(define-key lsp-mode-map (kbd "C-c s") lsp-command-map)
 (define-key lsp-mode-map [remap xref-find-apropos] #'consult-lsp-symbols)
 
 ;;* Hooks:
