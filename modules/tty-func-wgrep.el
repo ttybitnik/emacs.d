@@ -17,8 +17,8 @@
 ;;* Bindings:
 
 (global-set-key (kbd "C-c C-e") 'wgrep-change-to-wgrep-mode)
-(global-set-key (kbd "C-c C-s p") 'wgrep-apply-change)
-(global-set-key (kbd "C-c C-s s") 'wgrep-save-all-buffers)
+(define-key wgrep-mode-map (kbd "C-c C-s p") 'wgrep-apply-change)
+(define-key wgrep-mode-map (kbd "C-c C-s s") 'wgrep-save-all-buffers)
 
 ;;* Hooks:
 
