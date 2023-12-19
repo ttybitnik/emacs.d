@@ -14,7 +14,7 @@
 
 ;;* Main:
 
-(setq-default olivetti-body-width 140)
+(setq-default olivetti-body-width 110)
 
 ;;* Bindings:
 
