@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: hugo blog header
+# key: <h
+# --
+#+TITLE: ${1:Title}
+#+DATE: `(format-time-string "%Y-%m-%dT%H:%M:%S%z")`
+#+DRAFT: nil
+#+OPTIONS: num:nil
+#+CATEGORIES[]: ${2:categories}
+#+TAGS[]: ${3:tags}
+#+DESCRIPTION: ${4:description}
