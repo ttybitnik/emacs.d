@@ -50,11 +50,6 @@ It returns the absolute path from an `org-agenda' file in
 (setq org-log-into-drawer t)
 (setq org-agenda-files `(,(concat agenda-d/ttybitnik)))
 (setq org-babel-python-command "python3")
-(setq org-babel-load-languages '((emacs-lisp . t)
-				 (shell . t)
-				 (python . t)
-				 (C . t)
-				 (plantuml . t)))
 (setq org-refile-targets '((nil :maxlevel . 1)
 			   (org-agenda-files :maxlevel . 1)))
 (setq org-tag-alist '((:startgroup)
@@ -86,7 +81,7 @@ It returns the absolute path from an `org-agenda' file in
  	 ,(agenda-capture-helper "refile.org") "Notes"
 	 (file ,(org-capture-helper "note-template.org"))
 	 :clock-in t :clock-resume t)
-	
+
 	("j" "Journal" entry
 	 (file+olp+datetree ,(agenda-capture-helper "journal.org"))
 	 (file ,(org-capture-helper "journal-template.org"))
@@ -97,6 +92,13 @@ It returns the absolute path from an `org-agenda' file in
 		  "DONE(d!)" "CANCELED(c@/!)")
 	(sequence "DRAFT(a!)" "WRITING(w!)" "REVISION I(r!)" "REVISION II(e!)"
 		  "PROOFREADING(o!)" "|" "PUBLISHED(p!)")))
+
+(org-babel-do-load-languages 'org-babel-load-languages
+			     '((emacs-lisp . t)
+			       (shell . t)
+			       (python . t)
+			       (C . t)
+			       (plantuml . t)))
 
 ;;* Bindings:
 
