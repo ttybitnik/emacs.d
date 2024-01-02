@@ -50,13 +50,10 @@
 (prefer-coding-system 'utf-8)
 
 (custom-set-faces
- '(default
-    ((t (:inherit nil :stipple nil :inverse-video nil :box nil
-		  :strike-through nil :overline nil :underline nil :slant normal
-		  :weight normal :width normal :family "Iosevka Medium"
-		  :height 102))))
+ '(default ((t (:family "Iosevka" :foundry "UKWN" :slant normal
+			:weight medium :height 102 :width normal))))
  '(dashboard-heading ((t (:inherit font-lock-keyword-face :height 1.1))))
- '(fixed-pitch ((t (:family "Iosevka  Medium"))))
+ '(fixed-pitch ((t (:family "Iosevka" :weight medium))))
  '(fringe ((t (:background "burlywood4"))))
  '(org-block ((t (:inherit fixed-pitch))))
  '(org-code ((t (:inherit (shadow fixed-pitch)))))
