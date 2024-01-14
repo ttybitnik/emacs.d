@@ -214,7 +214,6 @@ As mentioned earlier, in addition to managing general settings within its scope,
           ├── tty-vis-diminish.el
           ├── tty-vis-gruvbox-theme.el
           ├── tty-vis-keycast.el
-          ├── tty-vis-linum-relative.el
           ├── tty-vis-rainbow.el
           └── tty-vis-spaceline.el
 #+end_src
