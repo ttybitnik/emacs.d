@@ -12,7 +12,6 @@
 (require 'tty-vis-diminish)
 (require 'tty-vis-gruvbox-theme)
 (require 'tty-vis-keycast)
-(require 'tty-vis-linum-relative)
 (require 'tty-vis-rainbow)
 (require 'tty-vis-spaceline)
 
@@ -75,6 +74,9 @@
 
 (if (display-graphic-p)
     (add-hook 'prog-mode-hook 'hl-line-mode))
+
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'conf-mode-hook 'display-line-numbers-mode)
 
 ;;* Appearance:
 
