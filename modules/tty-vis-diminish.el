@@ -18,8 +18,8 @@
 (diminish 'subword-mode)
 (diminish 'page-break-lines-mode)
 (diminish 'yas-minor-mode)
-(diminish 'eldoc-mode)
 
+(eval-after-load 'eldoc '(diminish 'eldoc-mode))
 (eval-after-load 'org-indent '(diminish 'org-indent-mode))
 (eval-after-load 'face-remap '(diminish 'buffer-face-mode))
 (eval-after-load 'autorevert '(diminish 'auto-revert-mode))
