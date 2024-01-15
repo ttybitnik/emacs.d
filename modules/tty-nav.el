@@ -5,10 +5,10 @@
 ;; This module tailors settings and packages for navigation in Emacs.
 
 ;;; Code:
+;; (require 'tty-nav-helm)
 
 (require 'tty-nav-avy)
 (require 'tty-nav-consult)
-(require 'tty-nav-helm)
 (require 'tty-nav-switch-window)
 (require 'tty-nav-which-key)
 
@@ -66,7 +66,7 @@
 
 ;;* Bindings:
 
-(global-set-key (kbd "C-x b") 'ibuffer)
+;; (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (global-set-key (kbd "C-x 2") 'split-and-follow-horizontally)
 (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)

@@ -8,7 +8,7 @@
 
 (require-package 'org-ref)
 (require 'org)
-(require 'helm-bibtex)
+;; (require 'helm-bibtex)
 
 ;;* Variables:
 
@@ -18,7 +18,7 @@
 
 ;;* Bindings:
 
-(global-set-key (kbd "C-c b c") 'org-ref-cite-insert-helm)
+;; (global-set-key (kbd "C-c b c") 'org-ref-cite-insert-helm)
 
 ;;* Hooks:
 

@@ -142,7 +142,7 @@ It returns the absolute path from local templates in
 			("Refile" "Placeholder"))
 	 :unnarrowed t :clock-in t :clock-resume t :immediate-finish t)))
 
-(setq orb-insert-interface 'helm-bibtex)
+;; (setq orb-insert-interface 'helm-bibtex)
 (setq orb-autokey-format "%A%y")
 ;; (setq orb-preformat-keywords
 ;;       '("citekey" "title" "url" "author-or-editor" "keywords" "file"))

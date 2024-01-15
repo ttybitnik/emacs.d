@@ -4,6 +4,9 @@
 
 ;; Helm-related tunings.
 
+;; DEPRECATED 2024-01-15: I've decided to experiment the `vertico', `consult',
+;; and `embark' workflow.  I'm likely going to stick with them.
+
 ;;; Code:
 
 (require-package 'helm)

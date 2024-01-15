@@ -19,7 +19,7 @@
 
 (require-package 'lsp-mode)
 (require-package 'lsp-ui)
-(require-package 'helm-lsp)
+;; (require-package 'helm-lsp)
 (require-package 'consult-lsp)
 
 ;;* Variables:
@@ -31,7 +31,7 @@
 (autoload 'lsp "lsp-mode" nil t)
 (autoload 'lsp-deferred "lsp-mode" nil t)
 (autoload 'lsp-ui-mode "lsp-ui" nil t)
-(autoload 'helm-lsp-workspace-symbol "helm-lsp" nil t)
+;; (autoload 'helm-lsp-workspace-symbol "helm-lsp" nil t)
 
 ;;* Bindings:
 

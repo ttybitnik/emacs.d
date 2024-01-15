@@ -37,13 +37,13 @@
 (setq bibtex-completion-notes-symbol "N")
 (setq bibtex-dialect 'biblatex)
 (setq bibtex-completion-cite-default-command "cite")
-(setq bibtex-completion-pdf-open-function 'helm-open-file-with-default-tool)
+;; (setq bibtex-completion-pdf-open-function 'helm-open-file-with-default-tool)
 (setq bibtex-completion-additional-search-fields
       '(tags custom_materia custom_yesno custom_organizer
 	     custom_fichamento languages))
 (setq bibtex-completion-format-citation-functions
-      '((org-mode      . org-ref-helm-bibtex-insert-citation) ;; experimental
-	(latex-mode    . bibtex-completion-format-citation-cite)
+      '((latex-mode    . bibtex-completion-format-citation-cite)
+	;; (org-mode      . org-ref-helm-bibtex-insert-citation) ;; experimental
 	(markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
 	(default       . bibtex-completion-format-citation-default)))
 (setq bibtex-completion-display-formats

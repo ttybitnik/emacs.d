@@ -19,7 +19,7 @@
 (setq powerline-default-separator 'wave)
 
 (spaceline-spacemacs-theme)
-(spaceline-helm-mode)
+;; (spaceline-helm-mode)
 (spaceline-info-mode)
 (display-time-mode)
 
