@@ -12,6 +12,7 @@
 (require 'tty-func-hungry-delete)
 (require 'tty-func-multiple-cursors)
 (require 'tty-func-popup-kill-ring)
+(require 'tty-func-orderless)
 (require 'tty-func-sudo-edit)
 (require 'tty-func-vundo)
 (require 'tty-func-wgrep)
