@@ -149,7 +149,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-func-multiple-cursors.el
       │   ├── tty-func-popup-kill-ring.el
       │   ├── tty-func-sudo-edit.el
-      │   ├── t̶t̶y̶-̶f̶u̶n̶c̶-̶u̶n̶d̶o̶-̶t̶r̶e̶e̶.e̶l̶
+      │   ├── _tty-func-undo-tree.el
       │   ├── tty-func-vundo.el
       │   ├── tty-func-wgrep.el
       │   └── tty-func-zzz-to-char.el
@@ -188,7 +188,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-prog-json.el
       │   ├── tty-prog-lisp.el
       │   ├── tty-prog-markdown.el
-      │   ├── t̶t̶y̶-̶p̶r̶o̶g̶-̶l̶s̶p̶.e̶l̶
+      │   ├── _tty-prog-lsp.el
       │   ├── tty-prog-python.el
       │   ├── tty-prog-rust.el
       │   ├── tty-prog-shell.el
@@ -219,6 +219,10 @@ As mentioned earlier, in addition to managing general settings within its scope,
           ├── tty-vis-rainbow.el
           └── tty-vis-spaceline.el
 #+end_src
+
+#+begin_quote
+ ❔ Entries marked with an underscore indicate that they were deactivated in favour of another package. Read the commentary section in the given file for more information.
+#+end_quote
 
 It is important to note that while the overview above suggests an one-to-one relationship between configuration files and packages, this is not always the case. Some configuration files are more inclined to handle a family of related packages. For instance, the =tty-nav-helm.el= file consolidates configurations for /helm-mode/, /helm-descbinds/, and /helm-bibtex/ packages.
 
