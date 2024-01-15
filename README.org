@@ -149,7 +149,8 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-func-multiple-cursors.el
       │   ├── tty-func-popup-kill-ring.el
       │   ├── tty-func-sudo-edit.el
-      │   ├── tty-func-undo-tree.el
+      │   ├── t̶t̶y̶-̶f̶u̶n̶c̶-̶u̶n̶d̶o̶-̶t̶r̶e̶e̶.e̶l̶
+      │   ├── tty-func-vundo.el
       │   ├── tty-func-wgrep.el
       │   └── tty-func-zzz-to-char.el
       ├── tty-misc.el					miscellaneous utilities module

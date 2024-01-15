@@ -4,6 +4,8 @@
 
 ;; Undo-tree related tunings.
 
+;; DEPRECATED 2024-01-15: I've switched to `vundo'.
+
 ;;; Code:
 
 (require-package 'undo-tree)

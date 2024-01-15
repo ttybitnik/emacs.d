@@ -5,6 +5,7 @@
 ;; This module tailors settings and packages to extend functionality in Emacs.
 
 ;;; Code:
+;; (require 'tty-func-undo-tree)
 
 (require 'tty-func-async)
 (require 'tty-func-expand-region)
@@ -12,7 +13,7 @@
 (require 'tty-func-multiple-cursors)
 (require 'tty-func-popup-kill-ring)
 (require 'tty-func-sudo-edit)
-(require 'tty-func-undo-tree)
+(require 'tty-func-vundo)
 (require 'tty-func-wgrep)
 (require 'tty-func-zzz-to-char)
 (require 'epa-file)
