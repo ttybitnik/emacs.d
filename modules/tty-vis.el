@@ -22,7 +22,7 @@
 ;;* Main:
 
 (setq inhibit-startup-message t)
-(setq visible-bell t)
+;; (setq visible-bell t)
 (setq locale-coding-system 'utf-8
       default-file-name-coding-system 'utf-8
       default-keyboard-coding-system 'utf-8
