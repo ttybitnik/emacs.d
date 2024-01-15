@@ -14,6 +14,7 @@
 
 ;;* Main:
 
+;; (setq vundo-glyph-alist vundo-unicode-symbols)
 ;; (setq vundo-roll-back-on-quit nil)
 
 ;;* Bindings:
@@ -23,6 +24,10 @@
 ;;* Hooks:
 
 ;;* Appearance:
+
+(custom-set-faces
+ '(vundo-last-saved ((t (:inherit vundo-saved :underline t :weight bold))))
+ '(vundo-saved ((t (:inherit vundo-highlight)))))
 
 
 (provide 'tty-func-vundo)
