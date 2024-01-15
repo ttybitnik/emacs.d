@@ -32,7 +32,7 @@
                             (yas-minor-mode)
                             (flycheck-mode)
                             (company-mode)
-                            (lsp-deferred)
+                            (eglot-ensure)
                             (company-yaml-mode/ttybitnik)))
 
 ;;* Appearance:

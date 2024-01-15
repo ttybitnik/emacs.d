@@ -179,14 +179,15 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-prog-ansible.el
       │   ├── tty-prog-c.el
       │   ├── tty-prog-css.el
+      │   ├── tty-prog-eglot.el
       │   ├── tty-prog-flycheck.el
       │   ├── tty-prog-go.el
       │   ├── tty-prog-html.el
       │   ├── tty-prog-javascript.el
       │   ├── tty-prog-json.el
       │   ├── tty-prog-lisp.el
-      │   ├── tty-prog-lsp.el
       │   ├── tty-prog-markdown.el
+      │   ├── t̶t̶y̶-̶p̶r̶o̶g̶-̶l̶s̶p̶.e̶l̶
       │   ├── tty-prog-python.el
       │   ├── tty-prog-rust.el
       │   ├── tty-prog-shell.el

@@ -12,6 +12,9 @@
 ;; (require-package dap-mode)
 ;; (require-package dap-LANGUAGE)
 
+;; DEPRECATED 2024-01-14: Since `eglot' is now built-in Emacs, I've decided to
+;; switch to it.
+
 ;;; Code:
 
 (require-package 'lsp-mode)
