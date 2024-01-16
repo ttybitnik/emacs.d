@@ -14,6 +14,7 @@
 (require 'tty-misc-nov)
 (require 'tty-misc-olivetti)
 (require 'tty-misc-pdf-tools)
+(require 'tty-misc-vertico)
 
 ;;* Variables:
 
