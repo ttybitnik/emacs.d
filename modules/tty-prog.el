@@ -9,6 +9,7 @@
 ;; (require 'tty-prog-lsp)
 
 (require 'tty-prog-eglot)
+(require 'tty-prog-flymake)
 (require 'tty-prog-yasnippet)
 
 (require 'tty-prog-ansible)
