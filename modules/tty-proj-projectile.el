@@ -4,6 +4,9 @@
 
 ;; Projectile-related tunings.
 
+;; DEPRECATED 2024-01-15: I've switched to the built-in `project' since it has all
+;; the necessary features.
+
 ;;; Code:
 
 (require-package 'projectile)

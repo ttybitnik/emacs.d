@@ -6,8 +6,8 @@
 
 ;;; Code:
 
+;; (require 'tty-proj-projectile)
 (require 'tty-proj-magit)
-(require 'tty-proj-projectile)
 
 ;;* Variables:
 

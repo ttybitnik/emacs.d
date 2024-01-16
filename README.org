@@ -200,7 +200,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   └── tty-prog-yasnippet.el
       ├── tty-proj.el					project management module
       │   ├── tty-proj-magit.el
-      │   └── tty-proj-projectile.el
+      │   └── _tty-proj-projectile.el
       ├── tty-publ.el					publishing module
       │   ├── tty-publ-easy-hugo.el
       │   ├── tty-publ-htmlize.el
