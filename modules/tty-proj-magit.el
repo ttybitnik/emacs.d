@@ -51,7 +51,7 @@ If FORCE is non-nil, this function will proceed without prompting the user."
 
 ;;* Bindings:
 
-(global-set-key (kbd "M-g") ' magit-status)
+(global-set-key (kbd "M-m") ' magit-status)
 
 ;;* Hooks:
 
