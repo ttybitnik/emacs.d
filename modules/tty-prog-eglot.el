@@ -16,7 +16,7 @@
 
 (setq eglot-autoshutdown t)
 
-(setq eldoc-echo-area-use-multiline-p 'truncate-sym-name-if-fit)
+(setq eldoc-echo-area-use-multiline-p nil)
 
 ;;* Bindings:
 
