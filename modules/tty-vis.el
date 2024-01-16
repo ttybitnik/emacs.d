@@ -12,6 +12,7 @@
 (require 'tty-vis-diminish)
 (require 'tty-vis-gruvbox-theme)
 (require 'tty-vis-keycast)
+(require 'tty-vis-marginalia)
 (require 'tty-vis-modus-themes)
 (require 'tty-vis-rainbow)
 (require 'tty-vis-spaceline)
