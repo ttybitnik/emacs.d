@@ -99,9 +99,9 @@ If NO-REFRESH is non-nil, `package-refresh-contents' will be skipped."
 
 (add-to-list 'load-path (expand-file-name modules-d/ttybitnik))
 
+(require 'tty-func)
 (require 'tty-com)
 (require 'tty-dsg)
-(require 'tty-func)
 (require 'tty-misc)
 (require 'tty-nav)
 (require 'tty-org)
