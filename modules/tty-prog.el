@@ -10,6 +10,7 @@
 
 (require 'tty-prog-eglot)
 (require 'tty-prog-flymake)
+(require 'tty-prog-tree-sitter)
 (require 'tty-prog-yasnippet)
 
 (require 'tty-prog-ansible)
