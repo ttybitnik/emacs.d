@@ -32,7 +32,7 @@
 
 (add-hook 'python-mode-hook (lambda ()
                               (yas-minor-mode)
-                              (flycheck-mode)
+                              (flymake-mode)
                               (company-mode)
                               (eglot-ensure)
                               (company-python-mode/ttybitnik)))

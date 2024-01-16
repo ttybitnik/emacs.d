@@ -31,7 +31,7 @@
 
 (add-hook 'conf-toml-mode-hook (lambda ()
 				 (yas-minor-mode)
-				 (flycheck-mode)
+				 (flymake-mode)
 				 (company-mode)
 				 (eglot-ensure)
 				 (company-conf-toml-mode/ttybitnik)))

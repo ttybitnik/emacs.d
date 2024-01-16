@@ -5,9 +5,9 @@
 ;; This module tailors settings and packages for programming in Emacs.
 
 ;;; Code:
+;; (require 'tty-prog-flycheck)
 ;; (require 'tty-prog-lsp)
 
-(require 'tty-prog-flycheck)
 (require 'tty-prog-eglot)
 (require 'tty-prog-yasnippet)
 

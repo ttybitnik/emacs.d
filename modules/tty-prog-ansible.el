@@ -31,7 +31,7 @@
 
 (add-hook 'ansible-hook (lambda ()
                           (yas-minor-mode)
-                          (flycheck-mode)
+                          (flymake-mode)
                           (company-mode)
                           (eglot-ensure)
                           (company-ansible/ttybitnik)))

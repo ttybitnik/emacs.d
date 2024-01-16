@@ -4,6 +4,9 @@
 
 ;; Flycheck-related tunings.
 
+;; DEPRECATED 2024-01-16: I've switched to built-in `flymake' since `eglot'
+;; basically only supports it.
+
 ;;; Code:
 
 (require-package 'flycheck)

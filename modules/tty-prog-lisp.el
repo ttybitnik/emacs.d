@@ -35,7 +35,7 @@
 
 (add-hook 'emacs-lisp-mode-hook (lambda ()
                                   (yas-minor-mode)
-                                  (flycheck-mode)
+                                  (flymake-mode)
                                   (company-mode)
                                   (company-lisp-mode/ttybitnik)
                                   (eldoc-mode)))

@@ -31,7 +31,7 @@
 
 (add-hook 'plantuml-mode-hook (lambda ()
                                 (yas-minor-mode)
-                                (flycheck-mode)
+                                (flymake-mode)
                                 (company-mode)
                                 (company-plantuml-mode/ttybitnik)))
 

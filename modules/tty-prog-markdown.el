@@ -29,7 +29,7 @@
 
 (add-hook 'markdown-mode-hook (lambda ()
                                 (yas-minor-mode)
-                                (flycheck-mode)
+                                (flymake-mode)
                                 (company-mode)
                                 (company-markdown-mode/ttybitnik)))
 
