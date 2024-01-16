@@ -88,7 +88,7 @@ It returns the absolute path from an `org-agenda' file in
 	 :clock-in t :clock-resume t)))
 
 (setq org-todo-keywords
-      '((sequence "TODO(t!)" "NEXT(n!)" "WAITING(h@/!)" "|" "MEETING(m!)"
+      '((sequence "TODO(t!)" "NEXT(n!)" "WAIT(h@/!)" "|" "MEET(m!)"
 		  "DONE(d!)" "CANCELED(c@/!)")
 	(sequence "DRAFT(a!)" "WRITING(w!)" "REVISION I(r!)" "REVISION II(e!)"
 		  "PROOFREADING(o!)" "|" "PUBLISHED(p!)")))
