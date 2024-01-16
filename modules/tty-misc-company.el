@@ -27,7 +27,7 @@
 ;;* Main:
 
 (setq company-global-modes #'(not eshell-mode))
-(setq company-idle-delay 0)
+(setq company-idle-delay 0.2)
 (setq company-minimum-prefix-length 3)
 (setq company-tooltip-align-annotations t)
 (setq company-tooltip-flip-when-above t)
