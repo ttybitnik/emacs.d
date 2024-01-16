@@ -5,6 +5,7 @@
 ;; This module tailors settings and packages for visual elements in Emacs.
 
 ;;; Code:
+;; (require 'tty-vis-spaceline)
 
 (require 'tty-vis-all-the-icons)
 (require 'tty-vis-beacon)
@@ -15,7 +16,6 @@
 (require 'tty-vis-marginalia)
 (require 'tty-vis-modus-themes)
 (require 'tty-vis-rainbow)
-(require 'tty-vis-spaceline)
 
 ;;* Variables:
 

@@ -4,6 +4,9 @@
 
 ;; Spaceline-related tunings.
 
+;; DEPRECATED 2024-01-16: I've switched to a more default approach.  Probably
+;; I'm going to set a custom mode line.
+
 ;;; Code:
 
 (require-package 'spaceline)
@@ -19,7 +22,6 @@
 (setq powerline-default-separator 'wave)
 
 (spaceline-spacemacs-theme)
-;; (spaceline-helm-mode)
 (spaceline-info-mode)
 (display-time-mode)
 

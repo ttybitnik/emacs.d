@@ -219,7 +219,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
           ├── tty-vis-keycast.el
           ├── tty-vis-modus-themes.el
           ├── tty-vis-rainbow.el
-          └── tty-vis-spaceline.el
+          └── _tty-vis-spaceline.el
 #+end_src
 
 #+begin_quote
