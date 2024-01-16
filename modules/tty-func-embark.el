@@ -17,8 +17,8 @@
 
 ;;* Main:
 
+;; (setq embark-mixed-indicator-delay 0.5)
 (setq prefix-help-command #'embark-prefix-help-command)
-
 
 ;;* Bindings:
 
