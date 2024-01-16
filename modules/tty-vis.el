@@ -10,7 +10,7 @@
 (require 'tty-vis-beacon)
 (require 'tty-vis-dashboard)
 (require 'tty-vis-diminish)
-(require 'tty-vis-gruvbox-theme)
+;; (require 'tty-vis-gruvbox-theme)
 (require 'tty-vis-keycast)
 (require 'tty-vis-marginalia)
 (require 'tty-vis-modus-themes)
@@ -23,6 +23,8 @@
 
 ;;* Main:
 
+(load-file (expand-file-name "switcher.el" local-d/ttybitnik))
+
 (setq inhibit-startup-message t)
 ;; (setq visible-bell t)
 (setq locale-coding-system 'utf-8
@@ -32,17 +34,6 @@
       default-sendmail-coding-system 'utf-8
       default-terminal-coding-system 'utf-8)
 
-(setq org-todo-keyword-faces
-      '(("NEXT" . (:foreground "orange" :weight bold))
-        ("WAITING" . (:foreground "yellow3" :weight bold))
-        ("CANCELED" . (:foreground "gray" :weight bold))
-        ("MEETING" . (:foreground "gold" :weight bold))
-        ("DRAFT" . (:foreground "tomato" :weight bold))
-        ("WRITING" . (:foreground "tomato" :weight bold))
-        ("REVISION I" . (:foreground "tomato" :weight bold))
-        ("REVISION II" . (:foreground "tomato" :weight bold))
-        ("PROOFREADING" . (:foreground "tomato" :weight bold))))
-
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
@@ -50,12 +41,24 @@
 
 (prefer-coding-system 'utf-8)
 
+(setq org-todo-keyword-faces
+      '(("TODO" . (:inherit org-todo))
+	("NEXT" . (:inherit (outline-3 org-todo)))
+        ("WAIT" . (:inherit (outline-2 org-todo)))
+        ("MEET" . (:inherit (outline-7 org-todo)))
+        ("CANCELED" . (:inherit (outline-8 org-todo)))
+        ("DRAFT" . (:inherit (shadow org-todo)))
+        ("WRITING" . (:inherit (shadow org-todo)))
+        ("REVISION I" . (:inherit (shadow org-todo)))
+        ("REVISION II" . (:inherit (shadow org-todo)))
+        ("PROOFREADING" . (:inherit (shadow org-todo)))))
+
+
 (custom-set-faces
  '(default ((t (:family "Iosevka" :foundry "UKWN" :slant normal
 			:weight medium :height 102 :width normal))))
  '(dashboard-heading ((t (:inherit font-lock-keyword-face :height 1.1))))
  '(fixed-pitch ((t (:family "Iosevka" :weight medium))))
- '(fringe ((t (:background "burlywood4"))))
  '(org-block ((t (:inherit fixed-pitch))))
  '(org-code ((t (:inherit (shadow fixed-pitch)))))
  '(org-indent ((t (:inherit (org-hide fixed-pitch)))))

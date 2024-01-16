@@ -14,7 +14,19 @@
 
 ;;* Main:
 
-(load-file (expand-file-name "switcher.el" local-d/ttybitnik))
+(setq org-todo-keyword-faces
+      '(("NEXT" . (:foreground "orange" :weight bold))
+        ("WAITING" . (:foreground "yellow3" :weight bold))
+        ("CANCELED" . (:foreground "gray" :weight bold))
+        ("MEETING" . (:foreground "gold" :weight bold))
+        ("DRAFT" . (:foreground "tomato" :weight bold))
+        ("WRITING" . (:foreground "tomato" :weight bold))
+        ("REVISION I" . (:foreground "tomato" :weight bold))
+        ("REVISION II" . (:foreground "tomato" :weight bold))
+        ("PROOFREADING" . (:foreground "tomato" :weight bold))))
+
+(custom-set-faces
+ '(fringe ((t (:background "burlywood4")))))
 
 ;;* Bindings:
 
