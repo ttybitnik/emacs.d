@@ -28,6 +28,9 @@
 
 ;;* Bindings:
 
+(define-key global-map (kbd "C-{") 'flyspell-auto-correct-word)
+(define-key global-map (kbd "C-}") 'flyspell-goto-next-error)
+
 ;;* Hooks:
 
 (add-hook 'text-mode-hook 'flyspell-mode)
