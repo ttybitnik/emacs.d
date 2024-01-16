@@ -31,7 +31,7 @@
 
 ;;* Main:
 
-(setq-default show-trailing-whitespace t)
+;; (setq-default show-trailing-whitespace t)
 
 (setq electric-pair-pairs '((?\{ . ?\})
                             (?\( . ?\))
