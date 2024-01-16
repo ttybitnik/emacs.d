@@ -9,6 +9,7 @@
 
 (require 'tty-func-async)
 (require 'tty-func-expand-region)
+(require 'tty-func-embark)
 (require 'tty-func-hungry-delete)
 (require 'tty-func-multiple-cursors)
 (require 'tty-func-popup-kill-ring)
