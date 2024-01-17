@@ -48,6 +48,10 @@
   (concat user-emacs-directory (file-name-as-directory ".auth"))
   "Absolute path of .auth directory.")
 
+(defconst projects-d/ttybitnik
+  (file-name-as-directory "~/Documents/Projects")
+  "Absolute path of projects directory.")
+
 (defconst orpheusmx-d/ttybitnik
   (file-name-as-directory "~/.orpheus/gnu-emacs")
   "Absolute path of Emacs directory inside Orpheus.")
