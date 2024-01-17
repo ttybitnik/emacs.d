@@ -49,7 +49,7 @@
   "Absolute path of .auth directory.")
 
 (defconst projects-d/ttybitnik
-  (file-name-as-directory "~/Documents/Projects")
+  (file-name-as-directory (getenv "TTY_GITHUB"))
   "Absolute path of projects directory.")
 
 (defconst orpheusmx-d/ttybitnik
