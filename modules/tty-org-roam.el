@@ -155,12 +155,6 @@ It returns the absolute path from local templates in
 (setq org-roam-ui-open-on-start t)
 
 (org-roam-db-autosync-mode 1)
-(add-to-list 'display-buffer-alist
-	     '("\\*org-roam\\*"
-	       (display-buffer-in-direction)
-	       (direction . right)
-	       (window-width . 0.33)
-	       (window-height . fit-window-to-buffer)))
 
 (org-roam-bibtex-mode 1)
 
@@ -182,6 +176,13 @@ It returns the absolute path from local templates in
 (add-hook 'kill-emacs-hook 'org-roam-db-sync)
 
 ;;* Appearance:
+
+(add-to-list 'display-buffer-alist
+	     '("\\*org-roam\\*"
+	       (display-buffer-in-direction)
+	       (direction . right)
+	       (window-width . 0.33)
+	       (window-height . fit-window-to-buffer)))
 
 (diminish 'org-roam-bibtex-mode)
 (diminish 'org-roam-ui-follow-mode)
