@@ -5,9 +5,11 @@
 ;; This module tailors settings and packages for project management in Emacs.
 
 ;;; Code:
-
 ;; (require 'tty-proj-projectile)
+
 (require 'tty-proj-magit)
+(require 'tty-proj-project)
+
 
 ;;* Variables:
 
