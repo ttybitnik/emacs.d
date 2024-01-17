@@ -38,8 +38,9 @@
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
 (fringe-mode 0)
-
 (prefer-coding-system 'utf-8)
+
+(column-number-mode t)
 
 (setq org-todo-keyword-faces
       '(("TODO" . (:inherit org-todo))
