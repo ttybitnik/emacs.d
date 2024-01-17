@@ -15,10 +15,12 @@
 ;;* Main:
 
 (setq easy-hugo-postdir "content/blog"
-      easy-hugo-basedir (concat (getenv "TTY_GITHUB") "/blog.backend")
+      easy-hugo-basedir (file-name-as-directory
+			 (concat projects-d/ttybitnik "blog.backend"))
       easy-hugo-url "https://ttybitnik.github.io"
       easy-hugo-sshdomain ""
-      easy-hugo-root (concat (getenv "TTY_GITHUB") "/blog.backend/public"))
+      easy-hugo-root (file-name-as-directory
+		      (concat projects-d/ttybitnik "blog.backend/public")))
 
 (setq easy-hugo-previewtime "300"
       easy-hugo-default-ext ".org"
