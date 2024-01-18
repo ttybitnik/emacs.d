@@ -5,7 +5,7 @@
 
 #+html: <p align="center"><img src="img/Stradivari.jpg"/></p>
 
- This repository contains my *GNU Emacs* configuration files along with an in-depth chronicle of my crafting process. It includes links to valuable resources, in code, text and video, that have been important throughout my trajectory. In this sense, taking inspiration from [[https://github.com/munen][@Munen]]'s insightful presentation "[[https://www.youtube.com/watch?v=gfZDwYeBlO4][Play Emacs like an instrument]]", I've decided to expand his playful yet thoughtful metaphor into this unique creative process. Thus, this is the journey to *craft emacs.d like a luthier*.
+ This repository contains my *GNU Emacs* configuration files along with an in-depth chronicle of my crafting process. It includes links to valuable resources, in code, text and video, that have been important throughout my trajectory. In this sense, taking inspiration from [[https://github.com/munen][@Munen]]'s insightful presentation "[[https://www.youtube.com/watch?v=gfZDwYeBlO4][Play Emacs like an instrument]]", I have decided to expand his playful yet thoughtful metaphor into this unique creative process. Thus, this is the journey to *craft emacs.d like a luthier*.
 
 **** Table of contents                                               :toc_2:
   - [[#wood-selection][Wood Selection]]
@@ -38,7 +38,7 @@ Emacs.d configurations can take various forms, but they typically fall into two 
 - Literate Programming style
 - Emacs Lisp style
 
-Initially, my configuration followed the literate programming style, utilizing the ~use-package~ macro. It was managed through an Org file named after [[https://github.com/ttybitnik/emacs.d/blob/master/odysseus.org][Odysseus]], which I've kept in the repository for archival purposes. However, after using this style for 10 months, I developed a desire to deepen my understanding of Emacs Lisp. As a result, I decided to refactor my entire configuration ([[https://github.com/ttybitnik/emacs.d/commit/0e48f4df0405525780980cfc10f9c8ef10bca128][0e48f4d]]), shifting to an Emacs Lisp style without relying on ~use-package~. This refactoring allowed me not only to practice the [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Packaging.html][Emacs Lisp way]], but also to introduce modularity into my configuration, enabling me to create more shareable, manageable, and independent components.
+Initially, my configuration followed the literate programming style, utilizing the ~use-package~ macro. It was managed through an Org file named after [[https://github.com/ttybitnik/emacs.d/blob/master/odysseus.org][Odysseus]], which I have kept in the repository for archival purposes. However, after using this style for 10 months, I developed a desire to deepen my understanding of Emacs Lisp. As a result, I decided to refactor my entire configuration ([[https://github.com/ttybitnik/emacs.d/commit/0e48f4df0405525780980cfc10f9c8ef10bca128][0e48f4d]]), shifting to an Emacs Lisp style without relying on ~use-package~. This refactoring allowed me not only to practice the [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Packaging.html][Emacs Lisp way]], but also to introduce modularity into my configuration, enabling me to create more shareable, manageable, and independent components.
 
 *** Outline of the directory structure:
 
@@ -234,7 +234,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
 
 It is important to note that while the overview above suggests an one-to-one relationship between configuration files and packages, this is not always the case. Some configuration files are more inclined to handle a family of related packages. For instance, the =tty-nav-helm.el= file consolidates configurations for /helm-mode/, /helm-descbinds/, and /helm-bibtex/ packages.
 
-At the Emacs Lisp file level, I've adapted the [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Library-Headers.html][conventional library headers]] for this informal use case of a personal configuration. Each custom field added to the template is marked with the section comment separator =;;*=.
+At the Emacs Lisp file level, I have adapted the [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Library-Headers.html][conventional library headers]] for this informal use case of a personal configuration. Each custom field added to the template is marked with the section comment separator =;;*=.
 
   #+begin_src emacs-lisp
     ;;; foo.el --- Foo Title -*- lexical-binding: t -*-
@@ -328,9 +328,9 @@ Once using it, you will soon find the need for personal tunings and adjustments.
 ⚠️️ This is a demonstration using the terminal as interface, *no-window-system* (nw), which means that certain visual elements may not display correctly due graphical/recording limitations.
 #+end_quote
 
-One essential thing to have in mind while doing modifications is that *very often the defaults are more powerful than you thought*. It is just a matter of taking time to study and practice them. Besides that, maintaining a stable configuration is more conducive to in-depth skill development. So do be deliberate and thoughtful with every change you make.
+One essential thing to have in mind while doing modifications is that *very often the defaults are more powerful than you think*. It is just a matter of taking time to study and practice them. Besides that, maintaining a stable configuration is more conducive to in-depth skill development. So do be deliberate and thoughtful with every change you make.
 
-Instead of altering the configuration whenever something triggers you, I recommend capturing descriptive tasks (C-c c t  ~org-capture~ task) once you have a workflow modification or a new idea in mind. Periodically, such as once every trimester, review this list of modification tasks. If they still make sense, proceed with their implementation. The =custom.el= file is also handy for testing these new changes, serving as a sort of trial period before fully incorporating them into the configuration.
+Instead of altering the configuration whenever something triggers you, I recommend capturing descriptive tasks (C-c c t  ~org-capture~) once you have a workflow modification or a new idea in mind. Periodically, such as once every trimester, review this list of modification tasks. If they still make sense, proceed with their implementation. The =custom.el= file is also handy for testing these new changes, serving as a sort of trial period before fully incorporating them into the configuration.
 
 ** Composition and Performance
 
@@ -342,7 +342,7 @@ Emacs offers powerful tools from coding to prose. Below are some links to key fe
 - Blogging: [[https://gohugo.io/][Hugo]], [[https://github.com/masasam/emacs-easy-hugo][easy-hugo (blog with org-mode)]].
 - Emailing: [[https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/gnus-guide-en.org][Practical guide to GNUS]].
 - Presenting:  [[https://revealjs.com/][Reveal.js]], [[https://www.youtube.com/watch?v=avtiR0AUVlo][org-reveal (classy slideshows from org-mode)]].
-- Programming: [[https://emacs-lsp.github.io/lsp-mode/][LSP-mode]], [[https://company-mode.github.io/][company-mode]].
+- Programming: [[https://github.com/joaotavora/eglot][Eglot]], [[https://company-mode.github.io/][company-mode]].
 
 ** Collaborative Jamming
 
