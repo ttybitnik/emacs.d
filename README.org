@@ -184,7 +184,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-prog-c.el
       │   ├── tty-prog-css.el
       │   ├── tty-prog-eglot.el
-      │   ├── tty-prog-flycheck.el
+      │   ├── _tty-prog-flycheck.el
       │   ├── tty-prog-flymake.el
       │   ├── tty-prog-go.el
       │   ├── tty-prog-html.el
