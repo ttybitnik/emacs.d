@@ -28,7 +28,8 @@
 (defun config-reload/ttybitnik ()
   "Reload `user-init-file'."
   (interactive)
-  (load user-init-file))
+  (load user-init-file)
+  (load (concat local-d/ttybitnik "switcher.el")))
 
 ;;* Main:
 
