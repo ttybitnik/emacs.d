@@ -16,6 +16,12 @@
 
 ;;* Functions:
 
+(defun dired-sidebar-display-file/ttybitnik ()
+  "Introduce the behavior of `dired-display-file' in `dired-sidebar'."
+  (interactive)
+  (dired-sidebar-find-file)
+  (dired-sidebar-jump-to-sidebar))
+
 ;;* Main:
 
 (setq dired-listing-switches "-AlhvF --color=auto --group-directories-first")
@@ -48,6 +54,10 @@
 (define-key dired-mode-map (kbd "<tab>") 'dired-subtree-toggle)
 (define-key dired-mode-map (kbd "<backtab>") 'dired-subtree-remove)
 (define-key dired-mode-map (kbd "K") 'dired-kill-subdir)
+
+;; Disable dired-sidebar-find-file-alt, a non vanilla behaviour for dired C-o
+(define-key dired-sidebar-mode-map (kbd "C-o") 'dired-sidebar-display-file/ttybitnik)
+(define-key dired-sidebar-mode-map (kbd "C-<return>") 'dired-sidebar-display-file/ttybitnik)
 
 ;;* Hooks:
 
