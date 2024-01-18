@@ -143,11 +143,12 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-dsg-graphviz-dot.el
       │   └── tty-dsg-plantuml.el
       ├── tty-func.el					functionality module
-      │   ├── tty-func-async.el
+      │   ├── tty-func-embark.el
       │   ├── tty-func-expand-region.el
       │   ├── tty-func-hungry-delete.el
       │   ├── tty-func-move-dup.el
       │   ├── tty-func-multiple-cursors.el
+      │   ├── tty-func-orderless.el
       │   ├── tty-func-popup-kill-ring.el
       │   ├── tty-func-sudo-edit.el
       │   ├── _tty-func-undo-tree.el
@@ -184,18 +185,20 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-prog-css.el
       │   ├── tty-prog-eglot.el
       │   ├── tty-prog-flycheck.el
+      │   ├── tty-prog-flymake.el
       │   ├── tty-prog-go.el
       │   ├── tty-prog-html.el
       │   ├── tty-prog-javascript.el
       │   ├── tty-prog-json.el
       │   ├── tty-prog-lisp.el
-      │   ├── tty-prog-markdown.el
       │   ├── _tty-prog-lsp.el
+      │   ├── tty-prog-markdown.el
       │   ├── tty-prog-python.el
       │   ├── tty-prog-rust.el
       │   ├── tty-prog-shell.el
       │   ├── tty-prog-sql.el
       │   ├── tty-prog-toml.el
+      │   ├── tty-prog-tree-sitter.el
       │   ├── tty-prog-xml.el
       │   ├── tty-prog-yaml.el
       │   └── tty-prog-yasnippet.el
@@ -219,6 +222,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
           ├── tty-vis-diminish.el
           ├── _tty-vis-gruvbox-theme.el
           ├── tty-vis-keycast.el
+          ├── tty-vis-marginalia.el
           ├── tty-vis-modus-themes.el
           ├── tty-vis-rainbow.el
           └── _tty-vis-spaceline.el
