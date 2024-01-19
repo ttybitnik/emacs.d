@@ -18,7 +18,7 @@
 ;;* Variables:
 
 (defconst agenda-d/ttybitnik
-  (concat orpheusmx-d/ttybitnik (file-name-as-directory "org-agenda"))
+  (concat roam-d/ttybitnik (file-name-as-directory "agenda"))
   "Absolute path of org-agenda directory inside Orpheus.")
 
 ;;* Functions:
@@ -78,7 +78,8 @@ It returns the absolute path from an `org-agenda' file in
 	 :clock-in t :clock-resume t)
 
 	("n" "Notes" entry
- 	 ,(agenda-capture-helper "refile.org") "Notes"
+	 (file+headline
+ 	 ,(agenda-capture-helper "refile.org") "Notes")
 	 (file ,(org-capture-helper "note-template.org"))
 	 :clock-in t :clock-resume t)
 
