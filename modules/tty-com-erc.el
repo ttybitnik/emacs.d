@@ -72,6 +72,7 @@ channels that will have common messages suppressed in the mode line'."
 (setq erc-log-channels-directory
       (expand-file-name (file-name-as-directory "logs") orpheusmx-d/ttybitnik))
 (setq erc-save-buffer-on-part t)
+(setq erc-current-nick-highlight-type 'message)
 (setq erc-suppress-list/ttybitnik (erc-suppress-generate/ttybitnik))
 (setq erc-track-priority-faces-only erc-suppress-list/ttybitnik)
 (setq erc-track-faces-priority-list '(erc-error-face
