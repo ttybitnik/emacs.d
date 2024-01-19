@@ -29,7 +29,7 @@
   "Reload `user-init-file'."
   (interactive)
   (load user-init-file)
-  (load (concat local-d/ttybitnik "switcher.el")))
+  (load (expand-file-name "switcher.el" local-d/ttybitnik)))
 
 ;;* Main:
 
