@@ -30,7 +30,7 @@ It returns the absolute path from local templates in
   (expand-file-name
    template (concat local-d/ttybitnik (file-name-as-directory "org"))))
 
-(defun agenda-capture-helper (agenda-file)
+(defun agenda-helper (agenda-file)
   "Expand AGENDA-FILE filename for `org-capture-templates'.
 It returns the absolute path from an `org-agenda' file in
 `agenda-d/ttybitnik'."
@@ -125,36 +125,35 @@ Switch projects and subprojects from NEXT back to TODO"
 		      (:endgrouptag)
 		      ("humanities" . ?u)
 		      ("translation" . ?t)
-		      ("work" . ?w)
-		      ))
+		      ("work" . ?w)))
 
 (setq org-capture-templates
       `(("t" "Task" entry
 	 (file+headline
-	  ,(agenda-capture-helper "refile.org") "Tasks")
+	  ,(agenda-helper "refile.org") "Tasks")
 	 (file ,(org-capture-helper "task-template.org"))
 	 :clock-in t :clock-resume t)
 
 	("p" "Project" entry
 	 (file+headline
-	  ,(agenda-capture-helper "refile.org") "Projects")
+	  ,(agenda-helper "refile.org") "Projects")
 	 (file ,(org-capture-helper "project-template.org"))
 	 :clock-in t :clock-resume t)
 
 	("m" "Meeting" entry
 	 (file+headline
- 	  ,(agenda-capture-helper "refile.org") "Meetings")
+ 	  ,(agenda-helper "refile.org") "Meetings")
 	 (file ,(org-capture-helper "meeting-template.org"))
 	 :clock-in t :clock-resume t)
 
 	("n" "Note" entry
 	 (file+headline
- 	  ,(agenda-capture-helper "refile.org") "Notes")
+ 	  ,(agenda-helper "refile.org") "Notes")
 	 (file ,(org-capture-helper "note-template.org"))
 	 :clock-in t :clock-resume t)
 
 	("j" "Journal" entry
-	 (file+olp+datetree ,(agenda-capture-helper "journal.org"))
+	 (file+olp+datetree ,(agenda-helper "journal.org"))
 	 (file ,(org-capture-helper "journal-template.org"))
 	 :clock-in t :clock-resume t)))
 
