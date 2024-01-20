@@ -53,16 +53,35 @@ It returns the absolute path from an `org-agenda' file in
 (setq org-refile-targets '((nil :maxlevel . 1)
 			   (org-agenda-files :maxlevel . 1)))
 (setq org-tag-alist '((:startgroup)
-                      ("personal" . ?p)
-                      ("work" . ?w)
-                      ("study" . ?s)
+		      ("@home" . ?h)
+		      ("@computer" . ?c)
+		      ("@kindle" . ?k)
+		      ("@cellphone" . ?r)
+		      ("@office" . ?o)
+		      ("@errands" . ?i)
                       (:endgroup)
-                      ("autobiography" . ?a)
-                      ("cinema" . ?c)
-                      ("computing" . ?u)
-                      ("reading" . ?r)
-                      ("translation" . ?t)
-                      ("music" . ?m)))
+		      ("@coworker" . ?W)
+		      (:newline)
+		      (:startgrouptag)
+		      ("computing" . ?C)
+		      (:grouptags)
+		      ("emacs" . ?e)
+		      ("github" . ?g)
+		      ("homelab" . ?l)
+		      ("programming" . ?p)
+		      ("website" . ?s)
+		      (:endgrouptag)
+		      (:startgrouptag)
+		      ("personal" . ?P)
+		      (:grouptags)
+		      ("dreams" . ?d)
+		      ("organizing" . ?z)
+		      ("socials" . ?m)
+		      (:endgrouptag)
+		      ("humanities" . ?u)
+		      ("translation" . ?t)
+		      ("work" . ?w)
+		      ))
 
 (setq org-capture-templates
       `(("t" "Task" entry
@@ -71,15 +90,21 @@ It returns the absolute path from an `org-agenda' file in
 	 (file ,(org-capture-helper "task-template.org"))
 	 :clock-in t :clock-resume t)
 
+	("p" "Project" entry
+	 (file+headline
+	  ,(agenda-capture-helper "refile.org") "Projects")
+	 (file ,(org-capture-helper "project-template.org"))
+	 :clock-in t :clock-resume t)
+
 	("m" "Meeting" entry
 	 (file+headline
  	  ,(agenda-capture-helper "refile.org") "Meetings")
 	 (file ,(org-capture-helper "meeting-template.org"))
 	 :clock-in t :clock-resume t)
 
-	("n" "Notes" entry
+	("n" "Note" entry
 	 (file+headline
- 	 ,(agenda-capture-helper "refile.org") "Notes")
+ 	  ,(agenda-capture-helper "refile.org") "Notes")
 	 (file ,(org-capture-helper "note-template.org"))
 	 :clock-in t :clock-resume t)
 
