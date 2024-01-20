@@ -122,6 +122,10 @@ It returns the absolute path from an `org-agenda' file in
 (add-hook 'org-clock-in-hook (lambda ()
 			       (unless org-timer-countdown-timer
 				 (org-timer-set-timer org-timer-default-timer))))
+
+(advice-add 'org-refile :after (lambda (&rest _)
+				 (org-save-all-org-buffers)))
+
 ;;* Appearance:
 
 
