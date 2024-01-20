@@ -2,8 +2,8 @@
 #+AUTHOR: Vinicius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+DATE: %t
-#+FILETAGS: index %^{Tag|study|personal|work}
-#+CATEGORY: %\1
+#+FILETAGS: :index:
+#+CATEGORY: index
 - Indexes :: %?
 
 * ${title}
@@ -17,6 +17,6 @@
 [[id:${id}][${title}]]
 
 ** TODO Organizing
-- [ ] Roam alias and indexes
+- [ ] Roam alias and notees
+- [ ] Define tasks
 - [ ] Refile tasks
-

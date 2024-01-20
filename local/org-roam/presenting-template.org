@@ -2,8 +2,8 @@
 #+AUTHOR: Vinicius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+DATE: %t
-#+FILETAGS: presenting %^{Tag|study|personal|work}
-#+CATEGORY: %\1
+#+FILETAGS: :project:presenting:
+#+CATEGORY: project
 :REVEAL_PROPERTIES:
 #+REVEAL_REVEAL_JS_VERSION: 4
 :END:
@@ -22,5 +22,5 @@
 
 ** TODO Organizing
 - [ ] Roam alias and indexes
+- [ ] Define tasks
 - [ ] Refile tasks
-

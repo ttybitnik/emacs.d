@@ -2,8 +2,8 @@
 #+AUTHOR: Vinicius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+DATE: %t
-#+FILETAGS: movie study
-#+CATEGORY: study
+#+FILETAGS: :capture:movie:
+#+CATEGORY: capture
 #+STARTUP: inlineimages
 - Movie :: %?
 
@@ -20,5 +20,5 @@
 - [X] Evaluate movie data
 - [ ] Generate director node/link
 - [ ] Roam alias and indexes
+- [ ] Define tasks
 - [ ] Refile tasks
-

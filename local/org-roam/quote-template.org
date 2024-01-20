@@ -2,9 +2,10 @@
 #+AUTHOR: Vinicius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+DATE: %t
-#+FILETAGS: :note:zettel:
-#+CATEGORY: note
-- Zettel :: %?
+#+FILETAGS: :capture:quote:
+#+CATEGORY: capture
+#+STARTUP: inlineimages
+- Quote :: %?
 
 * ${title}
 
@@ -12,11 +13,12 @@
 
 * Resources
 
-* TODO ${title} [0/1]                                                :zettel:
+* TODO ${title} [0/1]                                                  :quote:
 
 [[id:${id}][${title}]]
 
 ** TODO Organizing
+- [ ] Generate author node/link
 - [ ] Roam alias and indexes
 - [ ] Define tasks
 - [ ] Refile tasks

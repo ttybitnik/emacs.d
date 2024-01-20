@@ -52,6 +52,11 @@ It returns the absolute path from local templates in
 	 :unnarrowed t :clock-in t :clock-resume t
 	 :jump-to-captured t :kill-buffer nil)
 
+	("ps" "Sprint" plain
+	 (file ,(roam-capture-helper "sprint-template.org"))
+	 :target (file "%<%Y%m%d%H%M%S>-sprint-${slug}.org")
+	 :unnarrowed t :clock-in t :clock-resume t)
+
 	("c" "Capture")
 	("cb" "Book" plain
 	 (file ,(roam-capture-helper "book-template.org"))
@@ -109,19 +114,9 @@ It returns the absolute path from local templates in
 	 :target (file "%<%Y%m%d%H%M%S>-course-${slug}.org")
 	 :unnarrowed t :clock-in t :clock-resume t)
 
-	("nd" "Dream" plain
-	 (file ,(roam-capture-helper "dream-template.org"))
-	 :target (file "%<%Y%m%d%H%M%S>-dream-${slug}.org")
-	 :unnarrowed t :clock-in t :clock-resume t)
-
 	("ni" "Idea" plain
 	 (file ,(roam-capture-helper "idea-template.org"))
 	 :target (file "%<%Y%m%d%H%M%S>-idea-${slug}.org")
-	 :unnarrowed t :clock-in t :clock-resume t)
-
-	("ns" "Sprint" plain
-	 (file ,(roam-capture-helper "sprint-template.org"))
-	 :target (file "%<%Y%m%d%H%M%S>-sprint-${slug}.org")
 	 :unnarrowed t :clock-in t :clock-resume t)
 
 	("nz" "Zettel" plain
@@ -134,13 +129,10 @@ It returns the absolute path from local templates in
 	 :target (file "%<%Y%m%d%H%M%S>-index-${slug}.org")
 	 :unnarrowed t :clock-in t :clock-resume t)
 
-	("h" "Placeholder" entry "* ${title}\n%(org-id-get-create)"
-	 :target
-	 (file+head+olp ,(expand-file-name
-			  "20230803215003-index-refile.org" roam-d/ttybitnik)
-			nil
-			("Refile" "Placeholder"))
-	 :unnarrowed t :clock-in t :clock-resume t :immediate-finish t)))
+	("h" "Placeholder" plain
+	 (file ,(roam-capture-helper "placeholder-template.org"))
+	 :target (file "%<%Y%m%d%H%M%S>-index-${slug}.org")
+	 :unnarrowed t :clock-in t :clock-resume t)))
 
 ;; (setq orb-insert-interface 'helm-bibtex)
 (setq orb-autokey-format "%A%y")

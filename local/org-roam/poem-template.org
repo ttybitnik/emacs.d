@@ -2,9 +2,10 @@
 #+AUTHOR: Vinicius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+DATE: %t
-#+FILETAGS: dream personal
-#+CATEGORY: personal
-- Dream :: %?
+#+FILETAGS: :capture:poem:
+#+CATEGORY: capture
+#+STARTUP: inlineimages
+- Poem :: %?
 
 * ${title}
 
@@ -12,11 +13,12 @@
 
 * Resources
 
-* TODO ${title} [0/1]                                                 :dream:
+* TODO ${title} [0/1]                                                  :poem:
 
 [[id:${id}][${title}]]
 
 ** TODO Organizing
+- [ ] Generate author node/link
 - [ ] Roam alias and indexes
+- [ ] Define tasks
 - [ ] Refile tasks
-

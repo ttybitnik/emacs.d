@@ -2,8 +2,8 @@
 #+AUTHOR: Vinicius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+DATE: %t
-#+FILETAGS: course study
-#+CATEGORY: study
+#+FILETAGS: :note:course:
+#+CATEGORY: note
 - Course :: %?
 
 * ${title}
@@ -18,5 +18,5 @@
 
 ** TODO Organizing
 - [ ] Roam alias
+- [ ] Define tasks
 - [ ] Refile tasks
-

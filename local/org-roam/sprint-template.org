@@ -2,8 +2,8 @@
 #+AUTHOR: Vinicius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+DATE: %t
-#+FILETAGS: sprint %^{Tag|study|personal|work}
-#+CATEGORY: %\1
+#+FILETAGS: :project:sprint:
+#+CATEGORY: project
 - Sprint :: %?
 
 * ${title}
@@ -26,5 +26,5 @@
 
 ** TODO Organizing
 - [ ] Roam alias and indexes
+- [ ] Define tasks
 - [ ] Refile tasks
-

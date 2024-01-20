@@ -2,8 +2,8 @@
 #+AUTHOR: Vinicius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+DATE: %t
-#+FILETAGS: idea %^{Tag|study|personal|work}
-#+CATEGORY: %\1
+#+FILETAGS: :note:idea:
+#+CATEGORY: note
 - Idea :: %?
 
 * ${title}
@@ -18,5 +18,5 @@
 
 ** TODO Organizing
 - [ ] Roam alias and indexes
+- [ ] Define tasks
 - [ ] Refile tasks
-

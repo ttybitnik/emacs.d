@@ -1,0 +1,23 @@
+#+TITLE: ${title}
+#+AUTHOR: Vinicius Moraes
+#+EMAIL: vinicius.moraes@eternodevir.com
+#+DATE: %t
+#+FILETAGS: :placeholder:
+#+CATEGORY: placeholder
+#+STARTUP: inlineimages
+- Placeholder :: [[id:31a13bd7-e780-4566-a81b-438b04515016][Refile Roam]]
+
+* Notes
+
+%?
+
+* Resources
+
+* TODO ${title} [0/1]                                                  :placeholder:
+
+[[id:${id}][${title}]]
+
+** TODO Organizing
+- [ ] Roam alias and indexes
+- [ ] Define tasks
+- [ ] Refile tasks

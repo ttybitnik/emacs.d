@@ -2,8 +2,8 @@
 #+AUTHOR: Vinicius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+DATE: %t
-#+FILETAGS: convo personal
-#+CATEGORY: personal
+#+FILETAGS: :note:convo:
+#+CATEGORY: note
 - Convo :: %?
 
 * ${title}
@@ -18,5 +18,5 @@
 
 ** TODO Organizing
 - [ ] Roam alias and indexes
+- [ ] Define tasks
 - [ ] Refile tasks
-

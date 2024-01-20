@@ -2,9 +2,10 @@
 #+AUTHOR: Vinicius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+DATE: %t
-#+FILETAGS: :note:zettel:
-#+CATEGORY: note
-- Zettel :: %?
+#+FILETAGS: :capture:music:
+#+CATEGORY: capture
+#+STARTUP: inlineimages
+- Music :: %?
 
 * ${title}
 
@@ -12,11 +13,12 @@
 
 * Resources
 
-* TODO ${title} [0/1]                                                :zettel:
+* TODO ${title} [0/1]                                                  :music:
 
 [[id:${id}][${title}]]
 
 ** TODO Organizing
+- [ ] Generate artist node/link
 - [ ] Roam alias and indexes
 - [ ] Define tasks
 - [ ] Refile tasks
