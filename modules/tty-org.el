@@ -101,6 +101,9 @@ It returns the absolute path from an `org-agenda' file in
 			       (C . t)
 			       (plantuml . t)))
 
+(add-to-list 'org-modules 'org-timer)
+(setq org-timer-default-timer 50)
+
 ;;* Bindings:
 
 (global-set-key (kbd "C-c '") 'org-edit-src-code)
@@ -116,6 +119,9 @@ It returns the absolute path from an `org-agenda' file in
 			   (company-mode)
 			   (yas-minor-mode)))
 
+(add-hook 'org-clock-in-hook (lambda ()
+			       (unless org-timer-countdown-timer
+				 (org-timer-set-timer org-timer-default-timer))))
 ;;* Appearance:
 
 
