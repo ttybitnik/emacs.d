@@ -36,6 +36,51 @@ It returns the absolute path from an `org-agenda' file in
 `agenda-d/ttybitnik'."
   (expand-file-name agenda-file agenda-d/ttybitnik))
 
+(defun clock-in-to-next/bh (kw)
+  "Switch a task KW from TODO to NEXT when clocking in.
+Skips capture tasks, projects, and subprojects.
+Switch projects and subprojects from NEXT back to TODO"
+  (when (not (and (boundp 'org-capture-mode) org-capture-mode))
+    (cond
+     ((and (member (org-get-todo-state) (list "TODO"))
+           (is-task-p/bh))
+      "NEXT")
+     ((and (member (org-get-todo-state) (list "NEXT"))
+           (is-project-p/bh))
+      "TODO"))))
+
+(defun is-task-p/bh ()
+  "Any task with a todo keyword and no subtask."
+  (save-restriction
+    (widen)
+    (let ((has-subtask)
+          (subtree-end (save-excursion (org-end-of-subtree t)))
+          (is-a-task (member (nth 2 (org-heading-components)) org-todo-keywords-1)))
+      (save-excursion
+        (forward-line 1)
+        (while (and (not has-subtask)
+                    (< (point) subtree-end)
+                    (re-search-forward "^\*+ " subtree-end t))
+          (when (member (org-get-todo-state) org-todo-keywords-1)
+            (setq has-subtask t))))
+      (and is-a-task (not has-subtask)))))
+
+(defun is-project-p/bh ()
+  "Any task with a todo keyword subtask."
+  (save-restriction
+    (widen)
+    (let ((has-subtask)
+          (subtree-end (save-excursion (org-end-of-subtree t)))
+          (is-a-task (member (nth 2 (org-heading-components)) org-todo-keywords-1)))
+      (save-excursion
+        (forward-line 1)
+        (while (and (not has-subtask)
+                    (< (point) subtree-end)
+                    (re-search-forward "^\*+ " subtree-end t))
+          (when (member (org-get-todo-state) org-todo-keywords-1)
+            (setq has-subtask t))))
+      (and is-a-task has-subtask))))
+
 ;;* Main:
 
 (setq org-ellipsis " ")
@@ -128,6 +173,8 @@ It returns the absolute path from an `org-agenda' file in
 
 (add-to-list 'org-modules 'org-timer)
 (setq org-timer-default-timer 50)
+
+(setq org-clock-in-switch-to-state 'clock-in-to-next/bh)
 
 ;;* Bindings:
 
