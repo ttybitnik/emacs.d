@@ -1,4 +1,5 @@
-* MEETING %?
-%^T
+* MEET %?
+SCHEDULED: %^T
+
 %i
 %a
