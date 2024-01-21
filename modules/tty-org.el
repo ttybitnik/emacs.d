@@ -7,6 +7,7 @@
 ;;; Code:
 
 (require 'org)
+(require-package 'org-ql)
 (require 'tty-org-auto-tangle)
 (require 'tty-org-bullets)
 (require 'tty-org-noter)
