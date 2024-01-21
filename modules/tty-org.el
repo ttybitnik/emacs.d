@@ -98,6 +98,7 @@ Switch projects and subprojects from NEXT back to TODO"
 (setq org-babel-python-command "python3")
 (setq org-refile-targets '((nil :maxlevel . 1)
 			   (org-agenda-files :maxlevel . 1)))
+
 (setq org-tag-alist '((:startgroup)
 		      ("@home" . ?h)
 		      ("@computer" . ?c)
@@ -106,7 +107,7 @@ Switch projects and subprojects from NEXT back to TODO"
 		      ("@office" . ?o)
 		      ("@errands" . ?i)
                       (:endgroup)
-		      ("@coworker" . ?W)
+		      ("@persons" . ?n)
 		      (:newline)
 		      (:startgrouptag)
 		      ("computing" . ?C)
@@ -120,13 +121,17 @@ Switch projects and subprojects from NEXT back to TODO"
 		      (:startgrouptag)
 		      ("personal" . ?P)
 		      (:grouptags)
+		      ("humanities" . ?u)
 		      ("dreams" . ?d)
 		      ("organizing" . ?z)
 		      ("socials" . ?m)
 		      (:endgrouptag)
-		      ("humanities" . ?u)
+		      (:startgrouptag)
+		      ("professional" . ?W)
+		      (:grouptags)
 		      ("translation" . ?t)
-		      ("work" . ?w)))
+		      ("work" . ?w)
+		      (:endgrouptag)))
 
 (setq org-capture-templates
       `(("t" "Task" entry
