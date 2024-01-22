@@ -66,11 +66,11 @@ DEADLINE: %^{Publish date}t
 
 ** TODO Final revision [0/2]
 
-*** TODO Portuguese
+*** TODO Portuguese revision
 
-*** TODO English
+*** TODO English revision
 
-** TODO Hugo [0/3]
+** TODO Hugo deployment [0/3]
 
 *** TODO Create new post file copying the header
 
