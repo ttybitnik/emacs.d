@@ -11,10 +11,9 @@
 #+begin_src org
   ,#+TITLE: ${title}
   ,#+DATE: %t
-  ,#+PUBLISHDATE: %^{Publish date}t
   ,#+DRAFT: t
-  ,#+CATEGORIES[]: %^{Blog category|broadcasts|essays|notes}
-  ,#+TAGS[]: %^{Blog tags|autobiography|cinema|computing|reading|translation|music}
+  ,#+CATEGORIES[]: %^{Blog category|broadcasts|marginalia|essays|notes|photos}
+  ,#+TAGS[]: %^{Blog tags|autobiography|chronicles|cinema|computing|literature|music|philosophy|translation}
   ,#+DESCRIPTION: %^{Short description}
 #+end_src
 
@@ -45,6 +44,7 @@
 * Resources
 
 * TODO ${title} [0/8]                                              :blogging:
+DEADLINE: %^{Publish date}t
 
 [[id:${id}][${title}]]
 
