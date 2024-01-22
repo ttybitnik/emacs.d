@@ -26,3 +26,4 @@ session*
 /.mc-lists.el
 /nov-places
 /.auth/
+/org-clock-save.el
