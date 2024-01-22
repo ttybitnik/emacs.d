@@ -222,6 +222,7 @@ Switch projects and subprojects from NEXT back to TODO"
 		      ((org-ql-block-header "Projects next tasks:")
 		       (org-agenda-files '(,(agenda-helper "project.org")))))
 	(org-ql-block '(and (todo "TODO")
+			    (not (children))
 			    (not (level 2)))
 		      ((org-ql-block-header "Projects subtasks:")
 		       (org-agenda-files '(,(agenda-helper "project.org")))))
