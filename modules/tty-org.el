@@ -20,7 +20,7 @@
 
 (defconst agenda-d/ttybitnik
   (concat roam-d/ttybitnik (file-name-as-directory "agenda"))
-  "Absolute path of org-agenda directory inside Orpheus.")
+  "Absolute path of `org-agenda' directory inside Orpheus.")
 
 ;;* Functions:
 
@@ -92,8 +92,6 @@ Switch projects and subprojects from NEXT back to TODO"
 (setq org-confirm-babel-evaluate t)
 (setq org-export-with-smart-quotes t)
 (setq org-src-window-setup 'current-window)
-(setq org-log-done 'time)
-(setq org-log-into-drawer t)
 (setq org-babel-python-command "python3")
 (setq org-refile-targets '((nil :maxlevel . 1)
 			   (org-agenda-files :maxlevel . 1)))
@@ -131,7 +129,8 @@ Switch projects and subprojects from NEXT back to TODO"
 		      (:grouptags)
 		      ("translation" . ?t)
 		      ("work" . ?w)
-		      (:endgrouptag)))
+		      (:endgrouptag)
+		      ("FLAGGED" . ?F)))
 
 (setq org-capture-templates
       `(("t" "Task" entry
@@ -160,8 +159,8 @@ Switch projects and subprojects from NEXT back to TODO"
 	 :clock-in t :clock-resume t)))
 
 (setq org-todo-keywords
-      '((sequence "TODO(t!)" "NEXT(n!)" "WAIT(h@/!)"
-		  "|" "MEET(m!)" "DONE(d!)" "CANCELED(c@/!)")))
+      '((sequence "TODO(t)" "NEXT(n)" "WAIT(h@)"
+		  "|" "MEET(m)" "DONE(d)" "CANCELED(c@/!)")))
 
 (org-babel-do-load-languages 'org-babel-load-languages
 			     '((emacs-lisp . t)
@@ -170,15 +169,19 @@ Switch projects and subprojects from NEXT back to TODO"
 			       (C . t)
 			       (plantuml . t)))
 
+;; (setq org-agenda-window-setup 'current-window)
 (setq org-agenda-start-on-weekday 0)
-(setq org-agenda-repeating-timestamp-show-all t)
 (setq org-agenda-show-all-dates t)
 (setq org-agenda-sticky t)
 (setq org-agenda-start-with-log-mode t)
+;; (setq org-agenda-log-mode-items '(closed))
 (setq org-agenda-persistent-filter t)
+(setq org-agenda-text-search-extra-files 'agenda-archives)
 (setq org-deadline-warning-days 30)
 (setq org-tags-match-list-sublevels t)
 
+(setq org-log-done 'time)
+(setq org-log-into-drawer t)
 (setq org-enforce-todo-dependencies t)
 (setq org-agenda-dim-blocked-tasks nil)
 (setq org-stuck-projects (quote ("" nil nil "")))
@@ -266,7 +269,6 @@ Switch projects and subprojects from NEXT back to TODO"
 			    (ts :to -30))
 		      ((org-ql-block-header "Tasks to archive:")))))
 
-
 (setq org-agenda-custom-commands
       `(("n" "Agenda for general view"
 	 ,org-custom-agenda/ttybitnik)
@@ -283,10 +285,20 @@ Switch projects and subprojects from NEXT back to TODO"
 	 ((org-agenda-tag-filter-preset '("+computing")))
 	 (nil))
 	("g" "Agenda for organizing the week (GTD)"
-	 ,org-custom-agenda-gtd/ttybitnik)))
-
+	 ,org-custom-agenda-gtd/ttybitnik)
+	("P" "Printed version of agenda"
+	 ,org-custom-agenda/ttybitnik
+	 ((org-agenda-with-colors nil)
+	  (org-agenda-start-with-log-mode nil)
+          (org-agenda-prefix-format "%t %s")
+          (org-agenda-current-time-string ,(car (last org-agenda-time-grid)))
+          (org-agenda-fontify-priorities nil)
+          (org-agenda-remove-tags t)))))
 
 ;;* Bindings:
+
+(define-key org-agenda-mode-map (kbd "n") 'org-agenda-next-item)
+(define-key org-agenda-mode-map (kbd "p") 'org-agenda-previous-item)
 
 (global-set-key (kbd "C-c '") 'org-edit-src-code)
 (global-set-key (kbd "C-c a") 'org-agenda)
@@ -300,6 +312,10 @@ Switch projects and subprojects from NEXT back to TODO"
 			   (org-indent-mode)
 			   (company-mode)
 			   (yas-minor-mode)))
+
+(add-hook 'org-agenda-mode-hook (lambda ()
+				  (hl-line-mode)
+				  (beacon-mode nil)))
 
 (add-hook 'org-clock-in-hook (lambda ()
 			       (unless org-timer-countdown-timer
