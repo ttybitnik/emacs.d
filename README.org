@@ -168,7 +168,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       ├── tty-nav.el					navigation module
       │   ├── tty-nav-avy.el
       │   ├── tty-nav-consult.el
-      │   ├── tty-nav-helm.el
+      │   ├── _tty-nav-helm.el
       │   ├── tty-nav-switch-window.el
       │   └── tty-nav-which-key.el
       ├── tty-org.el					org-mode module
