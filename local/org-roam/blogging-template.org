@@ -48,7 +48,7 @@ DEADLINE: %^{Publish date}t
 
 [[id:${id}][${title}]]
 
-** TODO Initial draft [0/3]
+** WAIT Initial draft [0/3]
 
 *** TODO Extraction of topics
 
@@ -64,13 +64,13 @@ DEADLINE: %^{Publish date}t
 
 ** TODO Revision translation
 
-** TODO Final revision [0/2]
+** WAIT Final revision [0/2]
 
 *** TODO Portuguese revision
 
 *** TODO English revision
 
-** TODO Hugo deployment [0/3]
+** WAIT Hugo deployment [0/3]
 
 *** TODO Create new post file copying the header
 

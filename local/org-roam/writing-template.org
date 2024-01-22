@@ -34,7 +34,7 @@
 
 [[id:${id}][${title}]]
 
-** TODO Initial draft [0/3]
+** WAIT Initial draft [0/3]
 
 *** TODO Extraction of topics
 
