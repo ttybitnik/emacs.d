@@ -311,8 +311,15 @@ Switch projects and subprojects from NEXT back to TODO"
 
 ;;* Bindings:
 
-(define-key org-agenda-mode-map (kbd "n") 'org-agenda-next-item)
-(define-key org-agenda-mode-map (kbd "p") 'org-agenda-previous-item)
+(define-key org-agenda-mode-map (kbd "n") (lambda ()
+					    (interactive)
+					    (org-agenda-next-item 1)
+					    (move-beginning-of-line 1)))
+
+(define-key org-agenda-mode-map (kbd "p") (lambda ()
+					    (interactive)
+					    (org-agenda-previous-item 1)
+					    (move-beginning-of-line 1)))
 
 (global-set-key (kbd "C-c '") 'org-edit-src-code)
 (global-set-key (kbd "C-c a") 'org-agenda)
