@@ -14,19 +14,20 @@
 
 ;;* Main:
 
+(setq dashboard-set-navigator nil)
 (setq dashboard-center-content t)
 (setq dashboard-set-file-icons t)
 (setq dashboard-icon-type 'all-the-icons)
 (setq dashboard-banner-logo-title "Welcome back, ttybitnik!")
 (setq dashboard-agenda-sort-strategy '(time-up))
-(setq dashboard-agenda-prefix-format "%i %-12:c %s ")
+(setq dashboard-agenda-prefix-format "%s ")
 (setq dashboard-agenda-tags-format 'ignore)
 (setq dashboard-footer-icon (all-the-icons-fileicon
 			     "emacs"
 			     :height 1.1
 			     :v-adjust -0.05
 			     :face 'font-lock-keyword-face))
-(setq dashboard-items '((recents . 5)
+(setq dashboard-items '((recents . 7)
 			(projects . 5)
 			(bookmarks . 5)
 			(agenda . 5)))
