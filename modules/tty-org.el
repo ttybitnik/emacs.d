@@ -176,7 +176,7 @@ Switch projects and subprojects from NEXT back to TODO"
 (setq org-agenda-start-with-log-mode t)
 ;; (setq org-agenda-log-mode-items '(closed))
 (setq org-agenda-persistent-filter t)
-(setq org-agenda-text-search-extra-files 'agenda-archives)
+(setq org-agenda-text-search-extra-files '(agenda-archives))
 (setq org-deadline-warning-days 30)
 (setq org-tags-match-list-sublevels t)
 
