@@ -37,6 +37,19 @@ It returns the absolute path from an `org-agenda' file in
 `agenda-d/ttybitnik'."
   (expand-file-name agenda-file agenda-d/ttybitnik))
 
+(defun clock-in-parent-task/bh ()
+  "Move cursor to the parent (project) task if any and clock in."
+  (let ((parent-task))
+    (save-excursion
+      (save-restriction
+        (widen)
+        (while (and (not parent-task) (org-up-heading-safe))
+          (when (member (nth 2 (org-heading-components)) org-todo-keywords-1)
+            (setq parent-task (point))))
+        (if parent-task
+            (org-with-point-at parent-task
+              (org-clock-in)))))))
+
 (defun clock-in-to-next/bh (kw)
   "Switch a task KW from TODO to NEXT when clocking in.
 Skips capture tasks, projects, and subprojects.
@@ -341,6 +354,8 @@ Switch projects and subprojects from NEXT back to TODO"
 (add-hook 'org-clock-in-hook (lambda ()
 			       (unless org-timer-countdown-timer
 				 (org-timer-set-timer org-timer-default-timer))))
+
+(add-hook 'org-clock-out-hook 'clock-in-parent-task/bh)
 
 (advice-add 'org-refile :after (lambda (&rest _)
 				 (org-save-all-org-buffers)))
