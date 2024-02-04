@@ -41,6 +41,8 @@
 
 ;;* Main:
 
+(setq compilation-scroll-output t)
+
 ;;* Bindings:
 
 ;;* Hooks:
