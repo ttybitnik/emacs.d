@@ -45,6 +45,9 @@
 
 ;;* Bindings:
 
+(global-set-key (kbd "<f5>") 'compile)
+(global-set-key (kbd "C-c r") 'recompile)
+
 ;;* Hooks:
 
 (add-hook 'prog-mode-hook 'fill-column/ttybitnik)
