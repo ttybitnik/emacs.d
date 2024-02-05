@@ -51,7 +51,7 @@
 ;;* Bindings:
 
 (global-set-key (kbd "C-c e") 'config-visit/ttybitnik)
-(global-set-key (kbd "C-c r") 'config-reload/ttybitnik)
+(global-set-key (kbd "C-c R") 'config-reload/ttybitnik)
 
 ;;* Hooks:
 
