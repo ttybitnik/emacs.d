@@ -1,7 +1,7 @@
 @startuml
 '
 ' One Dark theme
-' Copyright (c) 2020 Patrik Csak
+' Copyright (C) 2020 Patrik Csak
 ' MIT LICENSE https://github.com/patrik-csak/one-dark-plantuml-theme/blob/main/license.txt
 '
 ' Colors
@@ -306,7 +306,7 @@ skinparam {
   ' DefaultMonospacedFontName SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 
   ' DefaultTextAlignment
-  
+
 
   '
   ' Designed (?)

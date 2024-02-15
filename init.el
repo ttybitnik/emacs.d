@@ -1,6 +1,6 @@
 ;;; init.el --- Personal Emacs Configuration -*- lexical-binding: t -*-
 
-;; Copyright (c) 2022-2023 Vinicius Moraes
+;; Copyright (C) 2022-2024 Vinicius Moraes
 
 ;; Author: Vinicius Moraes <vinicius.moraes@eternodevir.com>
 ;; Version: 0.1.0
