@@ -47,7 +47,8 @@
                           (flymake-mode)
                           (company-mode)
                           (eglot-ensure)
-                          (company-go-mode/ttybitnik)))
+                          (company-go-mode/ttybitnik)
+			  (add-hook 'before-save-hook 'gofmt-before-save)))
 
 ;;* Appearance:
 
