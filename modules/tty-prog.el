@@ -43,6 +43,8 @@
 
 (setq compilation-scroll-output t)
 
+(setq copyright-names-regexp "\\(Vinicius Moraes\\|5bits\\.one\\)")
+
 ;;* Bindings:
 
 (global-set-key (kbd "<f5>") 'compile)
@@ -52,6 +54,7 @@
 
 (add-hook 'prog-mode-hook 'fill-column/ttybitnik)
 (add-hook 'conf-mode-hook 'fill-column/ttybitnik)
+(add-hook 'before-save-hook 'copyright-update)
 
 ;;* Appearance:
 
