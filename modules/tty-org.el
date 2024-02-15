@@ -97,6 +97,13 @@ Switch projects and subprojects from NEXT back to TODO"
 
 ;;* Main:
 
+(setq org-duration-units `(("min" . 1)
+			   ("h" . 60)
+			   ("d" . ,(* 60 8))
+			   ("w" . ,(* 60 8 5))
+			   ("m" . ,(* 60 8 5 4))
+			   ("y" . ,(* 60 8 5 4 10))))
+
 (setq org-ellipsis " ")
 (setq org-startup-folded 'show10levels)
 (setq org-use-speed-commands t)
