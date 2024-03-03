@@ -12,7 +12,7 @@
 
 (defvar conventional-commit-types/ttybitnik
   '("feat" "fix" "refactor" "perf" "style" "test" "docs" "chore" "build" "ci"
-    "revert")
+    "revert" "deps")
   "List of conventional commit types to be enforced.")
 
 ;;* Functions:
