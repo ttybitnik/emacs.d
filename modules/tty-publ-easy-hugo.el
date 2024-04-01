@@ -14,7 +14,7 @@
 
 ;;* Main:
 
-(setq easy-hugo-postdir "content/blog"
+(setq easy-hugo-postdir "content/palimpsests"
       easy-hugo-basedir (file-name-as-directory
 			 (concat projects-d/ttybitnik "blog.backend"))
       easy-hugo-url "https://ttybitnik.github.io"
