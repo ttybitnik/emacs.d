@@ -1,5 +1,5 @@
 #+TITLE: ${title}
-#+AUTHOR: Vinicius Moraes
+#+AUTHOR: Vinícius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+DATE: %t
 #+FILETAGS: :capture:podcast:

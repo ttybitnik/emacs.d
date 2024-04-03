@@ -4,9 +4,9 @@
 # --
 ;;; ${1:`(file-name-nondirectory (buffer-file-name))`} --- ${2:summary} -*- lexical-binding: t -*-
 
-;; Copyright (C) ${3:year} Vinicius Moraes
+;; Copyright (C) ${3:year} Vinícius Moraes
 
-;; Author: Vinicius Moraes <vinicius.moraes@eternodevir.com>
+;; Author: Vinícius Moraes <vinicius.moraes@eternodevir.com>
 ;; Maintainer: ${4:name <email>}
 ;; Version: ${5:0.1.0}
 ;; Package-Requires: (${6:dependencies})

@@ -43,7 +43,7 @@
 
 (setq compilation-scroll-output t)
 
-(setq copyright-names-regexp "\\(Vinicius Moraes\\|5bits\\.one\\)")
+(setq copyright-names-regexp "\\(Vinícius Moraes\\|5bits\\.one\\)")
 
 ;;* Bindings:
 

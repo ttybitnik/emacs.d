@@ -1,8 +1,8 @@
 ;;; init.el --- Personal Emacs Configuration -*- lexical-binding: t -*-
 
-;; Copyright (C) 2022-2024 Vinicius Moraes
+;; Copyright (C) 2022-2024 Vinícius Moraes
 
-;; Author: Vinicius Moraes <vinicius.moraes@eternodevir.com>
+;; Author: Vinícius Moraes <vinicius.moraes@eternodevir.com>
 ;; Version: 0.1.0
 
 ;; URL: https://github.com/ttybitnik/emacs.d
