@@ -27,3 +27,4 @@ session*
 /nov-places
 /.auth/
 /org-clock-save.el
+/bbdb
