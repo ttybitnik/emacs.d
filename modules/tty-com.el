@@ -6,6 +6,7 @@
 
 ;;; Code:
 
+(require 'tty-com-bbdb)
 (require 'tty-com-erc)
 (require 'tty-com-gnus)
 
