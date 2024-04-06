@@ -25,6 +25,9 @@
 
 ;;* Bindings:
 
+(define-key markdown-mode-map (kbd "M-p") nil)
+(define-key markdown-mode-map (kbd "M-n") nil)
+
 ;;* Hooks:
 
 (add-hook 'markdown-mode-hook (lambda ()
