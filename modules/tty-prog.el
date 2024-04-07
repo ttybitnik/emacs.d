@@ -54,6 +54,7 @@
 
 (add-hook 'prog-mode-hook 'fill-column/ttybitnik)
 (add-hook 'conf-mode-hook 'fill-column/ttybitnik)
+(add-hook 'diff-mode-hook 'fill-column/ttybitnik)
 (add-hook 'before-save-hook 'copyright-update)
 
 ;;* Appearance:
