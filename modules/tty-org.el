@@ -7,6 +7,7 @@
 ;;; Code:
 
 (require 'org)
+(require 'notifications)
 (require-package 'org-ql)
 (require 'tty-org-auto-tangle)
 (require 'tty-org-bullets)
@@ -94,6 +95,54 @@ Switch projects and subprojects from NEXT back to TODO"
           (when (member (org-get-todo-state) org-todo-keywords-1)
             (setq has-subtask t))))
       (and is-a-task has-subtask))))
+
+(defun pomodoro/ttybitnik ()
+  "Start a custom pomodoro session.
+This function sets up a pomodoro timer for a session duration of 50 minutes
+followed by a break duration of 10 minutes.
+
+This function displays system notifications using `notifications-notify' and
+opens an `org-capture' buffer to allow pausing any active `org-clock-in' clock
+during the break time.  Once the break time ends, an alarm sound is played using
+`call-process-shell-command'.
+
+The recommended workflow is to add an `org-clock-in-hook' to run this function
+unless an `org-timer-countdown-timer' is already running.
+
+Otherwise, call it interactively with \\[pomodoro/ttybitnik]."
+  (interactive)
+  (let ((session-duration 50)
+        (session-break 10)
+        (title-message "Pomodoro 🍅")
+        (duration-message "Timer: 50 minutes")
+        (break-message "Break: 10 minutes")
+	(over-message "Break time is up!"))
+    (notifications-notify
+     :title title-message
+     :body duration-message
+     :urgency 'normal)
+    (org-timer-set-timer session-duration)
+    (run-with-timer (+ (* session-duration 60) 1) nil
+                    (lambda ()
+                      (notifications-notify
+                       :title title-message
+                       :body break-message
+                       :urgency 'critical)
+                      (org-timer-set-timer session-break)
+                      (message "Pomodoro. %s" break-message)
+                      (org-capture nil "t")
+                      (insert "Pomodoro break 🍅")))
+    (run-with-timer (* (+ session-duration session-break) 60) nil
+		    (lambda ()
+		      (notifications-notify
+		       :title title-message
+		       :body over-message
+		       :urgency 'normal)
+                      (message "Pomodoro. %s" over-message)
+		      (call-process-shell-command
+		       "paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
+		       nil 0)))
+    (message "Pomodoro. %s" duration-message)))
 
 ;;* Main:
 
@@ -360,7 +409,7 @@ Switch projects and subprojects from NEXT back to TODO"
 
 (add-hook 'org-clock-in-hook (lambda ()
 			       (unless org-timer-countdown-timer
-				 (org-timer-set-timer org-timer-default-timer))))
+				 (pomodoro/ttybitnik))))
 
 (add-hook 'org-clock-out-hook 'clock-in-parent-task/bh)
 
