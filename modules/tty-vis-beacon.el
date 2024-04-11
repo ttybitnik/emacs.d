@@ -4,6 +4,8 @@
 
 ;; Beacon-related tunings.
 
+;; DEPRECATED 2024-04-10: I've switched to `pulsar'.
+
 ;;; Code:
 
 (require-package 'beacon)

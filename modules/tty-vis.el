@@ -5,16 +5,17 @@
 ;; This module tailors settings and packages for visual elements in Emacs.
 
 ;;; Code:
+;; (require 'tty-vis-beacon)
+;; (require 'tty-vis-gruvbox-theme)
 ;; (require 'tty-vis-spaceline)
 
 (require 'tty-vis-all-the-icons)
-(require 'tty-vis-beacon)
 (require 'tty-vis-dashboard)
 (require 'tty-vis-diminish)
-;; (require 'tty-vis-gruvbox-theme)
 (require 'tty-vis-keycast)
 (require 'tty-vis-marginalia)
 (require 'tty-vis-modus-themes)
+(require 'tty-vis-pulsar)
 (require 'tty-vis-rainbow)
 
 ;;* Variables:

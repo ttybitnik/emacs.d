@@ -219,13 +219,14 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   └── tty-txt-go-translate.el
       └── tty-vis.el					visual module
           ├── tty-vis-all-the-icons.el
-          ├── tty-vis-beacon.el
+          ├── _tty-vis-beacon.el
           ├── tty-vis-dashboard.el
           ├── tty-vis-diminish.el
           ├── _tty-vis-gruvbox-theme.el
           ├── tty-vis-keycast.el
           ├── tty-vis-marginalia.el
           ├── tty-vis-modus-themes.el
+          ├── tty-vis-pulsar.el
           ├── tty-vis-rainbow.el
           └── _tty-vis-spaceline.el
 #+end_src
