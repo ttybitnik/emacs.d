@@ -4,6 +4,10 @@
 
 ;; Pulsar-related tunings.
 
+;; DEPRECATED 2024-04-10: I've switched back to `beacon' because its default
+;; activation logic pleased me more, although `pulsar' certainly can be
+;; customized to achieve something close to that.
+
 ;;; Code:
 
 (require-package 'pulsar)

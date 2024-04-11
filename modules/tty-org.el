@@ -404,7 +404,8 @@ Otherwise, call it interactively with \\[pomodoro/ttybitnik]."
 			   (yas-minor-mode)))
 
 (add-hook 'org-agenda-mode-hook (lambda ()
-				  (hl-line-mode)))
+				  (hl-line-mode)
+				  (beacon-mode nil)))
 
 (add-hook 'org-clock-in-hook (lambda ()
 			       (unless org-timer-countdown-timer
