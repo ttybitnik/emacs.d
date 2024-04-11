@@ -33,8 +33,6 @@
 ;; (add-hook 'minibuffer-setup-hook #'pulsar-pulse-line)
 ;; (add-hook 'window-state-change-hook #'pulsar-pulse-line)
 (add-hook 'next-error-hook #'pulsar-pulse-line)
-(add-hook 'consult-after-jump-hook #'pulsar-pulse-line)
-(add-hook 'consult-after-jump-hook #'pulsar-pulse-line)
 
 ;;* Appearance:
 
