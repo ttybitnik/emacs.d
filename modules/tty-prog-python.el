@@ -7,7 +7,6 @@
 ;;; Code:
 
 (require 'python)
-(require-package 'lsp-pyright)
 
 ;;* Variables:
 

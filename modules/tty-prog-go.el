@@ -7,7 +7,6 @@
 ;;; Code:
 
 (require-package 'go-mode)
-(require 'lsp-go)
 
 ;;* Variables:
 

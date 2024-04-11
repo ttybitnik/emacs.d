@@ -7,7 +7,6 @@
 ;;; Code:
 
 (require-package 'json-mode)
-(require 'lsp-json)
 
 ;;* Variables:
 
