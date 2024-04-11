@@ -193,6 +193,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-prog-json.el
       │   ├── tty-prog-lisp.el
       │   ├── _tty-prog-lsp.el
+      │   ├── tty-prog-lua.el
       │   ├── tty-prog-markdown.el
       │   ├── tty-prog-nix.el
       │   ├── tty-prog-python.el
