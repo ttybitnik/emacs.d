@@ -9,7 +9,7 @@
 
 ;;; Code:
 
-;; (require-package 'flycheck)
+(require-package 'flycheck)
 
 ;;* Variables:
 

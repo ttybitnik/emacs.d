@@ -9,8 +9,8 @@
 
 ;;; Code:
 
-;; (require-package 'spaceline)
-;; (require 'spaceline-config)
+(require-package 'spaceline)
+(require 'spaceline-config)
 
 ;;* Variables:
 

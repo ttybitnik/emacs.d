@@ -10,7 +10,7 @@
 
 ;;; Code:
 
-;; (require-package 'pulsar)
+(require-package 'pulsar)
 
 ;;* Variables:
 

@@ -9,7 +9,7 @@
 
 ;;; Code:
 
-;; (require-package 'popup-kill-ring)
+(require-package 'popup-kill-ring)
 
 ;;* Variables:
 

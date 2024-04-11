@@ -8,7 +8,7 @@
 
 ;;; Code:
 
-;; (require-package 'undo-tree)
+(require-package 'undo-tree)
 
 ;;* Variables:
 
