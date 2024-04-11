@@ -14,6 +14,7 @@
 
 ;;* Main:
 
+(setq dashboard-projects-backend 'project-el)
 (setq dashboard-set-navigator nil)
 (setq dashboard-center-content t)
 (setq dashboard-set-file-icons t)
