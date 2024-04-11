@@ -6,6 +6,8 @@
 
 ;;; Code:
 
+(require-package 'lua-mode)
+
 ;;* Variables:
 
 ;;* Functions:
@@ -20,8 +22,6 @@
                                   company-yasnippet))))
 
 ;;* Main:
-
-(require-package 'lua-mode)
 
 ;;* Bindings:
 
