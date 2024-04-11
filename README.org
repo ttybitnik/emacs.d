@@ -150,7 +150,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-func-move-dup.el
       │   ├── tty-func-multiple-cursors.el
       │   ├── tty-func-orderless.el
-      │   ├── tty-func-popup-kill-ring.el
+      │   ├── _tty-func-popup-kill-ring.el
       │   ├── tty-func-sudo-edit.el
       │   ├── _tty-func-undo-tree.el
       │   ├── tty-func-vundo.el
