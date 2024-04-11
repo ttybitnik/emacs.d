@@ -5,6 +5,7 @@
 ;; Flymake-related tunings.
 
 ;;; Code:
+
 (require-package 'flymake)
 
 ;;* Variables:

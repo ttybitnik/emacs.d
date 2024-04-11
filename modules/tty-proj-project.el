@@ -8,6 +8,7 @@
 ;; given directory.
 
 ;;; Code:
+
 (require-package 'project)
 
 ;;* Variables:
