@@ -9,10 +9,10 @@
 
 ;;; Code:
 
-(require-package 'helm)
-(require-package 'helm-descbinds)
-(require-package 'helm-bibtex)
-(require 'bibtex-completion)
+;; (require-package 'helm)
+;; (require-package 'helm-descbinds)
+;; (require-package 'helm-bibtex)
+;; (require 'bibtex-completion)
 
 ;;* Variables:
 

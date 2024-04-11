@@ -9,7 +9,7 @@
 
 ;;; Code:
 
-(require-package 'projectile)
+;; (require-package 'projectile)
 
 ;;* Variables:
 

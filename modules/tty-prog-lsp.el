@@ -17,10 +17,10 @@
 
 ;;; Code:
 
-(require-package 'lsp-mode)
-(require-package 'lsp-ui)
-;; (require-package 'helm-lsp)
-(require-package 'consult-lsp)
+;; (require-package 'lsp-mode)
+;; (require-package 'lsp-ui)
+;; ;; (require-package 'helm-lsp)
+;; (require-package 'consult-lsp)
 
 ;;* Variables:
 

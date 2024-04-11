@@ -6,7 +6,7 @@
 
 ;;; Code:
 
-(require-package 'gruvbox-theme)
+;; (require-package 'gruvbox-theme)
 
 ;;* Variables:
 
