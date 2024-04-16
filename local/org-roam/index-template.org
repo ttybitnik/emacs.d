@@ -17,6 +17,6 @@
 [[id:${id}][${title}]]
 
 ** TODO Organizing
-- [ ] Roam alias and notees
+- [ ] Roam alias and indexes
 - [ ] Define tasks
 - [ ] Refile tasks
