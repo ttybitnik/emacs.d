@@ -111,12 +111,12 @@ unless an `org-timer-countdown-timer' is already running.
 
 Otherwise, call it interactively with \\[pomodoro/ttybitnik]."
   (interactive)
-  (let ((session-duration 50)
-        (session-break 10)
-        (title-message "Pomodoro 🍅")
-        (duration-message "Timer: 50 minutes")
-        (break-message "Break: 10 minutes")
-	(over-message "Break time is up!"))
+  (let* ((session-duration 50)
+         (session-break 10)
+         (title-message "Pomodoro 🍅")
+         (duration-message (format "Timer: %d minutes" session-duration))
+         (break-message (format "Break: %d minutes" session-break))
+	 (over-message "Break time is up!"))
     (notifications-notify
      :title title-message
      :body duration-message
