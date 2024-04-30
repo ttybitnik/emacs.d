@@ -24,6 +24,7 @@
 (require 'tty-prog-markdown)
 (require 'tty-prog-python)
 (require 'tty-prog-rust)
+(require 'tty-prog-scheme)
 (require 'tty-prog-shell)
 (require 'tty-prog-sql)
 (require 'tty-prog-toml)
