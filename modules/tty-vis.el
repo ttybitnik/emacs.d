@@ -76,6 +76,8 @@
  '(org-table ((t (:inherit fixed-pitch))))
  '(variable-pitch ((t (:family "Iosevka Aile")))))
 
+(setq display-line-numbers-type 'relative)
+
 ;;* Bindings:
 
 ;;* Hooks:
