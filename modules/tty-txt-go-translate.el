@@ -14,18 +14,16 @@
 
 ;;* Main:
 
-(setq gts-translate-list '(("pt-br" "en")
-                           ("en" "de")
-                           ("en""fr")))
-(setq gts-default-translator
-      (gts-translator
-       :picker (gts-noprompt-picker)
-       :engines (list (gts-google-engine))
-       :render (gts-buffer-render)))
+(setq gt-langs '(en pt-br de fr))
+(setq gt-default-translator
+      (gt-translator
+       :taker (gt-taker :text 'word)
+       :engines (gt-google-engine)
+       :render (gt-buffer-render)))
 
 ;;* Bindings:
 
-(global-set-key (kbd "C-c t") 'gts-do-translate)
+(global-set-key (kbd "C-c t") 'gt-do-translate)
 
 ;;* Hooks:
 
