@@ -53,7 +53,7 @@
   "Absolute path of projects directory.")
 
 (defconst orpheusmx-d/ttybitnik
-  (file-name-as-directory "~/.orpheus/gnu-emacs")
+  (file-name-as-directory "~/Remote/orpheus/gnu-emacs")
   "Absolute path of Emacs directory inside Orpheus.")
 
 ;;* Functions:

@@ -28,9 +28,9 @@
 
 ;;* Main:
 
-(setq bibtex-completion-bibliography '("~/.prometheus/Bibliography/general.bib"))
-(setq bibtex-completion-library-path  '("~/.prometheus/Biblioteca/"))
-(setq bibtex-completion-notes-path "~/.orpheus/gnu-emacs/org-roam/ref/")
+(setq bibtex-completion-bibliography '("~/Remote/prometheus/bibliography/general.bib"))
+(setq bibtex-completion-library-path  '("~/Remote/prometheus/biblioteca/"))
+(setq bibtex-completion-notes-path "~/Remote/orpheus/gnu-emacs/org-roam/ref/")
 (setq bibtex-completion-pdf-extension '(".pdf" ".epub" ".mobi")) ;; experimental
 (setq bibtex-completion-pdf-field "file")
 (setq bibtex-completion-pdf-symbol "P")
