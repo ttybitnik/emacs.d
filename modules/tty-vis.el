@@ -23,6 +23,13 @@
 
 ;;* Functions:
 
+(defun match-current-line-background/ttybitnik ()
+  "Set the background of `line-number-current-line' to match `line-number'.
+This function is intended to be called through `local/switcher-day.el'
+and `local/switcher-night.el' files."
+  (set-face-attribute 'line-number-current-line nil
+                      :background (face-background 'line-number)))
+
 ;;* Main:
 
 (load-file (expand-file-name "switcher.el" local-d/ttybitnik))
