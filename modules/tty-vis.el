@@ -43,10 +43,11 @@ and `local/switcher-night.el' files."
       default-sendmail-coding-system 'utf-8
       default-terminal-coding-system 'utf-8)
 
+(setq-default fringes-outside-margins t)
+(fringe-mode '8)
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
-(fringe-mode 0)
 (prefer-coding-system 'utf-8)
 
 (column-number-mode t)
