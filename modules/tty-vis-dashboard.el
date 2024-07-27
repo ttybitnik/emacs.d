@@ -23,6 +23,7 @@
 (setq dashboard-agenda-sort-strategy '(time-up))
 (setq dashboard-agenda-prefix-format "%s ")
 (setq dashboard-agenda-tags-format 'ignore)
+(setq recentf-exclude `(,agenda-d/ttybitnik))
 (setq dashboard-footer-icon (all-the-icons-fileicon
 			     "emacs"
 			     :height 1.1
