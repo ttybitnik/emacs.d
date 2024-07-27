@@ -7,6 +7,7 @@
 ;;; Code:
 ;; (require 'tty-proj-projectile)
 
+(require 'tty-proj-diff-hl)
 (require 'tty-proj-magit)
 (require 'tty-proj-project)
 
