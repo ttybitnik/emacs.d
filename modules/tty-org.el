@@ -144,6 +144,18 @@ Otherwise, call it interactively with \\[pomodoro/ttybitnik]."
 		       nil 0)))
     (message "Pomodoro. %s" duration-message)))
 
+(defun org-agenda-binding-next/ttybitnik ()
+  "Set quality of life next item movement/binding for `org-agenda'."
+  (interactive)
+  (org-agenda-next-item 1)
+  (move-beginning-of-line 1))
+
+(defun org-agenda-binding-previous/ttybitnik ()
+  "Set quality of life previous item movement/binding for `org-agenda'."
+  (interactive)
+  (org-agenda-previous-item 1)
+  (move-beginning-of-line 1))
+
 ;;* Main:
 
 (setq org-duration-units `(("min" . 1)
@@ -381,15 +393,10 @@ Otherwise, call it interactively with \\[pomodoro/ttybitnik]."
 
 ;;* Bindings:
 
-(define-key org-agenda-mode-map (kbd "n") (lambda ()
-					    (interactive)
-					    (org-agenda-next-item 1)
-					    (move-beginning-of-line 1)))
-
-(define-key org-agenda-mode-map (kbd "p") (lambda ()
-					    (interactive)
-					    (org-agenda-previous-item 1)
-					    (move-beginning-of-line 1)))
+(define-key org-agenda-mode-map (kbd "n") 'org-agenda-binding-next/ttybitnik)
+(define-key org-agenda-mode-map (kbd "p") 'org-agenda-binding-previous/ttybitnik)
+(define-key org-agenda-mode-map (kbd "j") 'org-agenda-binding-next/ttybitnik)
+(define-key org-agenda-mode-map (kbd "k") 'org-agenda-binding-previous/ttybitnik)
 
 (global-set-key (kbd "C-c '") 'org-edit-src-code)
 (global-set-key (kbd "C-c a") 'org-agenda)
