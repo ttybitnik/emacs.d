@@ -35,18 +35,21 @@
 
 ;; (setq-default show-trailing-whitespace t)
 
-(setq electric-pair-pairs '((?\{ . ?\})
-                            (?\( . ?\))
-                            (?\[ . ?\])
-                            (?\" . ?\")))
 (setq kill-ring-max 100)
 
 (setq tramp-default-method "ssh")
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 (global-subword-mode 1)
-(electric-pair-mode 1)
 (show-paren-mode 1)
+
+;; DEPRECATED 2024-07-24: I've switched from `electric-pair' to `paredit' since
+;; it provides more utilities.
+;; (setq electric-pair-pairs '((?\{ . ?\})
+;;                             (?\( . ?\))
+;;                             (?\[ . ?\])
+;;                             (?\" . ?\")))
+;; (electric-pair-mode 1)
 
 ;;* Bindings:
 
