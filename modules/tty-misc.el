@@ -44,13 +44,11 @@
 (global-subword-mode 1)
 (show-paren-mode 1)
 
-;; DEPRECATED 2024-07-24: I've switched from `electric-pair' to `paredit' since
-;; it provides more utilities.
-;; (setq electric-pair-pairs '((?\{ . ?\})
-;;                             (?\( . ?\))
-;;                             (?\[ . ?\])
-;;                             (?\" . ?\")))
-;; (electric-pair-mode 1)
+(setq electric-pair-pairs '((?\{ . ?\})
+                            (?\( . ?\))
+                            (?\[ . ?\])
+                            (?\" . ?\")))
+(electric-pair-mode 1)
 
 ;;* Bindings:
 
