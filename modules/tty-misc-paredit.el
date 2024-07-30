@@ -16,11 +16,11 @@
 
 ;;* Main:
 
-(paredit-mode 1)
-
 ;;* Bindings:
 
 ;;* Hooks:
+
+(add-hook 'prog-mode-hook 'enable-paredit-mode)
 
 ;;* Appearance:
 
