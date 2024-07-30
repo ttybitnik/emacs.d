@@ -164,6 +164,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-misc-exec-path-from-shell.el
       │   ├── tty-misc-nov.el
       │   ├── tty-misc-olivetti.el
+      │   ├── tty-misc-paredit.el
       │   ├── tty-misc-pdf-tools.el
       │   └── tty-misc-vertico.el
       ├── tty-nav.el					navigation module

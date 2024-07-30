@@ -13,6 +13,7 @@
 (require 'tty-misc-exec-path-from-shell)
 (require 'tty-misc-nov)
 (require 'tty-misc-olivetti)
+(require 'tty-misc-paredit)
 (require 'tty-misc-pdf-tools)
 (require 'tty-misc-vertico)
 
