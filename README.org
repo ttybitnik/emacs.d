@@ -145,6 +145,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   └── tty-dsg-plantuml.el
       ├── tty-func.el					functionality module
       │   ├── tty-func-embark.el
+      │   ├── tty-func-evil.el
       │   ├── tty-func-expand-region.el
       │   ├── tty-func-hungry-delete.el
       │   ├── tty-func-move-dup.el

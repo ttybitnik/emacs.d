@@ -10,6 +10,7 @@
 
 (require 'tty-func-async)
 (require 'tty-func-embark)
+(require 'tty-func-evil)
 (require 'tty-func-expand-region)
 (require 'tty-func-hungry-delete)
 (require 'tty-func-move-dup)
