@@ -31,6 +31,8 @@
   (other-window	1))
 
 ;;* Main:
+(when (require 'evil-collection nil t)
+  (evil-collection-init))
 
 (evil-mode 1)
 (global-evil-surround-mode 1)
@@ -42,8 +44,9 @@
 (define-key evil-normal-state-map (kbd "gpf") 'project-find-file)
 
 ;; Customizations on top of `evil-collection' defaults.
-(evil-collection-define-key 'normal 'gnus-group-mode-map
-  "c" 'gnus-topic-catchup-articles)
+(with-eval-after-load 'gnus
+  (evil-define-key 'normal gnus-group-mode-map
+    "c" 'gnus-topic-catchup-articles))
 
 (evil-collection-define-key 'normal 'gnus-summary-mode-map
   "d" 'gnus-summary-mark-as-read-forward
@@ -102,8 +105,7 @@
 
 ;; * Hooks:
 
-(when (require 'evil-collection nil t)
-  (evil-collection-init))
+
 (add-hook 'git-commit-mode-hook 'evil-insert-state)
 
 (advice-add 'evil-window-vsplit :after #'evil-window-vhsplit-and-follow/ttybitnik)
