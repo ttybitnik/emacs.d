@@ -31,6 +31,7 @@
   (other-window	1))
 
 ;;* Main:
+
 (when (require 'evil-collection nil t)
   (evil-collection-init))
 
@@ -38,6 +39,8 @@
 (global-evil-surround-mode 1)
 
 (evil-set-undo-system 'undo-redo)
+
+(evil-set-initial-state 'easy-hugo-mode 'emacs)
 
 ;;* Bindings:
 
