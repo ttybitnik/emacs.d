@@ -59,6 +59,10 @@
   ;; TODO: Remove gX after submitting it upstream.
   "gX" 'gnus-summary-browse-url)
 
+(evil-collection-define-key nil 'vertico-map
+  (kbd  "C-j") 'vertico-next
+  (kbd  "C-k") 'vertico-previous)
+
 ;; Mixed Vi & Emacs binding style (default in GNU applications).
 ;; Ex command
 (define-key evil-ex-completion-map (kbd "C-a") 'move-beginning-of-line)
@@ -109,7 +113,6 @@
   "pf" 'project-find-file)
 
 ;; * Hooks:
-
 
 (add-hook 'git-commit-mode-hook 'evil-insert-state)
 
