@@ -48,9 +48,14 @@
   (evil-define-key 'normal gnus-group-mode-map
     "c" 'gnus-topic-catchup-articles))
 
+(evil-collection-define-key 'normal 'gnus-group-mode-map
+  (kbd  "C-j") 'gnus-group-next-unread-group
+  (kbd  "C-k") 'gnus-group-prev-unread-group)
+
 (evil-collection-define-key 'normal 'gnus-summary-mode-map
   "d" 'gnus-summary-mark-as-read-forward
   "w" 'gnus-summary-browse-url
+  (kbd  "<backspace>") 'gnus-summary-prev-page
   ;; TODO: Remove gX after submitting it upstream.
   "gX" 'gnus-summary-browse-url)
 
