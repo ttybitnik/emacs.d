@@ -118,6 +118,7 @@
 ;; * Hooks:
 
 (add-hook 'git-commit-mode-hook 'evil-insert-state)
+(add-hook 'org-capture-mode-hook 'evil-insert-state)
 
 (advice-add 'evil-window-vsplit :after #'evil-window-vhsplit-and-follow/ttybitnik)
 (advice-add 'evil-window-split :after #'evil-window-vhsplit-and-follow/ttybitnik)
