@@ -52,8 +52,9 @@
     "c" 'gnus-topic-catchup-articles))
 
 (evil-collection-define-key 'normal 'gnus-group-mode-map
-  (kbd  "C-j") 'gnus-group-next-unread-group
-  (kbd  "C-k") 'gnus-group-prev-unread-group)
+  ;; TODO: Remove C-j C-k after submitting it upstream.
+  (kbd "C-j") 'gnus-group-next-group
+  (kbd "C-k") 'gnus-group-prev-group)
 
 (evil-collection-define-key 'normal 'gnus-summary-mode-map
   "d" 'gnus-summary-mark-as-read-forward
