@@ -20,7 +20,8 @@
 (defun erc-login/ttybitnik ()
   "ERC libera.chat TLS login."
   (interactive)
-  (erc-tls :server "irc.libera.chat" :port "6697"))
+  (erc-tls :server "irc.libera.chat" :port "6697"
+	   :user erc-nick :nick erc-nick))
 
 (defun erc-switch-buffer/ttybitnik (orig-fun &optional arg)
   "Move to the end of the buffer after `erc-track-switch-buffer'.
@@ -83,10 +84,11 @@ channels that will have common messages suppressed in the mode line'."
                                       erc-dangerous-host-face
                                       erc-notice-face
                                       erc-prompt-face))
-(setq erc-modules '(autoaway autojoin button completion fill irccontrols
-                             keep-place list match menu move-to-prompt netsplit
-                             networks noncommands readonly ring stamp track
-                             hl-nicks scrolltobottom log notifications))
+(setq erc-modules
+      '(sasl services autoaway autojoin button completion fill irccontrols
+        keep-place list match menu move-to-prompt netsplit networks
+        noncommands readonly ring stamp track hl-nicks scrolltobottom log
+        notifications))
 (setq erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
 (setq erc-track-exclude-types '("JOIN" "PART" "NICK" "MODE" "AWAY" "QUIT"
 				"324" "329" "332" "333" "353" "477"))
