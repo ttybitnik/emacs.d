@@ -69,6 +69,7 @@ channels that will have common messages suppressed in the mode line'."
 (setq erc-fill-column 100)
 (setq erc-fill-function 'erc-fill-static)
 (setq erc-fill-static-center 15)
+(setq erc-autoaway-idle-seconds 3600)
 (setq erc-quit-reason (lambda (s) (or s "Fading out...")))
 (setq erc-log-channels-directory
       (expand-file-name (file-name-as-directory "logs") orpheusmx-d/ttybitnik))
