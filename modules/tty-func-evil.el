@@ -104,6 +104,10 @@
   "c" 'org-capture
   "d" 'dashboard-open
   "g" 'gnus
+  "h" 'easy-hugo
+  "ii" 'erc-login/ttybitnik
+  "ib" 'erc-track-switch-buffer
+  "id" 'erc-minimal-distraction/ttybitnik
   "xj" 'org-clock-goto
   "nf" 'org-roam-node-find
   "nc" 'org-roam-capture
