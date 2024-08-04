@@ -41,6 +41,7 @@
 (evil-set-undo-system 'undo-redo)
 
 (evil-set-initial-state 'easy-hugo-mode 'emacs)
+(evil-set-initial-state 'erc-mode 'normal)
 
 ;;* Bindings:
 
