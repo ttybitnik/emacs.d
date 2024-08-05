@@ -52,17 +52,10 @@
   (evil-define-key 'normal gnus-group-mode-map
     "c" 'gnus-topic-catchup-articles))
 
-(evil-collection-define-key 'normal 'gnus-group-mode-map
-  ;; TODO: Remove C-j C-k after submitting it upstream.
-  (kbd "C-j") 'gnus-group-next-group
-  (kbd "C-k") 'gnus-group-prev-group)
-
 (evil-collection-define-key 'normal 'gnus-summary-mode-map
   "d" 'gnus-summary-mark-as-read-forward
   "w" 'gnus-summary-browse-url
-  (kbd  "<backspace>") 'gnus-summary-prev-page
-  ;; TODO: Remove gX after submitting it upstream.
-  "gX" 'gnus-summary-browse-url)
+  (kbd  "<backspace>") 'gnus-summary-prev-page)
 
 (evil-collection-define-key nil 'vertico-map
   (kbd  "C-j") 'vertico-next
