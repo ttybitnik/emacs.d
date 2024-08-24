@@ -8,6 +8,8 @@
 ;; (require 'tty-prog-flycheck)
 ;; (require 'tty-prog-lsp)
 
+(require 'ansi-color)
+
 (require 'tty-prog-eglot)
 (require 'tty-prog-flymake)
 (require 'tty-prog-tree-sitter)
@@ -57,6 +59,7 @@
 (add-hook 'conf-mode-hook 'fill-column/ttybitnik)
 (add-hook 'diff-mode-hook 'fill-column/ttybitnik)
 (add-hook 'before-save-hook 'copyright-update)
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 
 ;;* Appearance:
 
