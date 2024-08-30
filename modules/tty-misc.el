@@ -39,6 +39,9 @@
 (setq kill-ring-max 100)
 
 (setq tramp-default-method "ssh")
+(add-to-list 'tramp-remote-path (concat
+				 (file-name-as-directory (getenv "HOME"))
+				 ".local/bin"))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 (global-subword-mode 1)
