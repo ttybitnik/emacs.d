@@ -89,6 +89,7 @@
   "z" 'evil-emacs-state
   "." 'embark-act
   "," 'embark-dwim
+  "SPC" 'evil-buffer
   ;; M-
   "m" 'magit
   "y" 'consult-yank-pop
