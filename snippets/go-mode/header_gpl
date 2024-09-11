@@ -1,6 +1,6 @@
 # -*- mode: snippet; -*-
 # name: header gpl notice
-# key: <h_gpl
+# key: <h
 # --
 /*
    ${1:PROGRAM NAME} - ${2:brief description}

@@ -1,6 +1,6 @@
 # -*- mode: snippet; -*-
 # name: standard header main file
-# key: <h_main
+# key: <h
 # --
 ;;; ${1:`(file-name-nondirectory (buffer-file-name))`} --- ${2:summary} -*- lexical-binding: t -*-
 

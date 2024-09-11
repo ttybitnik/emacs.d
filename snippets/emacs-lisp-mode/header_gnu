@@ -1,6 +1,6 @@
 # -*- mode: snippet; -*-
 # name: gnu package header
-# key: <h_gnu
+# key: <h
 # --
 ;;; ${1:`(file-name-nondirectory (buffer-file-name))`} --- ${2:summary} -*- lexical-binding: t -*-
 
