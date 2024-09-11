@@ -7,6 +7,7 @@
 ;;; Code:
 
 (require 'sh-script)
+(require-package 'shfmt)
 
 ;;* Variables:
 
@@ -32,6 +33,7 @@
                           (flymake-mode)
                           (company-mode)
                           (eglot-ensure)
+			  (shfmt-on-save-mode)
                           (company-sh-mode/ttybitnik)))
 
 ;;* Appearance:
