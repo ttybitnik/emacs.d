@@ -42,6 +42,7 @@
 (add-to-list 'tramp-remote-path (concat
 				 (file-name-as-directory (getenv "HOME"))
 				 ".local/bin"))
+(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 (global-subword-mode 1)
