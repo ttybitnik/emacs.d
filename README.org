@@ -25,7 +25,7 @@
 
 After having a solid grasp of Emacs basics, a good next move is learning from more experienced users. [[https://github.com/redguardtoo][@Redguardtoo]], in [[https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-en.org][On the Shoulders of Giants]], also writes about the importance of this type of approach. Since it is a longstanding community tradition the sharing of *emacs.d*, using all this shared knowledge as /materia prima/ is an effective way to begin a vanilla Emacs journey.
 
-Nowadays, in my case, I maintain locally a [[https://github.com/stars/ttybitnik/lists/book-emacs-d][curated list]] of *emacs.d* repositories of my interest. When I wish to implement a new feature or workflow, I use these repositories as practical references. Also, around once per trimester, I review upstream changes to weigh whether any new idea or setting worth adapting into my configuration.
+Nowadays, in my case, I maintain locally a [[https://github.com/stars/ttybitnik/lists/book-emacs-d][curated list]] of *emacs.d* repositories of my interest. When I wish to implement a new feature or workflow, I use these repositories as practical references. Also, around once per semester, I review upstream changes to weigh whether any new idea or setting worth adapting into my configuration.
 
 Therefore, this approach provides not only a source of hands-on configurations but also a window into evolving practices within the community.
 
@@ -151,9 +151,9 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-func-move-dup.el
       │   ├── tty-func-multiple-cursors.el
       │   ├── tty-func-orderless.el
-      │   ├── _tty-func-popup-kill-ring.el
+      │   ├── !tty-func-popup-kill-ring.el
       │   ├── tty-func-sudo-edit.el
-      │   ├── _tty-func-undo-tree.el
+      │   ├── !tty-func-undo-tree.el
       │   ├── tty-func-vundo.el
       │   ├── tty-func-wgrep.el
       │   └── tty-func-zzz-to-char.el
@@ -171,7 +171,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       ├── tty-nav.el					navigation module
       │   ├── tty-nav-avy.el
       │   ├── tty-nav-consult.el
-      │   ├── _tty-nav-helm.el
+      │   ├── !tty-nav-helm.el
       │   ├── tty-nav-switch-window.el
       │   └── tty-nav-which-key.el
       ├── tty-org.el					org-mode module
@@ -187,14 +187,14 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-prog-c.el
       │   ├── tty-prog-css.el
       │   ├── tty-prog-eglot.el
-      │   ├── _tty-prog-flycheck.el
+      │   ├── !tty-prog-flycheck.el
       │   ├── tty-prog-flymake.el
       │   ├── tty-prog-go.el
       │   ├── tty-prog-html.el
       │   ├── tty-prog-javascript.el
       │   ├── tty-prog-json.el
       │   ├── tty-prog-lisp.el
-      │   ├── _tty-prog-lsp.el
+      │   ├── !tty-prog-lsp.el
       │   ├── tty-prog-lua.el
       │   ├── tty-prog-markdown.el
       │   ├── tty-prog-nix.el
@@ -212,7 +212,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-proj-diff-hl.el
       │   ├── tty-proj-magit.el
       │   ├── tty-proj-project.el
-      │   └── _tty-proj-projectile.el
+      │   └── !tty-proj-projectile.el
       ├── tty-publ.el					publishing module
       │   ├── tty-publ-easy-hugo.el
       │   ├── tty-publ-htmlize.el
@@ -227,17 +227,17 @@ As mentioned earlier, in addition to managing general settings within its scope,
           ├── tty-vis-beacon.el
           ├── tty-vis-dashboard.el
           ├── tty-vis-diminish.el
-          ├── _tty-vis-gruvbox-theme.el
+          ├── !tty-vis-gruvbox-theme.el
           ├── tty-vis-keycast.el
           ├── tty-vis-marginalia.el
           ├── tty-vis-modus-themes.el
-          ├── _tty-vis-pulsar.el
+          ├── !tty-vis-pulsar.el
           ├── tty-vis-rainbow.el
-          └── _tty-vis-spaceline.el
+          └── !tty-vis-spaceline.el
 #+end_src
 
 #+begin_quote
- ❔ Entries marked with an underscore indicate that they were deactivated in favour of another package. Read the commentary section in the given file for more information.
+ ❕ Entries marked with an exclamation mark indicate that they were deactivated in favour of another package. Read the commentary section in the given file for more information.
 #+end_quote
 
 It is important to note that while the overview above suggests an one-to-one relationship between configuration files and packages, this is not always the case. Some configuration files are more inclined to handle a family of related packages. For instance, the =tty-org-roam.el= file consolidates configurations for /org-roam/, /org-roam-bibtex/, and /org-roam-ui/ packages.
@@ -313,7 +313,7 @@ If you are [[https://sachachua.com/blog/wp-content/uploads/2013/05/How-to-Learn-
 
 The above, in conjunction with the [[https://www.gnu.org/software/emacs/manual/html_mono/emacs.html][GNU Emacs Manual]] (C-h r) as reference, provide a solid foundation in Emacs basics. After having a good grasp of the basics, it is also really useful knowing about navigation through [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Expressions.html][balanced expressions]] (sexp), [[https://orgmode.org/manual/Speed-Keys.html][org-mode speed keys]] and  ~xref-find-definitions~ (M-.).
 
-If your 'philosophy' variable is non-nil, consider watching [[https://github.com/protesilaos][@Protesilaos]]' presentations to get a deeper understanding of [[https://www.youtube.com/watch?v=FLjbKuoBlXs][Emacs mnemonics]] and a thoughtful reflection on [[https://www.youtube.com/watch?v=gwT5PoXrLVs][interacting with computers]]. If your 'book-reader' variable is non-nil as well, consider reading Mickey Petersen's book "Mastering Emacs" for a comprehensive overview on Emacs along with some historical context.
+If your ~philosophy~ variable is non-nil, consider watching [[https://github.com/protesilaos][@Protesilaos]]' presentations to get a deeper understanding of [[https://www.youtube.com/watch?v=FLjbKuoBlXs][Emacs mnemonics]] and a thoughtful reflection on [[https://www.youtube.com/watch?v=gwT5PoXrLVs][interacting with computers]]. If your ~book-reader~ variable is non-nil as well, consider reading Mickey Petersen's book "Mastering Emacs" for a comprehensive overview on Emacs along with some historical context.
 
 Finally and most importantly, start playing Emacs.
 
@@ -338,7 +338,7 @@ Once using it, you will soon find the need for personal tunings and adjustments.
 
 One essential thing to have in mind while doing modifications is that *very often the defaults are more powerful than you think*. It is just a matter of taking time to study and practice them. Besides that, maintaining a stable configuration is more conducive to in-depth skill development. So do be deliberate and thoughtful with every change you make.
 
-Instead of altering the configuration whenever something triggers you, I recommend capturing descriptive tasks (C-c c t  ~org-capture~) once you have a workflow modification or a new idea in mind. Periodically, such as once every trimester, review this list of modification tasks. If they still make sense, proceed with their implementation. The =custom.el= file is also handy for testing these new changes, serving as a sort of trial period before fully incorporating them into the configuration.
+Instead of altering the configuration whenever something triggers you, I recommend capturing descriptive tasks (C-c c t  ~org-capture~) once you have a workflow modification or a new idea in mind. Periodically, such as once every semester, review this list of modification tasks. If they still make sense, proceed with their implementation. The =custom.el= file is also handy for testing these new changes, serving as a sort of trial period before fully incorporating them into the configuration.
 
 ** Composition and Performance
 
