@@ -7,21 +7,21 @@
 
  This repository contains my *GNU Emacs* configuration files along with an in-depth chronicle of my crafting process. It includes links to valuable resources, in code, text and video, that have been important throughout my trajectory. In this sense, taking inspiration from [[https://github.com/munen][@Munen]]'s insightful presentation "[[https://www.youtube.com/watch?v=gfZDwYeBlO4][Play Emacs like an instrument]]", I have decided to expand his playful yet thoughtful metaphor into this unique creative process. Thus, this is the journey to *craft emacs.d like a luthier*.
 
-**** Table of contents                                               :toc_2:
-  - [[#wood-selection][Wood Selection]]
-  - [[#design-and-planning][Design and Planning]]
-  - [[#shaping-and-carving][Shaping and Carving]]
-  - [[#stringing-it-up][Stringing It Up]]
-  - [[#tunings-and-sound-adjustment][Tunings and Sound Adjustment]]
-  - [[#composition-and-performance][Composition and Performance]]
-  - [[#collaborative-jamming][Collaborative Jamming]]
-  - [[#ongoing-opus][Ongoing Opus]]
+ *Table of contents*
+  - [[#wood-selection][Wood selection]]
+  - [[#design-and-planning][Design and planning]]
+  - [[#shaping-and-carving][Shaping and carving]]
+  - [[#stringing-it-up][Stringing it up]]
+  - [[#tunings-and-sound-adjustment][Tunings and sound adjustment]]
+  - [[#composition-and-performance][Composition and performance]]
+  - [[#collaborative-jamming][Collaborative jamming]]
+  - [[#ongoing-opus][Ongoing opus]]
 
 #+begin_quote
 ℹ️ The core of this project is built to my personal use case and workflow, which may or may not align with yours. The great news is that you are free, as in [[https://www.gnu.org/philosophy/free-sw.en.html][free software]], to inspire yourself and change it to do what you mean. Check the [[#license][license]] section for further details on that.
 #+end_quote
 
-** Wood Selection
+** Wood selection
 
 After having a solid grasp of Emacs basics, a good next move is learning from more experienced users. [[https://github.com/redguardtoo][@Redguardtoo]], in [[https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-en.org][On the Shoulders of Giants]], also writes about the importance of this type of approach. Since it is a longstanding community tradition the sharing of *emacs.d*, using all this shared knowledge as /materia prima/ is an effective way to begin a vanilla Emacs journey.
 
@@ -31,7 +31,7 @@ Therefore, this approach provides not only a source of hands-on configurations b
 
 If you are entirely new to Emacs, fear not. Further ahead, I provide some beginner-friendly guidance as well.
 
-** Design and Planning
+** Design and planning
 
 Emacs.d configurations can take various forms, but they typically fall into two main styles:
 
@@ -97,7 +97,7 @@ The diagram below provides a visual synthesis of the core Emacs Lisp files along
 
 #+html: <p align="center"><img src="img/diagram0.svg"/></p>
 
-** Shaping and Carving
+** Shaping and carving
 
 Moving from the conceptual phase to implementation, the following list describes each module:
 
@@ -282,7 +282,7 @@ Although these custom fields are quite indicative, here are their purposes:
 
 By following this approach, the code base remains stable and structured, enabling a more seamless navigation, regardless of the quantity or size of the files. Still, searching for the section comment separator, =;;\*=, is often a handy way for moving into specific segments as well. To further streamline the process, a snippet, =<h= =TAB=, is also available for automating the template insertion into new Emacs Lisp files.
 
-** Stringing It Up
+** Stringing it up
 
 To bring the setup to life, start by cloning the repository and selecting what interests you the most:
 
@@ -319,7 +319,7 @@ Finally and most importantly, start playing Emacs.
 
 #+html: <p align="center"><img src="img/emacs-demo.gif"/></p>
 
-** Tunings and Sound Adjustment
+** Tunings and sound adjustment
 
 Once using it, you will soon find the need for personal tunings and adjustments. There are numerous ways to perform these operations, and over time, you will accumulate various techniques in your toolkit. Given the extensive nature of my configuration, below I am sharing some of my favorite methods and tools along with a visual demonstration for managing its multiple files.
 
@@ -340,7 +340,7 @@ One essential thing to have in mind while doing modifications is that *very ofte
 
 Instead of altering the configuration whenever something triggers you, I recommend capturing descriptive tasks (C-c c t  ~org-capture~) once you have a workflow modification or a new idea in mind. Periodically, such as once every semester, review this list of modification tasks. If they still make sense, proceed with their implementation. The =custom.el= file is also handy for testing these new changes, serving as a sort of trial period before fully incorporating them into the configuration.
 
-** Composition and Performance
+** Composition and performance
 
 Emacs offers powerful tools from coding to prose. Below are some links to key features and workflows that play a central role in my daily usage. They cover a wide range of areas, from note-taking and knowledge management system to programming, writing, and publishing.
 
@@ -352,7 +352,7 @@ Emacs offers powerful tools from coding to prose. Below are some links to key fe
 - Presenting:  [[https://revealjs.com/][Reveal.js]], [[https://www.youtube.com/watch?v=avtiR0AUVlo][org-reveal (classy slideshows from org-mode)]].
 - Programming: [[https://github.com/joaotavora/eglot][Eglot]], [[https://company-mode.github.io/][company-mode]].
 
-** Collaborative Jamming
+** Collaborative jamming
 
 Embrace the [[https://www.youtube.com/watch?v=xSkCny-HtTw][collaborative jamming]] and contribute to the [[https://www.fsf.org/videos/escape-to-freedom/][freedom of software]]. If you encounter a bug or identify areas for improvement in the packages you use, consider collaborating by reporting issues or contributing to code and documentation.
 
@@ -364,7 +364,7 @@ Staying connected with the community is also helpful. Below are some of my prefe
 - [[https://sachachua.com/blog/category/emacs-news/][Sasha Chua's Emacs News]]
 - [[https://systemcrafters.net/newsletter/sc-news-001.html][System Crafters' Newsletter]]
 
-** Ongoing Opus
+** Ongoing opus
 
 Among its peers, Emacs is a truly unique stradivarius—one that belongs to all of us and can be played by all of us. It embodies the elegance and wisdom of many experienced luthiers over the years. Thus, as I mentioned earlier, do not hesitate to appreciate and play with it as it is. Within Emacs lies an entire world of knowledge waiting to be discovered.
 
