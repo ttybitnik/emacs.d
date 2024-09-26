@@ -62,7 +62,9 @@ and `local/switcher-night.el' files."
         ("WRITING" . (:inherit (shadow org-todo)))
         ("REVISION I" . (:inherit (shadow org-todo)))
         ("REVISION II" . (:inherit (shadow org-todo)))
-        ("PROOFREADING" . (:inherit (shadow org-todo)))))
+        ("PROOFREADING" . (:inherit (shadow org-todo)))
+	("READING" . (:inherit (outline-2 org-todo)))
+	("CAPTURED" . (:inherit (outline-7 org-todo)))))
 
 
 (custom-set-faces
