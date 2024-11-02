@@ -17,7 +17,7 @@
 (setq easy-hugo-postdir "content/palimpsests"
       easy-hugo-basedir (file-name-as-directory
 			 (concat projects-d/ttybitnik "blog.backend"))
-      easy-hugo-url "https://ttybitnik.github.io"
+      easy-hugo-url "https://eternodevir.com"
       easy-hugo-sshdomain ""
       easy-hugo-root (file-name-as-directory
 		      (concat projects-d/ttybitnik "blog.backend/public")))
