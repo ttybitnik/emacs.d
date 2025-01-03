@@ -46,6 +46,7 @@
 ;;* Bindings:
 
 (define-key evil-normal-state-map (kbd "gpf") 'project-find-file)
+(define-key evil-normal-state-map (kbd "gh") 'display-local-help)
 
 ;; Customizations on top of `evil-collection' defaults.
 (with-eval-after-load 'gnus
