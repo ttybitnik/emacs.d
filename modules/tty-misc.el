@@ -35,8 +35,7 @@
 (defun twtxt-entry/ttybitnik ()
   "Visit the twtxt.txt file and insert the current time.
 This function visits the microblogging file and inserts the
-current time in ISO 8601 format with the time zone offset,
-adhering to the twtxt specification."
+current time in ISO 8601 format, as per twtxt specification."
   (interactive)
   (let ((twtxt-file (expand-file-name "blog.backend/static/twtxt.txt"
 				      projects-d/ttybitnik))
@@ -44,8 +43,8 @@ adhering to the twtxt specification."
     (find-file twtxt-file)
     (end-of-buffer)
     (insert (format "%s:%s\t" (substring time 0 -2) (substring time -2)))
-    (if (featurep 'evil)
-	(evil-insert-state))))
+    (when (featurep 'evil)
+      (evil-insert-state))))
 
 ;;* Main:
 

@@ -92,8 +92,8 @@ and `local/switcher-night.el' files."
 
 ;;* Hooks:
 
-(if (display-graphic-p)
-    (add-hook 'prog-mode-hook 'hl-line-mode))
+(when (display-graphic-p)
+  (add-hook 'prog-mode-hook 'hl-line-mode))
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (add-hook 'conf-mode-hook 'display-line-numbers-mode)
