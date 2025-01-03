@@ -63,6 +63,8 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(add-to-list 'auto-mode-alist '("\\.log\\'" . conf-mode))
+
 ;;* Appearance:
 
 
