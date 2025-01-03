@@ -32,6 +32,21 @@
   (load user-init-file)
   (load (expand-file-name "switcher.el" local-d/ttybitnik)))
 
+(defun twtxt-entry/ttybitnik ()
+  "Visit the twtxt.txt file and insert the current time.
+This function visits the microblogging file and inserts the
+current time in ISO 8601 format with the time zone offset,
+adhering to the twtxt specification."
+  (interactive)
+  (let ((twtxt-file (expand-file-name "blog.backend/static/twtxt.txt"
+				      projects-d/ttybitnik))
+	(time (format-time-string "%Y-%m-%dT%T%z")))
+    (find-file twtxt-file)
+    (end-of-buffer)
+    (insert (format "%s:%s\t" (substring time 0 -2) (substring time -2)))
+    (if (featurep 'evil)
+	(evil-insert-state))))
+
 ;;* Main:
 
 ;; (setq-default show-trailing-whitespace t)
