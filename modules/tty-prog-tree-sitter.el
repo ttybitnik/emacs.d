@@ -5,6 +5,7 @@
 ;; Tree-sitter related tunings.
 
 ;;; Code:
+
 (require-package 'tree-sitter)
 (require-package 'tree-sitter-langs)
 

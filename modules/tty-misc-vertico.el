@@ -5,6 +5,7 @@
 ;; Vertico-related tunings
 
 ;;; Code:
+
 (require-package 'vertico)
 
 ;;* Variables:

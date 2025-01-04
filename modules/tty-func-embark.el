@@ -8,6 +8,7 @@
 ;; available commands.
 
 ;;; Code:
+
 (require-package 'embark)
 (require-package 'embark-consult)
 
@@ -42,4 +43,3 @@
 (provide 'tty-func-embark)
 
 ;;; tty-func-embark.el ends here
-

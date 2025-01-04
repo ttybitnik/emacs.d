@@ -5,6 +5,7 @@
 ;; Move-dup related tunings.
 
 ;;; Code:
+
 (require-package 'move-dup)
 
 ;;* Variables:

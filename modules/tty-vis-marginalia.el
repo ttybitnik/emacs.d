@@ -5,6 +5,7 @@
 ;; Marginalia-related tunings.
 
 ;;; Code:
+
 (require-package 'marginalia)
 
 ;;* Variables:

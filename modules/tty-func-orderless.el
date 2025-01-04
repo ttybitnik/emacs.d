@@ -5,6 +5,7 @@
 ;; Orderless-related tunings.
 
 ;;; Code:
+
 (require-package 'orderless)
 
 ;;* Variables:

@@ -5,6 +5,7 @@
 ;; Modus-themes related tunings.
 
 ;;; Code:
+
 (require-package 'modus-themes)
 
 
