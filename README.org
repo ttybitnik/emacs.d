@@ -148,7 +148,6 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-func-evil.el
       │   ├── tty-func-hungry-delete.el
       │   ├── tty-func-move-dup.el
-      │   ├── tty-func-multiple-cursors.el
       │   ├── tty-func-orderless.el
       │   ├── tty-func-sudo-edit.el
       │   ├── tty-func-vundo.el
@@ -225,6 +224,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   └── tty-vis-rainbow.el
       └── !=deactivated-package
           ├── !tty-func-expand-region.el
+          ├── !tty-func-multiple-cursors.el
           ├── !tty-func-popup-kill-ring.el
           ├── !tty-func-undo-tree.el
           ├── !tty-nav-avy.el
