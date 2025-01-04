@@ -163,7 +163,6 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   └── tty-misc-vertico.el
       ├── tty-nav.el					navigation module
       │   ├── tty-nav-consult.el
-      │   ├── tty-nav-switch-window.el
       │   └── tty-nav-which-key.el
       ├── tty-org.el					org-mode module
       │   ├── tty-org-auto-tangle.el
@@ -229,6 +228,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
           ├── !tty-func-zzz-to-char.el
           ├── !tty-nav-avy.el
           ├── !tty-nav-helm.el
+          ├── !tty-nav-switch-window.el
           ├── !tty-prog-flycheck.el
           ├── !tty-prog-lsp.el
           ├── !tty-proj-projectile.el

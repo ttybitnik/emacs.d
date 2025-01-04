@@ -7,9 +7,9 @@
 ;;; Code:
 ;; (require 'tty-nav-avy)
 ;; (require 'tty-nav-helm)
+;; (require 'tty-nav-switch-window)
 
 (require 'tty-nav-consult)
-(require 'tty-nav-switch-window)
 (require 'tty-nav-which-key)
 
 ;;* Variables:
