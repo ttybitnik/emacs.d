@@ -11,6 +11,7 @@
 ;; (require 'tty-func-multiple-cursors)
 ;; (require 'tty-func-popup-kill-ring)
 ;; (require 'tty-func-undo-tree)
+;; (require 'tty-func-zzz-to-char)
 
 (require 'tty-func-async)
 (require 'tty-func-embark)
@@ -19,7 +20,6 @@
 (require 'tty-func-sudo-edit)
 (require 'tty-func-vundo)
 (require 'tty-func-wgrep)
-(require 'tty-func-zzz-to-char)
 (require 'epa-file)
 
 ;;* Variables:

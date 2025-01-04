@@ -150,7 +150,6 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-func-sudo-edit.el
       │   ├── tty-func-vundo.el
       │   ├── tty-func-wgrep.el
-      │   └── tty-func-zzz-to-char.el
       ├── tty-misc.el					miscellaneous utilities module
       │   ├── tty-misc-bibtex.el
       │   ├── tty-misc-centered-cursor.el
@@ -227,6 +226,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
           ├── !tty-func-multiple-cursors.el
           ├── !tty-func-popup-kill-ring.el
           ├── !tty-func-undo-tree.el
+          ├── !tty-func-zzz-to-char.el
           ├── !tty-nav-avy.el
           ├── !tty-nav-helm.el
           ├── !tty-prog-flycheck.el

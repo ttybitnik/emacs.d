@@ -4,6 +4,9 @@
 
 ;; Zzz-to-char related tunings.
 
+;; DEPRECATED 2025-01-04: Since I switched to `evil', I'm practicing an approach
+;; more oriented toward Vim fundamentals.  Disabling `zzz-to-char' for now.
+
 ;;; Code:
 
 (require-package 'zzz-to-char)
