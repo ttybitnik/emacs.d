@@ -5,9 +5,9 @@
 ;; This module tailors settings and packages for navigation in Emacs.
 
 ;;; Code:
+;; (require 'tty-nav-avy)
 ;; (require 'tty-nav-helm)
 
-(require 'tty-nav-avy)
 (require 'tty-nav-consult)
 (require 'tty-nav-switch-window)
 (require 'tty-nav-which-key)
