@@ -4,6 +4,9 @@
 
 ;; Hungry-delete related tunings.
 
+;; DEPRECATED 2025-01-04: Since I switched to `evil', I'm practicing an approach
+;; more oriented toward Vim fundamentals.  Disabling `hungry-delete' for now.
+
 ;;; Code:
 
 (require-package 'hungry-delete)

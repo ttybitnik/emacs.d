@@ -6,6 +6,7 @@
 
 ;;; Code:
 ;; (require 'tty-func-expand-region)
+;; (require 'tty-func-hungry-delete)
 ;; (require 'tty-func-multiple-cursors)
 ;; (require 'tty-func-popup-kill-ring)
 ;; (require 'tty-func-undo-tree)
@@ -13,7 +14,6 @@
 (require 'tty-func-async)
 (require 'tty-func-embark)
 (require 'tty-func-evil)
-(require 'tty-func-hungry-delete)
 (require 'tty-func-move-dup)
 (require 'tty-func-orderless)
 (require 'tty-func-sudo-edit)
