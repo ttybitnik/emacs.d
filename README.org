@@ -218,7 +218,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-vis-marginalia.el
       │   ├── tty-vis-modus-themes.el
       │   └── tty-vis-rainbow.el
-      └── !=deactivated-package
+      └── !=deactivated
           ├── !tty-func-expand-region.el
           ├── !tty-func-hungry-delete.el
           ├── !tty-func-move-dup.el
@@ -238,7 +238,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
 #+end_src
 
 #+begin_quote
- ❕ Entries marked with an exclamation mark indicate that they were deactivated in favour of another package. Read the commentary section in the given file for more information.
+ ❕ Entries marked with an exclamation mark (!) indicate that they were deactivated in favour of another package. Read the commentary section in the given file for more information.
 #+end_quote
 
 It is important to note that while the overview above suggests an one-to-one relationship between configuration files and packages, this is not always the case. Some configuration files are more inclined to handle a family of related packages. For instance, the =tty-org-roam.el= file consolidates configurations for /org-roam/, /org-roam-bibtex/, and /org-roam-ui/ packages.
