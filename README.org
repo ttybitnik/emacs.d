@@ -144,26 +144,26 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-dsg-graphviz-dot.el
       │   └── tty-dsg-plantuml.el
       ├── tty-func.el					functionality module
-      │   ├── tty-func-embark.el
-      │   ├── tty-func-evil.el
+      │   ├── tty-func-company.el
       │   ├── tty-func-orderless.el
       │   ├── tty-func-sudo-edit.el
       │   ├── tty-func-vundo.el
-      │   ├── tty-func-wgrep.el
+      │   └── tty-func-wgrep.el
       ├── tty-misc.el					miscellaneous utilities module
       │   ├── tty-misc-bibtex.el
       │   ├── tty-misc-centered-cursor.el
-      │   ├── tty-misc-company.el
       │   ├── tty-misc-dired.el
       │   ├── tty-misc-exec-path-from-shell.el
       │   ├── tty-misc-nov.el
       │   ├── tty-misc-olivetti.el
       │   ├── tty-misc-paredit.el
       │   ├── tty-misc-pdf-tools.el
-      │   └── tty-misc-vertico.el
+      │   └── tty-misc-which-key.el
       ├── tty-nav.el					navigation module
       │   ├── tty-nav-consult.el
-      │   └── tty-nav-which-key.el
+      │   ├── tty-nav-embark.el
+      │   ├── tty-nav-evil.el
+      │   └── tty-nav-vertico.el
       ├── tty-org.el					org-mode module
       │   ├── tty-org-auto-tangle.el
       │   ├── tty-org-bullets.el

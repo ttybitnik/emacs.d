@@ -1,4 +1,4 @@
-;;; tty-misc-vertico.el --- Vertical Interactive Completion -*- lexical-binding: t -*-
+;;; tty-nav-vertico.el --- Vertical Interactive Completion -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
@@ -31,6 +31,6 @@
 ;;* Appearance:
 
 
-(provide 'tty-misc-vertico)
+(provide 'tty-nav-vertico)
 
-;;; tty-misc-vertico.el ends here
+;;; tty-nav-vertico.el ends here

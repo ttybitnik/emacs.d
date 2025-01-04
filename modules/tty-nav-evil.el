@@ -1,4 +1,4 @@
-;;; tty-func-evil.el --- Extensible Vi Layer -*- lexical-binding: t -*-
+;;; tty-nav-evil.el --- Extensible Vi Layer -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
@@ -129,6 +129,6 @@
 (diminish 'evil-collection-unimpaired-mode)
 
 
-(provide 'tty-func-evil)
+(provide 'tty-nav-evil)
 
-;;; tty-func-evil.el ends here
+;;; tty-nav-evil.el ends here

@@ -8,14 +8,13 @@
 
 (require 'tty-misc-bibtex)
 (require 'tty-misc-centered-cursor)
-(require 'tty-misc-company)
 (require 'tty-misc-dired)
 (require 'tty-misc-exec-path-from-shell)
 (require 'tty-misc-nov)
 (require 'tty-misc-olivetti)
 (require 'tty-misc-paredit)
 (require 'tty-misc-pdf-tools)
-(require 'tty-misc-vertico)
+(require 'tty-misc-which-key)
 
 ;;* Variables:
 

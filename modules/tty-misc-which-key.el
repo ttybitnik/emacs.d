@@ -1,4 +1,4 @@
-;;; tty-nav-which-key.el --- Which Key -*- lexical-binding: t -*-
+;;; tty-misc-which-key.el --- Which Key -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
@@ -27,6 +27,6 @@
 (diminish 'which-key-mode)
 
 
-(provide 'tty-nav-which-key)
+(provide 'tty-misc-which-key)
 
-;;; tty-nav-which-key.el ends here
+;;; tty-misc-which-key.el ends here

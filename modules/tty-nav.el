@@ -10,7 +10,9 @@
 ;; (require 'tty-nav-switch-window)
 
 (require 'tty-nav-consult)
-(require 'tty-nav-which-key)
+(require 'tty-nav-embark)
+(require 'tty-nav-evil)
+(require 'tty-nav-vertico)
 
 ;;* Variables:
 

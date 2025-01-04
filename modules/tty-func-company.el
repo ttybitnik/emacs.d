@@ -1,4 +1,4 @@
-;;; tty-misc-company.el --- Company Completion Framework -*- lexical-binding: t -*-
+;;; tty-func-company.el --- Company Completion Framework -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
@@ -51,6 +51,6 @@
 (diminish 'company-mode)
 
 
-(provide 'tty-misc-company)
+(provide 'tty-func-company)
 
-;;; tty-misc-company.el ends here
+;;; tty-func-company.el ends here

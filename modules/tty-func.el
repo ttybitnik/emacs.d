@@ -14,8 +14,7 @@
 ;; (require 'tty-func-zzz-to-char)
 
 (require 'tty-func-async)
-(require 'tty-func-embark)
-(require 'tty-func-evil)
+(require 'tty-func-company)
 (require 'tty-func-orderless)
 (require 'tty-func-sudo-edit)
 (require 'tty-func-vundo)

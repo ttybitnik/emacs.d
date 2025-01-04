@@ -1,4 +1,4 @@
-;;; tty-func-embark.el --- Emacs Mini-Buffer Actions Rooted in Keymaps -*- lexical-binding: t -*-
+;;; tty-nav-embark.el --- Emacs Mini-Buffer Actions Rooted in Keymaps -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
@@ -40,6 +40,6 @@
 ;;* Appearance:
 
 
-(provide 'tty-func-embark)
+(provide 'tty-nav-embark)
 
-;;; tty-func-embark.el ends here
+;;; tty-nav-embark.el ends here
