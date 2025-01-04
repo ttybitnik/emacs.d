@@ -5,13 +5,13 @@
 ;; This module tailors settings and packages to extend functionality in Emacs.
 
 ;;; Code:
-;; (require 'tty-func-popup-kill-ring
-;; (require 'tty-func-undo-tree))
+;; (require 'tty-func-expand-region)
+;; (require 'tty-func-popup-kill-ring)
+;; (require 'tty-func-undo-tree)
 
 (require 'tty-func-async)
 (require 'tty-func-embark)
 (require 'tty-func-evil)
-(require 'tty-func-expand-region)
 (require 'tty-func-hungry-delete)
 (require 'tty-func-move-dup)
 (require 'tty-func-multiple-cursors)

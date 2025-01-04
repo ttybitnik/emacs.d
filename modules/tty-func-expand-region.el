@@ -4,6 +4,9 @@
 
 ;; Expand-region related tunings.
 
+;; DEPRECATED 2025-01-04: Since I switched to `evil', I'm practicing an approach
+;; more oriented toward Vim fundamentals.  Disabling `expand-region' for now.
+
 ;;; Code:
 
 (require-package 'expand-region)
