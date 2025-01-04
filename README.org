@@ -151,9 +151,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-func-move-dup.el
       │   ├── tty-func-multiple-cursors.el
       │   ├── tty-func-orderless.el
-      │   ├── !tty-func-popup-kill-ring.el
       │   ├── tty-func-sudo-edit.el
-      │   ├── !tty-func-undo-tree.el
       │   ├── tty-func-vundo.el
       │   ├── tty-func-wgrep.el
       │   └── tty-func-zzz-to-char.el
@@ -171,7 +169,6 @@ As mentioned earlier, in addition to managing general settings within its scope,
       ├── tty-nav.el					navigation module
       │   ├── tty-nav-avy.el
       │   ├── tty-nav-consult.el
-      │   ├── !tty-nav-helm.el
       │   ├── tty-nav-switch-window.el
       │   └── tty-nav-which-key.el
       ├── tty-org.el					org-mode module
@@ -187,14 +184,12 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-prog-c.el
       │   ├── tty-prog-css.el
       │   ├── tty-prog-eglot.el
-      │   ├── !tty-prog-flycheck.el
       │   ├── tty-prog-flymake.el
       │   ├── tty-prog-go.el
       │   ├── tty-prog-html.el
       │   ├── tty-prog-javascript.el
       │   ├── tty-prog-json.el
       │   ├── tty-prog-lisp.el
-      │   ├── !tty-prog-lsp.el
       │   ├── tty-prog-lua.el
       │   ├── tty-prog-markdown.el
       │   ├── tty-prog-nix.el
@@ -212,7 +207,6 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-proj-diff-hl.el
       │   ├── tty-proj-magit.el
       │   ├── tty-proj-project.el
-      │   └── !tty-proj-projectile.el
       ├── tty-publ.el					publishing module
       │   ├── tty-publ-easy-hugo.el
       │   ├── tty-publ-htmlize.el
@@ -222,17 +216,24 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-txt-flyspell.el
       │   ├── tty-txt-fountain.el
       │   └── tty-txt-go-translate.el
-      └── tty-vis.el					visual module
-          ├── tty-vis-all-the-icons.el
-          ├── tty-vis-beacon.el
-          ├── tty-vis-dashboard.el
-          ├── tty-vis-diminish.el
+      ├── tty-vis.el					visual module
+      │   ├── tty-vis-all-the-icons.el
+      │   ├── tty-vis-beacon.el
+      │   ├── tty-vis-dashboard.el
+      │   ├── tty-vis-diminish.el
+      │   ├── tty-vis-keycast.el
+      │   ├── tty-vis-marginalia.el
+      │   ├── tty-vis-modus-themes.el
+      │   └── tty-vis-rainbow.el
+      └── !=deactivated-package
+          ├── !tty-func-popup-kill-ring.el
+          ├── !tty-func-undo-tree.el
+          ├── !tty-nav-helm.el
+          ├── !tty-prog-flycheck.el
+          ├── !tty-prog-lsp.el
+          ├── !tty-proj-projectile.el
           ├── !tty-vis-gruvbox-theme.el
-          ├── tty-vis-keycast.el
-          ├── tty-vis-marginalia.el
-          ├── tty-vis-modus-themes.el
           ├── !tty-vis-pulsar.el
-          ├── tty-vis-rainbow.el
           └── !tty-vis-spaceline.el
 #+end_src
 
