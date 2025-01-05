@@ -150,8 +150,6 @@ It returns the absolute path from local templates in
 
 (org-roam-bibtex-mode 1)
 
-(setq org-roam-database-connector 'sqlite)
-
 ;;* Bindings:
 
 (global-set-key (kbd "C-c n f") 'org-roam-node-find)
