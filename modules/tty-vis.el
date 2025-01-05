@@ -18,7 +18,6 @@
 (require 'tty-vis-modus-themes)
 (require 'tty-vis-rainbow)
 
-
 ;;* Variables:
 
 ;;* Functions:

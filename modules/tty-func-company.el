@@ -48,8 +48,6 @@
 
 ;;* Appearance:
 
-(diminish 'company-mode)
-
 
 (provide 'tty-func-company)
 

@@ -54,8 +54,6 @@
 
 ;;* Appearance:
 
-(diminish 'helm-mode)
-
 
 (provide 'tty-nav-helm)
 

@@ -27,8 +27,6 @@
 
 ;;* Appearance:
 
-(diminish 'centered-cursor-mode)
-
 
 (provide 'tty-misc-centered-cursor)
 

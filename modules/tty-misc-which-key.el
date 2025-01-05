@@ -24,8 +24,6 @@
 
 ;;* Appearance:
 
-(diminish 'which-key-mode)
-
 
 (provide 'tty-misc-which-key)
 

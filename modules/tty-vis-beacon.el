@@ -22,8 +22,6 @@
 
 ;;* Appearance:
 
-(diminish 'beacon-mode)
-
 
 (provide 'tty-vis-beacon)
 

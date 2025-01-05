@@ -178,9 +178,6 @@ It returns the absolute path from local templates in
 	       (window-width . 0.33)
 	       (window-height . fit-window-to-buffer)))
 
-(diminish 'org-roam-bibtex-mode)
-(diminish 'org-roam-ui-follow-mode)
-
 (provide 'tty-org-roam)
 
 ;;; tty-org-roam.el ends here

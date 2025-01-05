@@ -26,8 +26,6 @@
 
 ;;* Appearance:
 
-(diminish 'undo-tree-mode)
-
 
 (provide 'tty-func-undo-tree)
 

@@ -25,8 +25,6 @@
 
 ;;* Appearance:
 
-(diminish 'flycheck-mode)
-
 
 (provide 'tty-prog-flycheck)
 

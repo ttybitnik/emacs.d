@@ -24,8 +24,6 @@
 
 ;;* Appearance:
 
-(diminish 'olivetti-mode)
-
 
 (provide 'tty-misc-olivetti)
 

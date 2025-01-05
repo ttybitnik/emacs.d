@@ -126,8 +126,6 @@
 
 ;;* Appearance:
 
-(diminish 'evil-collection-unimpaired-mode)
-
 
 (provide 'tty-nav-evil)
 

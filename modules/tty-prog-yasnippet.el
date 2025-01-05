@@ -23,8 +23,6 @@
 
 ;;* Appearance:
 
-(diminish 'yas-minor-mode)
-
 
 (provide 'tty-prog-yasnippet)
 

@@ -25,8 +25,6 @@
 
 ;;* Appearance:
 
-(diminish 'pdf-view-themed-minor-mode)
-
 
 (provide 'tty-misc-pdf-tools)
 

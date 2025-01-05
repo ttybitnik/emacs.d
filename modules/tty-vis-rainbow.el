@@ -26,9 +26,6 @@
 
 ;;* Appearance:
 
-(diminish 'rainbow-mode)
-(diminish 'rainbow-delimiters-mode)
-
 
 (provide 'tty-vis-rainbow)
 

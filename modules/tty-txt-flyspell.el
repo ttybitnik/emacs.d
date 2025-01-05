@@ -38,8 +38,6 @@
 
 ;;* Appearance:
 
-(diminish 'flyspell-mode)
-
 
 (provide 'tty-txt-flyspell)
 

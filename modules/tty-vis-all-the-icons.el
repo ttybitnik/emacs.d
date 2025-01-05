@@ -21,8 +21,6 @@
 
 ;;* Appearance:
 
-(diminish 'all-the-icons-dired-mode)
-
 
 (provide 'tty-vis-all-the-icons)
 

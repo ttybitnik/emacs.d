@@ -24,8 +24,6 @@
 
 ;;* Appearance:
 
-(diminish 'org-auto-tangle-mode)
-
 
 (provide 'tty-org-auto-tangle)
 

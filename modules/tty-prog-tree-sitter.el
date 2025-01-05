@@ -25,8 +25,6 @@
 
 ;;* Appearance:
 
-(diminish 'tree-sitter-mode)
-
 (provide 'tty-prog-tree-sitter)
 
 ;;; tty-prog-tree-sitter.el ends here

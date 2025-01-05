@@ -22,8 +22,6 @@
 
 ;;* Appearance:
 
-(diminish 'dired-async-mode)
-
 
 (provide 'tty-func-async)
 

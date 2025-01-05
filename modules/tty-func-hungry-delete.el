@@ -25,8 +25,6 @@
 
 ;;* Appearance:
 
-(diminish 'hungry-delete-mode)
-
 
 (provide 'tty-func-hungry-delete)
 
