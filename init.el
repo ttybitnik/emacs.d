@@ -56,14 +56,24 @@
   (file-name-as-directory "~/Remote/orpheus/gnu-emacs")
   "Absolute path of Emacs directory inside Orpheus.")
 
+(defvar skip-refresh/ttybitnik nil
+  "Optimize `package-refresh-contents' in `require-package'.")
+
 ;;* Functions:
 
 (defun require-package (package &optional no-refresh)
   "Install PACKAGE using `package-install' unless it's already installed.
-If NO-REFRESH is non-nil, `package-refresh-contents' will be skipped."
+If NO-REFRESH is non-nil, `package-refresh-contents' will be skipped.
+
+The global variable `skip-refresh/ttybitnik' ensures that
+`package-refresh-contents' is called only once.  This is
+especially important for fresh installs when multiple calls are
+made in sequence."
   (unless (package-installed-p package)
-    (unless no-refresh
-      (package-refresh-contents))
+    (unless (or no-refresh
+		skip-refresh/ttybitnik)
+      (package-refresh-contents)
+      (setq skip-refresh/ttybitnik t))
     (package-install package))
   (require package))
 
