@@ -30,6 +30,8 @@
       easy-hugo--sort-time-flg nil
       easy-hugo--sort-publishday-flg 1)
 
+(setq easy-hugo-github-deploy-display-buffer t)
+
 ;;* Bindings:
 
 (global-set-key (kbd "C-c h") 'easy-hugo)
