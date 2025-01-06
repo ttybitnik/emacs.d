@@ -7,7 +7,6 @@
 ;;; Code:
 
 (require-package 'erc)
-(require-package 'erc-hl-nicks)
 (require 'erc-services)
 
 ;;* Variables:
@@ -86,10 +85,9 @@ channels that will have common messages suppressed in the mode line'."
                                       erc-notice-face
                                       erc-prompt-face))
 (setq erc-modules
-      '(sasl services autoaway autojoin button completion fill irccontrols
-        keep-place list match menu move-to-prompt netsplit networks
-        noncommands readonly ring stamp track hl-nicks scrolltobottom log
-        notifications))
+      '(autoaway autojoin button completion fill irccontrols keep-place list
+		 log match menu netsplit networks noncommands notifications
+		 readonly ring sasl scrolltobottom services stamp track))
 (setq erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
 (setq erc-track-exclude-types '("JOIN" "PART" "NICK" "MODE" "AWAY" "QUIT"
 				"324" "329" "332" "333" "353" "477"))
