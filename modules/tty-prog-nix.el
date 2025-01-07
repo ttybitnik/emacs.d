@@ -12,15 +12,6 @@
 
 ;;* Functions:
 
-(defun company-nix/ttybitnik ()
-  "Set up `company-mode' for `nix-mode'."
-  (setq-local company-minimum-prefix-length 1)
-  (setq-local company-backends '((company-capf
-                                  company-dabbrev-code
-                                  company-keywords
-                                  company-files
-                                  company-yasnippet))))
-
 ;;* Main:
 
 ;;* Bindings:
@@ -31,9 +22,7 @@
 (add-hook 'nix-mode-hook (lambda ()
                           (yas-minor-mode)
                           (flymake-mode)
-                          (company-mode)
-                          (eglot-ensure)
-                          (company-nix/ttybitnik)))
+                          (eglot-ensure)))
 
 ;;* Appearance:
 

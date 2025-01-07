@@ -12,15 +12,6 @@
 
 ;;* Functions:
 
-(defun company-plantuml-mode/ttybitnik ()
-  "Set up `company-mode' for `plantuml-mode'."
-  (setq-local company-minimum-prefix-length 1)
-  (setq-local company-backends '((company-capf
-                                  company-dabbrev-code
-                                  company-keywords
-                                  company-files
-                                  company-yasnippet))))
-
 ;;* Main:
 
 (setq plantuml-default-exec-mode 'executable)
@@ -31,9 +22,7 @@
 
 (add-hook 'plantuml-mode-hook (lambda ()
                                 (yas-minor-mode)
-                                (flymake-mode)
-                                (company-mode)
-                                (company-plantuml-mode/ttybitnik)))
+                                (flymake-mode)))
 
 ;;* Appearance:
 

@@ -13,15 +13,6 @@
 
 ;;* Functions:
 
-(defun company-lisp-mode/ttybitnik ()
-  "Set up `company-mode' for `lisp-mode'."
-  (setq-local company-minimum-prefix-length 1)
-  (setq-local company-backends '((company-capf
-                                  company-dabbrev-code
-                                  company-keywords
-                                  company-files
-                                  company-yasnippet))))
-
 ;;* Main:
 
 (setq inferior-lisp-program "sbcl")
@@ -36,9 +27,7 @@
 (add-hook 'emacs-lisp-mode-hook (lambda ()
                                   (yas-minor-mode)
                                   (flymake-mode)
-                                  (company-mode)
-                                  (company-lisp-mode/ttybitnik)
-                                  (eldoc-mode)))
+				  (eldoc-mode)))
 
 ;;* Appearance:
 

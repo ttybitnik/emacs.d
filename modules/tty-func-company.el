@@ -4,6 +4,11 @@
 
 ;; Company-mode related tunings.
 
+
+;; DEPRECATED 2025-01-04: I'm switching to `corfu' for experimentation, as some
+;; virtuosi use and recommend it (and I enjoy the music they make).  So no
+;; particular reason beyond that; my `company' setup was working fine.
+
 ;;; Code:
 
 (require-package 'company)

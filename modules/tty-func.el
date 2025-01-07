@@ -5,6 +5,7 @@
 ;; This module tailors settings and packages to extend functionality in Emacs.
 
 ;;; Code:
+;; (require 'tty-func-company)
 ;; (require 'tty-func-expand-region)
 ;; (require 'tty-func-hungry-delete)
 ;; (require 'tty-func-move-dup)
@@ -14,7 +15,6 @@
 ;; (require 'tty-func-zzz-to-char)
 
 (require 'tty-func-async)
-(require 'tty-func-company)
 (require 'tty-func-orderless)
 (require 'tty-func-sudo-edit)
 (require 'tty-func-vundo)

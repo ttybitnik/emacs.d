@@ -14,15 +14,6 @@
 
 ;;* Functions:
 
-(defun company-scheme-mode/ttybitnik ()
-  "Set up `company-mode' for `scheme-mode'."
-  (setq-local company-minimum-prefix-length 1)
-  (setq-local company-backends '((company-capf
-                                  company-dabbrev-code
-                                  company-keywords
-                                  company-files
-                                  company-yasnippet))))
-
 ;;* Main:
 
 (setq geiser-guile-binary "guile3.0")
@@ -33,10 +24,8 @@
 
 (add-hook 'scheme-mode-hook (lambda ()
                                   (yas-minor-mode)
-                                  (flymake-mode)
-                                  (company-mode)
-                                  (company-scheme-mode/ttybitnik)
-                                  (eldoc-mode)))
+				  (flymake-mode)
+				  (eldoc-mode)))
 
 ;;* Appearance:
 

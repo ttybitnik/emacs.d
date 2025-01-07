@@ -408,7 +408,6 @@ Otherwise, call it interactively with \\[pomodoro/ttybitnik]."
 			   (visual-line-mode)
 			   (variable-pitch-mode)
 			   (org-indent-mode)
-			   (company-mode)
 			   (yas-minor-mode)))
 
 (add-hook 'org-agenda-mode-hook (lambda ()

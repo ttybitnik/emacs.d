@@ -219,6 +219,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-vis-modus-themes.el
       │   └── tty-vis-rainbow.el
       └── !=deactivated
+          ├── !tty-func-company.el
           ├── !tty-func-expand-region.el
           ├── !tty-func-hungry-delete.el
           ├── !tty-func-move-dup.el

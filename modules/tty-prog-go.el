@@ -12,15 +12,6 @@
 
 ;;* Functions:
 
-(defun company-go-mode/ttybitnik ()
-  "Set up `company-mode' for `go-mode'."
-  (setq-local company-minimum-prefix-length 1)
-  (setq-local company-backends '((company-capf
-                                  company-dabbrev-code
-                                  company-keywords
-                                  company-files
-                                  company-yasnippet))))
-
 ;;* Main:
 
 (setq gofmt-command "goimports")
@@ -44,9 +35,7 @@
 (add-hook 'go-mode-hook (lambda ()
                           (yas-minor-mode)
                           (flymake-mode)
-                          (company-mode)
                           (eglot-ensure)
-                          (company-go-mode/ttybitnik)
 			  (add-hook 'before-save-hook 'gofmt-before-save)))
 
 ;;* Appearance:

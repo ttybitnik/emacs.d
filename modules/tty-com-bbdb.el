@@ -20,8 +20,6 @@
 
 ;;* Hooks:
 
-(add-hook 'message-mode-hook 'company-mode)
-
 ;;* Appearance:
 
 

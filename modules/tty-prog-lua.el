@@ -12,15 +12,6 @@
 
 ;;* Functions:
 
-(defun company-lua-mode/ttybitnik ()
-  "Set up `company-mode' for `lua-mode'."
-  (setq-local company-minimum-prefix-length 1)
-  (setq-local company-backends '((company-capf
-                                  company-dabbrev-code
-                                  company-keywords
-                                  company-files
-                                  company-yasnippet))))
-
 ;;* Main:
 
 ;;* Bindings:
@@ -30,9 +21,7 @@
 (add-hook 'lua-mode-hook (lambda ()
                           (yas-minor-mode)
                           (flymake-mode)
-                          (company-mode)
-                          (eglot-ensure)
-                          (company-lua-mode/ttybitnik)))
+                          (eglot-ensure)))
 
 ;;* Appearance:
 
