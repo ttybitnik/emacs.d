@@ -145,6 +145,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   └── tty-dsg-plantuml.el
       ├── tty-func.el					functionality module
       │   ├── tty-func-async.el
+      │   ├── tty-func-corfu.el
       │   ├── tty-func-orderless.el
       │   ├── tty-func-sudo-edit.el
       │   ├── tty-func-vundo.el

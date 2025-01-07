@@ -15,6 +15,7 @@
 ;; (require 'tty-func-zzz-to-char)
 
 (require 'tty-func-async)
+(require 'tty-func-corfu)
 (require 'tty-func-orderless)
 (require 'tty-func-sudo-edit)
 (require 'tty-func-vundo)

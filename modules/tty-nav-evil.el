@@ -62,6 +62,11 @@
   (kbd  "C-j") 'vertico-next
   (kbd  "C-k") 'vertico-previous)
 
+;; TODO: Remove C-S-k and C-S-j after submitting it upstream.
+(evil-collection-define-key 'insert 'corfu-map
+  (kbd  "C-S-k") 'corfu-popupinfo-scroll-down
+  (kbd  "C-S-j") 'corfu-popupinfo-scroll-up)
+
 ;; Mixed Vi & Emacs binding style (default in GNU applications).
 ;; Ex command
 (define-key evil-ex-completion-map (kbd "C-a") 'move-beginning-of-line)
