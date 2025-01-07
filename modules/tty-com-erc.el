@@ -72,6 +72,7 @@ channels that will have common messages suppressed in the mode line'."
 (setq erc-quit-reason (lambda (s) (or s "Fading out...")))
 (setq erc-log-channels-directory
       (expand-file-name (file-name-as-directory "logs") orpheusmx-d/ttybitnik))
+(setq erc-input-line-position -1)
 (setq erc-save-buffer-on-part t)
 (setq erc-current-nick-highlight-type 'message)
 (setq erc-suppress-list/ttybitnik (erc-suppress-generate/ttybitnik))
@@ -87,12 +88,10 @@ channels that will have common messages suppressed in the mode line'."
 (setq erc-modules
       '(autoaway autojoin button completion fill irccontrols keep-place list
 		 log match menu netsplit networks noncommands notifications
-		 readonly ring sasl scrolltobottom services stamp track))
+		 readonly ring sasl scrolltobottom services spelling stamp track))
 (setq erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
 (setq erc-track-exclude-types '("JOIN" "PART" "NICK" "MODE" "AWAY" "QUIT"
 				"324" "329" "332" "333" "353" "477"))
-
-(erc-spelling-mode 1)
 
 (advice-add 'erc-track-switch-buffer :around #'erc-switch-buffer/ttybitnik)
 
