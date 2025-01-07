@@ -31,7 +31,6 @@
 (diminish 'page-break-lines-mode)
 (diminish 'pdf-view-themed-minor-mode)
 (diminish 'rainbow-delimiters-mode)
-(diminish 'rainbow-mode)
 (diminish 'subword-mode)
 (diminish 'tree-sitter-mode)
 (diminish 'undo-tree-mode)
@@ -43,6 +42,7 @@
 (eval-after-load 'org-indent '(diminish 'org-indent-mode))
 (eval-after-load 'face-remap '(diminish 'buffer-face-mode))
 (eval-after-load 'autorevert '(diminish 'auto-revert-mode))
+(eval-after-load 'rainbow-mode '(diminish 'rainbow-mode))
 
 ;;* Bindings:
 
