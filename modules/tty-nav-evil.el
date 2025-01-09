@@ -42,6 +42,7 @@
 
 (evil-set-initial-state 'easy-hugo-mode 'emacs)
 (evil-set-initial-state 'erc-mode 'normal)
+(evil-set-initial-state 'org-agenda-mode 'motion)
 
 ;;* Bindings:
 
@@ -120,6 +121,92 @@
   "pp" 'project-switch-project
   "pc" 'project-compile
   "pf" 'project-find-file)
+
+;; Bindings for `org-agenda-mode' as `evil-collection' doesn't provide any.
+;; TODO: Maybe submit this upstream if there's interest.
+(evil-define-key 'motion org-agenda-mode-map
+  ;; Motion
+  "j"		'org-agenda-next-line
+  "k"		'org-agenda-previous-line
+  "gj"		'org-agenda-next-item
+  "gk"		'org-agenda-previous-item
+  (kbd "C-j")	'org-agenda-next-item
+  (kbd "C-k")	'org-agenda-previous-item
+  "}"		'evil-forward-paragraph	 ;; overwrites `org-agenda-manipulate-query-subtract-re'
+  "{"		'evil-backward-paragraph ;; overwrites `org-agenda-manipulate-query-add-re'
+  "]]"  	'org-agenda-earlier
+  "[["  	'org-agenda-later
+
+  ;; Bulk (marking)
+  "gm"		'org-agenda-bulk-mark     ;; default "m" also works, overwrites `evil-middle-of-visual-line'
+  "g*"		'org-agenda-bulk-mark-all ;; overwrites `evil-search-unbounded-word-forward'
+  "gu"		'org-agenda-bulk-unmark
+  "gU"		'org-agenda-bulk-unmark-all
+  "gb"		'org-agenda-bulk-action
+
+  ;; Items
+  "ct"		'org-agenda-todo
+  "cq"		'org-agenda-set-tags
+  "cs"		'org-agenda-schedule
+  "cd"		'org-agenda-deadline
+  "cw"		'org-agenda-refile
+  "ca"		'org-agenda-archive-default-with-confirmation ;; default "a" also works
+  "ce"		'org-agenda-priority
+  (kbd "M-k")	'org-agenda-priority-up
+  (kbd "M-j")	'org-agenda-priority-down
+  (kbd "M-l")	'org-agenda-date-later
+  (kbd "M-h")	'org-agenda-date-earlier
+  (kbd "M-S-l")	'org-agenda-todo-nextset
+  (kbd "M-S-h")	'org-agenda-todo-previousset
+  "cI" 		'org-agenda-clock-in	 ;; default "I" also works
+  "cO" 		'org-agenda-clock-out	 ;; default "O" also works
+  "cX" 		'org-agenda-clock-cancel ;; default "X" also works
+
+  ;; Navigation
+  "g."		'org-agenda-goto-today
+  "gJ"		'org-agenda-clock-goto
+  "gc"		'org-agenda-goto-calendar
+  "gz"		'org-agenda-recenter
+
+  ;; Actions
+  (kbd  "RET")	'org-agenda-switch-to
+  "dd" 		'org-agenda-kill
+  "u"	 	'evil-undo ;; overwrites `org-agenda-undo', default "C-_" still works
+  "r"	 	'evil-redo ;; overwrites `org-agenda-redo'
+  "gr" 		'org-agenda-redo-all
+  "gs"		'org-save-all-org-buffers ;; default "s" also works
+  "gi" 		'org-agenda-diary-entry	  ;; default "i" also works
+
+  ;; Display
+  "zd"		'org-agenda-day-view
+  "zw"		'org-agenda-week-view
+  "zm"		'org-agenda-month-view
+  "zv"	 	'org-agenda-view-mode-dispatch
+  "zr"		'org-agenda-reset-view
+  "z/"		'org-agenda-filter
+  "zff"		'org-agenda-filter
+  "zfq"		'org-agenda-filter-by-tag
+  "zfe"		'org-agenda-filter-by-effort
+  "zfr"		'org-agenda-filter-by-regexp
+  "zfc"		'org-agenda-filter-by-category
+  "zfh"		'org-agenda-filter-by-top-headline
+  "zfx"		'org-agenda-filter-remove-all
+  "zF" 		'org-agenda-follow-mode
+  "zR" 		'org-agenda-clockreport-mode
+  "zE" 		'org-agenda-entry-text-mode
+  "zG" 		'org-agenda-log-mode
+  "zM" 		'org-agenda-phases-of-moon
+  "zS" 		'org-agenda-sunrise-sunset
+  "zO" 		'org-agenda-holidays
+  "zG" 		'org-agenda-toggle-time-grid
+  "z!" 		'org-agenda-toggle-deadlines
+  "z~" 		'org-agenda-limit-interactively
+  "z?" 		'org-agenda-show-the-flagging-note
+
+  ;; Quit
+  "q"		'org-agenda-quit
+  "ZZ"		'org-agenda-quit
+  "ZQ"		'org-agenda-exit)
 
 ;; * Hooks:
 
