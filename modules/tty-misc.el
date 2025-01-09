@@ -45,6 +45,37 @@ current time in ISO 8601 format, as per twtxt specification."
     (when (featurep 'evil)
       (evil-insert-state))))
 
+
+(defun omni-emacs/ttybitnik ()
+  "Check for available package upgrades.
+This function is intended to be executed through the GNU Bash REPL
+and designed for use with the omni script from my dotfiles repository."
+  (let ((updates-p nil)
+	(packages-buffer-name "*Packages*")
+	(messages-buffer-name "*Messages*")
+	pkgs-list)
+    (when (get-buffer packages-buffer-name)
+      (kill-buffer packages-buffer-name))
+    (list-packages)
+    (sleep-for 7)
+    (with-current-buffer messages-buffer-name
+      (save-excursion
+	(goto-char (point-max))
+	(forward-line -30)
+	(when (search-forward "Packages that can be upgraded" nil t)
+	  (setq updates-p t))))
+    (if updates-p
+	(progn
+	  (with-current-buffer packages-buffer-name
+	    (package-menu-filter-upgradable)
+	    (setq pkgs-list (package-menu-mark-upgrades))
+	    (package-menu-execute))
+	  (message "EMACS: There are updates available. %s" pkgs-list))
+      (progn
+	(kill-buffer packages-buffer-name)
+	(delete-frame)
+	(message "EMACS: No updates available.")))))
+
 ;;* Main:
 
 ;; (setq-default show-trailing-whitespace t)
