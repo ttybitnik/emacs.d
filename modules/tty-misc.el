@@ -83,9 +83,8 @@ and designed for use with the omni script from my dotfiles repository."
 (setq kill-ring-max 100)
 
 (setq tramp-default-method "ssh")
-(add-to-list 'tramp-remote-path (concat
-				 (file-name-as-directory (getenv "HOME"))
-				 ".local/bin"))
+
+(add-to-list 'tramp-remote-path (expand-file-name ".local/bin" (getenv "HOME")))
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
