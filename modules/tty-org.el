@@ -165,6 +165,7 @@ Otherwise, call it interactively with \\[pomodoro/ttybitnik]."
 			   ("m" . ,(* 60 8 5 4))
 			   ("y" . ,(* 60 8 5 4 10))))
 
+(setq org-priority-start-cycle-with-default nil)
 (setq org-src-preserve-indentation t)
 (setq org-ellipsis " ")
 (setq org-startup-folded 'show10levels)
