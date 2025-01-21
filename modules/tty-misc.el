@@ -45,6 +45,13 @@ current time in ISO 8601 format, as per twtxt specification."
     (when (featurep 'evil)
       (evil-insert-state))))
 
+(defun review-archives-commit/ttybitnik ()
+  "Insert a review commit message with the current date and time.
+This function generates the standard commit message I use when
+reviewing changes to Emacs packages in `package-user-dir'."
+  (interactive)
+  (let ((time (format-time-string "%Y-%m-%dT%T%z")))
+    (insert "chore(security): review " time)))
 
 (defun omni-emacs/ttybitnik ()
   "Check for available package upgrades.
