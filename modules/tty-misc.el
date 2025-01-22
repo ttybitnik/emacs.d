@@ -87,8 +87,8 @@ and designed for use with the omni script from my dotfiles repository."
 
 ;; (setq-default show-trailing-whitespace t)
 
+(setq-default require-final-newline t)
 (setq kill-ring-max 100)
-
 (setq tramp-default-method "ssh")
 
 (add-to-list 'tramp-remote-path (expand-file-name ".local/bin" (getenv "HOME")))
