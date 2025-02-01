@@ -19,6 +19,8 @@
 ;;* Hooks:
 
 (add-hook 'yaml-mode-hook (lambda ()
+			    (display-line-numbers-mode)
+			    (fill-column/ttybitnik)
                             (yas-minor-mode)
                             (flymake-mode)
                             (eglot-ensure)))
