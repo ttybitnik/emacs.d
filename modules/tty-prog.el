@@ -42,6 +42,14 @@
   (setq-local fill-column (if (numberp value) value 80))
   (display-fill-column-indicator-mode))
 
+(defun highlight-regexp-globally/ttybitnik ()
+  "Highlight specific regexp globally using `highlight-regexp'.
+This function is intended to be used as a hook for specific
+modes (e.g., `prog-mode-hook', `conf-mode-hook')."
+  (highlight-regexp "\\<TODO\\(\([A-z0-9_-]*\)\\)?" 'hi-green)
+  (highlight-regexp "\\<FIXME\\(\([A-z0-9_-]*\)\\)?" 'hi-yellow)
+  (highlight-regexp "\\<changeme" 'hi-red-b))
+
 ;;* Main:
 
 (setq compilation-scroll-output t)
@@ -56,8 +64,13 @@
 ;;* Hooks:
 
 (add-hook 'prog-mode-hook 'fill-column/ttybitnik)
+(add-hook 'prog-mode-hook 'highlight-regexp-globally/ttybitnik)
+
 (add-hook 'conf-mode-hook 'fill-column/ttybitnik)
+(add-hook 'conf-mode-hook 'highlight-regexp-globally/ttybitnik)
+
 (add-hook 'diff-mode-hook 'fill-column/ttybitnik)
+
 (add-hook 'before-save-hook 'copyright-update)
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 

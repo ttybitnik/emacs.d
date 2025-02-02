@@ -23,6 +23,7 @@
 (diminish 'flycheck-mode)
 (diminish 'flyspell-mode)
 (diminish 'helm-mode)
+(diminish 'hi-lock-mode)
 (diminish 'hungry-delete-mode)
 (diminish 'olivetti-mode)
 (diminish 'org-auto-tangle-mode)
