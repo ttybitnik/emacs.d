@@ -12,6 +12,12 @@
 
 ;;* Functions:
 
+(defun conf-toml-mode/ttybitnik ()
+  "Set up `conf-toml-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode)
+  (eglot-ensure))
+
 ;;* Main:
 
 (setq lsp-toml-command "~/.cargo/bin/taplo")
@@ -20,10 +26,7 @@
 
 ;;* Hooks:
 
-(add-hook 'conf-toml-mode-hook (lambda ()
-				 (yas-minor-mode)
-				 (flymake-mode)
-				 (eglot-ensure)))
+(add-hook 'conf-toml-mode-hook 'conf-toml-mode-hook)
 
 ;;* Appearance:
 

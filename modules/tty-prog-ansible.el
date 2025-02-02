@@ -12,6 +12,12 @@
 
 ;;* Functions:
 
+(defun ansible-mode/ttybitnik ()
+  "Set up `ansible-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode)
+  (eglot-ensure))
+
 ;;* Main:
 
 ;;* Bindings:
@@ -20,10 +26,7 @@
 
 ;;* Hooks:
 
-(add-hook 'ansible-hook (lambda ()
-                          (yas-minor-mode)
-                          (flymake-mode)
-                          (eglot-ensure)))
+(add-hook 'ansible-mode-hook 'ansible-mode/ttybitnik)
 
 ;;* Appearance:
 

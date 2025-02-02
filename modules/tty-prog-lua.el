@@ -12,16 +12,19 @@
 
 ;;* Functions:
 
+(defun lua-mode/ttybitnik ()
+  "Set up `lua-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode)
+  (eglot-ensure))
+
 ;;* Main:
 
 ;;* Bindings:
 
 ;;* Hooks:
 
-(add-hook 'lua-mode-hook (lambda ()
-                          (yas-minor-mode)
-                          (flymake-mode)
-                          (eglot-ensure)))
+(add-hook 'lua-mode-hook 'lua-mode/ttybitnik)
 
 ;;* Appearance:
 

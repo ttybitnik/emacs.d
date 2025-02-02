@@ -12,16 +12,19 @@
 
 ;;* Functions:
 
+(defun nxml-mode/ttybitnik ()
+  "Set up `nxml-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode)
+  (eglot-ensure))
+
 ;;* Main:
 
 ;;* Bindings:
 
 ;;* Hooks:
 
-(add-hook 'nxml-mode-hook (lambda ()
-                            (yas-minor-mode)
-                            (flymake-mode)
-                            (eglot-ensure)))
+(add-hook 'nxml-mode-hook 'nxml-mode/ttybitnik)
 
 ;;* Appearance:
 

@@ -12,18 +12,21 @@
 
 ;;* Functions:
 
+(defun yaml-mode/ttybitnik ()
+  "Set up `yaml-mode' hooks."
+  (display-line-numbers-mode)
+  (fill-column/ttybitnik)
+  (yas-minor-mode)
+  (flymake-mode)
+  (eglot-ensure))
+
 ;;* Main:
 
 ;;* Bindings:
 
 ;;* Hooks:
 
-(add-hook 'yaml-mode-hook (lambda ()
-			    (display-line-numbers-mode)
-			    (fill-column/ttybitnik)
-                            (yas-minor-mode)
-                            (flymake-mode)
-                            (eglot-ensure)))
+(add-hook 'yaml-mode-hook 'yaml-mode/ttybitnik)
 
 ;;* Appearance:
 

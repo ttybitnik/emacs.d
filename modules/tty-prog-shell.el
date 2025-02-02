@@ -13,17 +13,20 @@
 
 ;;* Functions:
 
+(defun sh-mode/ttybitnik ()
+  "Set up `sh-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode)
+  (shfmt-on-save-mode)
+  (eglot-ensure))
+
 ;;* Main:
 
 ;;* Bindings:
 
 ;;* Hooks:
 
-(add-hook 'sh-mode-hook (lambda ()
-                          (yas-minor-mode)
-                          (flymake-mode)
-			  (shfmt-on-save-mode)
-                          (eglot-ensure)))
+(add-hook 'sh-mode-hook 'sh-mode/ttybitnik)
 
 ;;* Appearance:
 

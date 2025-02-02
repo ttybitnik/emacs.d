@@ -14,6 +14,12 @@
 
 ;;* Functions:
 
+(defun scheme-mode/ttybitnik ()
+  "Set up `scheme-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode)
+  (eldoc-mode))
+
 ;;* Main:
 
 (setq geiser-guile-binary "guile3.0")
@@ -22,10 +28,7 @@
 
 ;;* Hooks:
 
-(add-hook 'scheme-mode-hook (lambda ()
-                                  (yas-minor-mode)
-				  (flymake-mode)
-				  (eldoc-mode)))
+(add-hook 'scheme-mode-hook 'scheme-mode/ttybitnik)
 
 ;;* Appearance:
 

@@ -12,6 +12,11 @@
 
 ;;* Functions:
 
+(defun plantuml-mode/ttybitnik ()
+  "Set up `plantuml-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode))
+
 ;;* Main:
 
 (setq plantuml-default-exec-mode 'executable)
@@ -20,9 +25,7 @@
 
 ;;* Hooks:
 
-(add-hook 'plantuml-mode-hook (lambda ()
-                                (yas-minor-mode)
-                                (flymake-mode)))
+(add-hook 'plantuml-mode-hook 'plantuml-mode/ttybitnik)
 
 ;;* Appearance:
 

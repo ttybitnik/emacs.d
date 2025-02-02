@@ -12,16 +12,19 @@
 
 ;;* Functions:
 
+(defun rust-mode/ttybitnik ()
+  "Set up `rust-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode)
+  (eglot-ensure))
+
 ;;* Main:
 
 ;;* Bindings:
 
 ;;* Hooks:
 
-(add-hook 'rust-mode-hook (lambda ()
-                            (yas-minor-mode)
-                            (flymake-mode)
-                            (eglot-ensure)))
+(add-hook 'rust-mode-hook 'rust-mode/ttybitnik)
 
 ;;* Appearance:
 

@@ -12,6 +12,12 @@
 
 ;;* Functions:
 
+(defun python-mode/ttybitnik ()
+  "Set up `python-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode)
+  (eglot-ensure))
+
 ;;* Main:
 
 (setq python-shell-interpreter "python3")
@@ -20,10 +26,7 @@
 
 ;;* Hooks:
 
-(add-hook 'python-mode-hook (lambda ()
-                              (yas-minor-mode)
-                              (flymake-mode)
-                              (eglot-ensure)))
+(add-hook 'python-mode-hook 'python-mode/ttybitnik)
 
 ;;* Appearance:
 

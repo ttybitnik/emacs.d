@@ -12,6 +12,11 @@
 
 ;;* Functions:
 
+(defun markdown-mode/ttybitnik ()
+  "Set up `markdown-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode))
+
 ;;* Main:
 
 ;;* Bindings:
@@ -21,9 +26,7 @@
 
 ;;* Hooks:
 
-(add-hook 'markdown-mode-hook (lambda ()
-                                (yas-minor-mode)
-                                (flymake-mode)))
+(add-hook 'markdown-mode-hook 'markdown-mode/ttybitnik)
 
 ;;* Appearance:
 

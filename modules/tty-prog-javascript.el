@@ -12,6 +12,11 @@
 ;;* Variables:
 
 ;;* Functions:
+(defun js-mode/ttybitnik ()
+  "Set up `js-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode)
+  (eglot-ensure))
 
 ;;* Main:
 
@@ -19,10 +24,7 @@
 
 ;;* Hooks:
 
-(add-hook 'js-mode-hook (lambda ()
-                          (yas-minor-mode)
-                          (flymake-mode)
-                          (eglot-ensure)))
+(add-hook 'js-mode-hook 'js-mode/ttybitnik)
 
 ;;* Appearance:
 

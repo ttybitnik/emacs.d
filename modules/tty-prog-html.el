@@ -12,16 +12,19 @@
 
 ;;* Functions:
 
+(defun html-mode/ttybitnik ()
+  "Set up `html-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode)
+  (eglot-ensure))
+
 ;;* Main:
 
 ;;* Bindings:
 
 ;;* Hooks:
 
-(add-hook 'html-mode-hook (lambda ()
-                            (yas-minor-mode)
-                            (flymake-mode)
-                            (eglot-ensure)))
+(add-hook 'html-mode-hook 'html-mode/ttybitnik)
 
 ;;* Appearance:
 

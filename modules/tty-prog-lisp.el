@@ -13,6 +13,12 @@
 
 ;;* Functions:
 
+(defun emacs-lisp-mode/ttybitnik ()
+  "Set up `emacs-lisp-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode)
+  (eldoc-mode))
+
 ;;* Main:
 
 (setq inferior-lisp-program "sbcl")
@@ -24,10 +30,7 @@
 
 ;;* Hooks:
 
-(add-hook 'emacs-lisp-mode-hook (lambda ()
-                                  (yas-minor-mode)
-                                  (flymake-mode)
-				  (eldoc-mode)))
+(add-hook 'emacs-lisp-mode-hook  'emacs-lisp-mode/ttybitnik)
 
 ;;* Appearance:
 

@@ -12,6 +12,12 @@
 
 ;;* Functions:
 
+(defun nix-mode/ttybitnik ()
+  "Set up `nix-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode)
+  (eglot-ensure))
+
 ;;* Main:
 
 ;;* Bindings:
@@ -19,10 +25,7 @@
 ;;* Hooks:
 
 (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
-(add-hook 'nix-mode-hook (lambda ()
-                          (yas-minor-mode)
-                          (flymake-mode)
-                          (eglot-ensure)))
+(add-hook 'nix-mode-hook 'nix-mode/ttybitnik)
 
 ;;* Appearance:
 

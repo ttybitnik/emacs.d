@@ -12,6 +12,13 @@
 
 ;;* Functions:
 
+(defun go-mode/ttybitnik ()
+  "Set up `go-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode)
+  (eglot-ensure)
+  (add-hook 'before-save-hook 'gofmt-before-save))
+
 ;;* Main:
 
 (setq gofmt-command "goimports")
@@ -32,11 +39,7 @@
 
 ;;* Hooks:
 
-(add-hook 'go-mode-hook (lambda ()
-                          (yas-minor-mode)
-                          (flymake-mode)
-                          (eglot-ensure)
-			  (add-hook 'before-save-hook 'gofmt-before-save)))
+(add-hook 'go-mode-hook 'go-mode/ttybitnik)
 
 ;;* Appearance:
 

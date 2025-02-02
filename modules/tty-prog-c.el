@@ -14,6 +14,12 @@
 
 ;;* Functions:
 
+(defun c-mode/ttybitnik ()
+  "Set up `c-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode)
+  (eglot-ensure))
+
 ;;* Main:
 
 (setq c-default-style '((java-mode . "java")
@@ -24,10 +30,7 @@
 
 ;;* Hooks:
 
-(add-hook 'c-mode-hook (lambda ()
-                         (yas-minor-mode)
-                         (flymake-mode)
-                         (eglot-ensure)))
+(add-hook 'c-mode-hook 'c-mode/ttybitnik)
 
 ;;* Appearance:
 

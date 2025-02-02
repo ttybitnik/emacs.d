@@ -12,16 +12,19 @@
 
 ;;* Functions:
 
+(defun sql-mode/ttybitnik ()
+  "Set up `sql-mode' hooks."
+  (yas-minor-mode)
+  (flymake-mode)
+  (eglot-ensure))
+
 ;;* Main:
 
 ;;* Bindings:
 
 ;;* Hooks:
 
-(add-hook 'sql-mode-hook (lambda ()
-                           (yas-minor-mode)
-                           (flymake-mode)
-                           (eglot-ensure)))
+(add-hook 'sql-mode-hook 'sql-mode/ttybitnik)
 
 ;;* Appearance:
 

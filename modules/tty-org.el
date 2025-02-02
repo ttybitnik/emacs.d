@@ -405,11 +405,10 @@ Otherwise, call it interactively with \\[pomodoro/ttybitnik]."
 
 ;;* Hooks:
 
-(add-hook 'org-mode-hook (lambda ()
-			   (visual-line-mode)
-			   (variable-pitch-mode)
-			   (org-indent-mode)
-			   (yas-minor-mode)))
+(add-hook 'org-mode-hook 'visual-line-mode)
+(add-hook 'org-mode-hook 'variable-pitch-mode)
+(add-hook 'org-mode-hook 'org-indent-mode)
+(add-hook 'org-mode-hook 'yas-minor-mode)
 
 (add-hook 'org-agenda-mode-hook (lambda ()
 				  (hl-line-mode)
