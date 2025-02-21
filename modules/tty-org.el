@@ -402,6 +402,9 @@ Otherwise, call it interactively with \\[pomodoro/ttybitnik]."
 (global-set-key (kbd "C-c '") 'org-edit-src-code)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c l s") 'org-store-link)
+(global-set-key (kbd "C-c l i") 'org-insert-link)
+(global-set-key (kbd "C-c l l") 'org-insert-last-stored-link)
 
 ;;* Hooks:
 

@@ -112,6 +112,9 @@
   "xj" 'org-clock-goto
   "nf" 'org-roam-node-find
   "nc" 'org-roam-capture
+  "ls" 'org-store-link
+  "li" 'org-insert-link
+  "ll" 'org-insert-last-stored-link
   ;; C-x
   "s" 'save-buffer
   "j" 'dired-jump
