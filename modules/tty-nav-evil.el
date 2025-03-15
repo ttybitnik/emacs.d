@@ -63,7 +63,18 @@
   (kbd  "C-j") 'vertico-next
   (kbd  "C-k") 'vertico-previous)
 
+
+;; TODO: Remove after submitting it upstream but C-S-k and C-S-j.
+(evil-collection-define-key 'normal 'compilation-mode-map
+  "go" 'compile-goto-error
+  "gO" 'compilation-display-error
+  (kbd "S-<return>") 'compile-goto-error
+  (kbd "M-<return>") 'compilation-display-error
+  (kbd  "C-S-k") 'next-error-no-select
+  (kbd  "C-S-j") 'previous-error-no-select)
+
 ;; TODO: Remove C-S-k and C-S-j after submitting it upstream.
+;; https://github.com/LuigiPiucco/doom-emacs/blob/master/modules/completion/corfu/README.org#cycle-directionally
 (evil-collection-define-key 'insert 'corfu-map
   (kbd  "C-S-k") 'corfu-popupinfo-scroll-down
   (kbd  "C-S-j") 'corfu-popupinfo-scroll-up)
