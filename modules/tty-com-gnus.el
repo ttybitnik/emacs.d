@@ -113,6 +113,11 @@
 (setq mm-decrypt-option 'always)
 (setq mm-sign-option 'guided)
 
+;; Describe `gnus-default-adaptive-score-alist' for adaptive values logic.
+(setq gnus-use-adaptive-scoring t)
+(setq gnus-decay-scores t)
+(setq gnus-keep-same-level t)
+
 ;;* Bindings:
 
 (global-set-key (kbd "C-c g") 'gnus)
@@ -125,6 +130,7 @@
 (add-hook 'gnus-group-mode-hook 'hl-line-mode)
 (add-hook 'gnus-summary-mode-hook 'hl-line-mode)
 (add-hook 'gnus-browse-mode-hook 'hl-line-mode)
+(add-hook 'gnus-summary-exit-hook 'gnus-summary-bubble-group)
 
 ;;* Appearance:
 
