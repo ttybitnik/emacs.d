@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: ansible debug
+# key: <d
+# --
+- name: Debugging
+  ansible.builtin.debug:
+    var:
