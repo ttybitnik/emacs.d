@@ -18,6 +18,8 @@
 (setq diff-hl-flydiff-delay 0.5)
 (setq diff-hl-update-async t)
 
+(global-diff-hl-mode 1)
+
 ;;* Bindings:
 
 ;;* Hooks:
@@ -27,8 +29,7 @@
 
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
 (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
-
-(add-hook 'conf-mode-hook 'diff-hl-mode)
+(add-hook 'conf-mode-hook 'turn-on-diff-hl-mode)
 
 ;;* Appearance:
 
