@@ -50,19 +50,39 @@
 (define-key evil-normal-state-map (kbd "gh") 'display-local-help)
 
 ;; Customizations on top of `evil-collection' defaults.
-(with-eval-after-load 'gnus
-  (evil-define-key 'normal gnus-group-mode-map
-    "c" 'gnus-topic-catchup-articles))
+(evil-collection-define-key 'normal 'gnus-group-mode-map
+  "c"	'gnus-topic-catchup-articles
+  ;; TODO: Remove after submitting it upstream.
+  (kbd "M-S") 'gnus-group-make-search-group)
+
+;; TODO: Remove after submitting this fix upstream.
+(evil-collection-define-key 'normal 'gnus-topic-mode-map
+  "dd"	'gnus-topic-kill-group
+  "D"	'gnus-topic-kill-group
+  "p"	'gnus-topic-yank-group
+  "P"   'gnus-topic-yank-group
+  (kbd "RET")	'gnus-topic-select-group)
 
 (evil-collection-define-key 'normal 'gnus-summary-mode-map
   "d" 'gnus-summary-mark-as-read-forward
   "w" 'gnus-summary-browse-url
-  (kbd  "<backspace>") 'gnus-summary-prev-page)
+  (kbd  "<backspace>") 'gnus-summary-prev-page
+  ;; TODO: Remove after submitting it upstream.
+  "gs" 'gnus-summary-set-score
+  "gS" 'gnus-summary-current-score
+  "gt" 'gnus-score-find-trace
+  "gc" 'gnus-score-change-score-file
+  "gC" 'gnus-score-edit-current-scores  ;; default suffix was "e"
+  "gb" 'gnus-score-set-mark-below	;; default suffix was "m"
+  "gH" 'gnus-article-browse-html-article)
+
+;; TODO: Remove after submitting it upstream.
+(evil-collection-define-key 'normal 'gnus-article-mode-map
+  "gH" 'gnus-article-browse-html-article)
 
 (evil-collection-define-key nil 'vertico-map
   (kbd  "C-j") 'vertico-next
   (kbd  "C-k") 'vertico-previous)
-
 
 ;; TODO: Remove after submitting it upstream but C-S-k and C-S-j.
 (evil-collection-define-key 'normal 'compilation-mode-map
