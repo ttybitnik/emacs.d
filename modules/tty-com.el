@@ -16,7 +16,7 @@
 
 ;;* Main:
 
-(setq user-full-name "Vinícius Moraes")
+(setq user-full-name (getenv "TTY_NAME"))
 (setq user-mail-address (getenv "TTY_EMAIL"))
 
 ;;* Bindings:
