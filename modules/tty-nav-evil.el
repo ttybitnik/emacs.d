@@ -70,10 +70,11 @@
   ;; TODO: Remove after submitting it upstream.
   "gs" 'gnus-summary-set-score
   "gS" 'gnus-summary-current-score
+  "gP" 'gnus-summary-refer-references		;; default suffix was "R"
   "gt" 'gnus-score-find-trace
   "gc" 'gnus-score-change-score-file
-  "gC" 'gnus-score-edit-current-scores  ;; default suffix was "e"
-  "gb" 'gnus-score-set-mark-below	;; default suffix was "m"
+  "gC" 'gnus-score-edit-current-scores		;; default suffix was "e"
+  "gb" 'gnus-score-set-mark-below		;; default suffix was "m"
   "gH" 'gnus-article-browse-html-article)
 
 ;; TODO: Remove after submitting it upstream.
