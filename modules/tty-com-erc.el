@@ -87,7 +87,7 @@ channels that will have common messages suppressed in the mode line'."
                                       erc-prompt-face))
 (setq erc-modules
       '(autoaway autojoin button completion fill irccontrols keep-place list
-		 log match menu netsplit networks noncommands notifications
+		 log match menu netsplit networks noncommands notifications nicks
 		 readonly ring sasl scrolltobottom services spelling stamp track))
 (setq erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
 (setq erc-track-exclude-types '("JOIN" "PART" "NICK" "MODE" "AWAY" "QUIT"
