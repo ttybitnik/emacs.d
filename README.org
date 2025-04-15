@@ -158,8 +158,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-misc-nov.el
       │   ├── tty-misc-olivetti.el
       │   ├── tty-misc-paredit.el
-      │   ├── tty-misc-pdf-tools.el
-      │   └── tty-misc-which-key.el
+      │   └── tty-misc-pdf-tools.el
       ├── tty-nav.el					navigation module
       │   ├── tty-nav-consult.el
       │   ├── tty-nav-embark.el

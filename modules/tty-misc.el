@@ -6,6 +6,7 @@
 
 ;;; Code:
 
+(require 'which-key)
 (require 'tty-misc-bibtex)
 (require 'tty-misc-centered-cursor)
 (require 'tty-misc-dired)
@@ -14,7 +15,6 @@
 (require 'tty-misc-olivetti)
 (require 'tty-misc-paredit)
 (require 'tty-misc-pdf-tools)
-(require 'tty-misc-which-key)
 
 ;;* Variables:
 
@@ -104,6 +104,9 @@ and designed for use with the omni script from my dotfiles repository."
                             (?\[ . ?\])
                             (?\" . ?\")))
 (electric-pair-mode 1)
+
+(setq which-key-idle-delay 0.5)
+(which-key-mode)
 
 ;;* Bindings:
 
