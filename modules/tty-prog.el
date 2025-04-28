@@ -19,6 +19,7 @@
 (require 'tty-prog-c)
 (require 'tty-prog-css)
 (require 'tty-prog-go)
+(require 'tty-prog-haskell)
 (require 'tty-prog-html)
 (require 'tty-prog-javascript)
 (require 'tty-prog-json)
