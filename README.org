@@ -177,6 +177,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-prog-c.el
       │   ├── tty-prog-css.el
       │   ├── tty-prog-eglot.el
+      │   ├── tty-prog-elm.el
       │   ├── tty-prog-flymake.el
       │   ├── tty-prog-go.el
       │   ├── tty-prog-haskell.el
