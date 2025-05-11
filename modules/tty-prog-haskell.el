@@ -19,7 +19,11 @@
   "Set up `haskell-mode' hooks."
   (yas-minor-mode)
   (flymake-mode)
-  (eglot-ensure))
+  (eglot-ensure)
+  (turn-on-haskell-indentation)
+  (haskell-auto-insert-module-template)
+  (interactive-haskell-mode))
+
 
 ;;* Main:
 
@@ -30,9 +34,6 @@
 ;;* Hooks:
 
 (add-hook 'haskell-mode-hook 'haskell-mode/ttybitnik)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-(add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
-(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 
 ;;* Appearance:
 
