@@ -98,6 +98,11 @@ It returns the absolute path from local templates in
 	 :target (file "%<%Y%m%d%H%M%S>-theatre-${slug}.org")
 	 :unnarrowed t :clock-in t :clock-resume t)
 
+	("cv" "Video" plain
+	 (file ,(roam-capture-helper "video-template.org"))
+	 :target (file "%<%Y%m%d%H%M%S>-video-${slug}.org")
+	 :unnarrowed t :clock-in t :clock-resume t)
+
 	("n" "Note")
 	("nc" "Class" plain
 	 (file ,(roam-capture-helper "class-template.org"))

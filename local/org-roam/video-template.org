@@ -1,0 +1,24 @@
+#+TITLE: ${title}
+#+AUTHOR: Vinícius Moraes
+#+EMAIL: vinicius.moraes@eternodevir.com
+#+DATE: %t
+#+FILETAGS: :capture:video:
+#+CATEGORY: capture
+#+STARTUP: inlineimages
+- Video :: %?
+
+* ${title}
+
+* Notes
+
+* Resources
+
+* TODO ${title} [0/1]                                                  :theatre:
+
+[[id:${id}][${title}]]
+
+** TODO Organizing
+- [ ] Generate author node/link
+- [ ] Roam alias and indexes
+- [ ] Define tasks
+- [ ] Refile tasks
