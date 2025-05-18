@@ -145,6 +145,7 @@ It returns the absolute path from local templates in
 (setq org-roam-ui-follow t)
 (setq org-roam-ui-update-on-save t)
 (setq org-roam-ui-open-on-start t)
+(setq org-roam-node-display-template "${title:*} ${tags:30}")
 
 (org-roam-db-autosync-mode 1)
 
