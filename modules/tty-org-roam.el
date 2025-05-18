@@ -73,12 +73,12 @@ It returns the absolute path from local templates in
 	 :target (file "%<%Y%m%d%H%M%S>-music-${slug}.org")
 	 :unnarrowed t :clock-in t :clock-resume t)
 
-	("co" "Podcast" plain
+	("cp" "Podcast" plain
 	 (file ,(roam-capture-helper "podcast-template.org"))
 	 :target (file "%<%Y%m%d%H%M%S>-podcast-${slug}.org")
 	 :unnarrowed t :clock-in t :clock-resume t)
 
-	("cp" "Poem" plain
+	("co" "Poem" plain
 	 (file ,(roam-capture-helper "poem-template.org"))
 	 :target (file "%<%Y%m%d%H%M%S>-poem-${slug}.org")
 	 :unnarrowed t :clock-in t :clock-resume t)
