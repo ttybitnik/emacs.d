@@ -132,11 +132,6 @@ It returns the absolute path from local templates in
 	("i" "Index" plain
 	 (file ,(roam-capture-helper "index-template.org"))
 	 :target (file "%<%Y%m%d%H%M%S>-index-${slug}.org")
-	 :unnarrowed t :clock-in t :clock-resume t)
-
-	("h" "Placeholder" plain
-	 (file ,(roam-capture-helper "placeholder-template.org"))
-	 :target (file "%<%Y%m%d%H%M%S>-index-${slug}.org")
 	 :unnarrowed t :clock-in t :clock-resume t)))
 
 ;; (setq orb-insert-interface 'helm-bibtex)
