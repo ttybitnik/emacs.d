@@ -1,0 +1,24 @@
+#+TITLE: ${title}
+#+AUTHOR: Vinícius Moraes
+#+EMAIL: vinicius.moraes@eternodevir.com
+#+DATE: %t
+#+FILETAGS: :capture:person:
+#+CATEGORY: capture
+#+STARTUP: inlineimages
+- Person :: %?
+
+* ${title}
+
+* Notes
+
+* Resources
+
+* TODO ${title} [0/1]                                                  :person:
+
+[[id:${id}][${title}]]
+
+** TODO Organizing
+- [ ] Generate person node/link
+- [ ] Roam alias and indexes
+- [ ] Define tasks
+- [ ] Refile tasks
