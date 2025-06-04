@@ -55,6 +55,7 @@ channels that will have common messages suppressed in the mode line'."
 ;;* Main:
 
 (setq erc-server "irc.libera.chat")
+(setq erc-server-auto-reconnect nil)
 (setq erc-auto-query 'bury)
 (setq erc-join-buffer 'bury)
 (setq erc-kill-buffer-on-part t)
