@@ -136,7 +136,7 @@
   "a" 'org-agenda
   "c" 'org-capture
   "d" 'dashboard-open
-  "g" 'gnus
+  "g" 'gnus-other-frame
   "h" 'easy-hugo
   "ii" 'erc-login/ttybitnik
   "ib" 'erc-track-switch-buffer
