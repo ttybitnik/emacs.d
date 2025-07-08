@@ -168,6 +168,7 @@ Otherwise, call it interactively with \\[pomodoro/ttybitnik]."
 (setq org-priority-start-cycle-with-default nil)
 (setq org-src-preserve-indentation t)
 (setq org-ellipsis " ")
+(setq org-hide-emphasis-markers t)
 (setq org-startup-folded 'show10levels)
 (setq org-use-speed-commands t)
 (setq org-src-fontify-natively t)
