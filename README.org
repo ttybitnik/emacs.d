@@ -5,7 +5,7 @@
 
 #+html: <p align="center"><img src="img/Stradivari.jpg"/></p>
 
- This repository contains my *GNU Emacs* configuration files along with an in-depth chronicle of my crafting process. It includes links to valuable resources, in code, text and video, that have been important throughout my trajectory. Inspired by [[https://github.com/munen][@Munen]]'s insightful presentation "[[https://www.youtube.com/watch?v=gfZDwYeBlO4][Play Emacs like an instrument]]", I have decided to expand his playful yet thoughtful metaphor into this unique, handmade process. A journey to *craft emacs.d like a luthier*.
+ This repository contains my *GNU Emacs* configuration files along with an in-depth chronicle of my crafting and managing workflows. It includes links to valuable resources, in code, text and video, that have been important throughout my trajectory. Inspired by [[https://github.com/munen][@Munen]]'s insightful presentation [[https://www.youtube.com/watch?v=gfZDwYeBlO4][Play Emacs like an instrument]], I have decided to expand his playful yet thoughtful metaphor into this digitally handmade process. A journey to *craft emacs.d like a luthier*.
 
  *Table of contents*
   - [[#wood-selection][Wood selection]]
@@ -23,7 +23,7 @@
 
 ** Wood selection
 
-After gaining a solid grasp of Emacs basics, my next step was learning from more experienced users. [[https://github.com/redguardtoo][@Redguardtoo]], in [[https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-en.org][On the Shoulders of Giants]], also writes about the importance of using well-tuned setups. However, since it is a longstanding community tradition the sharing of *emacs.d*, using all this shared knowledge as /materia prima/ is also an effective way to begin a vanilla Emacs journey.
+After gaining a solid grasp of Emacs basics, my next step was learning from more experienced users. [[https://github.com/redguardtoo][@Redguardtoo]], in [[https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-en.org][On the Shoulders of Giants]], also writes about the importance of using well-tuned setups while learning. That said, since it is a longstanding community tradition the sharing of *emacs.d*, using all this shared knowledge as /materia prima/ is also an effective way to begin a vanilla Emacs journey.
 
 Nowadays, I maintain locally a [[https://github.com/stars/ttybitnik/lists/book-emacs-d][curated list]] of *emacs.d* repositories of my interest. When I wish to implement a new feature or workflow, I use these repositories as practical references. Around once per semester, I fetch and review upstream changes to weigh whether any new idea or setting worth adapting into my configuration.
 
