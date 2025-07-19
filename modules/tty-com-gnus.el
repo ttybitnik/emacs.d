@@ -61,6 +61,7 @@
 (setq gnus-group-line-format "%M%p%P%5y:%B%(%g%)\n")
 (setq gnus-parameters
       '(("^nnimap"
+         (gnus-show-threads nil)
 	 (display . all))
 	("^nntp"
          (gnus-use-adaptive-scoring t)
