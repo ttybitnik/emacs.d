@@ -175,7 +175,7 @@ Otherwise, call it interactively with \\[pomodoro/ttybitnik]."
 (setq org-src-tab-acts-natively t)
 (setq org-confirm-babel-evaluate t)
 (setq org-export-with-smart-quotes t)
-(setq org-src-window-setup 'current-window)
+(setq org-src-window-setup 'reorganize-frame)
 (setq org-babel-python-command "python3")
 (setq org-refile-targets '((nil :maxlevel . 1)
 			   (org-agenda-files :maxlevel . 1)))
