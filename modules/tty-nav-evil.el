@@ -19,6 +19,7 @@
 (require-package 'evil)
 (require-package 'evil-collection)
 (require-package 'evil-surround)
+(require-package 'evil-cleverparens)
 (require-package 'general)
 
 ;;* Variables:

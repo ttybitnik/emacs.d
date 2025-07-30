@@ -18,7 +18,8 @@
   "Set up `scheme-mode' hooks."
   (yas-minor-mode)
   (flymake-mode)
-  (eldoc-mode))
+  (eldoc-mode)
+  (evil-cleverparens-mode))
 
 ;;* Main:
 

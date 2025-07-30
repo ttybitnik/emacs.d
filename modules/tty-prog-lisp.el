@@ -17,7 +17,8 @@
   "Set up `emacs-lisp-mode' hooks."
   (yas-minor-mode)
   (flymake-mode)
-  (eldoc-mode))
+  (eldoc-mode)
+  (evil-cleverparens-mode))
 
 ;;* Main:
 
