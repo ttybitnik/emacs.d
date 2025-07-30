@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: HTML inline kbd
+# key: @@k
+# --
+@@html:<kbd>$1</kbd>@@
