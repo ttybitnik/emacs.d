@@ -23,7 +23,8 @@
   (eldoc-mode)
   (evil-cleverparens-mode))
 
-;; TODO: Overwrite upstream to fix file-name on remote systems (remove if merged)
+;; TODO: Remove when distribution picks up the upstream fix.
+;; See <https://debbugs.gnu.org/cgi/bugreport.cgi?bug=79163>.
 (defun scheme-load-file (file-name)
   "Load a Scheme file FILE-NAME into the inferior Scheme process."
   (interactive (comint-get-source "Load Scheme file" scheme-prev-l/c-dir/file
@@ -36,7 +37,8 @@
 					    (file-local-name file-name)
 					    "\")\n")))
 
-;; TODO: Overwrite upstream to fix file-name on remote systems (remove if merged)
+;; TODO: Remove when distribution picks up the upstream fix.
+;; See <https://debbugs.gnu.org/cgi/bugreport.cgi?bug=79163>.
 (defun scheme-compile-file (file-name)
   "Compile a Scheme file FILE-NAME in the inferior Scheme process."
   (interactive (comint-get-source "Compile Scheme file"
