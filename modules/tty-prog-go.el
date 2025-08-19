@@ -16,7 +16,8 @@
   "Set up `go-mode' hooks."
   (yas-minor-mode)
   (flymake-mode)
-  (eglot-ensure))
+  (eglot-ensure)
+  (add-hook 'before-save-hook 'gofmt-before-save nil t))
 
 ;;* Main:
 
@@ -39,7 +40,6 @@
 ;;* Hooks:
 
 (add-hook 'go-mode-hook 'go-mode/ttybitnik)
-(add-hook 'before-save-hook 'gofmt-before-save)
 
 ;;* Appearance:
 
