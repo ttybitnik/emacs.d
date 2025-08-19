@@ -34,6 +34,8 @@
 			(bookmarks . 5)
 			(agenda . 5)))
 
+(setq initial-buffer-choice (lambda () (switch-to-buffer "*dashboard*")))
+
 (dashboard-setup-startup-hook)
 
 (eval-after-load 'dashboard '(progn (dashboard-refresh-buffer)))
