@@ -5,15 +5,18 @@
 #+FILETAGS: :capture:video:
 #+CATEGORY: capture
 #+STARTUP: inlineimages
-- Video :: %?
+- Video :: %^{Index nodes} %?
 
 * ${title}
+
+%^{Video URL}
 
 * Notes
 
 * Resources
-
-* TODO ${title} [0/1]                                                  :theatre:
+%(if (y-or-n-p "Include transcription? ")
+"\n** Transcription\n\n#+begin_quote\n\n#+end_quote\n")
+* TODO ${title} [0/1]                                                  :video:
 
 [[id:${id}][${title}]]
 
