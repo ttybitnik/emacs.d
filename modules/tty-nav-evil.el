@@ -134,11 +134,13 @@
   ;; M-
   "m" 'magit
   "y" 'consult-yank-pop
+  "go" 'consult-outline
+  "gi" 'consult-imenu
   ;; C-c
   "a" 'org-agenda
   "c" 'org-capture
   "d" 'dashboard-open
-  "g" 'gnus-other-frame
+  "gg" 'gnus-other-frame
   "h" 'easy-hugo
   "ii" 'erc-login/ttybitnik
   "ib" 'erc-track-switch-buffer
