@@ -14,6 +14,11 @@
 
 ;;* Functions:
 
+(defun shrug/ttybitnik ()
+  "¯_(ツ)_/¯ ."
+  (interactive)
+  (insert "¯_(ツ)_/¯"))
+
 ;;* Main:
 
 (setq user-full-name (getenv "TTY_NAME"))
