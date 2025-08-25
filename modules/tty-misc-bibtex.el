@@ -57,7 +57,7 @@ ${custom_organizer:10} ${custom_materia:25}")))
 	("custom_yesno" "Reading status")
 	("custom_materia" "Custom category")
 	("tags" "Personal tags")
-	("file" "Path to file")))
+	("file" "File name")))
 
 ;;* Bindings:
 

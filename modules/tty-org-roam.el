@@ -14,13 +14,13 @@
 
 (defconst roam-d/ttybitnik
   (concat orpheusmx-d/ttybitnik (file-name-as-directory "org-roam"))
-  "Absolute path of org-roam directory inside Orpheus.")
+  "Absolute name of org-roam directory inside Orpheus.")
 
 ;;* Functions:
 
 (defun roam-capture-helper (template)
   "Expand TEMPLATE filename for `org-roam-capture-templates'.
-It returns the absolute path from local templates in
+It returns the absolute name from local templates in
 `local-d/ttybitnik' org-roam directory."
   (expand-file-name
    template (concat local-d/ttybitnik (file-name-as-directory "org-roam"))))

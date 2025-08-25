@@ -21,7 +21,7 @@
 
 (defconst agenda-d/ttybitnik
   (concat roam-d/ttybitnik (file-name-as-directory "agenda"))
-  "Absolute path of `org-agenda' directory inside Orpheus.")
+  "Absolute name of `org-agenda' directory inside Orpheus.")
 
 (defvar-local org-anchor-auto-id nil
   "Non-nil means auto-generate CUSTOM_ID property in `org-mode' headings.
@@ -32,14 +32,14 @@ CUSTOM_ID properties on save or interactively.")
 
 (defun org-capture-helper (template)
   "Expand TEMPLATE filename for `org-capture-templates'.
-It returns the absolute path from local templates in
+It returns the absolute name from local templates in
 `local-d/ttybitnik' org directory."
   (expand-file-name
    template (concat local-d/ttybitnik (file-name-as-directory "org"))))
 
 (defun agenda-helper (agenda-file)
   "Expand AGENDA-FILE filename for `org-capture-templates'.
-It returns the absolute path from an `org-agenda' file in
+It returns the absolute name from an `org-agenda' file in
 `agenda-d/ttybitnik'."
   (expand-file-name agenda-file agenda-d/ttybitnik))
 

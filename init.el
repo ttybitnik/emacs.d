@@ -30,31 +30,31 @@
 
 (defconst emacs-d/ttybitnik
   (file-name-as-directory user-emacs-directory)
-  "Absolute path of emacs.d directory.")
+  "Absolute name of emacs.d directory.")
 
 (defconst modules-d/ttybitnik
   (concat emacs-d/ttybitnik (file-name-as-directory "modules"))
-  "Absolute path of modules directory.")
+  "Absolute name of modules directory.")
 
 (defconst local-d/ttybitnik
   (concat user-emacs-directory (file-name-as-directory "local"))
-  "Absolute path of local directory.")
+  "Absolute name of local directory.")
 
 (defconst img-d/ttybitnik
   (concat user-emacs-directory (file-name-as-directory "img"))
-  "Absolute path of img directory.")
+  "Absolute name of img directory.")
 
 (defconst auth-d/ttybitnik
   (concat user-emacs-directory (file-name-as-directory ".auth"))
-  "Absolute path of .auth directory.")
+  "Absolute name of .auth directory.")
 
 (defconst projects-d/ttybitnik
   (file-name-as-directory (getenv "TTY_GIT"))
-  "Absolute path of projects directory.")
+  "Absolute name of projects directory.")
 
 (defconst orpheusmx-d/ttybitnik
   (file-name-as-directory "~/Remote/orpheus/gnu-emacs")
-  "Absolute path of Emacs directory inside Orpheus.")
+  "Absolute name of Emacs directory inside Orpheus.")
 
 (defvar skip-refresh/ttybitnik nil
   "Optimize `package-refresh-contents' in `require-package'.")
