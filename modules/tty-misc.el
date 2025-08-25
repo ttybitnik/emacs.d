@@ -29,7 +29,15 @@
   "Reload `user-init-file'."
   (interactive)
   (load user-init-file)
-  (load (expand-file-name "switcher.el" local-d/ttybitnik)))
+  (load-maybe-switcher/ttybitnik))
+
+(defun load-maybe-switcher/ttybitnik ()
+  "Load `local/switcher.el' if it exists."
+  (let ((switcher-file (expand-file-name "switcher.el" local-d/ttybitnik)))
+    (if (f-file? switcher-file)
+	(load switcher-file)
+      (warn "Switcher file not found: `%s'. Run `switcher' script to fix it."
+	    switcher-file))))
 
 (defun twtxt-entry/ttybitnik ()
   "Visit the twtxt.txt file and insert the current time.

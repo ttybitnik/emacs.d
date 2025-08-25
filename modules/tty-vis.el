@@ -31,7 +31,7 @@ and `local/switcher-night.el' files."
 
 ;;* Main:
 
-(load-file (expand-file-name "switcher.el" local-d/ttybitnik))
+(load-maybe-switcher/ttybitnik)
 
 (setq inhibit-startup-message t)
 ;; (setq visible-bell t)
