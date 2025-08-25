@@ -468,6 +468,15 @@ respects buffer narrowing."
 
 ;;* Appearance:
 
+;; FIXME: Find out why the right side is not rendering properly.
+(defface org-link-id/ttybitnik '((t :inherit org-link
+				    :underline nil
+				    :box (:line-width -1 :style nil)))
+  "Face for `org-mode' internal links (starting with id)."
+  :group 'org-faces)
+
+(org-link-set-parameters "id" :face 'org-link-id/ttybitnik)
+
 
 (provide 'tty-org)
 
