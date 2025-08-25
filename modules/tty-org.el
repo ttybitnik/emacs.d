@@ -23,7 +23,7 @@
   (concat roam-d/ttybitnik (file-name-as-directory "agenda"))
   "Absolute name of `org-agenda' directory inside Orpheus.")
 
-(defvar-local org-anchor-auto-id nil
+(defvar-local org-anchor-auto-id/ttybitnik nil
   "Non-nil means auto-generate CUSTOM_ID property in `org-mode' headings.
 If non-nil, allow `org-anchor-update-heading/ttybitnik' to update
 CUSTOM_ID properties on save or interactively.")
@@ -171,12 +171,12 @@ Replace all non-alphanumeric sequences with hyphens and trim edges."
 
 (defun org-anchor-update-heading/ttybitnik (&optional pom)
   "Update CUSTOM_ID property for `org-mode' heading.
-Only when `org-anchor-auto-id' is non-nil.  When called interactively,
-operate on heading at point.  When called non-interactively, operate at
-POM or default to `point'."
+Only when `org-anchor-auto-id/ttybitnik' is non-nil.  When called
+interactively, operate on heading at point.  When called
+non-interactively, operate at POM or default to `point'."
   (interactive)
   (when (and (derived-mode-p 'org-mode)
-             (bound-and-true-p org-anchor-auto-id))
+             (bound-and-true-p org-anchor-auto-id/ttybitnik))
     (org-with-point-at (or pom (point))
       (let* ((heading (org-get-heading t t t t))
 	     (id (org-anchor--normalize-heading-to-id/ttybitnik heading)))
@@ -185,11 +185,11 @@ POM or default to `point'."
 
 (defun org-anchor-update-buffer/ttybitnik ()
   "Update CUSTOM_ID property for all `org-mode' headings in current buffer.
-Only when `org-anchor-auto-id' is non-nil.  This function respects
-buffer narrowing."
+Only when `org-anchor-auto-id/ttybitnik' is non-nil.  This function
+respects buffer narrowing."
   (interactive)
   (when (and (derived-mode-p 'org-mode)
-             (bound-and-true-p org-anchor-auto-id))
+             (bound-and-true-p org-anchor-auto-id/ttybitnik))
     (org-map-entries 'org-anchor-update-heading/ttybitnik)))
 
 ;;* Main:
@@ -343,11 +343,11 @@ buffer narrowing."
 			    (not (level 2)))
 		      ((org-ql-block-header "Projects next tasks:")
 		       (org-agenda-files '(,(agenda-helper "project.org")))))
-	(org-ql-block '(and (todo "TODO")
-			    (not (children))
-			    (not (level 2)))
-		      ((org-ql-block-header "Projects subtasks:")
-		       (org-agenda-files '(,(agenda-helper "project.org")))))
+	;; (org-ql-block '(and (todo "TODO")
+	;; 		    (not (children))
+	;; 		    (not (level 2)))
+	;; 	      ((org-ql-block-header "Projects subtasks:")
+	;; 	       (org-agenda-files '(,(agenda-helper "project.org")))))
 	(org-ql-block '(and (todo "NEXT")
 			    (not (parent (todo)))
 			    (not (children)))
