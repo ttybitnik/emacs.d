@@ -18,6 +18,9 @@
 
 ;;* Variables:
 
+(defvar config-reloaded-p/ttybitnik nil
+  "Whether `config-reload/ttybitnik' has been executed.")
+
 ;;* Functions:
 
 (defun config-visit/ttybitnik ()
@@ -28,6 +31,7 @@
 (defun config-reload/ttybitnik ()
   "Reload `user-init-file'."
   (interactive)
+  (setq config-reloaded-p/ttybitnik t)
   (load user-init-file)
   (load-maybe-switcher/ttybitnik))
 

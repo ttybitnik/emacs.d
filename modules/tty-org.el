@@ -429,6 +429,9 @@ respects buffer narrowing."
           (org-agenda-fontify-priorities nil)
           (org-agenda-remove-tags t)))))
 
+(unless config-reloaded-p/ttybitnik
+  (pomodoro/ttybitnik))
+
 ;;* Bindings:
 
 (define-key org-agenda-mode-map (kbd "n") 'org-agenda-binding-next/ttybitnik)
