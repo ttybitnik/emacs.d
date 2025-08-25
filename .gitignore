@@ -28,3 +28,8 @@ session*
 /.auth/
 /org-clock-save.el
 /bbdb
+
+# Symlinks
+**/*@
+# Internal symlinks
+local/switcher.el
