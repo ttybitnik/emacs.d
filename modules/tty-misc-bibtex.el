@@ -28,9 +28,13 @@
 
 ;;* Main:
 
-(setq bibtex-completion-bibliography '("~/Remote/prometheus/bibliography/general.bib"))
-(setq bibtex-completion-library-path  '("~/Remote/prometheus/biblioteca/"))
-(setq bibtex-completion-notes-path "~/Remote/orpheus/gnu-emacs/org-roam/ref/")
+(setq bibtex-completion-bibliography
+      `(,(expand-file-name "bibliography/general.bib" prometheus-d/ttybitnik)))
+(setq bibtex-completion-library-path
+      `(,(expand-file-name (file-name-as-directory "biblioteca")
+			   prometheus-d/ttybitnik)))
+(setq bibtex-completion-notes-path
+      (expand-file-name (file-name-as-directory "org-roam/ref")))
 (setq bibtex-completion-pdf-extension '(".pdf" ".epub" ".mobi")) ;; experimental
 (setq bibtex-completion-pdf-field "file")
 (setq bibtex-completion-pdf-symbol "P")

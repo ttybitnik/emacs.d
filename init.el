@@ -29,31 +29,39 @@
 ;;* Variables:
 
 (defconst emacs-d/ttybitnik
-  (file-name-as-directory user-emacs-directory)
+  (expand-file-name user-emacs-directory)
   "Absolute name of emacs.d directory.")
 
 (defconst modules-d/ttybitnik
-  (concat emacs-d/ttybitnik (file-name-as-directory "modules"))
+  (expand-file-name (file-name-as-directory "modules") emacs-d/ttybitnik)
   "Absolute name of modules directory.")
 
 (defconst local-d/ttybitnik
-  (concat user-emacs-directory (file-name-as-directory "local"))
+  (expand-file-name (file-name-as-directory "local") emacs-d/ttybitnik)
   "Absolute name of local directory.")
 
 (defconst img-d/ttybitnik
-  (concat user-emacs-directory (file-name-as-directory "img"))
+  (expand-file-name (file-name-as-directory "img") emacs-d/ttybitnik)
   "Absolute name of img directory.")
 
 (defconst auth-d/ttybitnik
-  (concat user-emacs-directory (file-name-as-directory ".auth"))
+  (expand-file-name (file-name-as-directory ".auth") emacs-d/ttybitnik)
   "Absolute name of .auth directory.")
 
 (defconst projects-d/ttybitnik
-  (file-name-as-directory (getenv "TTY_GIT"))
+  (expand-file-name (file-name-as-directory (getenv "TTY_GIT")))
   "Absolute name of projects directory.")
 
+(defconst orpheus-d/ttybitnik
+  (expand-file-name (file-name-as-directory (getenv "TTY_ORPHEUS")))
+  "Absolute name of Orpheus directory.")
+
+(defconst prometheus-d/ttybitnik
+  (expand-file-name (file-name-as-directory (getenv "TTY_PROMETHEUS")))
+  "Absolute name of Prometheus directory.")
+
 (defconst orpheusmx-d/ttybitnik
-  (file-name-as-directory "~/Remote/orpheus/gnu-emacs")
+  (expand-file-name (file-name-as-directory "gnu-emacs") orpheus-d/ttybitnik)
   "Absolute name of Emacs directory inside Orpheus.")
 
 (defvar skip-refresh/ttybitnik nil
