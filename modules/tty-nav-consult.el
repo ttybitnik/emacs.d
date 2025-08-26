@@ -20,6 +20,11 @@
 
 (setq consult-narrow-key "<")
 
+(unless config-reloaded-p/ttybitnik
+  (setq consult-ripgrep-args (concat consult-ripgrep-args
+				     " --hidden"
+				     " --glob !.git/")))
+
 ;;* Bindings:
 
 (global-set-key (kbd "C-s") 'consult-line)
