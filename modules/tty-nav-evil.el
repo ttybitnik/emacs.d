@@ -21,6 +21,7 @@
 (require-package 'evil-surround)
 (require-package 'evil-cleverparens)
 (require-package 'general)
+(require-package 'goto-chg)
 
 ;;* Variables:
 
