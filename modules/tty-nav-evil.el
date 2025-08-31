@@ -141,7 +141,7 @@
   "c" 'org-capture
   "d" 'dashboard-open
   "gg" 'gnus-other-frame
-  "h" 'easy-hugo
+  "hh" 'easy-hugo
   "ii" 'erc-login/ttybitnik
   "ib" 'erc-track-switch-buffer
   "id" 'erc-minimal-distraction/ttybitnik
@@ -154,13 +154,27 @@
   "ll" 'org-insert-last-stored-link
   ;; C-x
   "s" 'save-buffer
+  "xs" 'save-some-buffers
   "j" 'dired-jump
   "b" 'consult-buffer
   "k" 'kill-current-buffer
   "e" 'eval-last-sexp
   "pp" 'project-switch-project
   "pc" 'project-compile
-  "pf" 'project-find-file)
+  "pf" 'project-find-file
+  "pk" 'project-kill-buffers
+  "pb" 'consult-project-buffer ;; enhanced `project-switch-to-buffer'
+  "pd" 'project-display-buffer
+  ;; C-h
+  "hi" 'info
+  "ho" 'describe-symbol
+  "hv" 'describe-variable
+  "hf" 'describe-function
+  "hp" 'describe-package
+  "hw" 'where-is
+  "he" 'view-echo-area-messages
+  "hn" 'view-emacs-news
+)
 
 ;; Bindings for `org-agenda-mode' as `evil-collection' doesn't provide any.
 ;; TODO: Maybe submit this upstream if there's interest.
