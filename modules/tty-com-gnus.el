@@ -35,6 +35,7 @@
 (setq gnus-auto-select-subject 'best)
 (setq gnus-keep-same-level t)
 (setq gnus-search-use-parsed-queries t)
+(setq gnus-message-archive-group '((format-time-string "sent.%Y")))
 
 (setq gnus-agent-article-alist-save-format 1)
 (setq gnus-agent-cache t)
@@ -47,6 +48,7 @@
 (setq gnus-agent-queue-mail t)
 (setq gnus-agent-synchronize-flags nil)
 
+(setq mail-user-agent 'gnus-user-agent)
 (setq mm-verify-option 'always)
 (setq mm-decrypt-option 'always)
 (setq mm-sign-option 'guided)
