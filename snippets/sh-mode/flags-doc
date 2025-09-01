@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: flags doc
-# key: <f
-# --
-# FLAGS(${1:command}): ${2:short}=${3:long}

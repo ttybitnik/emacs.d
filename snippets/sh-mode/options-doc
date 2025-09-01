@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: options doc
+# key: <o
+# --
+# OPT(${1:command}): ${2:short}=${3:long}
