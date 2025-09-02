@@ -12,6 +12,7 @@
 ;; (setq message-citation-line-function nil)
 ;; (setq message-ignored-cited-headers nil)
 ;; (setq gnus-save-newsrc-file nil)
+;; (setq gnus-message-archive-group '((format-time-string "sent.%Y")))
 
 ;;; Code:
 
@@ -35,7 +36,7 @@
 (setq gnus-auto-select-subject 'best)
 (setq gnus-keep-same-level t)
 (setq gnus-search-use-parsed-queries t)
-(setq gnus-message-archive-group '((format-time-string "sent.%Y")))
+(setq gnus-message-archive-group nil)
 
 (setq gnus-agent-article-alist-save-format 1)
 (setq gnus-agent-cache t)
