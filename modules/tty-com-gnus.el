@@ -131,6 +131,7 @@
 (add-hook 'gnus-group-mode-hook 'hl-line-mode)
 (add-hook 'gnus-summary-mode-hook 'hl-line-mode)
 (add-hook 'gnus-browse-mode-hook 'hl-line-mode)
+(add-hook 'message-mode-hook 'epa-mail-mode)
 
 ;;* Appearance:
 
