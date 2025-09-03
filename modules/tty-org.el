@@ -403,6 +403,34 @@ respects buffer narrowing."
 			    (ts :to -30))
 		      ((org-ql-block-header "Tasks to archive:")))))
 
+(setq org-custom-agenda-print/ttybitnik
+      `((agenda "" ((org-agenda-span 3)))
+	(org-ql-block '(and  (todo)
+			     (children)
+			     (not (todo "WAIT" "NEXT"))
+			     (not (children (todo "NEXT"))))
+		      ((org-ql-block-header "Stuck projects:")))
+	(org-ql-block '(and  (todo)
+			     (children (todo "NEXT")))
+		      ((org-ql-block-header "Projects:")
+		       (org-agenda-files '(,(agenda-helper "project.org")))))
+	(org-ql-block '(and (todo "NEXT")
+			    (not (level 2)))
+		      ((org-ql-block-header "Projects next tasks:")
+		       (org-agenda-files '(,(agenda-helper "project.org")))))
+	(org-ql-block '(and (todo "NEXT")
+			    (not (parent (todo)))
+			    (not (children)))
+		      ((org-ql-block-header "Next tasks:")))
+	(org-ql-block '(and (todo "TODO")
+			    (not (parent (todo)))
+			    (not (children)))
+		      ((org-ql-block-header "Standalone tasks:")
+		       (org-agenda-files '(,(agenda-helper "task.org")))))
+	(org-ql-block '(and (todo)
+			    (not (todo "TODO" "NEXT")))
+		      ((org-ql-block-header "Waiting and postponed tasks:")))))
+
 (setq org-agenda-custom-commands
       `(("n" "Agenda for general view"
 	 ,org-custom-agenda/ttybitnik)
@@ -421,11 +449,10 @@ respects buffer narrowing."
 	("g" "Agenda for organizing the week (GTD)"
 	 ,org-custom-agenda-gtd/ttybitnik)
 	("P" "Printed version of agenda"
-	 ,org-custom-agenda/ttybitnik
+	 ,org-custom-agenda-print/ttybitnik
 	 ((org-agenda-with-colors nil)
 	  (org-agenda-start-with-log-mode nil)
-          (org-agenda-prefix-format "%t %s")
-          (org-agenda-current-time-string ,(car (last org-agenda-time-grid)))
+	  (org-agenda-current-time-string ,(car (last org-agenda-time-grid)))
           (org-agenda-fontify-priorities nil)
           (org-agenda-remove-tags t)))))
 
