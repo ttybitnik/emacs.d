@@ -98,8 +98,10 @@ and designed for use with the omni script from my dotfiles repository."
 ;;* Main:
 
 ;; (setq-default show-trailing-whitespace t)
-
 (setq-default require-final-newline t)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+
 (setq kill-ring-max 100)
 (setq tramp-default-method "ssh")
 (setq enable-remote-dir-locals t)
