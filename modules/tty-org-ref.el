@@ -8,7 +8,8 @@
 
 (require-package 'org-ref)
 (require 'org)
-;; (require 'helm-bibtex)
+;; TODO: Perhaps use citar instead.
+;; (require-package 'citar)
 
 ;;* Variables:
 
