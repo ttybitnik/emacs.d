@@ -10,9 +10,27 @@
 
 * Sprint issues
 
+# Briefly describe the problem in one paragraph. See video.
+
 ** Research phase
 
 ** Best option for the current scenario
+
+*** Decision Matrix
+
+| Criteria | Alternative | Alternative | Alternative | Notes |
+|----------+-------------+-------------+-------------+-------|
+|          |             |             |             |       |
+|          |             |             |             |       |
+|          |             |             |             |       |
+|          |             |             |             |       |
+|          |             |             |             |       |
+
+Legend:
+  - Baseline :: No significant advantage or drawback.
+  - *Advantage* :: Positive/desirable trait (e.g., *fast execution*).
+  - /Challenge/ :: Negative aspect (e.g., /high cost/).
+  - ~Blocking~ :: Critical flaw (e.g., ~no API support~).
 
 ** Implementation process
 
