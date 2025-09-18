@@ -22,10 +22,14 @@
   (eglot-ensure)
   (turn-on-haskell-indentation)
   (haskell-auto-insert-module-template)
-  (interactive-haskell-mode))
-
+  (interactive-haskell-mode)
+  (haskell-format-on-save-mode))
 
 ;;* Main:
+
+(reformatter-define haskell-format
+  :program "ormolu"
+  :mode t)
 
 ;;* Bindings:
 

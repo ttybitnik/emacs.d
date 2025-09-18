@@ -18,13 +18,22 @@
   "Set up `c-mode' hooks."
   (yas-minor-mode)
   (flymake-mode)
-  (eglot-ensure))
+  (eglot-ensure)
+  (c-format-on-save-mode))
 
 ;;* Main:
 
-(setq c-default-style '((java-mode . "java")
-			(awk-mode . "awk")
-			(other . "linux")))
+(reformatter-define c-format
+  :program "clang-format"
+  :args `(,(concat "-style="
+                   (expand-file-name "linux-kernel.clang-format"
+                                     local-d/ttybitnik)))
+  :mode t)
+
+(setq c-default-style
+      '((java-mode . "java")
+		(awk-mode . "awk")
+		(other . "linux")))
 
 ;;* Bindings:
 

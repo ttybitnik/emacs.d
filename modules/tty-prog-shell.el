@@ -7,7 +7,6 @@
 ;;; Code:
 
 (require 'sh-script)
-(require-package 'shfmt)
 
 ;;* Variables:
 
@@ -17,17 +16,19 @@
   "Set up `sh-mode' hooks."
   (yas-minor-mode)
   (flymake-mode)
-  (shfmt-on-save-mode)
-  (eglot-ensure))
+  (eglot-ensure)
+  (sh-format-on-save-mode))
 
 ;;* Main:
 
-(setq shfmt-arguments '("--func-next-line"
-			"--binary-next-line"
-			"--case-indent"
-			"--keep-padding"))
-
-(setq shfmt-respect-sh-basic-offset t)
+(reformatter-define sh-format
+  :program "shfmt"
+  :args `("--indent" ,(number-to-string sh-basic-offset)
+          "--func-next-line"
+          "--binary-next-line"
+          "--case-indent"
+          "--keep-padding")
+  :mode t)
 
 ;;* Bindings:
 

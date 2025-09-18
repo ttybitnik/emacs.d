@@ -20,6 +20,9 @@
 
 ;;* Main:
 
+;; Seems like `reformatter' is not necessary.
+(setq rust-format-on-save t)
+
 ;;* Bindings:
 
 ;;* Hooks:

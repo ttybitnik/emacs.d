@@ -16,9 +16,15 @@
   "Set up `python-mode' hooks."
   (yas-minor-mode)
   (flymake-mode)
-  (eglot-ensure))
+  (eglot-ensure)
+  (python-format-on-save-mode))
 
 ;;* Main:
+
+(reformatter-define python-format
+  :program "black"
+  :args '("-")
+  :mode t)
 
 (setq python-shell-interpreter "python3")
 

@@ -12,6 +12,7 @@
 
 (require 'tty-prog-eglot)
 (require 'tty-prog-flymake)
+(require 'tty-prog-reformatter)
 (require 'tty-prog-tree-sitter)
 (require 'tty-prog-yasnippet)
 

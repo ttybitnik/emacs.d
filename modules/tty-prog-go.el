@@ -17,9 +17,13 @@
   (yas-minor-mode)
   (flymake-mode)
   (eglot-ensure)
-  (add-hook 'before-save-hook 'gofmt-before-save nil t))
+  (go-format-on-save-mode))
 
 ;;* Main:
+
+(reformatter-define go-format
+  :program "goimports"
+  :mode t)
 
 (setq gofmt-command "goimports")
 (setq lsp-go-analyses

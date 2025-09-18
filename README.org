@@ -189,6 +189,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-prog-markdown.el
       │   ├── tty-prog-nix.el
       │   ├── tty-prog-python.el
+      │   ├── tty-prog-reformatter.el
       │   ├── tty-prog-rust.el
       │   ├── tty-prog-scheme.el
       │   ├── tty-prog-shell.el
