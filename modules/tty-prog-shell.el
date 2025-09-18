@@ -22,6 +22,13 @@
 
 ;;* Main:
 
+(setq shfmt-arguments '("--func-next-line"
+			"--binary-next-line"
+			"--case-indent"
+			"--keep-padding"))
+
+(setq shfmt-respect-sh-basic-offset t)
+
 ;;* Bindings:
 
 ;;* Hooks:
