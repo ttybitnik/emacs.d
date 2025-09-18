@@ -28,12 +28,12 @@
 (setq gofmt-command "goimports")
 (setq lsp-go-analyses
       '((fieldalignment . t)
-	(nilness . t)
-	(shadow . t)
-	(unusedwrite . t)
-	(unusedparams . t)
-	(unusedvariable . t)
-	(useany . t)))
+	    (nilness . t)
+	    (shadow . t)
+	    (unusedwrite . t)
+	    (unusedparams . t)
+	    (unusedvariable . t)
+	    (useany . t)))
 
 (add-to-list 'exec-path "~/.go/bin/")
 

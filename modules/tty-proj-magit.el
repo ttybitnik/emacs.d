@@ -34,11 +34,11 @@ If FORCE is non-nil, this function will proceed without prompting the user."
              t
            (y-or-n-p "No type/scope defined.  Commit anyway?"))
          (if (re-search-forward
-	      (rx-to-string '(seq
-			      (one-or-more (not whitespace))
-			      eol))
-	      nil t)
-	     t
+	          (rx-to-string '(seq
+			                  (one-or-more (not whitespace))
+			                  eol))
+	          nil t)
+	         t
            (y-or-n-p "No description after type/scope.  Commit anyway?"))))))
 
 ;;* Main:
@@ -47,7 +47,7 @@ If FORCE is non-nil, this function will proceed without prompting the user."
 (setq git-commit-summary-max-length 50)
 
 (add-to-list 'git-commit-finish-query-functions
-	     #'magit-query-conventional-commit/ttybitnik)
+	         #'magit-query-conventional-commit/ttybitnik)
 
 ;;* Bindings:
 

@@ -121,7 +121,7 @@ Otherwise, call it interactively with \\[pomodoro/ttybitnik]."
          (title-message "Pomodoro 🍅")
          (duration-message (format "Timer: %d minutes" session-duration))
          (break-message (format "Break: %d minutes" session-break))
-	 (over-message "Break time is up!"))
+	     (over-message "Break time is up!"))
     (notifications-notify
      :title title-message
      :body duration-message
@@ -138,15 +138,15 @@ Otherwise, call it interactively with \\[pomodoro/ttybitnik]."
                       (org-capture nil "t")
                       (insert "Pomodoro break 🍅")))
     (run-with-timer (* (+ session-duration session-break) 60) nil
-		    (lambda ()
-		      (notifications-notify
-		       :title title-message
-		       :body over-message
-		       :urgency 'normal)
+		            (lambda ()
+		              (notifications-notify
+		               :title title-message
+		               :body over-message
+		               :urgency 'normal)
                       (message "Pomodoro. %s" over-message)
-		      (call-process-shell-command
-		       "paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
-		       nil 0)))
+		              (call-process-shell-command
+		               "paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
+		               nil 0)))
     (message "Pomodoro. %s" duration-message)))
 
 (defun org-agenda-binding-next/ttybitnik ()
@@ -179,9 +179,9 @@ non-interactively, operate at POM or default to `point'."
              (bound-and-true-p org-anchor-auto-id/ttybitnik))
     (org-with-point-at (or pom (point))
       (let* ((heading (org-get-heading t t t t))
-	     (id (org-anchor--normalize-heading-to-id/ttybitnik heading)))
-	(org-entry-put (or pom (point)) "CUSTOM_ID" id)
-	id))))
+	         (id (org-anchor--normalize-heading-to-id/ttybitnik heading)))
+	    (org-entry-put (or pom (point)) "CUSTOM_ID" id)
+	    id))))
 
 (defun org-anchor-update-buffer/ttybitnik ()
   "Update CUSTOM_ID property for all `org-mode' headings in current buffer.
@@ -195,11 +195,11 @@ respects buffer narrowing."
 ;;* Main:
 
 (setq org-duration-units `(("min" . 1)
-			   ("h" . 60)
-			   ("d" . ,(* 60 8))
-			   ("w" . ,(* 60 8 5))
-			   ("m" . ,(* 60 8 5 4))
-			   ("y" . ,(* 60 8 5 4 10))))
+			               ("h" . 60)
+			               ("d" . ,(* 60 8))
+			               ("w" . ,(* 60 8 5))
+			               ("m" . ,(* 60 8 5 4))
+			               ("y" . ,(* 60 8 5 4 10))))
 
 (setq org-priority-start-cycle-with-default nil)
 (setq org-src-preserve-indentation t)
@@ -214,82 +214,82 @@ respects buffer narrowing."
 (setq org-src-window-setup 'reorganize-frame)
 (setq org-babel-python-command "python3")
 (setq org-refile-targets '((nil :maxlevel . 1)
-			   (org-agenda-files :maxlevel . 1)))
+			               (org-agenda-files :maxlevel . 1)))
 (setq org-agenda-files `(,(concat agenda-d/ttybitnik)))
 
 (setq org-tag-alist '((:startgroup)
-		      ("@home" . ?h)
-		      ("@computer" . ?c)
-		      ("@kindle" . ?k)
-		      ("@cellphone" . ?r)
-		      ("@office" . ?o)
-		      ("@errands" . ?i)
+		              ("@home" . ?h)
+		              ("@computer" . ?c)
+		              ("@kindle" . ?k)
+		              ("@cellphone" . ?r)
+		              ("@office" . ?o)
+		              ("@errands" . ?i)
                       (:endgroup)
-		      ("@persons" . ?n)
-		      (:newline)
-		      (:startgrouptag)
-		      ("computing" . ?C)
-		      (:grouptags)
-		      ("emacs" . ?e)
-		      ("github" . ?g)
-		      ("homelab" . ?l)
-		      ("programming" . ?p)
-		      ("website" . ?s)
-		      (:endgrouptag)
-		      (:startgrouptag)
-		      ("personal" . ?P)
-		      (:grouptags)
-		      ("humanities" . ?u)
-		      ("dreams" . ?d)
-		      ("books" . ?v)
-		      ("socials" . ?m)
-		      ("blog" . ?b)
-		      ("organizing" . ?z)
-		      (:endgrouptag)
-		      (:startgrouptag)
-		      ("professional" . ?W)
-		      (:grouptags)
-		      ("translation" . ?t)
-		      ("work" . ?w)
-		      (:endgrouptag)
-		      ("FLAGGED" . ?F)))
+		              ("@persons" . ?n)
+		              (:newline)
+		              (:startgrouptag)
+		              ("computing" . ?C)
+		              (:grouptags)
+		              ("emacs" . ?e)
+		              ("github" . ?g)
+		              ("homelab" . ?l)
+		              ("programming" . ?p)
+		              ("website" . ?s)
+		              (:endgrouptag)
+		              (:startgrouptag)
+		              ("personal" . ?P)
+		              (:grouptags)
+		              ("humanities" . ?u)
+		              ("dreams" . ?d)
+		              ("books" . ?v)
+		              ("socials" . ?m)
+		              ("blog" . ?b)
+		              ("organizing" . ?z)
+		              (:endgrouptag)
+		              (:startgrouptag)
+		              ("professional" . ?W)
+		              (:grouptags)
+		              ("translation" . ?t)
+		              ("work" . ?w)
+		              (:endgrouptag)
+		              ("FLAGGED" . ?F)))
 
 (setq org-capture-templates
       `(("t" "Task" entry
-	 (file+headline
-	  ,(agenda-helper "refile.org") "Tasks")
-	 (file ,(org-capture-helper "task-template.org"))
-	 :clock-in t :clock-resume t)
-	("p" "Project" entry
-	 (file+headline
-	  ,(agenda-helper "refile.org") "Projects")
-	 (file ,(org-capture-helper "project-template.org"))
-	 :clock-in t :clock-resume t)
-	("m" "Meeting" entry
-	 (file+headline
- 	  ,(agenda-helper "refile.org") "Meetings")
-	 (file ,(org-capture-helper "meeting-template.org"))
-	 :clock-in t :clock-resume t)
-	("n" "Note" entry
-	 (file+headline
- 	  ,(agenda-helper "refile.org") "Notes")
-	 (file ,(org-capture-helper "note-template.org"))
-	 :clock-in t :clock-resume t)
-	("j" "Journal" entry
-	 (file+olp+datetree ,(agenda-helper "journal.org"))
-	 (file ,(org-capture-helper "journal-template.org"))
-	 :clock-in t :clock-resume t)))
+	     (file+headline
+	      ,(agenda-helper "refile.org") "Tasks")
+	     (file ,(org-capture-helper "task-template.org"))
+	     :clock-in t :clock-resume t)
+	    ("p" "Project" entry
+	     (file+headline
+	      ,(agenda-helper "refile.org") "Projects")
+	     (file ,(org-capture-helper "project-template.org"))
+	     :clock-in t :clock-resume t)
+	    ("m" "Meeting" entry
+	     (file+headline
+ 	      ,(agenda-helper "refile.org") "Meetings")
+	     (file ,(org-capture-helper "meeting-template.org"))
+	     :clock-in t :clock-resume t)
+	    ("n" "Note" entry
+	     (file+headline
+ 	      ,(agenda-helper "refile.org") "Notes")
+	     (file ,(org-capture-helper "note-template.org"))
+	     :clock-in t :clock-resume t)
+	    ("j" "Journal" entry
+	     (file+olp+datetree ,(agenda-helper "journal.org"))
+	     (file ,(org-capture-helper "journal-template.org"))
+	     :clock-in t :clock-resume t)))
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "NEXT(n)" "WAIT(h@)"
-		  "|" "MEET(m)" "DONE(d)" "CANCELED(c@/!)")))
+		          "|" "MEET(m)" "DONE(d)" "CANCELED(c@/!)")))
 
 (org-babel-do-load-languages 'org-babel-load-languages
-			     '((emacs-lisp . t)
-			       (shell . t)
-			       (python . t)
-			       (C . t)
-			       (plantuml . t)))
+			                 '((emacs-lisp . t)
+			                   (shell . t)
+			                   (python . t)
+			                   (C . t)
+			                   (plantuml . t)))
 
 ;; (setq org-agenda-window-setup 'current-window)
 (setq org-agenda-start-on-weekday 0)
@@ -324,135 +324,135 @@ respects buffer narrowing."
       (quote (:link t :maxlevel 5 :fileskip0 t :compact t :narrow 80)))
 (setq org-agenda-clock-consistency-checks
       (quote (:max-duration "4:00"
-              :min-duration 0
-              :max-gap 0
-              :gap-ok-around ("4:00"))))
+                            :min-duration 0
+                            :max-gap 0
+                            :gap-ok-around ("4:00"))))
 
 (setq org-custom-agenda/ttybitnik
       `((agenda "" ((org-agenda-span 3)))
-	(org-ql-block '(and  (todo)
-			     (children)
-			     (not (todo "WAIT" "NEXT"))
-			     (not (children (todo "NEXT"))))
-		      ((org-ql-block-header "Stuck projects:")))
-	(org-ql-block '(and  (todo)
-			     (children (todo "NEXT")))
-		      ((org-ql-block-header "Projects:")
-		       (org-agenda-files '(,(agenda-helper "project.org")))))
-	(org-ql-block '(and (todo "NEXT")
-			    (not (level 2)))
-		      ((org-ql-block-header "Projects next tasks:")
-		       (org-agenda-files '(,(agenda-helper "project.org")))))
-	;; (org-ql-block '(and (todo "TODO")
-	;; 		    (not (children))
-	;; 		    (not (level 2)))
-	;; 	      ((org-ql-block-header "Projects subtasks:")
-	;; 	       (org-agenda-files '(,(agenda-helper "project.org")))))
-	(org-ql-block '(and (todo "NEXT")
-			    (not (parent (todo)))
-			    (not (children)))
-		      ((org-ql-block-header "Next tasks:")))
-	(org-ql-block '(and (todo "TODO")
-			    (not (parent (todo)))
-			    (not (children)))
-		      ((org-ql-block-header "Standalone tasks:")
-		       (org-agenda-files '(,(agenda-helper "task.org")))))
-	(org-ql-block '(and (todo)
-			    (not (todo "TODO" "NEXT")))
-		      ((org-ql-block-header "Waiting and postponed tasks:")))
-	(org-ql-block '(and (parent (heading "Someday"))
-			    (todo "TODO"))
-		      ((org-ql-block-header "Stuck tasks (someday):")
-		       (org-agenda-files '(,(agenda-helper "someday.org")))))))
+	    (org-ql-block '(and  (todo)
+			                 (children)
+			                 (not (todo "WAIT" "NEXT"))
+			                 (not (children (todo "NEXT"))))
+		              ((org-ql-block-header "Stuck projects:")))
+	    (org-ql-block '(and  (todo)
+			                 (children (todo "NEXT")))
+		              ((org-ql-block-header "Projects:")
+		               (org-agenda-files '(,(agenda-helper "project.org")))))
+	    (org-ql-block '(and (todo "NEXT")
+			                (not (level 2)))
+		              ((org-ql-block-header "Projects next tasks:")
+		               (org-agenda-files '(,(agenda-helper "project.org")))))
+	    ;; (org-ql-block '(and (todo "TODO")
+	    ;; 		    (not (children))
+	    ;; 		    (not (level 2)))
+	    ;; 	      ((org-ql-block-header "Projects subtasks:")
+	    ;; 	       (org-agenda-files '(,(agenda-helper "project.org")))))
+	    (org-ql-block '(and (todo "NEXT")
+			                (not (parent (todo)))
+			                (not (children)))
+		              ((org-ql-block-header "Next tasks:")))
+	    (org-ql-block '(and (todo "TODO")
+			                (not (parent (todo)))
+			                (not (children)))
+		              ((org-ql-block-header "Standalone tasks:")
+		               (org-agenda-files '(,(agenda-helper "task.org")))))
+	    (org-ql-block '(and (todo)
+			                (not (todo "TODO" "NEXT")))
+		              ((org-ql-block-header "Waiting and postponed tasks:")))
+	    (org-ql-block '(and (parent (heading "Someday"))
+			                (todo "TODO"))
+		              ((org-ql-block-header "Stuck tasks (someday):")
+		               (org-agenda-files '(,(agenda-helper "someday.org")))))))
 
 (setq org-custom-agenda-gtd/ttybitnik
       `((agenda "" ((org-agenda-span 14)
-		    (org-agenda-start-on-weekday nil)))
-	(org-ql-block '(and (todo "MEET")
-			    (level 2))
-		      ((org-ql-block-header "Meetings to refile:")
-		       (org-agenda-files '(,(agenda-helper "refile.org")))))
-	(org-ql-block '(and (or (parent (heading "Projects"))
-				(parent (heading "Tasks")))
-			    (level 2)
-			    (children))
-		      ((org-ql-block-header "Projects to refile:")
-		       (org-agenda-files '(,(agenda-helper "refile.org")))))
-	(org-ql-block '(and (parent (heading "Tasks"))
-			    (level 2)
-			    (not (children)))
-		      ((org-ql-block-header "Tasks to refile:")
-		       (org-agenda-files '(,(agenda-helper "refile.org")))))
-	(org-ql-block '(and (parent (heading "Notes"))
-			    (level 2))
-		      ((org-ql-block-header "Notes to refile:")
-		       (org-agenda-files '(,(agenda-helper "refile.org")))))
-	(org-ql-block '(and  (todo)
-			     (children)
-			     (not (todo "WAIT" "NEXT"))
-			     (not (children (todo "NEXT"))))
-		      ((org-ql-block-header "Stuck projects::")))
-	(org-ql-block '(and (todo)
-			    (not (todo "TODO" "NEXT")))
-		      ((org-ql-block-header "Waiting and postponed tasks:")))
-	(org-ql-block '(and (parent (heading "Someday"))
-			    (todo "TODO"))
-		      ((org-ql-block-header "Stuck tasks (someday):")
-		       (org-agenda-files '(,(agenda-helper "someday.org")))))
-	(org-ql-block '(and (done)
-			    (ts :to -30))
-		      ((org-ql-block-header "Tasks to archive:")))))
+		            (org-agenda-start-on-weekday nil)))
+	    (org-ql-block '(and (todo "MEET")
+			                (level 2))
+		              ((org-ql-block-header "Meetings to refile:")
+		               (org-agenda-files '(,(agenda-helper "refile.org")))))
+	    (org-ql-block '(and (or (parent (heading "Projects"))
+				                (parent (heading "Tasks")))
+			                (level 2)
+			                (children))
+		              ((org-ql-block-header "Projects to refile:")
+		               (org-agenda-files '(,(agenda-helper "refile.org")))))
+	    (org-ql-block '(and (parent (heading "Tasks"))
+			                (level 2)
+			                (not (children)))
+		              ((org-ql-block-header "Tasks to refile:")
+		               (org-agenda-files '(,(agenda-helper "refile.org")))))
+	    (org-ql-block '(and (parent (heading "Notes"))
+			                (level 2))
+		              ((org-ql-block-header "Notes to refile:")
+		               (org-agenda-files '(,(agenda-helper "refile.org")))))
+	    (org-ql-block '(and  (todo)
+			                 (children)
+			                 (not (todo "WAIT" "NEXT"))
+			                 (not (children (todo "NEXT"))))
+		              ((org-ql-block-header "Stuck projects::")))
+	    (org-ql-block '(and (todo)
+			                (not (todo "TODO" "NEXT")))
+		              ((org-ql-block-header "Waiting and postponed tasks:")))
+	    (org-ql-block '(and (parent (heading "Someday"))
+			                (todo "TODO"))
+		              ((org-ql-block-header "Stuck tasks (someday):")
+		               (org-agenda-files '(,(agenda-helper "someday.org")))))
+	    (org-ql-block '(and (done)
+			                (ts :to -30))
+		              ((org-ql-block-header "Tasks to archive:")))))
 
 (setq org-custom-agenda-print/ttybitnik
       `((agenda "" ((org-agenda-span 3)))
-	(org-ql-block '(and  (todo)
-			     (children)
-			     (not (todo "WAIT" "NEXT"))
-			     (not (children (todo "NEXT"))))
-		      ((org-ql-block-header "Stuck projects:")))
-	(org-ql-block '(and  (todo)
-			     (children (todo "NEXT")))
-		      ((org-ql-block-header "Projects:")
-		       (org-agenda-files '(,(agenda-helper "project.org")))))
-	(org-ql-block '(and (todo "NEXT")
-			    (not (level 2)))
-		      ((org-ql-block-header "Projects next tasks:")
-		       (org-agenda-files '(,(agenda-helper "project.org")))))
-	(org-ql-block '(and (todo "NEXT")
-			    (not (parent (todo)))
-			    (not (children)))
-		      ((org-ql-block-header "Next tasks:")))
-	(org-ql-block '(and (todo "TODO")
-			    (not (parent (todo)))
-			    (not (children)))
-		      ((org-ql-block-header "Standalone tasks:")
-		       (org-agenda-files '(,(agenda-helper "task.org")))))
-	(org-ql-block '(and (todo)
-			    (not (todo "TODO" "NEXT")))
-		      ((org-ql-block-header "Waiting and postponed tasks:")))))
+	    (org-ql-block '(and  (todo)
+			                 (children)
+			                 (not (todo "WAIT" "NEXT"))
+			                 (not (children (todo "NEXT"))))
+		              ((org-ql-block-header "Stuck projects:")))
+	    (org-ql-block '(and  (todo)
+			                 (children (todo "NEXT")))
+		              ((org-ql-block-header "Projects:")
+		               (org-agenda-files '(,(agenda-helper "project.org")))))
+	    (org-ql-block '(and (todo "NEXT")
+			                (not (level 2)))
+		              ((org-ql-block-header "Projects next tasks:")
+		               (org-agenda-files '(,(agenda-helper "project.org")))))
+	    (org-ql-block '(and (todo "NEXT")
+			                (not (parent (todo)))
+			                (not (children)))
+		              ((org-ql-block-header "Next tasks:")))
+	    (org-ql-block '(and (todo "TODO")
+			                (not (parent (todo)))
+			                (not (children)))
+		              ((org-ql-block-header "Standalone tasks:")
+		               (org-agenda-files '(,(agenda-helper "task.org")))))
+	    (org-ql-block '(and (todo)
+			                (not (todo "TODO" "NEXT")))
+		              ((org-ql-block-header "Waiting and postponed tasks:")))))
 
 (setq org-agenda-custom-commands
       `(("n" "Agenda for general view"
-	 ,org-custom-agenda/ttybitnik)
-	("w" "Agenda for professional context"
-	 ,org-custom-agenda/ttybitnik
-	 ((org-agenda-tag-filter-preset '("+professional")))
-	 (nil))
-	("p" "Agenda for personal context"
-	 ,org-custom-agenda/ttybitnik
-	 ((org-agenda-tag-filter-preset '("+personal")))
-	 (nil))
-	("c" "Agenda for computing context"
-	 ,org-custom-agenda/ttybitnik
-	 ((org-agenda-tag-filter-preset '("+computing")))
-	 (nil))
-	("g" "Agenda for organizing the week (GTD)"
-	 ,org-custom-agenda-gtd/ttybitnik)
-	("P" "Printed version of agenda"
-	 ,org-custom-agenda-print/ttybitnik
-	 ((org-agenda-with-colors nil)
-	  (org-agenda-start-with-log-mode nil)
-	  (org-agenda-current-time-string ,(car (last org-agenda-time-grid)))
+	     ,org-custom-agenda/ttybitnik)
+	    ("w" "Agenda for professional context"
+	     ,org-custom-agenda/ttybitnik
+	     ((org-agenda-tag-filter-preset '("+professional")))
+	     (nil))
+	    ("p" "Agenda for personal context"
+	     ,org-custom-agenda/ttybitnik
+	     ((org-agenda-tag-filter-preset '("+personal")))
+	     (nil))
+	    ("c" "Agenda for computing context"
+	     ,org-custom-agenda/ttybitnik
+	     ((org-agenda-tag-filter-preset '("+computing")))
+	     (nil))
+	    ("g" "Agenda for organizing the week (GTD)"
+	     ,org-custom-agenda-gtd/ttybitnik)
+	    ("P" "Printed version of agenda"
+	     ,org-custom-agenda-print/ttybitnik
+	     ((org-agenda-with-colors nil)
+	      (org-agenda-start-with-log-mode nil)
+	      (org-agenda-current-time-string ,(car (last org-agenda-time-grid)))
           (org-agenda-fontify-priorities nil)
           (org-agenda-remove-tags t)))))
 
@@ -481,24 +481,24 @@ respects buffer narrowing."
 (add-hook 'org-mode-hook 'yas-minor-mode)
 
 (add-hook 'org-agenda-mode-hook (lambda ()
-				  (hl-line-mode)
-				  (beacon-mode nil)))
+				                  (hl-line-mode)
+				                  (beacon-mode nil)))
 
 (add-hook 'org-clock-in-hook (lambda ()
-			       (unless org-timer-countdown-timer
-				 (pomodoro/ttybitnik))))
+			                   (unless org-timer-countdown-timer
+				                 (pomodoro/ttybitnik))))
 
 (add-hook 'org-clock-out-hook 'clock-in-parent-task/bh)
 
 (advice-add 'org-refile :after (lambda (&rest _)
-				 (org-save-all-org-buffers)))
+				                 (org-save-all-org-buffers)))
 
 ;;* Appearance:
 
 ;; FIXME: Find out why the right side is not rendering properly.
 (defface org-link-id/ttybitnik '((t :inherit org-link
-				    :underline nil
-				    :box (:line-width -1 :style nil)))
+				                    :underline nil
+				                    :box (:line-width -1 :style nil)))
   "Face for `org-mode' internal links (starting with id)."
   :group 'org-faces)
 

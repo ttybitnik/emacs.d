@@ -31,8 +31,8 @@
 (setq dired-isearch-filenames 'dwim)
 (setq dired-guess-shell-alist-user
       '(("\\.\\(png\\|jpe?g\\|tiff\\)" "imv" "xdg-open")
-	("\\.\\(mp[34]\\|m4a\\|ogg\\|flac\\|webm\\|mkv\\)" "mpv" "xdg-open")
-	(".*" "xdg-open")))
+	    ("\\.\\(mp[34]\\|m4a\\|ogg\\|flac\\|webm\\|mkv\\)" "mpv" "xdg-open")
+	    (".*" "xdg-open")))
 
 (setq wdired-allow-to-change-permissions t)
 (setq wdired-create-parent-directories t)

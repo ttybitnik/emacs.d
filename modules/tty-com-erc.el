@@ -20,7 +20,7 @@
   "ERC libera.chat TLS login."
   (interactive)
   (erc-tls :server "irc.libera.chat" :port "6697"
-	   :user erc-nick :nick erc-nick))
+	       :user erc-nick :nick erc-nick))
 
 (defun erc-switch-buffer/ttybitnik (orig-fun &optional arg)
   "Move to the end of the buffer after `erc-track-switch-buffer'.
@@ -43,14 +43,14 @@ will be displayed."
            (if erc-track-priority-faces-only "enabled" "disabled")))
 
 (defun erc-suppress-generate/ttybitnik()
- "Generate a list for `erc-track-priority-faces-only'.
+  "Generate a list for `erc-track-priority-faces-only'.
 This function filters the ERC channels obtained from
 `erc-autojoin-channels-alist' and excludes channels listed in
 `erc-priority-list/ttybitnik'.  The resulting list represents
 channels that will have common messages suppressed in the mode line'."
   (seq-remove (lambda (item)
                 (member item erc-priority-list/ttybitnik))
-	      (apply #'append erc-autojoin-channels-alist)))
+	          (apply #'append erc-autojoin-channels-alist)))
 
 ;;* Main:
 
@@ -88,11 +88,11 @@ channels that will have common messages suppressed in the mode line'."
                                       erc-prompt-face))
 (setq erc-modules
       '(autoaway autojoin button completion fill irccontrols keep-place list
-		 log match menu netsplit networks noncommands notifications nicks
-		 readonly ring sasl scrolltobottom services spelling stamp track))
+		         log match menu netsplit networks noncommands notifications nicks
+		         readonly ring sasl scrolltobottom services spelling stamp track))
 (setq erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
 (setq erc-track-exclude-types '("JOIN" "PART" "NICK" "MODE" "AWAY" "QUIT"
-				"324" "329" "332" "333" "353" "477"))
+				                "324" "329" "332" "333" "353" "477"))
 
 (advice-add 'erc-track-switch-buffer :around #'erc-switch-buffer/ttybitnik)
 

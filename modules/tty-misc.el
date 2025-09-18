@@ -39,9 +39,9 @@
   "Load `local/switcher.el' if it exists."
   (let ((switcher-file (expand-file-name "switcher.el" local-d/ttybitnik)))
     (if (f-file? switcher-file)
-	(load switcher-file)
+	    (load switcher-file)
       (warn "Switcher file not found: `%s'. Run `switcher' script to fix it."
-	    switcher-file))))
+	        switcher-file))))
 
 (defun twtxt-entry/ttybitnik ()
   "Visit the twtxt.txt file and insert the current time.
@@ -49,8 +49,8 @@ This function visits the microblogging file and inserts the
 current time in ISO 8601 format, as per twtxt specification."
   (interactive)
   (let ((twtxt-file (expand-file-name "blog.backend/static/twtxt.txt"
-				      git-d/ttybitnik))
-	(time (format-time-string "%Y-%m-%dT%T%z")))
+				                      git-d/ttybitnik))
+	    (time (format-time-string "%Y-%m-%dT%T%z")))
     (find-file twtxt-file)
     (end-of-buffer)
     (insert (format "%s:%s\t" (substring time 0 -2) (substring time -2)))
@@ -70,30 +70,30 @@ reviewing changes to Emacs packages in `package-user-dir'."
 This function is intended to be executed through the GNU Bash REPL
 and designed for use with the omni script from my dotfiles repository."
   (let ((updates-p nil)
-	(packages-buffer-name "*Packages*")
-	(messages-buffer-name "*Messages*")
-	pkgs-list)
+	    (packages-buffer-name "*Packages*")
+	    (messages-buffer-name "*Messages*")
+	    pkgs-list)
     (when (get-buffer packages-buffer-name)
       (kill-buffer packages-buffer-name))
     (list-packages)
     (sleep-for 7)
     (with-current-buffer messages-buffer-name
       (save-excursion
-	(goto-char (point-max))
-	(forward-line -30)
-	(when (search-forward "Packages that can be upgraded" nil t)
-	  (setq updates-p t))))
+	    (goto-char (point-max))
+	    (forward-line -30)
+	    (when (search-forward "Packages that can be upgraded" nil t)
+	      (setq updates-p t))))
     (if updates-p
-	(progn
-	  (with-current-buffer packages-buffer-name
-	    (package-menu-filter-upgradable)
-	    (setq pkgs-list (package-menu-mark-upgrades))
-	    (package-menu-execute))
-	  (message "EMACS: There are updates available. %s" pkgs-list))
+	    (progn
+	      (with-current-buffer packages-buffer-name
+	        (package-menu-filter-upgradable)
+	        (setq pkgs-list (package-menu-mark-upgrades))
+	        (package-menu-execute))
+	      (message "EMACS: There are updates available. %s" pkgs-list))
       (progn
-	(kill-buffer packages-buffer-name)
-	(delete-frame)
-	(message "EMACS: No updates available.")))))
+	    (kill-buffer packages-buffer-name)
+	    (delete-frame)
+	    (message "EMACS: No updates available.")))))
 
 ;;* Main:
 

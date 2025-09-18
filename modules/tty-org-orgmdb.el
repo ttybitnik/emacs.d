@@ -19,7 +19,7 @@
     (orgmdb--ensure-response-is-successful info)
     (concat
      (format "* %s (%s) - %s\n" (orgmdb-title info)
-	     (orgmdb-year info) (orgmdb-imdb-link info))
+	         (orgmdb-year info) (orgmdb-imdb-link info))
      "\n"
      (format "[[file:%s]]\n\n" (orgmdb--download-image-for info))
      (format "- Genre :: %s\n" (orgmdb-genre info))
@@ -38,7 +38,7 @@
      "\n"
      (format "- Metacritic :: %s\n" (orgmdb-metacritic info))
      (format "- IMDb Rating :: %s (%s votes)\n"
-	     (orgmdb-imdb-rating info) (orgmdb-imdb-votes info))
+	         (orgmdb-imdb-rating info) (orgmdb-imdb-votes info))
      (format "- Tomatometer :: %s\n" (orgmdb-tomatometer info))
      "\n"
      (format "- Plot :: %s\n" (orgmdb-plot info))
@@ -48,7 +48,7 @@
          (let-alist episode
            (let ((curr-season (string-to-number .Season)))
              (setq last-season (if (= curr-season last-season)
-				   last-season curr-season))
+				                   last-season curr-season))
              (push (format "%s** [[imdb:%s][%s]]\n- IMDb Rating :: %s\n
 - Released :: %s\n"
                            (if (not (= curr-season last-season))
@@ -71,7 +71,7 @@
   (let ((info (apply #'orgmdb `(,@args :episode all :plot full))))
     (orgmdb--ensure-response-is-successful info)
     (insert (format "\n* %s (%s) - %s\n" (orgmdb-title info)
-		    (orgmdb-year info) (orgmdb-imdb-link info)))
+		            (orgmdb-year info) (orgmdb-imdb-link info)))
     (insert "\n")
     (insert (format "[[file:%s]]\n\n" (orgmdb--download-image-for info)))
     (insert (format "- Genre :: %s\n" (orgmdb-genre info)))
@@ -90,7 +90,7 @@
     (insert "\n")
     (insert (format "- Metacritic :: %s\n" (orgmdb-metacritic info)))
     (insert (format "- IMDb Rating :: %s (%s votes)\n"
-		    (orgmdb-imdb-rating info) (orgmdb-imdb-votes info)))
+		            (orgmdb-imdb-rating info) (orgmdb-imdb-votes info)))
     (insert (format "- Tomatometer :: %s\n" (orgmdb-tomatometer info)))
     (insert "\n")
     (insert (format "- Plot :: %s\n" (orgmdb-plot info)))

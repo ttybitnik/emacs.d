@@ -53,7 +53,7 @@ and `local/switcher-night.el' files."
 
 (setq org-todo-keyword-faces
       '(("TODO" . (:inherit org-todo))
-	("NEXT" . (:inherit (outline-3 org-todo)))
+	    ("NEXT" . (:inherit (outline-3 org-todo)))
         ("WAIT" . (:inherit (outline-2 org-todo)))
         ("MEET" . (:inherit (outline-7 org-todo)))
         ("CANCELED" . (:inherit (outline-8 org-todo)))
@@ -62,13 +62,13 @@ and `local/switcher-night.el' files."
         ("REVISION I" . (:inherit (shadow org-todo)))
         ("REVISION II" . (:inherit (shadow org-todo)))
         ("PROOFREADING" . (:inherit (shadow org-todo)))
-	("READING" . (:inherit (outline-2 org-todo)))
-	("CAPTURED" . (:inherit (outline-7 org-todo)))))
+	    ("READING" . (:inherit (outline-2 org-todo)))
+	    ("CAPTURED" . (:inherit (outline-7 org-todo)))))
 
 
 (custom-set-faces
  '(default ((t (:family "Iosevka" :foundry "UKWN" :slant normal
-			:weight medium :height 102 :width normal))))
+			            :weight medium :height 102 :width normal))))
  '(dashboard-heading ((t (:inherit font-lock-keyword-face :height 1.1))))
  '(fixed-pitch ((t (:family "Iosevka" :weight medium))))
  '(org-block ((t (:inherit fixed-pitch))))

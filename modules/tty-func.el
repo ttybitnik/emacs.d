@@ -34,16 +34,16 @@
 (setq make-backup-files nil)
 (setq backup-directory-alist
       `(("." . ,(file-name-as-directory
-		 (concat orpheusmx-d/ttybitnik "saves")))))
+		         (concat orpheusmx-d/ttybitnik "saves")))))
 (setq auto-save-file-name-transforms
       `((".*" ,(file-name-as-directory
-		(concat orpheusmx-d/ttybitnik "saves")) t)))
+		        (concat orpheusmx-d/ttybitnik "saves")) t)))
 
 (epa-file-enable)
 ;; (setf epa-pinentry-mode 'loopback) pinentry inside Emacs
 
 (when (file-exists-p (expand-file-name ".restrict.el.gpg" auth-d/ttybitnik))
-     (load (expand-file-name ".restrict.el.gpg" auth-d/ttybitnik)))
+  (load (expand-file-name ".restrict.el.gpg" auth-d/ttybitnik)))
 
 (transient-mark-mode 1)
 (global-auto-revert-mode 1) ;; resource intensive

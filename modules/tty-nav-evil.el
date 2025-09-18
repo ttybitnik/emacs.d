@@ -182,8 +182,7 @@
   "hp" 'describe-package
   "hw" 'where-is
   "he" 'view-echo-area-messages
-  "hn" 'view-emacs-news
-)
+  "hn" 'view-emacs-news)
 
 ;; Bindings for `org-agenda-mode' as `evil-collection' doesn't provide any.
 ;; TODO: Maybe submit this upstream if there's interest.

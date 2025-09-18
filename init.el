@@ -83,7 +83,7 @@ especially important for fresh installs when multiple calls are
 made in sequence."
   (unless (package-installed-p package)
     (unless (or no-refresh
-		skip-refresh/ttybitnik)
+		        skip-refresh/ttybitnik)
       (package-refresh-contents)
       (setq skip-refresh/ttybitnik t))
     (package-install package))
@@ -105,14 +105,14 @@ made in sequence."
 
 (setq package-archive-priorities
       '(("gnu" . 4)
-	("nongnu" . 3)
-	("melpa" . 2)
-	("melpa-stable" . 1)))
+	    ("nongnu" . 3)
+	    ("melpa" . 2)
+	    ("melpa-stable" . 1)))
 
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/") t)
+	         '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
-	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+	         '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (let ((normal-gc-cons-threshold (* 20 1024 1024))
       (init-gc-cons-threshold (* 128 1024 1024)))

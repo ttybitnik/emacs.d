@@ -25,14 +25,14 @@
 (setq dashboard-agenda-tags-format 'ignore)
 (setq recentf-exclude `(,agenda-d/ttybitnik))
 (setq dashboard-footer-icon (all-the-icons-fileicon
-			     "emacs"
-			     :height 1.1
-			     :v-adjust -0.05
-			     :face 'font-lock-keyword-face))
+			                 "emacs"
+			                 :height 1.1
+			                 :v-adjust -0.05
+			                 :face 'font-lock-keyword-face))
 (setq dashboard-items '((recents . 7)
-			(projects . 5)
-			(bookmarks . 5)
-			(agenda . 5)))
+			            (projects . 5)
+			            (bookmarks . 5)
+			            (agenda . 5)))
 
 (setq initial-buffer-choice (lambda () (switch-to-buffer "*dashboard*")))
 

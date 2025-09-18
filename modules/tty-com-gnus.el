@@ -65,10 +65,10 @@
 (setq gnus-parameters
       '(("^nnimap"
          (gnus-show-threads nil)
-	 (display . all))
-	("^nntp"
+	     (display . all))
+	    ("^nntp"
          (gnus-use-adaptive-scoring t)
-	 (gnus-decay-scores t))))
+	     (gnus-decay-scores t))))
 
 ;; Using `gnus-parameters' since I'm  disabling adaptive scoring for email.
 ;; (setq gnus-use-adaptive-scoring t)
@@ -111,9 +111,9 @@
 (setq gnus-treat-display-smileys nil)
 (setq gnus-visible-headers
       '("^From:" "^To:"	"^[BGF]?Cc:" "^Subject:" "^Newsgroups:" "^Date:"
-	"^Followup-To:" "^Reply-To:" "^Organization:" "^Summary:" "^Keywords:"
-	"^Posted-To:" "^Mail-Copies-To:" "^Mail-Followup-To:" "^Apparently-To:"
-	"^Gnus-Warning:" "^Resent-From:" "^X-Newsreader:" "^X-Mailer:"))
+	    "^Followup-To:" "^Reply-To:" "^Organization:" "^Summary:" "^Keywords:"
+	    "^Posted-To:" "^Mail-Copies-To:" "^Mail-Followup-To:" "^Apparently-To:"
+	    "^Gnus-Warning:" "^Resent-From:" "^X-Newsreader:" "^X-Mailer:"))
 (setq gnus-sorted-header-list gnus-visible-headers)
 (setq gnus-article-x-face-too-ugly ".*")
 
