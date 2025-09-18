@@ -8,8 +8,8 @@
 
 (require 'scheme)
 (require 'cmuscheme)
-;; (require-package 'geiser)
-;; (require-package 'geiser-guile)
+(require-package 'geiser)
+(require-package 'geiser-guile)
 ;; (require-package 'geiser-chicken)
 
 ;;* Variables:
@@ -25,11 +25,12 @@
 
 ;;* Main:
 
+;; TODO: Perhaps create a prompt logic for this.
 ;; (setq scheme-program-name "guile3.0")
 (setq scheme-program-name "csi")
 
-;; (setq geiser-guile-binary "guile3.0")
-;; (setq geiser-chicken-binary "csi")
+(setq geiser-guile-binary "guile3.0")
+(setq geiser-chicken-binary "csi")
 
 ;;* Bindings:
 
