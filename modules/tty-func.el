@@ -24,6 +24,9 @@
 
 ;;* Variables:
 
+(defvar erc-priority-list/ttybitnik nil
+  "Placeholder for private configuration.")
+
 ;;* Functions:
 
 ;;* Main:
