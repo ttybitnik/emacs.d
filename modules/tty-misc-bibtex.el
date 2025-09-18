@@ -29,9 +29,9 @@
 ;;* Main:
 
 (setq bibtex-completion-bibliography
-      `(,(expand-file-name "bibliography/general.bib" prometheus-d/ttybitnik)))
+      `(,(expand-file-name "Library/general.bib" prometheus-d/ttybitnik)))
 (setq bibtex-completion-library-path
-      `(,(expand-file-name (file-name-as-directory "biblioteca")
+      `(,(expand-file-name (file-name-as-directory "Library/Calibre")
 			   prometheus-d/ttybitnik)))
 (setq bibtex-completion-notes-path
       (expand-file-name (file-name-as-directory "org-roam/ref")))

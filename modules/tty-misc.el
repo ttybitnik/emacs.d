@@ -49,7 +49,7 @@ This function visits the microblogging file and inserts the
 current time in ISO 8601 format, as per twtxt specification."
   (interactive)
   (let ((twtxt-file (expand-file-name "blog.backend/static/twtxt.txt"
-				      projects-d/ttybitnik))
+				      git-d/ttybitnik))
 	(time (format-time-string "%Y-%m-%dT%T%z")))
     (find-file twtxt-file)
     (end-of-buffer)

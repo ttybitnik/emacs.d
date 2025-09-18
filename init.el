@@ -49,8 +49,12 @@
   "Absolute name of .auth directory.")
 
 (defconst projects-d/ttybitnik
-  (expand-file-name (file-name-as-directory (getenv "TTY_GIT")))
+  (expand-file-name (file-name-as-directory (getenv "TTY_PROJECTS")))
   "Absolute name of projects directory.")
+
+(defconst git-d/ttybitnik
+  (expand-file-name (file-name-as-directory (getenv "TTY_GIT")))
+  "Absolute name of git directory.")
 
 (defconst orpheus-d/ttybitnik
   (expand-file-name (file-name-as-directory (getenv "TTY_ORPHEUS")))
@@ -61,8 +65,8 @@
   "Absolute name of Prometheus directory.")
 
 (defconst orpheusmx-d/ttybitnik
-  (expand-file-name (file-name-as-directory "gnu-emacs") orpheus-d/ttybitnik)
-  "Absolute name of Emacs directory inside Orpheus.")
+  (expand-file-name (file-name-as-directory "Emacs") projects-d/ttybitnik)
+  "Absolute name of Emacs directory inside projects.")
 
 (defvar skip-refresh/ttybitnik nil
   "Optimize `package-refresh-contents' in `require-package'.")
