@@ -20,6 +20,7 @@
 (require-package 'evil-collection)
 (require-package 'evil-surround)
 (require-package 'evil-cleverparens)
+(require-package 'evil-fringe-mark)
 (require-package 'general)
 (require-package 'goto-chg)
 
@@ -45,6 +46,13 @@
 (evil-set-initial-state 'easy-hugo-mode 'emacs)
 (evil-set-initial-state 'erc-mode 'normal)
 (evil-set-initial-state 'org-agenda-mode 'motion)
+
+(setq-default evil-fringe-mark-show-special t)
+;; (setq-default left-fringe-width 16)
+;; (setq-default evil-fringe-mark-margin 'left-margin)
+
+(push ?{ evil-fringe-mark-ignore-chars)
+(push ?} evil-fringe-mark-ignore-chars)
 
 ;;* Bindings:
 
@@ -270,6 +278,8 @@
 
 (advice-add 'evil-window-vsplit :after #'evil-window-vhsplit-and-follow/ttybitnik)
 (advice-add 'evil-window-split :after #'evil-window-vhsplit-and-follow/ttybitnik)
+
+(add-hook 'prog-mode-hook 'evil-fringe-mark-mode)
 
 ;;* Appearance:
 

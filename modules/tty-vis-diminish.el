@@ -20,6 +20,7 @@
 (diminish 'company-mode)
 (diminish 'dired-async-mode)
 (diminish 'evil-collection-unimpaired-mode)
+(diminish 'evil-fringe-mark-mode)
 (diminish 'flycheck-mode)
 (diminish 'flyspell-mode)
 (diminish 'helm-mode)
