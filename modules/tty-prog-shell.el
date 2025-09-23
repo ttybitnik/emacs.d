@@ -30,7 +30,7 @@
           "--keep-padding")
   :mode t)
 
-(setq sh-shellcheck-arguments "--external-sources")
+(setq sh-shellcheck-arguments '("--external-sources"))
 
 ;;* Bindings:
 
