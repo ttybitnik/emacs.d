@@ -64,6 +64,13 @@ The negative DEPTH (-100) ensures `indent-region' runs before other
 before-save hooks like language-specific formatters."
   (add-hook 'before-save-hook 'indent-buffer/ttybitnik -100 t))
 
+;; FIXME: Prevent `indent-region' from removing tabs in certain modes (like
+;; `makefile-mode'). Should fix indentation behavior itself in these modes.
+(defun disable-indent-before-save/ttybitnik ()
+  "Remove `indent-buffer/ttybitnik' from `before-save-hook' locally.
+Useful for modes like `makefile-mode' where `indent-region' removes tabs."
+  (remove-hook 'before-save-hook 'indent-buffer/ttybitnik t))
+
 ;;* Main:
 
 (setq compilation-scroll-output t)
@@ -87,6 +94,8 @@ before-save hooks like language-specific formatters."
 (add-hook 'diff-mode-hook 'fill-column/ttybitnik)
 
 (add-hook 'before-save-hook 'copyright-update)
+
+(add-hook 'makefile-mode-hook 'disable-indent-before-save/ttybitnik)
 
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 
