@@ -20,6 +20,8 @@
 
 ;;* Main:
 
+;; (setq js-indent-level 2)
+
 ;;* Bindings:
 
 ;;* Hooks:
