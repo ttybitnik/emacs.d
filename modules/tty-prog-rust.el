@@ -20,6 +20,7 @@
 
 ;;* Main:
 
+;; TODO: Well, below seems to not work via TRAMP. So, perhaps, use `reformatter'.
 ;; Seems like `reformatter' is not necessary.
 (setq rust-format-on-save t)
 
