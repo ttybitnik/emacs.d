@@ -58,18 +58,25 @@ modes (e.g., `prog-mode-hook', `conf-mode-hook')."
   (interactive)
   (indent-region (point-min) (point-max)))
 
-(defun indent-before-save/ttybitnik ()
+(define-minor-mode indent-before-save-mode/ttybitnik
   "Indent the entire buffer before saving.
 The negative DEPTH (-100) ensures `indent-region' runs before other
 before-save hooks like language-specific formatters."
-  (add-hook 'before-save-hook 'indent-buffer/ttybitnik -100 t))
+  :global nil
+  :group 'tty-prog
+  :lighter " IBS"
+  (if indent-before-save-mode/ttybitnik
+      (add-hook 'before-save-hook 'indent-buffer/ttybitnik -100 t)
+    (remove-hook 'before-save-hook 'indent-buffer/ttybitnik t)))
 
 ;; FIXME: Prevent `indent-region' from removing tabs in certain modes (like
 ;; `makefile-mode'). Should fix indentation behavior itself in these modes.
 (defun disable-indent-before-save/ttybitnik ()
-  "Remove `indent-buffer/ttybitnik' from `before-save-hook' locally.
-Useful for modes like `makefile-mode' where `indent-region' removes tabs."
-  (remove-hook 'before-save-hook 'indent-buffer/ttybitnik t))
+  "Disable `indent-before-save-mode/ttybitnik'.
+Remove `indent-buffer/ttybitnik' from `before-save-hook' locally.
+Useful for modes like `makefile-mode' where `indent-region' is
+problematic."
+  (indent-before-save-mode/ttybitnik -1))
 
 ;;* Main:
 
@@ -86,7 +93,7 @@ Useful for modes like `makefile-mode' where `indent-region' removes tabs."
 
 (add-hook 'prog-mode-hook 'fill-column/ttybitnik)
 (add-hook 'prog-mode-hook 'highlight-regexp-globally/ttybitnik)
-(add-hook 'prog-mode-hook 'indent-before-save/ttybitnik)
+(add-hook 'prog-mode-hook 'indent-before-save-mode/ttybitnik)
 
 (add-hook 'conf-mode-hook 'fill-column/ttybitnik)
 (add-hook 'conf-mode-hook 'highlight-regexp-globally/ttybitnik)
