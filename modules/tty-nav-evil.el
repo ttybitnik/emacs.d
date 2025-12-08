@@ -143,6 +143,7 @@
   ;; M-
   "m"   'magit
   "y"   'consult-yank-pop
+  "gf"  'consult-flymake
   "go"  'consult-outline
   "gi"  'consult-imenu
   ;; C-c
