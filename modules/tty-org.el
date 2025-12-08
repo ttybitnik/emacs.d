@@ -163,7 +163,7 @@ Otherwise, call it interactively with \\[pomodoro/ttybitnik]."
 
 (defun org-anchor--normalize-heading-to-id/ttybitnik (heading)
   "Normalize HEADING text to an anchorized ID.
-Replace all non-alphanumeric sequences with hyphens and trim edges."
+Replace non-alphanumeric chars with hyphens, downcase, and trim edges."
   (let* ((lowered (downcase heading))
          (no-special (replace-regexp-in-string "[^[:alnum:]-]+" "-" lowered))
          (no-edge (replace-regexp-in-string "^-\\|-$" "" no-special)))
