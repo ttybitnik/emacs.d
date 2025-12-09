@@ -14,6 +14,9 @@
 ;; (require 'tty-func-undo-tree)
 ;; (require 'tty-func-zzz-to-char)
 
+;; early require
+(require 'tty-func-site-lisp)
+
 (require 'tty-func-async)
 (require 'tty-func-corfu)
 (require 'tty-func-orderless)

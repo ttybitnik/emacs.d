@@ -29,5 +29,8 @@ session*
 /org-clock-save.el
 /bbdb
 
+site-lisp/*
+!site-lisp/README
+
 # Symlinks
 **/*@

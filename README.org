@@ -45,6 +45,7 @@ Initially, my configuration followed the literate programming style, utilizing t
 - =.auth/= :: Private directory for restricted settings and secure [[https://www.gnu.org/software/emacs/manual/html_node/auth/Help-for-users.html][authentication]] within Emacs.
 - =assets/= :: Directory for utility files, including capture templates and presentation assets.
 - =modules/= :: Directory containing Emacs Lisp modules and configuration files.
+- =site-lisp/= :: Directory for locally managed/installed packages.
 - =snippets/= ::  Directory for programming snippets and templates.
 
 *** Outline of the core Emacs Lisp files:
@@ -71,7 +72,7 @@ The diagram below provides a visual synthesis of the core Emacs Lisp files along
 
 
   agent ".auth/" as Auth
-  agent "img/" as Img
+  agent "site-lisp/" as Site
   agent "assets/" as Ast
   agent "modules/" as Modd
   agent "snippets/" as Snip
@@ -83,14 +84,14 @@ The diagram below provides a visual synthesis of the core Emacs Lisp files along
   Init .r-> Cstm
 
   Mod ~u->> Ast
+  Mod ~u->> Site
   Mod ~u->> Snip
   Mod ~u->> Auth
-  Mod ~u->> Img
 
   Auth -r[hidden]-> Ast
-  Img -l[hidden]-> Snip
+  Snip -l[hidden]-> Site
   Modd -l[hidden]-> Ast
-  Ast -r[hidden]-> Snip
+  Ast  -r[hidden]-> Site
   @enduml
 #+end_src
 
@@ -146,6 +147,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-func-async.el
       │   ├── tty-func-corfu.el
       │   ├── tty-func-orderless.el
+      │   ├── tty-func-site-lisp.el
       │   ├── tty-func-sudo-edit.el
       │   ├── tty-func-vundo.el
       │   └── tty-func-wgrep.el

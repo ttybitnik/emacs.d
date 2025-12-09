@@ -40,6 +40,9 @@
   (expand-file-name (file-name-as-directory "assets") emacs-d/ttybitnik)
   "Absolute name of assets directory.")
 
+(defconst site-lisp-d/ttybitnik
+  (expand-file-name (file-name-as-directory "site-lisp") emacs-d/ttybitnik)
+  "Absolute name of site-lisp directory.")
 
 (defconst images-d/ttybitnik
   (expand-file-name (file-name-as-directory "images") assets-d/ttybitnik)
@@ -121,10 +124,9 @@ made in sequence."
   (add-hook 'emacs-startup-hook
             (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
-(setq custom-file
-      (locate-user-emacs-file "custom.el"))
+(setq custom-file (locate-user-emacs-file "custom.el"))
 
-(add-to-list 'load-path (expand-file-name modules-d/ttybitnik))
+(add-to-list 'load-path (expand-file-name modules-d/ttybitnik) nil 'equal)
 
 ;; require early
 (require 'tty-func)

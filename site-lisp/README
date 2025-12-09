@@ -1,0 +1,4 @@
+Directory for locally managed/installed packages.
+Used for MELPA/ELPA package overrides, development, and forks.
+
+See 'modules/tty-func-site-lisp.el' file for more information.
