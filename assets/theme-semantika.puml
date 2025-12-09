@@ -1,0 +1,310 @@
+@startuml
+
+' SEMANTIKA PUML - Theme with dark and light variants for PlantUML.
+' Copyright (C) 2025 Vinícius Moraes <vinicius.moraes@eternodevir.com>
+' GPL-3.0
+
+' === LIGHT MODE COLORS ===
+!$COL_BG       = "#fff"
+!$COL_MG       = "#666"
+!$COL_FG       = "#333"
+!$COL_FG500    = "#222"
+!$COL_BLUE     = "#000080"
+!$COL_PURPLE   = "#800080"
+!$COL_RED      = "#880000"
+
+' === DARK MODE COLORS ===
+!if (%getenv("PLANTUML_THEME") == "dark")
+!$COL_BG     = "#000"
+!$COL_MG     = "#aaa"
+!$COL_FG     = "#ddd"
+!$COL_FG500  = "#eee"
+!$COL_BLUE   = "#5ab2ff"
+!$COL_PURPLE = "#a000a0"
+!$COL_RED    = "#aa0000"
+!endif
+
+' Primary color for main elements
+!$COL_PRIMARY   = $COL_BLUE
+
+' ===== SKIN PARAMETERS =====
+skinparam backgroundColor $COL_BG
+
+skinparam {
+  '
+  ' Activity Diagram
+  '
+  ActivityBackgroundColor                $COL_BG
+  ActivityBarColor                       $COL_BLUE
+  ActivityBorderColor                    $COL_PRIMARY
+  ActivityDiamondBackgroundColor         $COL_BG
+  ActivityDiamondBorderColor             $COL_PRIMARY
+  ActivityEndColor                       $COL_BLUE
+  ActivityStartColor                     $COL_BLUE
+  ActivityStopColor                      $COL_BLUE
+
+  '
+  ' Actor
+  '
+  ActorBackgroundColor                   $COL_BG
+  ActorBorderColor                       $COL_PRIMARY
+  ActorFontColor                         $COL_FG
+  ActorFontStyle                         bold
+  ActorStereotypeFontColor               $COL_MG
+
+  '
+  ' Agent
+  '
+  AgentBackgroundColor                   $COL_BG
+  AgentBorderColor                       $COL_PRIMARY
+  AgentFontColor                         $COL_FG
+
+  '
+  ' Arrow
+  '
+  ArrowColor                             $COL_PRIMARY
+  ArrowFontColor                         $COL_PRIMARY
+  ArrowThickness                         1
+  ArrowColorMessageA                     $COL_BLUE
+  ArrowColorMessageB                     $COL_PURPLE
+  ArrowColorMessageC                     $COL_RED
+
+  '
+  ' Background
+  '
+  BackgroundColor                        $COL_BG
+
+  '
+  ' Boundary
+  '
+  BoundaryBackgroundColor                $COL_BG
+  BoundaryBorderColor                    $COL_PRIMARY
+  BoundaryFontColor                      $COL_FG
+  BoundaryStereotypeFontColor            $COL_MG
+
+  '
+  ' Caption
+  '
+  CaptionFontColor                       $COL_FG
+
+  '
+  ' Class Diagram
+  '
+  ClassBackgroundColor                   $COL_BG
+  ClassBorderColor                       $COL_PRIMARY
+  ClassFontColor                         $COL_FG
+  ClassAttributeFontColor                $COL_FG
+  ClassStereotypeFontColor               $COL_MG
+  ClassBackgroundColor<<entity>>         $COL_BG
+  ClassBorderColor<<entity>>             $COL_PURPLE
+  ClassBackgroundColor<<service>>        $COL_BG
+  ClassBorderColor<<service>>            $COL_BLUE
+  ClassBackgroundColor<<controller>>     $COL_BG
+  ClassBorderColor<<controller>>         $COL_RED
+  ClassBackgroundColor<<enumeration>>    $COL_BG
+  ClassBorderColor<<enumeration>>        $COL_PRIMARY
+
+  '
+  ' Component Diagram
+  '
+  ComponentBackgroundColor               $COL_BG
+  ComponentBorderColor                   $COL_PRIMARY
+  ComponentFontColor                     $COL_FG
+
+  '
+  ' Control
+  '
+  ControlBackgroundColor                 $COL_BG
+  ControlBorderColor                     $COL_PRIMARY
+  ControlFontColor                       $COL_FG
+  ControlStereotypeFontColor             $COL_MG
+
+  '
+  ' Database
+  '
+  DatabaseBackgroundColor                $COL_BG
+  DatabaseBorderColor                    $COL_PRIMARY
+  DatabaseFontColor                      $COL_FG
+
+  '
+  ' Default Fonts
+  '
+  DefaultFontColor                       $COL_FG
+  DefaultFontName                        "Noto Sans, sans-serif"
+  DefaultTextAlignment                   left
+
+  '
+  ' Entity
+  '
+  EntityBackgroundColor                  $COL_BG
+  EntityBorderColor                      $COL_PRIMARY
+  EntityFontColor                        $COL_FG
+
+  '
+  ' Footer
+  '
+  FooterFontColor                        $COL_MG
+  FooterFontSize                         10
+
+  '
+  ' Header
+  '
+  HeaderFontColor                        $COL_MG
+  HeaderFontSize                         10
+
+  '
+  ' Interface
+  '
+  InterfaceBackgroundColor               $COL_BG
+  InterfaceBorderColor                   $COL_PRIMARY
+  InterfaceFontColor                     $COL_FG
+
+  '
+  ' Legend
+  '
+  LegendBackgroundColor                  $COL_BG
+  LegendBorderColor                      $COL_PRIMARY
+  LegendFontColor                        $COL_FG
+  LegendFontName                         "Noto Sans, sans-serif"
+
+  '
+  ' Lifeline
+  '
+  LifelineBackgroundColor                $COL_BG
+  LifelineBorderColor                    $COL_PRIMARY
+
+  '
+  ' Note
+  '
+  NoteBackgroundColor                    $COL_BG
+  NoteBorderColor                        $COL_PRIMARY
+  NoteFontColor                          $COL_FG
+
+  '
+  ' Object
+  '
+  ObjectBackgroundColor                  $COL_BG
+  ObjectBorderColor                      $COL_PRIMARY
+  ObjectFontColor                        $COL_FG
+
+  '
+  ' Package
+  '
+  PackageBackgroundColor                 $COL_BG
+  PackageBorderColor                     $COL_PRIMARY
+  PackageFontColor                       $COL_FG
+
+  '
+  ' Participant
+  '
+  ParticipantBackgroundColor             $COL_BG
+  ParticipantBorderColor                 $COL_PRIMARY
+  ParticipantFontColor                   $COL_FG
+
+  '
+  ' Partition
+  '
+  PartitionBackgroundColor               transparent
+  PartitionBorderColor                   $COL_FG
+
+  '
+  ' Queue
+  '
+  QueueBackgroundColor                   $COL_BG
+  QueueBorderColor                       $COL_PRIMARY
+
+  '
+  ' Rectangle
+  '
+  RectangleBackgroundColor               $COL_BG
+  RectangleBorderColor                   $COL_PRIMARY
+  RectangleFontColor                     $COL_FG
+  RectangleBorderThickness               1
+
+  '
+  ' Sequence Diagram
+  '
+  SequenceBoxBackgroundColor             $COL_BG
+  SequenceBoxBorderColor                 $COL_PRIMARY
+  SequenceDividerBackgroundColor         $COL_BG
+  SequenceDividerBorderColor             $COL_PRIMARY
+  SequenceGroupBackgroundColor           $COL_BG
+  SequenceGroupBorderColor               $COL_PRIMARY
+  SequenceLifeLineBackgroundColor        $COL_BG
+  SequenceLifeLineBorderColor            $COL_PRIMARY
+  SequenceNewpageSeparatorColor          $COL_MG
+  SequenceReferenceBackgroundColor       transparent
+  SequenceReferenceBorderColor           $COL_PRIMARY
+  SequenceReferenceHeaderBackgroundColor $COL_BG
+
+  '
+  ' Shadowing
+  '
+  Shadowing false
+
+  '
+  ' State Diagram
+  '
+  StateBackgroundColor                   $COL_BG
+  StateBorderColor                       $COL_PRIMARY
+  StateEndColor                          $COL_BLUE
+  StateFontColor                         $COL_FG
+  StateStartColor                        $COL_BLUE
+
+  '
+  ' Storage
+  '
+  StorageBackgroundColor                 $COL_BG
+  StorageBorderColor                     $COL_FG
+  StorageFontColor                       $COL_FG
+
+  '
+  ' Swimlane
+  '
+  SwimlaneBorderColor                    $COL_FG
+
+  '
+  ' Title
+  '
+  TitleFontColor                         $COL_FG500
+  TitleFontName                          "Noto Serif, serif"
+  TitleFontSize                          17
+  TitleFontStyle                         bold
+
+  '
+  ' Usecase Diagram
+  '
+  UsecaseBackgroundColor                 $COL_BG
+  UsecaseBorderColor                     $COL_PRIMARY
+  UsecaseFontColor                       $COL_FG
+
+  '
+  ' Additional Fonts
+  '
+  LegendFontName                         "Noto Sans, sans-serif"
+  HeaderFontName                         "Noto Serif, serif"
+  FooterFontName                         "Noto Sans, sans-serif"
+
+  '
+  ' Timing Diagrams
+  '
+  TimingBackgroundColor                  $COL_BG
+  TimingBorderColor                      $COL_PRIMARY
+  TimingFontColor                        $COL_FG
+
+  '
+  ' Archimate
+  '
+  ArchimateBackgroundColor               $COL_BG
+  ArchimateBorderColor                   $COL_PRIMARY
+  ArchimateFontColor                     $COL_FG
+
+  '
+  ' Mindmap
+  '
+  MindmapBackgroundColor                 $COL_BG
+  MindmapBorderColor                     $COL_PRIMARY
+  MindmapFontColor                       $COL_FG
+}
+
+@enduml
