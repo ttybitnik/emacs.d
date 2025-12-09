@@ -56,13 +56,14 @@ Initially, my configuration followed the literate programming style, utilizing t
   - =prefix.config.el= :: Package configuration files with filenames inheriting module prefixes. These files are loaded by /modules.el/.
 - =custom.el= (optional) :: Minor adjustments and temporary testing settings. This is the last file loaded by /init.el/.
 
-The diagram below provides a visual synthesis of the core Emacs Lisp files alongside the directory structure, arranged in loading sequence order from left to right.
+The diagram below provides a visual synthesis of the core Emacs Lisp files alongside the directory structure, arranged in loading sequence order.
 
 #+begin_src plantuml  :exports none
   @startuml
   !include /home/ttybitnik/.emacs.d/assets/theme-plantuml.puml
   skinparam backgroundColor transparent
   skinparam linetype ortho
+  left to right direction
 
   agent "early-init.el" as Einit
   agent "init.el" as Init
@@ -77,16 +78,21 @@ The diagram below provides a visual synthesis of the core Emacs Lisp files along
   agent "modules/" as Modd
   agent "snippets/" as Snip
 
-  Einit .> Init
-  Init -d-> Modd
-  Modd -d-> Mod
-  Mod -d-> Tun
-  Init .r-> Cstm
+  Einit -[thickness=2]> Init
+  Init -d[thickness=2]- Modd
+  Modd -d[thickness=2]-> Mod
+  Mod -d[thickness=2]-> Tun
+  Init -r[thickness=2]-> Cstm
 
   Mod ~u->> Ast
   Mod ~u->> Site
   Mod ~u->> Snip
   Mod ~u->> Auth
+
+  Tun ~u->> Ast
+  Tun ~u->> Site
+  Tun ~u->> Snip
+  Tun ~u->> Auth
 
   Auth -r[hidden]-> Ast
   Snip -l[hidden]-> Site
@@ -95,7 +101,7 @@ The diagram below provides a visual synthesis of the core Emacs Lisp files along
   @enduml
 #+end_src
 
-#+html: <p align="center"><img src="assets/images/diagram0.svg"/></p>
+#+html: <p align="center"><img src="assets/images/config-diagram.svg"/></p>
 
 ** Shaping and carving
 
