@@ -33,9 +33,9 @@ CUSTOM_ID properties on save or interactively.")
 (defun org-capture-helper (template)
   "Expand TEMPLATE filename for `org-capture-templates'.
 It returns the absolute name from local templates in
-`local-d/ttybitnik' org directory."
+`assets-d/ttybitnik' org directory."
   (expand-file-name
-   template (concat local-d/ttybitnik (file-name-as-directory "org"))))
+   template (concat assets-d/ttybitnik (file-name-as-directory "org"))))
 
 (defun agenda-helper (agenda-file)
   "Expand AGENDA-FILE filename for `org-capture-templates'.

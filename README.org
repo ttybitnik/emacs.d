@@ -3,7 +3,7 @@
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+OPTIONS: num:nil
 
-#+html: <p align="center"><img src="img/Stradivari.jpg"/></p>
+#+html: <p align="center"><img src="assets/images/Stradivari.jpg"/></p>
 
  This repository contains my *GNU Emacs* configuration files along with an in-depth chronicle of my crafting and managing workflows. It includes links to valuable resources, in code, text and video, that have been important throughout my trajectory. Inspired by [[https://github.com/munen][@Munen]]'s insightful presentation [[https://www.youtube.com/watch?v=gfZDwYeBlO4][Play Emacs like an instrument]], I have decided to expand his playful yet thoughtful metaphor into this digitally handmade process. A journey to *craft emacs.d like a luthier*.
 
@@ -43,8 +43,7 @@ Initially, my configuration followed the literate programming style, utilizing t
 *** Outline of the directory structure:
 
 - =.auth/= :: Private directory for restricted settings and secure [[https://www.gnu.org/software/emacs/manual/html_node/auth/Help-for-users.html][authentication]] within Emacs.
-- =img/= :: Directory containing images for the Emacs dashboard and for this repository.
-- =local/= :: Directory for offline utility files, including capture templates, presentation tools, and custom packages.
+- =assets/= :: Directory for utility files, including capture templates and presentation assets.
 - =modules/= :: Directory containing Emacs Lisp modules and configuration files.
 - =snippets/= ::  Directory for programming snippets and templates.
 
@@ -60,7 +59,7 @@ The diagram below provides a visual synthesis of the core Emacs Lisp files along
 
 #+begin_src plantuml  :exports none
   @startuml
-  !include /home/ttybitnik/.emacs.d/local/theme-plantuml.puml
+  !include /home/ttybitnik/.emacs.d/assets/theme-plantuml.puml
   skinparam backgroundColor transparent
   skinparam linetype ortho
 
@@ -73,7 +72,7 @@ The diagram below provides a visual synthesis of the core Emacs Lisp files along
 
   agent ".auth/" as Auth
   agent "img/" as Img
-  agent "local/" as Loc
+  agent "assets/" as Ast
   agent "modules/" as Modd
   agent "snippets/" as Snip
 
@@ -83,19 +82,19 @@ The diagram below provides a visual synthesis of the core Emacs Lisp files along
   Mod -d-> Tun
   Init .r-> Cstm
 
-  Mod ~u->> Loc
+  Mod ~u->> Ast
   Mod ~u->> Snip
   Mod ~u->> Auth
   Mod ~u->> Img
 
-  Auth -r[hidden]-> Loc
+  Auth -r[hidden]-> Ast
   Img -l[hidden]-> Snip
-  Modd -l[hidden]-> Loc
-  Loc -r[hidden]-> Snip
+  Modd -l[hidden]-> Ast
+  Ast -r[hidden]-> Snip
   @enduml
 #+end_src
 
-#+html: <p align="center"><img src="img/diagram0.svg"/></p>
+#+html: <p align="center"><img src="assets/images/diagram0.svg"/></p>
 
 ** Shaping and carving
 
@@ -322,7 +321,7 @@ If your ~philosophy~ variable is non-nil, consider watching [[https://github.com
 
 Finally and most importantly, start playing Emacs.
 
-#+html: <p align="center"><img src="img/emacs-demo.gif"/></p>
+#+html: <p align="center"><img src="assets/images/emacs-demo.gif"/></p>
 
 ** Tunings and sound adjustment
 

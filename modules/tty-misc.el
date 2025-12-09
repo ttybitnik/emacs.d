@@ -37,7 +37,7 @@
 
 (defun load-maybe-switcher/ttybitnik ()
   "Load `local/switcher.el' if it exists."
-  (let ((switcher-file (expand-file-name "switcher.el" local-d/ttybitnik)))
+  (let ((switcher-file (expand-file-name "switcher.el" assets-d/ttybitnik)))
     (if (f-file? switcher-file)
 	    (load switcher-file)
       (warn "Switcher file not found: `%s'. Run `switcher' script to fix it."

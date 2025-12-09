@@ -19,7 +19,7 @@ recent*
 .org-id*
 session*
 .lsp-session*
-/local/switcher.el
+/assets/switcher.el
 /.cache/
 /projects
 /eln-cache/
@@ -31,5 +31,3 @@ session*
 
 # Symlinks
 **/*@
-# Internal symlinks
-local/switcher.el

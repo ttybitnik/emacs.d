@@ -36,13 +36,14 @@
   (expand-file-name (file-name-as-directory "modules") emacs-d/ttybitnik)
   "Absolute name of modules directory.")
 
-(defconst local-d/ttybitnik
-  (expand-file-name (file-name-as-directory "local") emacs-d/ttybitnik)
-  "Absolute name of local directory.")
+(defconst assets-d/ttybitnik
+  (expand-file-name (file-name-as-directory "assets") emacs-d/ttybitnik)
+  "Absolute name of assets directory.")
 
-(defconst img-d/ttybitnik
-  (expand-file-name (file-name-as-directory "img") emacs-d/ttybitnik)
-  "Absolute name of img directory.")
+
+(defconst images-d/ttybitnik
+  (expand-file-name (file-name-as-directory "images") assets-d/ttybitnik)
+  "Absolute name of images directory.")
 
 (defconst auth-d/ttybitnik
   (expand-file-name (file-name-as-directory ".auth") emacs-d/ttybitnik)

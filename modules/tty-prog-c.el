@@ -27,7 +27,7 @@
   :program "clang-format"
   :args `(,(concat "--style=file:"
                    (expand-file-name "linux-kernel.clang-format"
-                                     local-d/ttybitnik)))
+                                     assets-d/ttybitnik)))
   :mode t)
 
 (setq c-default-style

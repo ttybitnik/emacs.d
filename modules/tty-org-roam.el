@@ -21,9 +21,9 @@
 (defun roam-capture-helper (template)
   "Expand TEMPLATE filename for `org-roam-capture-templates'.
 It returns the absolute name from local templates in
-`local-d/ttybitnik' org-roam directory."
+`assets-d/ttybitnik' org-roam directory."
   (expand-file-name
-   template (concat local-d/ttybitnik (file-name-as-directory "org-roam"))))
+   template (concat assets-d/ttybitnik (file-name-as-directory "org-roam"))))
 
 ;;* Main:
 
