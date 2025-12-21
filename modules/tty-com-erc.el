@@ -71,7 +71,7 @@ channels that will have common messages suppressed in the mode line'."
 (setq erc-fill-column 100)
 (setq erc-fill-function 'erc-fill-static)
 (setq erc-fill-static-center 15)
-(setq erc-autoaway-idle-seconds 3600)
+(setq erc-autoaway-idle-seconds 7200)
 (setq erc-quit-reason (lambda (s) (or s "Fading out...")))
 (setq erc-log-channels-directory
       (expand-file-name (file-name-as-directory "logs") orpheusmx-d/ttybitnik))
@@ -88,10 +88,10 @@ channels that will have common messages suppressed in the mode line'."
                                       erc-dangerous-host-face
                                       erc-notice-face
                                       erc-prompt-face))
-(setq erc-modules
-      '(autoaway autojoin button completion fill irccontrols keep-place list
-                 log match menu netsplit networks noncommands notifications nickbar
-                 nicks readonly ring sasl scrolltobottom services spelling stamp track))
+(setq erc-modules '(autojoin button completion fill irccontrols keep-place list
+                             log match menu netsplit networks noncommands
+                             notifications nickbar nicks readonly ring sasl
+                             scrolltobottom services spelling stamp track))
 (setq erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
 (setq erc-track-exclude-types '("JOIN" "PART" "NICK" "MODE" "AWAY" "QUIT"
                                 "324" "329" "332" "333" "353" "477"))
