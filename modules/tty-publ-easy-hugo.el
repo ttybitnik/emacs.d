@@ -23,8 +23,7 @@
 		              (concat git-d/ttybitnik "blog.backend/public")))
 
 (setq easy-hugo-previewtime "300"
-      easy-hugo-default-ext ".org"
-      easy-hugo-org-header t)
+      easy-hugo-default-ext ".org")
 
 (setq easy-hugo--sort-char-flg nil
       easy-hugo--sort-time-flg nil
