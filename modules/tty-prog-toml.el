@@ -26,7 +26,7 @@
 
 ;;* Hooks:
 
-(add-hook 'conf-toml-mode-hook 'conf-toml-mode-hook)
+(add-hook 'conf-toml-mode-hook 'conf-toml-mode/ttybitnik)
 
 ;;* Appearance:
 
