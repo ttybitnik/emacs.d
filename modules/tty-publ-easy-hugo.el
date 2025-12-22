@@ -14,7 +14,7 @@
 
 ;;* Main:
 
-(setq easy-hugo-postdir "content/palimpsests"
+(setq easy-hugo-postdir (file-name-as-directory "content/palimpsests/logs")
       easy-hugo-basedir (file-name-as-directory
                          (expand-file-name "site.eternodevir"
                                            git-d/ttybitnik))
