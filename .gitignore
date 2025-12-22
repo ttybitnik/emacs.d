@@ -31,6 +31,7 @@ session*
 
 site-lisp/*
 !site-lisp/README
+!site-lisp/.dir-locals.el
 
 # Symlinks
 **/*@
