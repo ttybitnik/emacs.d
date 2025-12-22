@@ -16,11 +16,13 @@
 
 (setq easy-hugo-postdir "content/palimpsests"
       easy-hugo-basedir (file-name-as-directory
-			             (concat git-d/ttybitnik "blog.backend"))
+                         (expand-file-name "site.eternodevir"
+                                           git-d/ttybitnik))
       easy-hugo-url "https://eternodevir.com"
       easy-hugo-sshdomain ""
       easy-hugo-root (file-name-as-directory
-		              (concat git-d/ttybitnik "blog.backend/public")))
+                      (expand-file-name "site.eternodevir/public"
+                                        git-d/ttybitnik)))
 
 (setq easy-hugo-previewtime "300"
       easy-hugo-default-ext ".org")
