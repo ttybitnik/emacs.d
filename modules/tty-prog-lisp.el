@@ -1,8 +1,8 @@
-;;; tty-prog-lisp.el --- List Processing Programming Languages -*- lexical-binding: t -*-
+;;; tty-prog-lisp.el --- Common Lisp Programming Language -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
-;; LISP-related tunings.
+;; CL-related tunings.
 
 ;;; Code:
 
@@ -13,8 +13,8 @@
 
 ;;* Functions:
 
-(defun emacs-lisp-mode/ttybitnik ()
-  "Set up `emacs-lisp-mode' hooks."
+(defun lisp-mode/ttybitnik ()
+  "Set up `lisp-mode' hooks."
   (yas-minor-mode)
   (flymake-mode)
   (eldoc-mode)
@@ -31,7 +31,7 @@
 
 ;;* Hooks:
 
-(add-hook 'emacs-lisp-mode-hook  'emacs-lisp-mode/ttybitnik)
+(add-hook 'lisp-mode-hook 'lisp-mode/ttybitnik)
 
 ;;* Appearance:
 

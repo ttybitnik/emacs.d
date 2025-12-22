@@ -19,6 +19,7 @@
 (require 'tty-prog-ansible)
 (require 'tty-prog-c)
 (require 'tty-prog-css)
+(require 'tty-prog-elisp)
 (require 'tty-prog-elm)
 (require 'tty-prog-go)
 (require 'tty-prog-haskell)
