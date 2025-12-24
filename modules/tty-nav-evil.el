@@ -46,6 +46,8 @@
 (evil-set-initial-state 'easy-hugo-mode 'emacs)
 (evil-set-initial-state 'erc-mode 'normal)
 (evil-set-initial-state 'org-agenda-mode 'motion)
+(evil-set-initial-state 'calibredb-search-mode 'emacs)
+(evil-set-initial-state 'calibredb-show-mode 'emacs)
 
 (setq-default evil-fringe-mark-show-special t)
 ;; (setq-default left-fringe-width 16)
@@ -59,7 +61,7 @@
 (define-key evil-normal-state-map (kbd "gpf") 'project-find-file)
 (define-key evil-normal-state-map (kbd "gh") 'display-local-help)
 
-;; Customizations on top of `evil-collection' defaults.
+;;; Customizations on top of `evil-collection' defaults.
 (evil-collection-define-key 'normal 'gnus-group-mode-map
   "c"   'gnus-topic-catchup-articles
   ;; TODO: Remove after submitting it upstream.
@@ -110,7 +112,16 @@
   (kbd  "C-S-k") 'corfu-popupinfo-scroll-down
   (kbd  "C-S-j") 'corfu-popupinfo-scroll-up)
 
-;; Mixed Vi & Emacs binding style (default in GNU applications).
+;;; Customizations on top of `calibredb' built-in bindings.
+(evil-collection-define-key 'emacs 'calibredb-search-mode-map
+  (kbd "C-u") 'evil-scroll-up
+  (kbd "C-d") 'evil-scroll-down)
+
+(evil-collection-define-key 'emacs 'calibredb-show-mode-map
+  (kbd "C-u") 'evil-scroll-up
+  (kbd "C-d") 'evil-scroll-down)
+
+;;; Mixed Vi & Emacs binding style (default in GNU applications).
 ;; Ex command
 (define-key evil-ex-completion-map (kbd "C-a") 'move-beginning-of-line)
 (define-key evil-ex-completion-map (kbd "C-b") 'backward-char)
@@ -127,7 +138,7 @@
 (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
 (define-key evil-insert-state-map (kbd "C-d") 'delete-char)
 
-;; General. Frequent bindings following Emacs defaults as much as possible.
+;;; General. Frequent bindings following Emacs defaults as much as possible.
 ;; Use the `keyfreq' package to discover optimization areas.
 (general-create-definer space/ttybitnik
   :prefix "SPC")
@@ -185,7 +196,7 @@
   "he"  'view-echo-area-messages
   "hn"  'view-emacs-news)
 
-;; Bindings for `org-agenda-mode' as `evil-collection' doesn't provide any.
+;;; Bindings for `org-agenda-mode' as `evil-collection' doesn't provide any.
 ;; TODO: Maybe submit this upstream if there's interest.
 (evil-define-key 'motion org-agenda-mode-map
   ;; Motion

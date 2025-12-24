@@ -159,6 +159,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   └── tty-func-wgrep.el
       ├── tty-misc.el					miscellaneous utilities module
       │   ├── tty-misc-bibtex.el
+      │   ├── tty-misc-calibre.el
       │   ├── tty-misc-centered-cursor.el
       │   ├── tty-misc-dired.el
       │   ├── tty-misc-exec-path-from-shell.el

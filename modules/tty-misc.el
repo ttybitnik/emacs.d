@@ -8,6 +8,7 @@
 
 (require 'which-key)
 (require 'tty-misc-bibtex)
+(require 'tty-misc-calibre)
 (require 'tty-misc-centered-cursor)
 (require 'tty-misc-dired)
 (require 'tty-misc-exec-path-from-shell)
