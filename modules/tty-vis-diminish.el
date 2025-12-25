@@ -39,6 +39,8 @@
 (diminish 'visual-line-mode)
 (diminish 'which-key-mode)
 (diminish 'yas-minor-mode)
+(diminish 'citar-embark-mode)
+(diminish 'citar-org-roam-mode)
 
 (eval-after-load 'eldoc '(diminish 'eldoc-mode))
 (eval-after-load 'org-indent '(diminish 'org-indent-mode))

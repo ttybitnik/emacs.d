@@ -8,11 +8,11 @@
 
 * ${title}
 
-[[cite:%^{citekey}]]
+[cite:@%^{citekey}]
 
 * Notes
 :PROPERTIES:
-:AUTHOR:
+:AUTHOR: %^{author}
 :NOTER_DOCUMENT: %^{file}
 :END:
 

@@ -161,6 +161,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-misc-bibtex.el
       │   ├── tty-misc-calibre.el
       │   ├── tty-misc-centered-cursor.el
+      │   ├── tty-misc-citar.el
       │   ├── tty-misc-dired.el
       │   ├── tty-misc-exec-path-from-shell.el
       │   ├── tty-misc-nov.el

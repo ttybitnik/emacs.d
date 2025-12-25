@@ -10,6 +10,7 @@
 (require 'tty-misc-bibtex)
 (require 'tty-misc-calibre)
 (require 'tty-misc-centered-cursor)
+(require 'tty-misc-citar)
 (require 'tty-misc-dired)
 (require 'tty-misc-exec-path-from-shell)
 (require 'tty-misc-nov)
