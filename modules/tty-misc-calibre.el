@@ -4,9 +4,11 @@
 
 ;; Calibre-related tunings.
 
+;; There is a suggested configuration for integration with `org-ref'.  Since I
+;; switched to `citar', I have skipped it.
+
 ;;; Code:
 (require-package 'calibredb)
-(require 'org-ref)
 
 ;;* Variables:
 
@@ -49,11 +51,6 @@
 (setq calibredb-id-width 5)
 (setq calibredb-comment-width 0)
 
-;; TODO: Review `org-ref' before testing this.
-;; (setq calibredb-ref-default-bibliography
-;;       (expand-file-name "catalog.bib" calibredb-root-dir))
-;; (add-to-list 'org-ref-default-bibliography calibredb-ref-default-bibliography)
-;; (setq org-ref-get-pdf-filename-function 'org-ref-get-mendeley-filename)
 
 ;;* Bindings:
 

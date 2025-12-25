@@ -178,7 +178,6 @@ As mentioned earlier, in addition to managing general settings within its scope,
       │   ├── tty-org-bullets.el
       │   ├── tty-org-noter.el
       │   ├── tty-org-orgmdb.el
-      │   ├── tty-org-ref.el
       │   ├── tty-org-roam.el
       │   └── tty-org-toc-org.el
       ├── tty-prog.el					programming module
@@ -243,6 +242,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
           ├── !tty-nav-avy.el
           ├── !tty-nav-helm.el
           ├── !tty-nav-switch-window.el
+          ├── !tty-org-ref.el
           ├── !tty-prog-flycheck.el
           ├── !tty-prog-lsp.el
           ├── !tty-proj-projectile.el

@@ -5,6 +5,7 @@
 ;; This module tailors settings and packages for org-mode in Emacs.
 
 ;;; Code:
+;; (require 'tty-org-ref)
 
 (require 'org)
 (require 'notifications)
@@ -13,7 +14,6 @@
 (require 'tty-org-bullets)
 (require 'tty-org-noter)
 (require 'tty-org-orgmdb)
-(require 'tty-org-ref)
 (require 'tty-org-roam)
 (require 'tty-org-toc-org)
 
