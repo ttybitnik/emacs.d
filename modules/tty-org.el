@@ -473,6 +473,9 @@ respects buffer narrowing."
 (global-set-key (kbd "C-c l i") 'org-insert-link)
 (global-set-key (kbd "C-c l l") 'org-insert-last-stored-link)
 
+;; `org-cite-insert' is also bound to 'C-c C-x C-@'. From `tty-misc-citar'.
+(define-key org-mode-map (kbd "C-c b i") 'org-cite-insert)
+
 ;;* Hooks:
 
 (add-hook 'org-mode-hook 'visual-line-mode)
