@@ -54,7 +54,7 @@
 
 ;;* Bindings:
 
-(global-set-key (kbd "C-c b") 'calibredb)
+(global-set-key (kbd "C-c b b") 'calibredb)
 (global-set-key (kbd "C-c s b") 'calibredb-consult-read)
 
 (define-key calibredb-search-mode-map (kbd "C-j") 'calibredb-search-next-page)
