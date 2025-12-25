@@ -4,6 +4,9 @@
 
 ;; Org-roam related tunings.
 
+;; Docs:
+;;  <https://github.com/org-roam/org-roam-bibtex/blob/main/doc/orb-manual.org>
+
 ;;; Code:
 
 (require-package 'org-roam)
@@ -26,6 +29,7 @@ It returns the absolute name from local templates in
    template (concat assets-d/ttybitnik (file-name-as-directory "org-roam"))))
 
 ;;* Main:
+;; (setq orb-insert-interface 'helm-bibtex)
 
 (setq org-roam-directory (file-truename roam-d/ttybitnik))
 (setq org-roam-mode-sections (list #'org-roam-backlinks-section
@@ -139,12 +143,15 @@ It returns the absolute name from local templates in
 	     :target (file "%<%Y%m%d%H%M%S>-index-${slug}.org")
 	     :unnarrowed t :clock-in t :clock-resume t)))
 
-;; (setq orb-insert-interface 'helm-bibtex)
+(setq orb-roam-ref-format 'org-cite)
 (setq orb-autokey-format "%A%y")
-;; (setq orb-preformat-keywords
-;;       '("citekey" "title" "url" "author-or-editor" "keywords" "file"))
 (setq orb-process-file-keyword t)
 (setq orb-attached-file-extensions '("pdf" "epub" "mobi"))
+(setq orb-preformat-keywords
+      '("citekey" "entry-type" "date" "pdf?" "note?" "file" "author" "editor"
+        "author-abbrev" "editor-abbrev" "author-or-editor-abbrev"
+        ;; Custom. Above are defaults.
+        "title" "url" "custom_type" "keywords"))
 
 (setq org-roam-ui-sync-theme t)
 (setq org-roam-ui-follow t)
