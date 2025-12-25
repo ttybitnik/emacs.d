@@ -132,7 +132,7 @@
 ;; Normal mode
 (define-key evil-normal-state-map (kbd "C-a") 'move-beginning-of-line)
 (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
-(define-key evil-normal-state-map (kbd "g x") 'org-open-at-point-global)
+(define-key evil-normal-state-map (kbd "g x") 'org-open-at-point)
 ;; Insert mode
 (define-key evil-insert-state-map (kbd "C-a") 'move-beginning-of-line)
 (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
