@@ -147,6 +147,7 @@ It returns the absolute name from local templates in
 (setq orb-autokey-format "%A%y")
 (setq orb-process-file-keyword t)
 (setq orb-attached-file-extensions '("pdf" "epub" "mobi"))
+;; Manually enter each field used for expansion.
 (setq orb-preformat-keywords
       '("citekey" "entry-type" "date" "pdf?" "note?" "file" "author" "editor"
         "author-abbrev" "editor-abbrev" "author-or-editor-abbrev"
@@ -175,6 +176,8 @@ It returns the absolute name from local templates in
 (global-set-key (kbd "C-c n s") 'org-roam-db-sync)
 (global-set-key (kbd "C-c n u") 'org-roam-ui-mode)
 (global-set-key (kbd "C-c n y") 'org-roam-ui-sync-theme)
+
+(global-set-key (kbd "C-c b c") 'orb-insert-link)
 
 ;;* Hooks:
 
