@@ -19,7 +19,7 @@
 
 (setq project-switch-commands 'project-find-file)
 
-(project-remember-projects-under git-d/ttybitnik t)
+;; (project-remember-projects-under git-d/ttybitnik t)
 
 ;;* Bindings:
 
