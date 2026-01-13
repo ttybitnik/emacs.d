@@ -46,10 +46,9 @@
 (setq citar-at-point-function 'embark-act)
 
 ;; FIXME: This should trigger `org-roam-capture' instead of a hard-coded key.
-;; (setq citar-org-roam-capture-template-key "cb") Partial integration with
-
-;; `org-roam-bibtex'. Solve the FIXME above, although seems to reset every
-;; usage. Need to investigate the root cause.
+;; (setq citar-org-roam-capture-template-key "cb")
+;; Partial integration with `org-roam-bibtex'. Solve the FIXME above, although
+;; seems to reset at every use. Investigate the root cause.
 (citar-register-notes-source
  'orb-citar-source (list :name "Org-Roam Notes"
                          :category 'org-roam-node
@@ -72,14 +71,22 @@
 ;; TODO: Try out search presets functionality.
 ;; (setq citar-presets '("one search string" "another search string"))
 
-;; Parse Zotero and Calibre files. Seems like this is default now.
+;; Parse Zotero and Calibre files. Seems like this is the default now.
+;; FIXME: Documentation not up to date, functions bellow are now internal. PR.
 ;; (setq citar-file-parser-functions
 ;;       '(citar-file-parser-default
 ;;         citar-file-parser-triplet))
 
-;; TODO: Define which file extensions open commands will recognize.
-;; (setq citar-library-file-extensions (list "pdf" "jpg")
-;;       citar-file-additional-files-separator "-")
+;; FIXME: Open entry in Zotero. Test below later. Seems like there is a built-in
+;; equivalent `citar-open-entry-in-zotero'. Documentation not up to date again.
+;; (defun open-in-zotero/citar (citekey)
+;;   "Open a reference item in Zotero."
+;;   (interactive (list (citar-select-ref)))
+;;   (citar-file-open-external
+;;    (concat "zotero://select/items/@" citekey)))
+
+(setq citar-library-file-extensions '("pdf" "epub" "mobi"))
+(setq citar-file-additional-files-separator "-")
 
 ;; In case it is necessary to change the default title template.
 ;; (setq citar-org-roam-note-title-template "${author} - ${title}")
