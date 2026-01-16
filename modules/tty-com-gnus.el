@@ -110,7 +110,7 @@
 (setq gnus-max-image-proportion 0.7)
 (setq gnus-treat-display-smileys nil)
 (setq gnus-visible-headers
-      '("^From:" "^To:"	"^[BGF]?Cc:" "^Subject:" "^Newsgroups:" "^Date:"
+      '("^Subject:" "^From:" "^To:"	"^[BGF]?Cc:" "^Newsgroups:" "^Date:"
 	    "^Followup-To:" "^Reply-To:" "^Organization:" "^Summary:" "^Keywords:"
 	    "^Posted-To:" "^Mail-Copies-To:" "^Mail-Followup-To:" "^Apparently-To:"
 	    "^Gnus-Warning:" "^Resent-From:" "^X-Newsreader:" "^X-Mailer:"))
