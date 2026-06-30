@@ -12,6 +12,7 @@
 (require-package 'org-ql)
 (require 'tty-org-auto-tangle)
 (require 'tty-org-bullets)
+(require 'tty-org-cdlatex)
 (require 'tty-org-noter)
 (require 'tty-org-orgmdb)
 (require 'tty-org-roam)

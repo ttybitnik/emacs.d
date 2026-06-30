@@ -175,6 +175,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
       ├── tty-org.el					org-mode module
       │   ├── tty-org-auto-tangle.el
       │   ├── tty-org-bullets.el
+      │   ├── tty-org-cdlatex.el
       │   ├── tty-org-noter.el
       │   ├── tty-org-orgmdb.el
       │   ├── tty-org-roam.el
