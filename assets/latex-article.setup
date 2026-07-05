@@ -1,0 +1,103 @@
+# -*- mode: org;-*-
+# Local Variables:
+# eval: (variable-pitch-mode -1)
+# End:
+
+* PACKAGES
+
+** Typography & Language
+#+LATEX_HEADER: \usepackage[T1]{fontenc}                            % Improved font encoding for accented characters
+#+LATEX_HEADER: \usepackage{lmodern}                                % High-quality scalable fonts
+#+LATEX_HEADER: \usepackage{microtype}                              % Micro-typographic refinements (spacing/kerning)
+#+LATEX_HEADER: \usepackage{csquotes}                               % Context-sensitive quotation marks
+#+LATEX_HEADER: \usepackage[english,AUTO]{babel}                    % Language rules (hyphenation, document labels)
+#+LATEX_HEADER: \usepackage{titling}
+#+LATEX_HEADER: \usepackage{xcolor}
+
+** Layout & Geometry
+#+LATEX_HEADER: \usepackage[a4paper,margin=2.5cm]{geometry}
+#+LATEX_HEADER: \usepackage{fancyhdr}                               % Custom headers and footers
+#+LATEX_HEADER: \usepackage{titlesec}                               % Customize section heading styles
+#+LATEX_HEADER: \usepackage{indentfirst}                            % Indent the first paragraph of sections
+#+LATEX_HEADER: \usepackage{setspace}                               % Control line spacing
+#+LATEX_HEADER: \usepackage[blocks]{authblk}                        % Authors afilliation blocks
+
+** Math & Science
+#+LATEX_HEADER: \usepackage{amsmath, amssymb, amsthm, mathtools}    % Core math tools
+#+LATEX_HEADER: \usepackage{siunitx}                                % SI unit and scientific notation formatting
+#+LATEX_HEADER: \usepackage{graphicx}                               % Graphics inclusion
+#+LATEX_HEADER: \usepackage{float}                                  % Improved float control [H]
+#+LATEX_HEADER: \usepackage{booktabs}                               % Professional quality tables
+
+** References & Hyperlinks
+#+LATEX_HEADER: \usepackage[hidelinks]{hyperref}                    % Interactive links (hidelinks removes colored boxes)
+#+LATEX_HEADER: \usepackage{cleveref}                               % Smart cross-referencing (load after hyperref)
+#+LATEX_HEADER: \usepackage[backend=biber, style=numeric]{biblatex} % Modern bibliography management
+
+* SETTINGS
+
+** Document Options
+#+LATEX_CLASS_OPTIONS: [12pt,a4paper,twoside]
+#+LATEX_HEADER: \setlength{\parindent}{1.5em}
+#+LATEX_HEADER: \onehalfspacing
+
+#+LATEX_HEADER: \pretitle{\begin{center}\scshape\LARGE\bfseries}
+#+LATEX_HEADER: \posttitle{\par\end{center}\vskip 0.5em}
+
+# #+LATEX_HEADER: \renewcommand\Authfont{\scshape}
+#+LATEX_HEADER: \renewcommand\Affilfont{\footnotesize}
+# #+LATEX_HEADER: \setlength{\affilsep}{1em}
+
+#+LATEX_HEADER: \newcommand{\authmail}{[Missing Auth Mail]}
+#+LATEX_HEADER: \newcommand{\setauthmail}[1]{\renewcommand{\authmail}{#1}}
+
+** Header and Footer Configuration
+#+LATEX_HEADER: \newcommand{\docid}{[Missing Document ID]}
+#+LATEX_HEADER: \newcommand{\setdocid}[1]{\renewcommand{\docid}{#1}}
+#+LATEX_HEADER: \newcommand{\shorttitle}{[Missing Short Title]}
+#+LATEX_HEADER: \newcommand{\setshorttitle}[1]{\renewcommand{\shorttitle}{#1}}
+#+LATEX_HEADER: \newcommand{\shortauth}{[Missing Short Authors]}
+#+LATEX_HEADER: \newcommand{\setshortauth}[1]{\renewcommand{\shortauth}{#1}}
+
+#+LATEX_HEADER: \pagestyle{fancy}
+#+LATEX_HEADER: \fancyhf{}
+#+LATEX_HEADER: \renewcommand{\headrulewidth}{0pt}
+
+# Even pages
+#+LATEX_HEADER: \fancyhead[LE]{\footnotesize\scshape \shorttitle}
+# Odd pages
+#+LATEX_HEADER: \fancyhead[LO]{\footnotesize\scshape \shortauth}
+# Right side of all
+#+LATEX_HEADER: \fancyhead[RE,RO]{\footnotesize\scshape\texttt{\textls[50]{\textcolor{black!80}{\docid}}}}
+#+LATEX_HEADER: \fancyfoot[C]{\thepage}
+
+# --- PLAIN STYLE OVERRIDE---
+# #+LATEX_HEADER: \fancypagestyle{plain}{
+# #+LATEX_HEADER:     \fancyhf{}
+# #+LATEX_HEADER:     \fancyfoot[C]{\myfooter}
+# #+LATEX_HEADER: }
+
+** Section Title Formatting
+#+LATEX_HEADER: \titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+#+LATEX_HEADER: \titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+
+** Theorem Style
+#+LATEX_HEADER: \theoremstyle{plain}
+#+LATEX_HEADER: \newtheorem{theorem}{Theorem}[section]
+#+LATEX_HEADER: \newtheorem{lemma}{Lemma}[theorem]
+#+LATEX_HEADER: \newtheorem{corollary}{Corollary}[theorem]
+#+LATEX_HEADER: \theoremstyle{definition}
+#+LATEX_HEADER: \newtheorem{definition}{Definition}[section]
+
+** Bib
+#+LATEX_HEADER: %\addbibresource{references.bib}
+
+** i18n
+#+LATEX_HEADER: \DeclareRobustCommand{\corrauth}{%
+#+LATEX_HEADER:   \iflanguage{brazilian}{Autor correspondente}{Corresponding author}%
+#+LATEX_HEADER: }
+#+LATEX_HEADER: \addto\captionsbrazilian{%
+#+LATEX_HEADER:   \renewcommand{\Authsep}{, }%
+#+LATEX_HEADER:   \renewcommand{\Authand}{ e }%
+#+LATEX_HEADER:   \renewcommand{\Authands}{, e }%
+#+LATEX_HEADER: }

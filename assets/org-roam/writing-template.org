@@ -1,36 +1,36 @@
 #+TITLE: ${title}
+#+SUBTITLE: ${subtitle}
 #+AUTHOR: Vinícius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
-#+DATE: %t
+#+DATE: \small{\docid\enskip---\enskip\today}
 #+FILETAGS: :project:writing:
 #+CATEGORY: project
-- Writing :: %?
+#+SETUPFILE: "~/.emacs.d/assets/latex-article.setup"
+#+EXPORT_FILE_NAME: ./output/writing-${slug}
+#+LANGUAGE: %^{Language|pt-br|en}
+#+STARTUP: latexpreview
+#+OPTIONS: toc:nil num:t author:nil
+#+LATEX_CLASS: tty-article
+#+LATEX_HEADER: \setdocid{UFJF/%^{OCID|ICE001}-%^{SEMID|2026.3}}
+#+LATEX_HEADER: \setshorttitle{${title}}
+#+LATEX_HEADER: \setshortauth{Moraes Tiago}
+#+LATEX_HEADER: \setauthmail{vinicius.moraes@eternodevir.com}
+#+LATEX_HEADER: \author[1,2]{Vinícius Moraes\thanks{\corrauth: \authmail}}
+#+LATEX_HEADER: \affil[1]{Bacharelado de Ciências Exatas}
+#+LATEX_HEADER: \affil[2]{Bacharelado de Ciências da Computação}
 
 * ${title}
 
-** Initial draft
+* Notes                                                            :noexport:
+- Writing :: %?
 
-*** Extraction of topics
+# Local Variables:
+# eval: (org-cdlatex-mode)
+# End:
 
-*** Expansion of topics
+* Resources                                                        :noexport:
 
-*** Selection of citations and reorganization
-
-** Final draft
-
-** Revision I
-
-** Enclosed sharing
-
-** Revision II
-
-** Final revision
-
-* Notes
-
-* Resources
-
-* TODO ${title} [0/7]                                               :writing:
+* TODO ${title} [0/7]                                      :noexport:writing:
 
 [[id:${id}][${title}]]
 

@@ -192,6 +192,18 @@ respects buffer narrowing."
              (bound-and-true-p org-anchor-auto-id/ttybitnik))
     (org-map-entries 'org-anchor-update-heading/ttybitnik)))
 
+(defun org-latex-preview-without-setupfile/ttybitnik (orig-fun &rest args)
+  "Skip `#+SETUPFILE:' and `#+LATEX_HEADER:' lines during LaTeX previews.
+Calls ORIG-FUN with ARGS."
+  (let ((org-latex-header "")
+        (orig-get-opts (symbol-function 'org-export--get-inbuffer-options)))
+    (cl-letf (((symbol-function 'org-export--get-inbuffer-options)
+               (lambda (&rest inner-args)
+                 (let ((opts (apply orig-get-opts inner-args)))
+                   (plist-put opts :latex-header nil)
+                   opts))))
+      (apply orig-fun args))))
+
 ;;* Main:
 
 (setq org-duration-units `(("min" . 1)
@@ -459,6 +471,23 @@ respects buffer narrowing."
 (unless config-reloaded-p/ttybitnik
   (pomodoro/ttybitnik))
 
+(setq org-preview-latex-default-process 'dvisvgm)
+(setq org-latex-prefer-user-labels t)
+(add-to-list 'org-latex-packages-alist
+             '("AUTO" "babel" t ("pdflatex" "xelatex" "lualatex")))
+(add-to-list 'org-latex-packages-alist
+             '("AUTO" "polyglossia" t ("xelatex" "lualatex")))
+(add-to-list 'org-latex-classes
+             '("tty-article"
+               "\\documentclass{article}
+               [NO-DEFAULT-PACKAGES]
+               [NO-PACKAGES]"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
 ;;* Bindings:
 
 (define-key org-agenda-mode-map (kbd "n") 'org-agenda-binding-next/ttybitnik)
@@ -495,6 +524,9 @@ respects buffer narrowing."
 
 (advice-add 'org-refile :after (lambda (&rest _)
 				                 (org-save-all-org-buffers)))
+
+(advice-add 'org-format-latex :around
+            'org-latex-preview-without-setupfile/ttybitnik)
 
 ;;* Appearance:
 

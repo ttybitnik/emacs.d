@@ -1,4 +1,5 @@
 #+TITLE: ${title}
+#+SUBTITLE: ${subtitle}
 #+AUTHOR: Vinícius Moraes
 #+EMAIL: vinicius.moraes@eternodevir.com
 #+DATE: %t
@@ -7,16 +8,18 @@
 :REVEAL_PROPERTIES:
 #+REVEAL_REVEAL_JS_VERSION: 4
 :END:
+#+EXPORT_FILE_NAME: ./output/presenting-${slug}
+#+LANGUAGE: pt-br
 #+OPTIONS: toc:nil num:nil reveal_title_slide:nil
-- Presenting :: %?
 
 * ${title}
 
-* Notes
+* Notes                                                            :noexport:
+- Presenting :: %?
 
-* Resources
+* Resources                                                        :noexport:
 
-* TODO ${title} [0/1]                                            :presenting:
+* TODO ${title} [0/1]                                   :noexport:presenting:
 
 [[id:${id}][${title}]]
 
