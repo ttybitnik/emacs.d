@@ -160,6 +160,7 @@
   ;; C-c
   "a"   'org-agenda
   "c"   'org-capture
+  "t"   'org-attach
   "d"   'dashboard-open
   "gg"  'gnus-other-frame
   "hh"  'easy-hugo
