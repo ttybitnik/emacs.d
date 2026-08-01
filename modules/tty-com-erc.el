@@ -16,12 +16,6 @@
 
 ;;* Functions:
 
-(defun erc-login/ttybitnik ()
-  "ERC libera.chat TLS login."
-  (interactive)
-  (erc-tls :server "irc.libera.chat" :port "6697"
-           :user erc-nick :nick erc-nick))
-
 (defun erc-switch-buffer/ttybitnik (orig-fun &optional arg)
   "Move to the end of the buffer after `erc-track-switch-buffer'.
 ORIG-FUN is the original function that is being advised.
