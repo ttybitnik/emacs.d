@@ -29,7 +29,7 @@
 			                 :height 1.1
 			                 :v-adjust -0.05
 			                 :face 'font-lock-keyword-face))
-(setq dashboard-items '((recents . 7)
+(setq dashboard-items '((recents . 5)
 			            (projects . 5)
 			            (bookmarks . 5)
 			            (agenda . 5)))
