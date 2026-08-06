@@ -5,11 +5,11 @@
 ;; This module tailors settings and packages for misc utilities in Emacs.
 
 ;;; Code:
+;;(require 'tty-misc-centered-cursor)
 
 (require 'which-key)
 (require 'tty-misc-bibtex)
 (require 'tty-misc-calibre)
-(require 'tty-misc-centered-cursor)
 (require 'tty-misc-citar)
 (require 'tty-misc-dired)
 (require 'tty-misc-exec-path-from-shell)

@@ -160,7 +160,6 @@ As mentioned earlier, in addition to managing general settings within its scope,
       ├── tty-misc.el					miscellaneous utilities module
       │   ├── tty-misc-bibtex.el
       │   ├── tty-misc-calibre.el
-      │   ├── tty-misc-centered-cursor.el
       │   ├── tty-misc-citar.el
       │   ├── tty-misc-dired.el
       │   ├── tty-misc-exec-path-from-shell.el
@@ -239,6 +238,7 @@ As mentioned earlier, in addition to managing general settings within its scope,
           ├── !tty-func-popup-kill-ring.el
           ├── !tty-func-undo-tree.el
           ├── !tty-func-zzz-to-char.el
+          ├── !tty-misc-centered-cursor.el
           ├── !tty-nav-avy.el
           ├── !tty-nav-helm.el
           ├── !tty-nav-switch-window.el

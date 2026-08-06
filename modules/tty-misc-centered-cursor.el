@@ -4,6 +4,10 @@
 
 ;; Centered-cursor related tunings.
 
+;; DEPRECATED 2026-08-06: Removing this as eye fatigue precaution and
+;; performance concerns.  The constant centering caused a bit of visual strain
+;; from staring at the same screen position and introduced unnecessary overhead.
+
 ;;; Code:
 
 (require-package 'centered-cursor-mode)
