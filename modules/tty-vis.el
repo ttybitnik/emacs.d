@@ -46,8 +46,7 @@ and `local/switcher-night.el' files."
 (fringe-mode '8)
 (tool-bar-mode 0)
 (menu-bar-mode 0)
-(when (display-graphic-p)
-  (scroll-bar-mode 0))
+(scroll-bar-mode 0)
 (prefer-coding-system 'utf-8)
 
 (column-number-mode t)
