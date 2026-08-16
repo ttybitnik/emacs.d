@@ -65,12 +65,11 @@ and `local/switcher-night.el' files."
 	    ("READING" . (:inherit (outline-2 org-todo)))
 	    ("CAPTURED" . (:inherit (outline-7 org-todo)))))
 
-
 (custom-set-faces
- '(default ((t (:family "Iosevka" :foundry "UKWN" :slant normal
-			            :weight medium :height 102 :width normal))))
+ '(default ((t (:family "monospace" :height 106))))
  '(dashboard-heading ((t (:inherit font-lock-keyword-face :height 1.1))))
- '(fixed-pitch ((t (:family "Iosevka" :weight medium))))
+ '(fixed-pitch ((t (:family "monospace" :height 106))))
+ '(variable-pitch ((t (:family "sans" :height 112))))
  '(org-block ((t (:inherit fixed-pitch))))
  '(org-code ((t (:inherit (shadow fixed-pitch)))))
  '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
@@ -83,7 +82,8 @@ and `local/switcher-night.el' files."
  '(org-level-7 ((t (:height 1.1))))
  '(org-level-8 ((t (:height 1.1))))
  '(org-table ((t (:inherit fixed-pitch))))
- '(variable-pitch ((t (:family "Iosevka Aile")))))
+ '(vundo-last-saved ((t (:inherit vundo-saved :underline t :weight bold))))
+ '(vundo-saved ((t (:inherit vundo-highlight)))))
 
 (setq display-line-numbers-type 'relative)
 
