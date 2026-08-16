@@ -6,8 +6,8 @@
 
 ;;; Code:
 
-(require-package 'tree-sitter)
-(require-package 'tree-sitter-langs)
+(require 'treesit)
+(require-package 'treesit-auto)
 
 ;;* Variables:
 
@@ -15,13 +15,14 @@
 
 ;;* Main:
 
-(global-tree-sitter-mode)
+(setq treesit-auto-install 'prompt)
+
+(treesit-auto-add-to-auto-mode-alist 'all)
+(global-treesit-auto-mode t)
 
 ;;* Bindings:
 
 ;;* Hooks:
-
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
 ;;* Appearance:
 
