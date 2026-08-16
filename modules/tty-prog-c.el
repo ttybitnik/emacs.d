@@ -9,6 +9,7 @@
 ;;; Code:
 
 (require 'cc-mode)
+(require 'c-ts-mode)
 
 ;;* Variables:
 
@@ -40,6 +41,7 @@
 ;;* Hooks:
 
 (add-hook 'c-mode-hook 'c-mode/ttybitnik)
+(add-hook 'c-ts-mode-hook 'c-mode/ttybitnik)
 
 ;;* Appearance:
 

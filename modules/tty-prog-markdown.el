@@ -27,6 +27,7 @@
 ;;* Hooks:
 
 (add-hook 'markdown-mode-hook 'markdown-mode/ttybitnik)
+(add-hook 'markdown-ts-mode-hook 'markdown-mode/ttybitnik)
 
 ;;* Appearance:
 

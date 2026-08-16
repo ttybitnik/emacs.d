@@ -33,6 +33,7 @@
 ;;* Hooks:
 
 (add-hook 'python-mode-hook 'python-mode/ttybitnik)
+(add-hook 'python-ts-mode-hook 'python-mode/ttybitnik)
 
 ;;* Appearance:
 

@@ -25,6 +25,7 @@
 ;;* Hooks:
 
 (add-hook 'json-mode-hook 'json-mode/ttybitnik)
+(add-hook 'json-ts-mode-hook 'json-mode/ttybitnik)
 
 ;;* Appearance:
 

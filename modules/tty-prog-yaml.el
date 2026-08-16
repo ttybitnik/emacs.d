@@ -27,6 +27,7 @@
 ;;* Hooks:
 
 (add-hook 'yaml-mode-hook 'yaml-mode/ttybitnik)
+(add-hook 'yaml-ts-mode-hook 'yaml-mode/ttybitnik)
 
 ;;* Appearance:
 

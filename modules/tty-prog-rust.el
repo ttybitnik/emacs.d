@@ -29,6 +29,7 @@
 ;;* Hooks:
 
 (add-hook 'rust-mode-hook 'rust-mode/ttybitnik)
+(add-hook 'rust-ts-mode-hook 'rust-mode/ttybitnik)
 
 ;;* Appearance:
 

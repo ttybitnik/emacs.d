@@ -26,6 +26,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
 (add-hook 'nix-mode-hook 'nix-mode/ttybitnik)
+(add-hook 'nix-ts-mode-hook 'nix-mode/ttybitnik)
 
 ;;* Appearance:
 

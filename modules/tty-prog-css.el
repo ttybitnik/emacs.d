@@ -25,6 +25,7 @@
 ;;* Hooks:
 
 (add-hook 'css-mode-hook 'css-mode/ttybitnik)
+(add-hook 'css-ts-mode-hook 'css-mode/ttybitnik)
 
 ;;* Appearance:
 

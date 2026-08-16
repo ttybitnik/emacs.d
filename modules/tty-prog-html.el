@@ -36,6 +36,7 @@
 ;;* Hooks:
 
 (add-hook 'html-mode-hook 'html-mode/ttybitnik)
+(add-hook 'html-ts-mode-hook 'html-mode/ttybitnik)
 (add-hook 'sgml-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook  'emmet-mode)
 

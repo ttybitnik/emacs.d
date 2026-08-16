@@ -44,6 +44,7 @@
 ;;* Hooks:
 
 (add-hook 'go-mode-hook 'go-mode/ttybitnik)
+(add-hook 'go-ts-mode-hook 'go-mode/ttybitnik)
 
 ;;* Appearance:
 

@@ -37,6 +37,7 @@
 ;;* Hooks:
 
 (add-hook 'sh-mode-hook 'sh-mode/ttybitnik)
+(add-hook 'bash-ts-mode-hook 'sh-mode/ttybitnik)
 
 ;;* Appearance:
 

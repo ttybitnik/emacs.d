@@ -25,6 +25,7 @@
 ;;* Hooks:
 
 (add-hook 'lua-mode-hook 'lua-mode/ttybitnik)
+(add-hook 'lua-ts-mode-hook 'lua-mode/ttybitnik)
 
 ;;* Appearance:
 

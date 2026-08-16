@@ -38,6 +38,7 @@
 ;;* Hooks:
 
 (add-hook 'haskell-mode-hook 'haskell-mode/ttybitnik)
+(add-hook 'haskell-ts-mode-hook 'haskell-mode/ttybitnik)
 
 ;;* Appearance:
 

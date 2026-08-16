@@ -28,6 +28,7 @@
 (require 'tty-prog-json)
 (require 'tty-prog-lisp)
 (require 'tty-prog-markdown)
+(require 'tty-prog-nix)
 (require 'tty-prog-python)
 (require 'tty-prog-rust)
 (require 'tty-prog-scheme)

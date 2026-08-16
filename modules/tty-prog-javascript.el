@@ -27,6 +27,7 @@
 ;;* Hooks:
 
 (add-hook 'js-mode-hook 'js-mode/ttybitnik)
+(add-hook 'js-ts-mode-hook 'js-mode/ttybitnik)
 
 ;;* Appearance:
 
