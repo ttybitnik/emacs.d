@@ -8,8 +8,13 @@
 
 (require 'sgml-mode)
 (require-package 'emmet-mode)
+(require-package 'web-mode)
 
 ;;* Variables:
+
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
 
 ;;* Functions:
 
@@ -18,7 +23,8 @@
   (yas-minor-mode)
   (flymake-mode)
   (emmet-mode)
-  (eglot-ensure))
+  (eglot-ensure)
+  (web-mode))
 
 ;;* Main:
 
