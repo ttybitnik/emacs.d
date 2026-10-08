@@ -36,6 +36,9 @@
 		(awk-mode . "awk")
 		(other . "linux")))
 
+(setq-default c-ts-mode-indent-style 'linux)
+(setq c-ts-mode-indent-offset 4)
+
 ;;* Bindings:
 
 ;;* Hooks:
